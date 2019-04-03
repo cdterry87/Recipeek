@@ -8,10 +8,34 @@
     <link href="{{ mix('css/app.css') }}" rel="stylesheet">
 </head>
 <body>
+    <nav class="navbar" role="navigation" aria-label="main navigation">
+        <div class="container">
+            <div class="navbar-brand">
+                <a class="navbar-item" href="#"><span><i class="fas fa-utensils"></i></span> Recipeek</a>
+                <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarTop">
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                </a>
+            </div>
+            <div id="navbarTop" class="navbar-menu">
+                <div class="navbar-end">
+                    <div class="navbar-item has-dropdown is-hoverable">
+                        <a class="navbar-link">Chase Terry</a>
+                        <div class="navbar-dropdown">
+                            <a class="navbar-item"><i class="fas fa-cogs"></i> Settings</a>
+                            <hr class="navbar-divider">
+                            <a class="navbar-item"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
     <section class="hero is-small">
         <div class="hero-body">
             <div class="container">
-                <h1 class="title has-text-centered">Recipeek</h1>
                 <div class="columns">
                     <div class="column is-half is-offset-one-quarter">
                         <div class="box">
