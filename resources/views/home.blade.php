@@ -1,7 +1,7 @@
-@extends('layouts.app')
+@extends('layouts.template')
 
 @section('content')
-<section class="hero">
+<section class="hero is-danger">
     <div class="hero-body">
         <div class="container">
             <h1 class="title">Hero title</h1>

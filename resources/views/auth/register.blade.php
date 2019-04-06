@@ -34,7 +34,7 @@
                             <div class="field is-grouped is-grouped-centered">
                                 <div class="control">
                                     <button type="submit" class="button is-danger is-medium" name="register">Register</button>
-                                    <a href="{{ route('login') }}" class="button is-link is-medium">Click to Login</a>
+                                    <a href="{{ route('login') }}" class="button is-link is-medium">Return to Login</a>
                                 </div>
                             </div>
                         </form>
