@@ -5,7 +5,7 @@
     <section class="hero">
         <div class="hero-body">
             <div class="columns">
-                <div class="column is-8 is-offset-2">
+                <div class="column is-6 is-offset-3">
                     <h1 class="title is-3 has-text-centered">Recipeek</h1>
                     <h2 class="subtitle is-5 has-text-centered">Fill out the form below to create an account.</h2>
                     <div class="box">
