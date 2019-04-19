@@ -43,7 +43,7 @@
         </div>
     </nav>
 
-    <section class="hero is-small">
+    <section id="main" class="hero is-small">
         <div class="hero-body">
             <div class="container">
                 <div class="columns">
@@ -106,15 +106,6 @@
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="section" id="main">
-        <div class="container">
-            <div class="columns is-multiline">
-
-
             </div>
         </div>
     </section>
