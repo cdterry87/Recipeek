@@ -1,6 +1,5 @@
 html,body {
     height: 100%;
-    background-color: #f3f6f9;
     background-size: cover;
 }
 
@@ -15,10 +14,17 @@ i.fas {
     }
 }
 
-.navbar {
-    box-shadow: 0 2px 3px rgba(10,10,10,.1),0 0 0 1px rgba(10,10,10,.1);
-}
-
 #main {
     padding-top: 0;
+}
+
+.hero {
+    .image {
+        img {
+            width: 13rem;
+            height: 13rem;
+            margin: 0 auto;
+            box-shadow: 1px 5px 10px rgba(0,0,0,.1);
+        }
+    }
 }
