@@ -1,6 +1,11 @@
 @import '~vuetify/dist/vuetify.min.css';
 @import '~material-icons/iconfont/material-icons.css';
 
+body {
+    background: linear-gradient(15deg, #ffa44f, #d3213f);
+    background-size: 200% 200%;
+}
+
 a {
     text-decoration: none !important;
     color: inherit !important;
