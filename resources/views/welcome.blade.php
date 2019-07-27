@@ -46,12 +46,12 @@
                 text-align: center;
             }
 
-            .title {
+            .home-title {
                 font-size: 84px;
             }
 
             .links > a {
-                color: #636b6f;
+                color: #fff !important;
                 padding: 0 25px;
                 font-size: 13px;
                 font-weight: 600;
@@ -64,7 +64,7 @@
                 margin-bottom: 30px;
             }
 
-            .subtitle {
+            .home-subtitle {
                 font-size: 25px;
             }
 
@@ -76,9 +76,9 @@
     <body>
         <div class="flex-center position-ref full-height">
             <div class="content">
-                <div class="title m-b-md">
+                <div class="home-title m-b-md">
                     Recipeek
-                    <div class="subtitle m-t-sm">
+                    <div class="home-subtitle m-t-sm">
                         Store and Share Your Favorite Recipes!
                     </div>
                 </div>
