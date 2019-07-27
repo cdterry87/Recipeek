@@ -129,6 +129,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'Login'
 });
@@ -224,9 +227,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'Email'
 });
@@ -242,6 +242,8 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
 //
 //
 //
@@ -789,7 +791,7 @@ var render = function() {
                         ]),
                         _vm._v(" "),
                         _c("h2", { staticClass: "subheading mt-2" }, [
-                          _vm._v("Sign in to Manage Your Favorite Recipes!")
+                          _vm._v("Sign In to Manage Your Favorite Recipes!")
                         ])
                       ]),
                       _vm._v(" "),
@@ -842,6 +844,19 @@ var render = function() {
                             "v-btn",
                             { attrs: { flat: "", href: "/register" } },
                             [_vm._v("Register")]
+                          )
+                        ],
+                        1
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "div",
+                        { staticClass: "text-xs-center mt-3" },
+                        [
+                          _c(
+                            "v-btn",
+                            { attrs: { flat: "", href: "/password/reset" } },
+                            [_vm._v("Forgot your password?")]
                           )
                         ],
                         1
@@ -1091,96 +1106,86 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "v-app",
-    { attrs: { id: "inspire" } },
+    { attrs: { id: "inspire", dark: "" } },
     [
       _c(
-        "v-content",
+        "v-container",
+        { attrs: { fluid: "", "fill-height": "" } },
         [
-          _c("div", { staticClass: "text-xs-center mt-4" }, [
-            _c("h1", { staticClass: "display-1" }, [_vm._v("Animieru")]),
-            _vm._v(" "),
-            _c("h2", { staticClass: "title" }, [
-              _vm._v("Search for all things Anime!")
-            ])
-          ]),
-          _vm._v(" "),
           _c(
-            "v-container",
-            { attrs: { fluid: "" } },
+            "v-layout",
+            { attrs: { "align-center": "", "justify-center": "", wrap: "" } },
             [
               _c(
-                "v-layout",
-                { attrs: { "align-center": "", "justify-center": "" } },
+                "v-flex",
+                { attrs: { xs12: "", sm10: "", md5: "" } },
                 [
+                  _c("div", { staticClass: "text-xs-center mb-3" }, [
+                    _c("h1", { staticClass: "display-1" }, [
+                      _vm._v("Recipeek")
+                    ]),
+                    _vm._v(" "),
+                    _c("h2", { staticClass: "subheading mt-2" }, [
+                      _vm._v(
+                        "Fill out your email address to send a password reset link."
+                      )
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("v-text-field", {
+                    attrs: {
+                      color: "white",
+                      label: "Email",
+                      box: "",
+                      "prepend-inner-icon": "mail",
+                      id: "email",
+                      name: "email",
+                      type: "text"
+                    }
+                  }),
+                  _vm._v(" "),
                   _c(
-                    "v-flex",
-                    { attrs: { xs12: "", sm10: "", md5: "" } },
+                    "div",
+                    { staticClass: "text-xs-center" },
                     [
                       _c(
-                        "v-card",
-                        { staticClass: "elevation-3" },
+                        "v-btn",
+                        { attrs: { outline: "", flat: "", type: "submit" } },
+                        [_vm._v("Send Password Reset")]
+                      ),
+                      _vm._v(" "),
+                      _c("v-btn", { attrs: { flat: "", href: "/login" } }, [
+                        _vm._v("Login")
+                      ])
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "v-container",
+                    [
+                      _c(
+                        "v-layout",
+                        { staticClass: "mt-2", attrs: { "align-center": "" } },
                         [
                           _c(
-                            "v-card-text",
+                            "v-flex",
+                            { attrs: { xs12: "" } },
                             [
-                              _c(
-                                "h3",
-                                { staticClass: "title text-xs-center mb-3" },
-                                [_vm._v("Reset Password")]
-                              ),
+                              _c("v-divider"),
                               _vm._v(" "),
                               _c(
                                 "div",
-                                { staticClass: "mt-4 mb-3 text-xs-center" },
+                                { staticClass: "mt-4 text-xs-center" },
                                 [
                                   _vm._v(
-                                    "\n                                A password reset link will be sent to your email address.\n                            "
+                                    "\n                                © Recipeek 2019\n                            "
                                   )
                                 ]
-                              ),
-                              _vm._v(" "),
-                              _c("v-text-field", {
-                                attrs: {
-                                  "prepend-icon": "mail",
-                                  id: "mail",
-                                  name: "mail",
-                                  label: "Email",
-                                  type: "text"
-                                }
-                              })
+                              )
                             ],
                             1
-                          ),
-                          _vm._v(" "),
-                          _c(
-                            "v-card-actions",
-                            [
-                              _c("v-spacer"),
-                              _vm._v(" "),
-                              _c(
-                                "v-btn",
-                                { attrs: { color: "primary", type: "submit" } },
-                                [_vm._v("Send Password Reset")]
-                              ),
-                              _vm._v(" "),
-                              _c(
-                                "v-btn",
-                                {
-                                  attrs: {
-                                    color: "deep-purple",
-                                    dark: "",
-                                    href: "/login"
-                                  }
-                                },
-                                [_vm._v("Login")]
-                              ),
-                              _vm._v(" "),
-                              _c("v-spacer")
-                            ],
-                            1
-                          ),
-                          _vm._v(" "),
-                          _c("v-card-actions", [_vm._v(" ")])
+                          )
                         ],
                         1
                       )
@@ -1224,99 +1229,102 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "v-app",
-    { attrs: { id: "inspire" } },
+    { attrs: { id: "inspire", dark: "" } },
     [
       _c(
         "v-content",
         [
-          _c("div", { staticClass: "text-xs-center mt-4" }, [
-            _c("h1", { staticClass: "display-1" }, [_vm._v("Animieru")]),
-            _vm._v(" "),
-            _c("h2", { staticClass: "title" }, [
-              _vm._v("Search for all things Anime!")
-            ])
-          ]),
-          _vm._v(" "),
           _c(
             "v-container",
-            { attrs: { fluid: "" } },
+            { attrs: { fluid: "", "fill-height": "" } },
             [
               _c(
                 "v-layout",
-                { attrs: { "align-center": "", "justify-center": "" } },
+                {
+                  attrs: { "align-center": "", "justify-center": "", wrap: "" }
+                },
                 [
                   _c(
                     "v-flex",
                     { attrs: { xs12: "", sm10: "", md5: "" } },
                     [
+                      _c("div", { staticClass: "text-xs-center mb-3" }, [
+                        _c("h1", { staticClass: "display-1" }, [
+                          _vm._v("Recipeek")
+                        ]),
+                        _vm._v(" "),
+                        _c("h2", { staticClass: "subheading mt-2" }, [
+                          _vm._v("Reset your password using the form below.")
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _c("v-text-field", {
+                        attrs: {
+                          "prepend-icon": "lock",
+                          id: "password",
+                          name: "password",
+                          label: "Password",
+                          type: "password"
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("v-text-field", {
+                        attrs: {
+                          "prepend-icon": "lock",
+                          id: "password_confirmation",
+                          name: "password_confirmation",
+                          label: "Confirm Password",
+                          type: "password"
+                        }
+                      }),
+                      _vm._v(" "),
                       _c(
-                        "v-card",
-                        { staticClass: "elevation-3" },
+                        "div",
+                        { staticClass: "text-xs-center" },
                         [
                           _c(
-                            "v-card-text",
-                            [
-                              _c(
-                                "h3",
-                                { staticClass: "title text-xs-center mb-3" },
-                                [_vm._v("Reset Password")]
-                              ),
-                              _vm._v(" "),
-                              _c("v-text-field", {
-                                attrs: {
-                                  "prepend-icon": "lock",
-                                  id: "password",
-                                  name: "password",
-                                  label: "Password",
-                                  type: "password"
-                                }
-                              }),
-                              _vm._v(" "),
-                              _c("v-text-field", {
-                                attrs: {
-                                  "prepend-icon": "lock",
-                                  id: "password_confirmation",
-                                  name: "password_confirmation",
-                                  label: "Confirm Password",
-                                  type: "password"
-                                }
-                              }),
-                              _vm._v(" "),
-                              _c("v-checkbox", {
-                                attrs: {
-                                  id: "remember",
-                                  name: "remember",
-                                  label: "Remember Me"
-                                }
-                              })
-                            ],
-                            1
+                            "v-btn",
+                            {
+                              attrs: { outline: "", flat: "", type: "submit" }
+                            },
+                            [_vm._v("Reset Password")]
                           ),
                           _vm._v(" "),
+                          _c("v-btn", { attrs: { flat: "", href: "/login" } }, [
+                            _vm._v("Login")
+                          ])
+                        ],
+                        1
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "v-container",
+                        [
                           _c(
-                            "v-card-actions",
+                            "v-layout",
+                            {
+                              staticClass: "mt-2",
+                              attrs: { "align-center": "" }
+                            },
                             [
-                              _c("v-spacer"),
-                              _vm._v(" "),
                               _c(
-                                "v-btn",
-                                { attrs: { color: "primary", type: "submit" } },
-                                [_vm._v("Reset Pasword")]
-                              ),
-                              _vm._v(" "),
-                              _c(
-                                "v-btn",
-                                {
-                                  attrs: {
-                                    color: "deep-purple",
-                                    dark: "",
-                                    href: "/login"
-                                  }
-                                },
-                                [_vm._v("Login")]
-                              ),
-                              _vm._v(" "),
-                              _c("v-spacer")
+                                "v-flex",
+                                { attrs: { xs12: "" } },
+                                [
+                                  _c("v-divider"),
+                                  _vm._v(" "),
+                                  _c(
+                                    "div",
+                                    { staticClass: "mt-4 text-xs-center" },
+                                    [
+                                      _vm._v(
+                                        "\n                                    © Recipeek 2019\n                                "
+                                      )
+                                    ]
+                                  )
+                                ],
+                                1
+                              )
                             ],
                             1
                           )

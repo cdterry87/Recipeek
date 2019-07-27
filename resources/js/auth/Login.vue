@@ -6,7 +6,7 @@
                     <v-flex xs12 sm10 md5>
                         <div class="text-xs-center mb-3">
                             <h1 class="display-1">Recipeek</h1>
-                            <h2 class="subheading mt-2">Sign in to Manage Your Favorite Recipes!</h2>
+                            <h2 class="subheading mt-2">Sign In to Manage Your Favorite Recipes!</h2>
                         </div>
                         <v-text-field color="white" label="Email" box prepend-inner-icon="mail" id="email" name="email" type="text"></v-text-field>
                         <v-text-field color="white" label="Password" box prepend-inner-icon="lock" id="password" name="password" type="password"></v-text-field>
@@ -14,6 +14,9 @@
                         <div class="text-xs-center">
                             <v-btn outline flat type="submit">Login</v-btn>
                             <v-btn flat href="/register">Register</v-btn>
+                        </div>
+                        <div class="text-xs-center mt-3">
+                            <v-btn flat href="/password/reset">Forgot your password?</v-btn>
                         </div>
                         <v-container>
                             <v-layout align-center class="mt-2">

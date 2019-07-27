@@ -1,27 +1,29 @@
 <template>
-    <v-app id="inspire">
+    <v-app id="inspire" dark>
         <v-content>
-            <div class="text-xs-center mt-4">
-                <h1 class="display-1">Animieru</h1>
-                <h2 class="title">Search for all things Anime!</h2>
-            </div>
-            <v-container fluid>
-                <v-layout align-center justify-center>
+            <v-container fluid fill-height>
+                <v-layout align-center justify-center wrap>
                     <v-flex xs12 sm10 md5>
-                        <v-card class="elevation-3">
-                            <v-card-text>
-                                <h3 class="title text-xs-center mb-3">Reset Password</h3>
-                                <v-text-field prepend-icon="lock" id="password" name="password" label="Password" type="password"></v-text-field>
-                                <v-text-field prepend-icon="lock" id="password_confirmation"  name="password_confirmation" label="Confirm Password" type="password"></v-text-field>
-                                <v-checkbox id="remember" name="remember" label="Remember Me"></v-checkbox>
-                            </v-card-text>
-                            <v-card-actions>
-                                <v-spacer></v-spacer>
-                                <v-btn color="primary" type="submit">Reset Pasword</v-btn>
-                                <v-btn color="deep-purple" dark href="/login">Login</v-btn>
-                                <v-spacer></v-spacer>
-                            </v-card-actions>
-                        </v-card>
+                        <div class="text-xs-center mb-3">
+                            <h1 class="display-1">Recipeek</h1>
+                            <h2 class="subheading mt-2">Reset your password using the form below.</h2>
+                        </div>
+                        <v-text-field prepend-icon="lock" id="password" name="password" label="Password" type="password"></v-text-field>
+                        <v-text-field prepend-icon="lock" id="password_confirmation"  name="password_confirmation" label="Confirm Password" type="password"></v-text-field>
+                        <div class="text-xs-center">
+                            <v-btn outline flat type="submit">Reset Password</v-btn>
+                            <v-btn flat href="/login">Login</v-btn>
+                        </div>
+                        <v-container>
+                            <v-layout align-center class="mt-2">
+                                <v-flex xs12>
+                                    <v-divider></v-divider>
+                                    <div class="mt-4 text-xs-center">
+                                        &copy; Recipeek 2019
+                                    </div>
+                                </v-flex>
+                            </v-layout>
+                        </v-container>
                     </v-flex>
                 </v-layout>
             </v-container>
