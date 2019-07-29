@@ -20,11 +20,12 @@ Vue.use(VueRouter)
 // })
 
 //Primary components
-// import App from './components/App'
-import Login from './auth/Login'
-import Register from './auth/Register'
-import Email from './auth/passwords/Email'
-import Reset from './auth/passwords/Reset'
+import App from './components/App'
+import Errors from './components/auth/Errors'
+import Login from './components/auth/Login'
+import Register from './components/auth/Register'
+import Email from './components/auth/passwords/Email'
+import Reset from './components/auth/passwords/Reset'
 
 // Filters
 Vue.filter('truncate', function (string, length) {
@@ -37,7 +38,8 @@ Vue.filter('truncate', function (string, length) {
 const app = new Vue({
     el: '#app',
     components: {
-        // App,
+        App,
+        Errors,
         Login,
         Register,
         Email,
