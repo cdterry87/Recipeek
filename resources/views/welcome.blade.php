@@ -3,7 +3,7 @@
 @section('content')
     <div id="welcome">
         <div class="content">
-            <div class="title m-b-md">
+            <div class="welcome-title m-b-md">
                 Recipeek
                 <div class="subtitle m-t-sm">
                     Store and Share Your Favorite Recipes!
