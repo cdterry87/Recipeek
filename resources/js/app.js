@@ -8,16 +8,14 @@ Vue.use(Vuetify)
 // Router settings
 import VueRouter from 'vue-router'
 import routes from './routes'
-
 Vue.use(VueRouter)
-
-// const router = new VueRouter({
-//     mode: 'history',
-//     scrollBehavior (to, from, savedPosition) {
-//         return { x: 0, y: 0 }
-//     },
-//     routes,
-// })
+const router = new VueRouter({
+    mode: 'history',
+    scrollBehavior (to, from, savedPosition) {
+        return { x: 0, y: 0 }
+    },
+    routes,
+})
 
 //Primary components
 import App from './components/App'
@@ -45,5 +43,5 @@ const app = new Vue({
         Email,
         Reset
     },
-    // router,
+    router,
 });
