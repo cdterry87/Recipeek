@@ -1,8 +1,7 @@
 import Home from './views/Home'
-import Categories from './views/Categories'
-import Category from './views/Category'
 import Recipes from './views/Recipes'
 import Recipe from './views/Recipe'
+import AddRecipe from './views/AddRecipe'
 import NotFound from './views/NotFound'
 
 export default [
@@ -12,15 +11,9 @@ export default [
         component: Home,
     },
     {
-        path: '/categories',
-        name: 'categories',
-        component: Categories,
-    },
-    {
-        path: '/categories/:id',
-        name: 'category',
-        component: Category,
-        props: true
+        path: '/add',
+        name: 'add',
+        component: AddRecipe
     },
     {
         path: '/recipes',

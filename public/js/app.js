@@ -146,6 +146,23 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'App',
@@ -423,10 +440,10 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/Categories.vue?vue&type=script&lang=js&":
-/*!****************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/views/Categories.vue?vue&type=script&lang=js& ***!
-  \****************************************************************************************************************************************************************/
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/AddRecipe.vue?vue&type=script&lang=js&":
+/*!***************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/views/AddRecipe.vue?vue&type=script&lang=js& ***!
+  \***************************************************************************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -439,28 +456,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: 'Categories'
-});
-
-/***/ }),
-
-/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/Category.vue?vue&type=script&lang=js&":
-/*!**************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/views/Category.vue?vue&type=script&lang=js& ***!
-  \**************************************************************************************************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-//
-//
-//
-//
-//
-//
-/* harmony default export */ __webpack_exports__["default"] = ({
-  name: 'Category'
+  name: 'AddRecipe'
 });
 
 /***/ }),
@@ -489,8 +485,223 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: 'Home'
+  name: 'Home',
+  data: function data() {
+    return {
+      search: '',
+      pagination: {
+        sortBy: 'name',
+        rowsPerPage: -1
+      },
+      headers: [{
+        text: 'Image',
+        value: 'image',
+        sortable: false
+      }, {
+        text: 'Name',
+        value: 'name'
+      }, {
+        text: 'Time',
+        value: 'time'
+      }, {
+        text: 'Actions',
+        value: 'actions',
+        sortable: false
+      }],
+      recipes: [{
+        id: 1,
+        name: 'Chicken This',
+        image: 'http://pureimg.com/public/uploads/large/241499277735btsxi35kaslejnsyy0qfiauj2ri6dbdjduwxdau0cvqx3psmfherzxcsdwzqgstkauxiemdcxnog6s7aqzc8cejcszamb1mfobfg.jpg',
+        total_hours: 0,
+        total_minutes: 30
+      }, {
+        id: 2,
+        name: 'Beef That',
+        image: 'http://pureimg.com/public/uploads/large/241499277735btsxi35kaslejnsyy0qfiauj2ri6dbdjduwxdau0cvqx3psmfherzxcsdwzqgstkauxiemdcxnog6s7aqzc8cejcszamb1mfobfg.jpg',
+        total_hours: 0,
+        total_minutes: 25
+      }, {
+        id: 3,
+        name: 'Pork Something',
+        image: 'http://pureimg.com/public/uploads/large/241499277735btsxi35kaslejnsyy0qfiauj2ri6dbdjduwxdau0cvqx3psmfherzxcsdwzqgstkauxiemdcxnog6s7aqzc8cejcszamb1mfobfg.jpg',
+        total_hours: 0,
+        total_minutes: 40
+      }, {
+        id: 4,
+        name: 'Lamb Other',
+        image: 'http://pureimg.com/public/uploads/large/241499277735btsxi35kaslejnsyy0qfiauj2ri6dbdjduwxdau0cvqx3psmfherzxcsdwzqgstkauxiemdcxnog6s7aqzc8cejcszamb1mfobfg.jpg',
+        total_hours: 2,
+        total_minutes: 30
+      }, {
+        id: 5,
+        name: 'Seafood Whatever',
+        image: 'http://pureimg.com/public/uploads/large/241499277735btsxi35kaslejnsyy0qfiauj2ri6dbdjduwxdau0cvqx3psmfherzxcsdwzqgstkauxiemdcxnog6s7aqzc8cejcszamb1mfobfg.jpg',
+        total_hours: 1,
+        total_minutes: 15
+      }, {
+        id: 6,
+        name: 'Burgers and Fries',
+        image: 'http://pureimg.com/public/uploads/large/241499277735btsxi35kaslejnsyy0qfiauj2ri6dbdjduwxdau0cvqx3psmfherzxcsdwzqgstkauxiemdcxnog6s7aqzc8cejcszamb1mfobfg.jpg',
+        total_hours: 0,
+        total_minutes: 30
+      }, {
+        id: 7,
+        name: 'Pizza Italiano',
+        image: 'http://pureimg.com/public/uploads/large/241499277735btsxi35kaslejnsyy0qfiauj2ri6dbdjduwxdau0cvqx3psmfherzxcsdwzqgstkauxiemdcxnog6s7aqzc8cejcszamb1mfobfg.jpg',
+        total_hours: 0,
+        total_minutes: 25
+      }, {
+        id: 8,
+        name: 'Fresh Sushi',
+        image: 'http://pureimg.com/public/uploads/large/241499277735btsxi35kaslejnsyy0qfiauj2ri6dbdjduwxdau0cvqx3psmfherzxcsdwzqgstkauxiemdcxnog6s7aqzc8cejcszamb1mfobfg.jpg',
+        total_hours: 0,
+        total_minutes: 40
+      }, {
+        id: 9,
+        name: 'Ribeye Steak',
+        image: 'http://pureimg.com/public/uploads/large/241499277735btsxi35kaslejnsyy0qfiauj2ri6dbdjduwxdau0cvqx3psmfherzxcsdwzqgstkauxiemdcxnog6s7aqzc8cejcszamb1mfobfg.jpg',
+        total_hours: 2,
+        total_minutes: 30
+      }, {
+        id: 10,
+        name: 'Lasagna',
+        image: 'http://pureimg.com/public/uploads/large/241499277735btsxi35kaslejnsyy0qfiauj2ri6dbdjduwxdau0cvqx3psmfherzxcsdwzqgstkauxiemdcxnog6s7aqzc8cejcszamb1mfobfg.jpg',
+        total_hours: 1,
+        total_minutes: 15
+      }, {
+        id: 11,
+        name: 'Chocolate Cake',
+        image: 'http://pureimg.com/public/uploads/large/241499277735btsxi35kaslejnsyy0qfiauj2ri6dbdjduwxdau0cvqx3psmfherzxcsdwzqgstkauxiemdcxnog6s7aqzc8cejcszamb1mfobfg.jpg',
+        total_hours: 1,
+        total_minutes: 15
+      }, {
+        id: 12,
+        name: 'Creme Brulee',
+        image: 'http://pureimg.com/public/uploads/large/241499277735btsxi35kaslejnsyy0qfiauj2ri6dbdjduwxdau0cvqx3psmfherzxcsdwzqgstkauxiemdcxnog6s7aqzc8cejcszamb1mfobfg.jpg',
+        total_hours: 1,
+        total_minutes: 15
+      }, {
+        id: 13,
+        name: 'Apple Pie',
+        image: 'http://pureimg.com/public/uploads/large/241499277735btsxi35kaslejnsyy0qfiauj2ri6dbdjduwxdau0cvqx3psmfherzxcsdwzqgstkauxiemdcxnog6s7aqzc8cejcszamb1mfobfg.jpg',
+        total_hours: 1,
+        total_minutes: 15
+      }, {
+        id: 14,
+        name: 'Shrimp and Grits',
+        image: 'http://pureimg.com/public/uploads/large/241499277735btsxi35kaslejnsyy0qfiauj2ri6dbdjduwxdau0cvqx3psmfherzxcsdwzqgstkauxiemdcxnog6s7aqzc8cejcszamb1mfobfg.jpg',
+        total_hours: 1,
+        total_minutes: 15
+      }, {
+        id: 15,
+        name: 'Chicken and Waffles',
+        image: 'http://pureimg.com/public/uploads/large/241499277735btsxi35kaslejnsyy0qfiauj2ri6dbdjduwxdau0cvqx3psmfherzxcsdwzqgstkauxiemdcxnog6s7aqzc8cejcszamb1mfobfg.jpg',
+        total_hours: 1,
+        total_minutes: 15
+      }],
+      popular: [{
+        id: 1,
+        name: 'Chicken This',
+        image: 'http://pureimg.com/public/uploads/large/241499277735btsxi35kaslejnsyy0qfiauj2ri6dbdjduwxdau0cvqx3psmfherzxcsdwzqgstkauxiemdcxnog6s7aqzc8cejcszamb1mfobfg.jpg',
+        total_hours: 0,
+        total_minutes: 30
+      }, {
+        id: 2,
+        name: 'Beef That',
+        image: 'http://pureimg.com/public/uploads/large/241499277735btsxi35kaslejnsyy0qfiauj2ri6dbdjduwxdau0cvqx3psmfherzxcsdwzqgstkauxiemdcxnog6s7aqzc8cejcszamb1mfobfg.jpg',
+        total_hours: 0,
+        total_minutes: 25
+      }, {
+        id: 3,
+        name: 'Pork Something',
+        image: 'http://pureimg.com/public/uploads/large/241499277735btsxi35kaslejnsyy0qfiauj2ri6dbdjduwxdau0cvqx3psmfherzxcsdwzqgstkauxiemdcxnog6s7aqzc8cejcszamb1mfobfg.jpg',
+        total_hours: 0,
+        total_minutes: 40
+      }, {
+        id: 4,
+        name: 'Lamb Other',
+        image: 'http://pureimg.com/public/uploads/large/241499277735btsxi35kaslejnsyy0qfiauj2ri6dbdjduwxdau0cvqx3psmfherzxcsdwzqgstkauxiemdcxnog6s7aqzc8cejcszamb1mfobfg.jpg',
+        total_hours: 2,
+        total_minutes: 30
+      }, {
+        id: 5,
+        name: 'Seafood Whatever and Something Else',
+        image: 'http://pureimg.com/public/uploads/large/241499277735btsxi35kaslejnsyy0qfiauj2ri6dbdjduwxdau0cvqx3psmfherzxcsdwzqgstkauxiemdcxnog6s7aqzc8cejcszamb1mfobfg.jpg',
+        total_hours: 1,
+        total_minutes: 15
+      }]
+    };
+  }
 });
 
 /***/ }),
@@ -1050,7 +1261,7 @@ var render = function() {
         [
           _c(
             "v-toolbar",
-            { attrs: { color: "red darken-1", dark: "", dense: "" } },
+            { attrs: { color: "red darken-1", dark: "" } },
             [
               _c(
                 "v-toolbar-title",
@@ -1069,9 +1280,43 @@ var render = function() {
               _vm._v(" "),
               _c("v-spacer"),
               _vm._v(" "),
+              _c("v-text-field", {
+                staticClass: "hidden-sm-and-down",
+                attrs: {
+                  flat: "",
+                  "solo-inverted": "",
+                  "hide-details": "",
+                  "prepend-inner-icon": "search",
+                  label: "Search"
+                }
+              }),
+              _vm._v(" "),
+              _c("v-spacer"),
+              _vm._v(" "),
               _c(
                 "v-toolbar-items",
                 [
+                  _c(
+                    "v-btn",
+                    { attrs: { icon: "", flat: "", to: "/add" } },
+                    [_c("v-icon", [_vm._v("add")])],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "v-btn",
+                    { attrs: { icon: "", flat: "", to: "/recipes" } },
+                    [_c("v-icon", [_vm._v("local_dining")])],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "v-btn",
+                    { attrs: { icon: "", flat: "", to: "/popular" } },
+                    [_c("v-icon", [_vm._v("whatshot")])],
+                    1
+                  ),
+                  _vm._v(" "),
                   _c(
                     "v-menu",
                     {
@@ -1084,14 +1329,8 @@ var render = function() {
                             return [
                               _c(
                                 "v-btn",
-                                _vm._g({ attrs: { flat: "" } }, on),
-                                [
-                                  _c("v-icon", [_vm._v("account_circle")]),
-                                  _vm._v(" "),
-                                  _c("v-icon", { attrs: { dark: "" } }, [
-                                    _vm._v("arrow_drop_down")
-                                  ])
-                                ],
+                                _vm._g({ attrs: { icon: "", flat: "" } }, on),
+                                [_c("v-icon", [_vm._v("account_circle")])],
                                 1
                               )
                             ]
@@ -1140,54 +1379,48 @@ var render = function() {
             1
           ),
           _vm._v(" "),
+          _c("router-view"),
+          _vm._v(" "),
           _c(
-            "v-content",
+            "div",
+            { staticClass: "text-xs-center", attrs: { id: "footer" } },
+            [_vm._v("\n            © Recipeek 2019\n        ")]
+          ),
+          _vm._v(" "),
+          _c(
+            "v-snackbar",
+            {
+              attrs: {
+                color: _vm.snackbar.color,
+                bottom: true,
+                timeout: _vm.snackbar.timeout,
+                "multi-line": ""
+              },
+              model: {
+                value: _vm.snackbar.enabled,
+                callback: function($$v) {
+                  _vm.$set(_vm.snackbar, "enabled", $$v)
+                },
+                expression: "snackbar.enabled"
+              }
+            },
             [
-              _c("router-view"),
-              _vm._v(" "),
-              _c(
-                "div",
-                { staticClass: "text-xs-center", attrs: { id: "footer" } },
-                [_vm._v("\n                © Recipeek 2019\n            ")]
+              _vm._v(
+                "\n            " +
+                  _vm._s(_vm.snackbar.message) +
+                  "\n            "
               ),
-              _vm._v(" "),
               _c(
-                "v-snackbar",
+                "v-btn",
                 {
-                  attrs: {
-                    color: _vm.snackbar.color,
-                    bottom: true,
-                    timeout: _vm.snackbar.timeout,
-                    "multi-line": ""
-                  },
-                  model: {
-                    value: _vm.snackbar.enabled,
-                    callback: function($$v) {
-                      _vm.$set(_vm.snackbar, "enabled", $$v)
-                    },
-                    expression: "snackbar.enabled"
+                  attrs: { color: "white", flat: "" },
+                  on: {
+                    click: function($event) {
+                      _vm.snackbar.enabled = false
+                    }
                   }
                 },
-                [
-                  _vm._v(
-                    "\n                " +
-                      _vm._s(_vm.snackbar.message) +
-                      "\n                "
-                  ),
-                  _c(
-                    "v-btn",
-                    {
-                      attrs: { color: "white", flat: "" },
-                      on: {
-                        click: function($event) {
-                          _vm.snackbar.enabled = false
-                        }
-                      }
-                    },
-                    [_c("v-icon", [_vm._v("close")])],
-                    1
-                  )
-                ],
+                [_c("v-icon", [_vm._v("close")])],
                 1
               )
             ],
@@ -1866,34 +2099,10 @@ render._withStripped = true
 
 /***/ }),
 
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/Categories.vue?vue&type=template&id=53f0967b&":
-/*!********************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/views/Categories.vue?vue&type=template&id=53f0967b& ***!
-  \********************************************************************************************************************************************************************************************************/
-/*! exports provided: render, staticRenderFns */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c("div", [_vm._v("\n    This is the categories page.\n")])
-}
-var staticRenderFns = []
-render._withStripped = true
-
-
-
-/***/ }),
-
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/Category.vue?vue&type=template&id=6480121d&":
-/*!******************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/views/Category.vue?vue&type=template&id=6480121d& ***!
-  \******************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/AddRecipe.vue?vue&type=template&id=062e3000&":
+/*!*******************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/views/AddRecipe.vue?vue&type=template&id=062e3000& ***!
+  \*******************************************************************************************************************************************************************************************************/
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -1931,40 +2140,250 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "v-container",
-    { attrs: { fluid: "", "grid-list-md": "" } },
+    { attrs: { fluid: "", "grid-list-lg": "" } },
     [
       _c(
         "v-layout",
-        { attrs: { row: "" } },
+        { attrs: { row: "", wrap: "" } },
         [
           _c(
-            "v-container",
-            { attrs: { "text-xs-center": "" } },
+            "v-flex",
+            { attrs: { xs12: "", md9: "" } },
+            [
+              _c("v-text-field", {
+                attrs: {
+                  "append-icon": "search",
+                  label: "Search",
+                  "single-line": "",
+                  "hide-details": "",
+                  box: ""
+                },
+                model: {
+                  value: _vm.search,
+                  callback: function($$v) {
+                    _vm.search = $$v
+                  },
+                  expression: "search"
+                }
+              }),
+              _vm._v(" "),
+              _c("v-data-table", {
+                staticClass: "elevation-1",
+                attrs: {
+                  headers: _vm.headers,
+                  items: _vm.recipes,
+                  search: _vm.search,
+                  pagination: _vm.pagination,
+                  "hide-actions": "",
+                  "no-data-text": "You have not added any recipes.",
+                  "disable-initial-sort": ""
+                },
+                on: {
+                  "update:pagination": function($event) {
+                    _vm.pagination = $event
+                  }
+                },
+                scopedSlots: _vm._u([
+                  {
+                    key: "items",
+                    fn: function(props) {
+                      return [
+                        _c(
+                          "td",
+                          [
+                            _c("v-avatar", { attrs: { size: "42px" } }, [
+                              _c("img", {
+                                attrs: {
+                                  src: props.item.image,
+                                  alt: props.item.name
+                                }
+                              })
+                            ])
+                          ],
+                          1
+                        ),
+                        _vm._v(" "),
+                        _c("td", [_vm._v(_vm._s(props.item.name))]),
+                        _vm._v(" "),
+                        _c("td", [
+                          _vm._v(
+                            _vm._s(props.item.total_hours) +
+                              "h " +
+                              _vm._s(props.item.total_minutes) +
+                              "m"
+                          )
+                        ]),
+                        _vm._v(" "),
+                        _c(
+                          "td",
+                          { attrs: { width: "20%" } },
+                          [
+                            _c(
+                              "v-form",
+                              {
+                                attrs: { method: "POST", id: "deleteForm" },
+                                on: {
+                                  submit: function($event) {
+                                    $event.preventDefault()
+                                    return delete props.item.id
+                                  }
+                                }
+                              },
+                              [
+                                _c(
+                                  "v-btn",
+                                  {
+                                    staticClass: "amber--text text--lighten-4",
+                                    attrs: {
+                                      icon: "",
+                                      small: "",
+                                      to: "/recipe/" + props.item.id,
+                                      color: "amber darken-1"
+                                    }
+                                  },
+                                  [_c("v-icon", [_vm._v("remove_red_eye")])],
+                                  1
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "v-btn",
+                                  {
+                                    staticClass: "red--text text--lighten-4",
+                                    attrs: {
+                                      icon: "",
+                                      small: "",
+                                      type: "submit",
+                                      color: "red darken-1"
+                                    }
+                                  },
+                                  [_c("v-icon", [_vm._v("delete")])],
+                                  1
+                                )
+                              ],
+                              1
+                            )
+                          ],
+                          1
+                        )
+                      ]
+                    }
+                  }
+                ])
+              })
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "v-flex",
+            { attrs: { xs12: "", md3: "" } },
             [
               _c(
-                "v-btn",
-                {
-                  attrs: {
-                    color: "red darken-1",
-                    to: "/categories",
-                    large: "",
-                    dark: ""
-                  }
-                },
-                [_vm._v("\n                Categories\n            ")]
-              ),
-              _vm._v(" "),
-              _c(
-                "v-btn",
-                {
-                  attrs: {
-                    color: "red darken-1",
-                    to: "/recipes",
-                    large: "",
-                    dark: ""
-                  }
-                },
-                [_vm._v("\n                Recipes\n            ")]
+                "v-layout",
+                { attrs: { row: "", wrap: "" } },
+                [
+                  _c(
+                    "v-flex",
+                    [
+                      _c(
+                        "v-card",
+                        [
+                          _c("v-img", {
+                            staticClass: "white--text",
+                            attrs: {
+                              height: "200px",
+                              src:
+                                "http://pureimg.com/public/uploads/large/241499277735btsxi35kaslejnsyy0qfiauj2ri6dbdjduwxdau0cvqx3psmfherzxcsdwzqgstkauxiemdcxnog6s7aqzc8cejcszamb1mfobfg.jpg"
+                            }
+                          }),
+                          _vm._v(" "),
+                          _c("v-card-text", [
+                            _c("span", { staticClass: "title" }, [
+                              _vm._v("Recipe of the Day")
+                            ]),
+                            _c("br"),
+                            _vm._v(" "),
+                            _c("span", { staticClass: "subtitle" }, [
+                              _vm._v("Chicken Something")
+                            ]),
+                            _c("br")
+                          ])
+                        ],
+                        1
+                      )
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "v-flex",
+                    [
+                      _c(
+                        "v-card",
+                        [
+                          _c("br"),
+                          _vm._v(" "),
+                          _c("h3", { staticClass: "title text-xs-center" }, [
+                            _vm._v("Popular Recipes")
+                          ]),
+                          _vm._v(" "),
+                          _c(
+                            "v-list",
+                            { attrs: { "two-line": "" } },
+                            [
+                              _vm._l(_vm.popular, function(pop, index) {
+                                return [
+                                  _c(
+                                    "v-list-tile",
+                                    {
+                                      key: index,
+                                      attrs: {
+                                        avatar: "",
+                                        to: "/recipe/" + pop.id
+                                      }
+                                    },
+                                    [
+                                      _c("v-list-tile-avatar", [
+                                        _c("img", { attrs: { src: pop.image } })
+                                      ]),
+                                      _vm._v(" "),
+                                      _c(
+                                        "v-list-tile-content",
+                                        [
+                                          _c("v-list-tile-title", {
+                                            domProps: {
+                                              innerHTML: _vm._s(pop.name)
+                                            }
+                                          }),
+                                          _vm._v(" "),
+                                          _c("v-list-tile-sub-title", [
+                                            _vm._v(
+                                              "Est. " +
+                                                _vm._s(pop.total_hours) +
+                                                "h " +
+                                                _vm._s(pop.total_minutes) +
+                                                "m"
+                                            )
+                                          ])
+                                        ],
+                                        1
+                                      )
+                                    ],
+                                    1
+                                  )
+                                ]
+                              })
+                            ],
+                            2
+                          )
+                        ],
+                        1
+                      )
+                    ],
+                    1
+                  )
+                ],
+                1
               )
             ],
             1
@@ -43336,12 +43755,10 @@ var Events = new vue__WEBPACK_IMPORTED_MODULE_0___default.a();
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _views_Home__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./views/Home */ "./resources/js/views/Home.vue");
-/* harmony import */ var _views_Categories__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./views/Categories */ "./resources/js/views/Categories.vue");
-/* harmony import */ var _views_Category__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./views/Category */ "./resources/js/views/Category.vue");
-/* harmony import */ var _views_Recipes__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./views/Recipes */ "./resources/js/views/Recipes.vue");
-/* harmony import */ var _views_Recipe__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./views/Recipe */ "./resources/js/views/Recipe.vue");
-/* harmony import */ var _views_NotFound__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./views/NotFound */ "./resources/js/views/NotFound.vue");
-
+/* harmony import */ var _views_Recipes__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./views/Recipes */ "./resources/js/views/Recipes.vue");
+/* harmony import */ var _views_Recipe__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./views/Recipe */ "./resources/js/views/Recipe.vue");
+/* harmony import */ var _views_AddRecipe__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./views/AddRecipe */ "./resources/js/views/AddRecipe.vue");
+/* harmony import */ var _views_NotFound__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./views/NotFound */ "./resources/js/views/NotFound.vue");
 
 
 
@@ -43352,42 +43769,37 @@ __webpack_require__.r(__webpack_exports__);
   name: 'home',
   component: _views_Home__WEBPACK_IMPORTED_MODULE_0__["default"]
 }, {
-  path: '/categories',
-  name: 'categories',
-  component: _views_Categories__WEBPACK_IMPORTED_MODULE_1__["default"]
-}, {
-  path: '/categories/:id',
-  name: 'category',
-  component: _views_Category__WEBPACK_IMPORTED_MODULE_2__["default"],
-  props: true
+  path: '/add',
+  name: 'add',
+  component: _views_AddRecipe__WEBPACK_IMPORTED_MODULE_3__["default"]
 }, {
   path: '/recipes',
   name: 'recipes',
-  component: _views_Recipes__WEBPACK_IMPORTED_MODULE_3__["default"]
+  component: _views_Recipes__WEBPACK_IMPORTED_MODULE_1__["default"]
 }, {
   path: '/recipes/:id',
   name: 'recipe',
-  component: _views_Recipe__WEBPACK_IMPORTED_MODULE_4__["default"],
+  component: _views_Recipe__WEBPACK_IMPORTED_MODULE_2__["default"],
   props: true
 }, {
   path: '*',
   name: 'notfound',
-  component: _views_NotFound__WEBPACK_IMPORTED_MODULE_5__["default"]
+  component: _views_NotFound__WEBPACK_IMPORTED_MODULE_4__["default"]
 }]);
 
 /***/ }),
 
-/***/ "./resources/js/views/Categories.vue":
-/*!*******************************************!*\
-  !*** ./resources/js/views/Categories.vue ***!
-  \*******************************************/
+/***/ "./resources/js/views/AddRecipe.vue":
+/*!******************************************!*\
+  !*** ./resources/js/views/AddRecipe.vue ***!
+  \******************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _Categories_vue_vue_type_template_id_53f0967b___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Categories.vue?vue&type=template&id=53f0967b& */ "./resources/js/views/Categories.vue?vue&type=template&id=53f0967b&");
-/* harmony import */ var _Categories_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Categories.vue?vue&type=script&lang=js& */ "./resources/js/views/Categories.vue?vue&type=script&lang=js&");
+/* harmony import */ var _AddRecipe_vue_vue_type_template_id_062e3000___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./AddRecipe.vue?vue&type=template&id=062e3000& */ "./resources/js/views/AddRecipe.vue?vue&type=template&id=062e3000&");
+/* harmony import */ var _AddRecipe_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./AddRecipe.vue?vue&type=script&lang=js& */ "./resources/js/views/AddRecipe.vue?vue&type=script&lang=js&");
 /* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
@@ -43397,9 +43809,9 @@ __webpack_require__.r(__webpack_exports__);
 /* normalize component */
 
 var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
-  _Categories_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
-  _Categories_vue_vue_type_template_id_53f0967b___WEBPACK_IMPORTED_MODULE_0__["render"],
-  _Categories_vue_vue_type_template_id_53f0967b___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  _AddRecipe_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _AddRecipe_vue_vue_type_template_id_062e3000___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _AddRecipe_vue_vue_type_template_id_062e3000___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
   false,
   null,
   null,
@@ -43409,107 +43821,38 @@ var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_
 
 /* hot reload */
 if (false) { var api; }
-component.options.__file = "resources/js/views/Categories.vue"
+component.options.__file = "resources/js/views/AddRecipe.vue"
 /* harmony default export */ __webpack_exports__["default"] = (component.exports);
 
 /***/ }),
 
-/***/ "./resources/js/views/Categories.vue?vue&type=script&lang=js&":
-/*!********************************************************************!*\
-  !*** ./resources/js/views/Categories.vue?vue&type=script&lang=js& ***!
-  \********************************************************************/
+/***/ "./resources/js/views/AddRecipe.vue?vue&type=script&lang=js&":
+/*!*******************************************************************!*\
+  !*** ./resources/js/views/AddRecipe.vue?vue&type=script&lang=js& ***!
+  \*******************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Categories_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./Categories.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/Categories.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Categories_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_AddRecipe_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./AddRecipe.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/AddRecipe.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_AddRecipe_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
 
 /***/ }),
 
-/***/ "./resources/js/views/Categories.vue?vue&type=template&id=53f0967b&":
-/*!**************************************************************************!*\
-  !*** ./resources/js/views/Categories.vue?vue&type=template&id=53f0967b& ***!
-  \**************************************************************************/
+/***/ "./resources/js/views/AddRecipe.vue?vue&type=template&id=062e3000&":
+/*!*************************************************************************!*\
+  !*** ./resources/js/views/AddRecipe.vue?vue&type=template&id=062e3000& ***!
+  \*************************************************************************/
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Categories_vue_vue_type_template_id_53f0967b___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./Categories.vue?vue&type=template&id=53f0967b& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/Categories.vue?vue&type=template&id=53f0967b&");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Categories_vue_vue_type_template_id_53f0967b___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_AddRecipe_vue_vue_type_template_id_062e3000___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./AddRecipe.vue?vue&type=template&id=062e3000& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/AddRecipe.vue?vue&type=template&id=062e3000&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_AddRecipe_vue_vue_type_template_id_062e3000___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Categories_vue_vue_type_template_id_53f0967b___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
-
-
-
-/***/ }),
-
-/***/ "./resources/js/views/Category.vue":
-/*!*****************************************!*\
-  !*** ./resources/js/views/Category.vue ***!
-  \*****************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _Category_vue_vue_type_template_id_6480121d___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Category.vue?vue&type=template&id=6480121d& */ "./resources/js/views/Category.vue?vue&type=template&id=6480121d&");
-/* harmony import */ var _Category_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Category.vue?vue&type=script&lang=js& */ "./resources/js/views/Category.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
-
-
-
-
-
-/* normalize component */
-
-var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
-  _Category_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
-  _Category_vue_vue_type_template_id_6480121d___WEBPACK_IMPORTED_MODULE_0__["render"],
-  _Category_vue_vue_type_template_id_6480121d___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
-  false,
-  null,
-  null,
-  null
-  
-)
-
-/* hot reload */
-if (false) { var api; }
-component.options.__file = "resources/js/views/Category.vue"
-/* harmony default export */ __webpack_exports__["default"] = (component.exports);
-
-/***/ }),
-
-/***/ "./resources/js/views/Category.vue?vue&type=script&lang=js&":
-/*!******************************************************************!*\
-  !*** ./resources/js/views/Category.vue?vue&type=script&lang=js& ***!
-  \******************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Category_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./Category.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/Category.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Category_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
-
-/***/ }),
-
-/***/ "./resources/js/views/Category.vue?vue&type=template&id=6480121d&":
-/*!************************************************************************!*\
-  !*** ./resources/js/views/Category.vue?vue&type=template&id=6480121d& ***!
-  \************************************************************************/
-/*! exports provided: render, staticRenderFns */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Category_vue_vue_type_template_id_6480121d___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./Category.vue?vue&type=template&id=6480121d& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/Category.vue?vue&type=template&id=6480121d&");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Category_vue_vue_type_template_id_6480121d___WEBPACK_IMPORTED_MODULE_0__["render"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Category_vue_vue_type_template_id_6480121d___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_AddRecipe_vue_vue_type_template_id_062e3000___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 

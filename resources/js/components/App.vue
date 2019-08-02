@@ -1,7 +1,7 @@
 <template>
     <div>
         <v-app class="inspire">
-            <v-toolbar color="red darken-1" dark dense>
+            <v-toolbar color="red darken-1" dark>
                 <v-toolbar-title>
                     <router-link to="/home" class="search-link white--text" >
                         <span>Recipeek</span>
@@ -10,12 +10,31 @@
 
                 <v-spacer></v-spacer>
 
+                <v-text-field
+                    flat
+                    solo-inverted
+                    hide-details
+                    prepend-inner-icon="search"
+                    label="Search"
+                    class="hidden-sm-and-down"
+                ></v-text-field>
+
+                <v-spacer></v-spacer>
+
                 <v-toolbar-items>
+                    <v-btn icon flat to="/add">
+                        <v-icon>add</v-icon>
+                    </v-btn>
+                    <v-btn icon flat to="/recipes">
+                        <v-icon>local_dining</v-icon>
+                    </v-btn>
+                    <v-btn icon flat to="/popular">
+                        <v-icon>whatshot</v-icon>
+                    </v-btn>
                     <v-menu :nudge-width="100" offset-y>
                         <template v-slot:activator="{ on }">
-                            <v-btn flat v-on="on">
+                            <v-btn icon  flat v-on="on">
                                 <v-icon>account_circle</v-icon>
-                                <v-icon dark>arrow_drop_down</v-icon>
                             </v-btn>
                         </template>
                         <v-list>
@@ -32,18 +51,16 @@
                 </v-toolbar-items>
             </v-toolbar>
 
-            <v-content>
-                <router-view></router-view>
+            <router-view></router-view>
 
-                <div id="footer" class="text-xs-center">
-                    &copy; Recipeek 2019
-                </div>
+            <div id="footer" class="text-xs-center">
+                &copy; Recipeek 2019
+            </div>
 
-                <v-snackbar v-model="snackbar.enabled" :color="snackbar.color" :bottom="true" :timeout="snackbar.timeout" multi-line>
-                    {{ snackbar.message }}
-                    <v-btn color="white" flat @click="snackbar.enabled = false"><v-icon>close</v-icon></v-btn>
-                </v-snackbar>
-            </v-content>
+            <v-snackbar v-model="snackbar.enabled" :color="snackbar.color" :bottom="true" :timeout="snackbar.timeout" multi-line>
+                {{ snackbar.message }}
+                <v-btn color="white" flat @click="snackbar.enabled = false"><v-icon>close</v-icon></v-btn>
+            </v-snackbar>
         </v-app>
     </div>
 </template>
