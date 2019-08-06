@@ -53,7 +53,7 @@
 
             <router-view></router-view>
 
-            <div id="footer" class="text-xs-center">
+            <div id="footer" class="text-xs-center mt-3 mb-3">
                 &copy; Recipeek 2019
             </div>
 

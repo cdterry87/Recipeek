@@ -1383,7 +1383,10 @@ var render = function() {
           _vm._v(" "),
           _c(
             "div",
-            { staticClass: "text-xs-center", attrs: { id: "footer" } },
+            {
+              staticClass: "text-xs-center mt-3 mb-3",
+              attrs: { id: "footer" }
+            },
             [_vm._v("\n            © Recipeek 2019\n        ")]
           ),
           _vm._v(" "),
