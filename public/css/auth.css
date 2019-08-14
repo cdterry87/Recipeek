@@ -1,0 +1,43 @@
+#welcome {
+    height: 100vh;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    position: relative;
+}
+
+.content {
+    text-align: center;
+}
+
+.title {
+    font-size: 80px !important;
+}
+
+.subtitle {
+    font-size: 25px !important;
+}
+
+.links > a {
+    color: #fff !important;
+    padding: 0 25px;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: .1rem;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+.m-b-md {
+    margin-bottom: 30px;
+}
+
+.m-t-sm {
+    margin-top: 10px;
+}
+
+.button {
+    border: solid 2px white !important;
+    border-radius: 5px !important;
+    padding: 10px 20px !important;
+}

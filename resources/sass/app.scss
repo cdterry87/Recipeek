@@ -1,0 +1,25 @@
+@import '~vuetify/dist/vuetify.min.css';
+@import '~@mdi/font/css/materialdesignicons.min.css';
+
+html, body {
+    color: #fff;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 200;
+    height: 100vh;
+    margin: 0;
+}
+
+body, #inspire.application, .v-application {
+    background: linear-gradient(15deg, #ffa44f, #d3213f) !important;
+    background-size: 200% 200% !important;
+    color: white !important;
+}
+
+a {
+    color: inherit !important;
+    text-decoration: none !important;
+}
+
+.v-alert {
+    margin: 0 !important;
+}
