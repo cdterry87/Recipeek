@@ -38,3 +38,9 @@ a {
   font-family: "Molle", cursive !important;
 }
 
+/* Removes the weird gap on the toolbar */
+
+.v-toolbar {
+  flex: none !important;
+}
+
