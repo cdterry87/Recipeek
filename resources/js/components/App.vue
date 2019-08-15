@@ -3,7 +3,7 @@
         <v-app class="inspire">
             <v-toolbar color="transparent" flat>
                 <v-toolbar-title>
-                    <a href="/home" class="headline logo">Recipeek</a>
+                    <a href="/home" class="display-1 logo">Recipeek</a>
                 </v-toolbar-title>
                 <v-spacer></v-spacer>
                 <v-btn outlined text to="/home" v-if="this.$router.currentRoute.name != 'home'">

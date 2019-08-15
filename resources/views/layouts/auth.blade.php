@@ -10,6 +10,7 @@
         <link rel="manifest" href="/site.webmanifest">
         <title>{{ config('app.name', 'Laravel-Vuetify') }}</title>
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Molle:400i&display=swap" rel="stylesheet">
         <link href="{{ mix('css/app.css') }}" rel="stylesheet">
         <link href="{{ asset('css/auth.css') }}" rel="stylesheet">
     </head>

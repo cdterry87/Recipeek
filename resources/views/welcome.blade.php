@@ -3,8 +3,10 @@
 @section('content')
     <div id="welcome">
         <div class="content">
-            <div class="title m-b-md">
-                {{ config('app.name', 'Laravel') }}
+            <div class="m-b-md">
+                <div class="title logo">
+                    {{ config('app.name', 'Laravel') }}
+                </div>
                 <div class="subtitle m-t-sm">
                     Something interesting about this site!
                 </div>
