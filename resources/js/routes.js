@@ -1,4 +1,6 @@
 import Home from './views/Home'
+import Add from './views/Add'
+
 import Account from './views/Account'
 import NotFound from './views/NotFound'
 
@@ -7,6 +9,11 @@ export default [
         path: '/home',
         name: 'home',
         component: Home,
+    },
+    {
+        path: '/add',
+        name: 'add',
+        component: Add
     },
     {
         path: '/account',

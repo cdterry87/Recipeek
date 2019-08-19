@@ -1,47 +1,49 @@
 <template>
-    <v-container fluid grid-list-md>
-        <div class="text-center mb-4">
-            <v-btn color="" @click="logout">
-                <v-icon>mdi-logout</v-icon>
-                Sign Out
-            </v-btn>
-        </div>
-        <div class="mt-5 mb-5">
-            <v-divider></v-divider>
-        </div>
-        <v-layout row>
-            <v-flex xs12 sm10 offset-sm1 md6 offset-md3>
-                <div class="title text-center mb-3">
-                    Account Information
-                </div>
-                <Loading v-if="loadingAccount" />
-                <div v-else>
-                    <v-form method="POST" id="accountForm" @submit.prevent="updateAccount" ref="form" lazy-validation>
-                        <v-text-field color="white" label="Full Name" filled prepend-inner-icon="mdi-account" v-model="user.name" id="name" name="name" type="text" :rules="[v => !!v || 'Name is required']" autocomplete="off" required></v-text-field>
-                        <v-text-field color="white" label="Email" filled prepend-inner-icon="mdi-email" v-model="user.email" id="email" name="email" type="email" :rules="[v => !!v || 'Email is required']" autocomplete="off" required></v-text-field>
+    <div id="account">
+        <v-container fluid grid-list-md>
+            <div class="text-center mb-4">
+                <v-btn color="" @click="logout">
+                    <v-icon>mdi-logout</v-icon>
+                    Sign Out
+                </v-btn>
+            </div>
+            <div class="mt-5 mb-5">
+                <v-divider></v-divider>
+            </div>
+            <v-layout row>
+                <v-flex xs12 sm10 offset-sm1 md6 offset-md3>
+                    <div class="title text-center mb-3">
+                        Account Information
+                    </div>
+                    <Loading v-if="loadingAccount" />
+                    <div v-else>
+                        <v-form method="POST" id="accountForm" @submit.prevent="updateAccount" ref="form" lazy-validation>
+                            <v-text-field color="white" label="Full Name" filled prepend-inner-icon="mdi-account" v-model="user.name" id="name" name="name" type="text" :rules="[v => !!v || 'Name is required']" autocomplete="off" required></v-text-field>
+                            <v-text-field color="white" label="Email" filled prepend-inner-icon="mdi-email" v-model="user.email" id="email" name="email" type="email" :rules="[v => !!v || 'Email is required']" autocomplete="off" required></v-text-field>
+                            <div class="text-center">
+                                <v-btn type="submit" color="">Update</v-btn>
+                            </div>
+                        </v-form>
+                    </div>
+                </v-flex>
+                <v-flex xs12 class="mt-5 mb-5">
+                    <v-divider></v-divider>
+                </v-flex>
+                <v-flex xs12 sm10 offset-sm1 md6 offset-md3>
+                    <div class="title text-center mb-3">
+                        Update Password
+                    </div>
+                    <v-form method="POST" id="accountForm" @submit.prevent="changePassword" ref="form" lazy-validation>
+                        <v-text-field color="white" v-model="password" label="Password" filled prepend-inner-icon="mdi-lock" id="password" name="password" type="password" autocomplete="off" required></v-text-field>
+                        <v-text-field color="white" v-model="password_confirmation" label="Confirm Password" filled prepend-inner-icon="mdi-lock" id="password_confirmation" name="password_confirmation" type="password" autocomplete="off" required></v-text-field>
                         <div class="text-center">
                             <v-btn type="submit" color="">Update</v-btn>
                         </div>
                     </v-form>
-                </div>
-            </v-flex>
-            <v-flex xs12 class="mt-5 mb-5">
-                <v-divider></v-divider>
-            </v-flex>
-            <v-flex xs12 sm10 offset-sm1 md6 offset-md3>
-                <div class="title text-center mb-3">
-                    Update Password
-                </div>
-                <v-form method="POST" id="accountForm" @submit.prevent="changePassword" ref="form" lazy-validation>
-                    <v-text-field color="white" v-model="password" label="Password" filled prepend-inner-icon="mdi-lock" id="password" name="password" type="password" autocomplete="off" required></v-text-field>
-                    <v-text-field color="white" v-model="password_confirmation" label="Confirm Password" filled prepend-inner-icon="mdi-lock" id="password_confirmation" name="password_confirmation" type="password" autocomplete="off" required></v-text-field>
-                    <div class="text-center">
-                        <v-btn type="submit" color="">Update</v-btn>
-                    </div>
-                </v-form>
-            </v-flex>
-        </v-layout>
-    </v-container>
+                </v-flex>
+            </v-layout>
+        </v-container>
+    </div>
 </template>
 
 <script>

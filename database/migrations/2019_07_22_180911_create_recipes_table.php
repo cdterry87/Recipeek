@@ -26,7 +26,7 @@ class CreateRecipesTable extends Migration
             $table->unsignedTinyInteger('servings');
             $table->text('image');
             $table->text('video');
-            $table->boolean('public');
+            $table->boolean('private');
             $table->timestamps();
         });
     }
