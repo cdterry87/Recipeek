@@ -32,3 +32,10 @@ a {
 .v-toolbar {
     flex: none !important;
 }
+
+.recipe-card {
+    .v-card__text, .v-list-item__content {
+        margin-top: 0 !important;
+        padding-top: 0 !important;
+    }
+}

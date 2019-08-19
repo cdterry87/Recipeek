@@ -44,3 +44,9 @@ a {
   flex: none !important;
 }
 
+.recipe-card .v-card__text,
+.recipe-card .v-list-item__content {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+}
+
