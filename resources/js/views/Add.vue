@@ -63,5 +63,8 @@
                 private: false
             }
         },
+        methods: {
+
+        }
     }
 </script>
