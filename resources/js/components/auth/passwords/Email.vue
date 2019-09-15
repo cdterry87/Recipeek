@@ -12,7 +12,7 @@
                     </div>
                     <v-text-field color="white" label="Email" filled prepend-inner-icon="mdi-email" id="email" name="email" type="text" required></v-text-field>
                     <div class="text-center">
-                        <v-btn outlined text type="submit">Send Password Reset</v-btn>
+                        <v-btn outlined type="submit">Send Password Reset</v-btn>
                         <v-btn text href="/login">Login</v-btn>
                     </div>
                     <v-container>

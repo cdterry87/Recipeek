@@ -14,7 +14,7 @@
                         <v-text-field prepend-icon="mdi-lock" id="password" name="password" label="Password" type="password" filled required></v-text-field>
                         <v-text-field prepend-icon="mdi-lock" id="password_confirmation"  name="password_confirmation" filled label="Confirm Password" type="password" required></v-text-field>
                         <div class="text-center">
-                            <v-btn outlined text type="submit">Reset Password</v-btn>
+                            <v-btn outlined type="submit">Reset Password</v-btn>
                             <v-btn text href="/login">Login</v-btn>
                         </div>
                         <v-container>

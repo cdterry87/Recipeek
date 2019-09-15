@@ -15,7 +15,7 @@
                         <v-text-field color="white" label="Password" filled prepend-inner-icon="mdi-lock" id="password" name="password" type="password" required></v-text-field>
                         <v-checkbox color="white" id="remember" name="remember" label="Remember Me" value="on"></v-checkbox>
                         <div class="text-center">
-                            <v-btn outlined text type="submit">Login</v-btn>
+                            <v-btn outlined type="submit">Login</v-btn>
                             <v-btn text href="/register">Register</v-btn>
                         </div>
                         <div class="text-center mt-3">

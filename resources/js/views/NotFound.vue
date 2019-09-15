@@ -4,7 +4,7 @@
             Sorry, Page Not Found :(
 
             <div class="mt-5">
-                <v-btn x-large to="/home">
+                <v-btn x-large outlined to="/home">
                     <v-icon>mdi-home</v-icon>
                     Return Home
                 </v-btn>

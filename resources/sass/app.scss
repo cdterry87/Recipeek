@@ -39,3 +39,11 @@ a {
         padding-top: 0 !important;
     }
 }
+
+.theme--dark.v-stepper {
+    background: none !important
+}
+
+.v-stepper, .v-stepper__header {
+    box-shadow: none !important;
+}
