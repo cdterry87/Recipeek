@@ -8,7 +8,7 @@
                     {{ config('app.name', 'Laravel') }}
                 </div>
                 <div class="subtitle m-t-sm">
-                    Something interesting about this site!
+                    Store and share your favorite recipes!
                 </div>
             </div>
             <div class="links">
