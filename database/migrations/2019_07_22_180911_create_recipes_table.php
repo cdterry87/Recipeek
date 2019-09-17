@@ -24,6 +24,7 @@ class CreateRecipesTable extends Migration
             $table->unsignedTinyInteger('total_hours');
             $table->unsignedTinyInteger('total_minutes');
             $table->unsignedTinyInteger('servings');
+            $table->integer('calories', 6);
             $table->text('image');
             $table->text('video');
             $table->boolean('private');
