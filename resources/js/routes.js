@@ -1,5 +1,6 @@
 import Home from './views/Home'
 import Add from './views/Add'
+// import Edit from './views/Edit'
 import Recipe from './views/Recipe'
 
 import Account from './views/Account'
@@ -15,6 +16,11 @@ export default [
         path: '/add',
         name: 'add',
         component: Add
+    },
+    {
+        path: '/edit/:id',
+        name: 'edit',
+        // component: Edit
     },
     {
         path: '/recipe/:id',
