@@ -2,7 +2,7 @@
     <div id="add">
         <v-container fluid grid-list-lg>
             <v-layout row>
-                <v-flex xs12 sm8 offset-sm2 md6 offset-md3>
+                <v-flex xs12 md8 offset-md2>
                     <div class="text-center mb-5">
                         <h1 class="display-1">{{ recipe.title }}</h1>
                         <div v-html="recipe.description" class="mt-3"></div>
@@ -25,6 +25,7 @@
                     <v-layout row class="mt-3">
                         <v-flex xs12 md6>
                             <h2 class="title"><v-icon>mdi-apple</v-icon> Ingredients</h2>
+
                         </v-flex>
                         <v-flex xs12 md6>
                             <h2 class="title"><v-icon>mdi-format-list-numbered</v-icon> Instructions</h2>
