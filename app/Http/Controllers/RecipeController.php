@@ -54,7 +54,7 @@ class RecipeController extends Controller
      */
     public function show(Recipe $recipe)
     {
-        return response()->json($recipe->where('id', $recipe->id)->first());
+        return response()->json($recipe->where('id', $recipe->id)->with('ingredients')->with('instructions')->first());
     }
 
     /**

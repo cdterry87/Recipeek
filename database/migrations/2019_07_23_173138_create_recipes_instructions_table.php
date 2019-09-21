@@ -18,7 +18,7 @@ class CreateRecipesInstructionsTable extends Migration
             $table->bigInteger('recipe_id')->unsigned();
             $table->foreign('recipe_id')->references('id')->on('recipes')->onDelete('cascade');
             $table->text('instruction');
-            $table->unsignedTinyInteger('order');
+            $table->unsignedTinyInteger('order')->nullable();
             $table->timestamps();
         });
     }

@@ -31,6 +31,8 @@ Route::group(['middleware' => 'auth'], function () {
     Route::prefix('api')->group(function () {
         // Application API routes go here
         Route::resource('/recipes', 'RecipeController');
+        Route::resource('/ingredients', 'RecipeIngredientController');
+        Route::resource('/instructions', 'RecipeInstructionController');
 
         // User account routes
         Route::get('/user', 'UserController@index');
