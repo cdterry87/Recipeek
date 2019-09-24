@@ -126,6 +126,7 @@
                 this.image = ''
                 this.video = ''
                 this.private = ''
+                this.$refs.form.resetValidation()
             }
         }
     }

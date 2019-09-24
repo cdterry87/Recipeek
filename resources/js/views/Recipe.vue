@@ -33,9 +33,9 @@
                                 <v-flex xs12 md5>
                                     <h2 class="title"><v-icon>mdi-apple</v-icon> Ingredients</h2>
                                     <div v-if="editMode">
-                                        <div v-if="showAddIngredient">
+                                        <div v-if="addIngredientMode">
                                             <v-form method="POST" id="ingredientForm" class="fadein" @submit.prevent="addIngredient" ref="ingredientForm" lazy-validation>
-                                                <v-textarea hide-details color="grey darken-2" no-resize append-icon="mdi-close" @click:append="showAddIngredient = false" label="Ingredient" :rules="[v => !!v || 'Ingredient is required']" id="ingredient" name="ingredient" v-model="ingredient" type="text" maxlength="250" rows="3" required>
+                                                <v-text-field color="grey darken-2" append-icon="mdi-close" @click:append="addIngredientMode = false" label="Ingredient" :rules="[v => !!v || 'Ingredient is required']" id="ingredient" name="ingredient" ref="ingredient" v-model="ingredient" type="text" required maxlength="250">
                                                     <template v-slot:append-outer>
                                                         <v-menu>
                                                             <template v-slot:activator="{ on }">
@@ -45,11 +45,11 @@
                                                             </template>
                                                         </v-menu>
                                                     </template>
-                                                </v-textarea>
+                                                </v-text-field>
                                             </v-form>
                                         </div>
                                         <div v-else>
-                                            <v-btn text small color="red" class="mt-3" @click="showAddIngredient = true">
+                                            <v-btn text small color="red" class="mt-3" @click="addIngredientMode = true">
                                                 <v-icon class="mr-2">mdi-plus-circle</v-icon>
                                                 Add Ingredient
                                             </v-btn>
@@ -73,13 +73,16 @@
                                             </template>
                                         </v-list-item-group>
                                     </v-list>
+                                    <div v-if="recipe.ingredients.length == 0">
+                                        You have not added any ingredients.
+                                    </div>
                                 </v-flex>
                                 <v-flex xs12 md7>
                                     <h2 class="title"><v-icon>mdi-format-list-numbered</v-icon> Instructions</h2>
                                     <div v-if="editMode">
-                                        <div v-if="showAddInstruction">
+                                        <div v-if="addInstructionMode">
                                             <v-form method="POST" id="instructionForm" class="fadein" @submit.prevent="addInstruction" ref="instructionForm" lazy-validation>
-                                                <v-textarea hide-details color="grey darken-2" no-resize append-icon="mdi-close" @click:append="showAddInstruction = false" label="Instruction" :rules="[v => !!v || 'Instruction is required']" id="instruction" name="instruction" v-model="instruction" rows="3" type="text" required>
+                                                <v-text-field color="grey darken-2" append-icon="mdi-close" @click:append="addInstructionMode = false" label="Instruction" :rules="[v => !!v || 'Instruction is required']" id="instruction" name="instruction" ref="instruction" v-model="instruction" type="text" required>
                                                     <template v-slot:append-outer>
                                                         <v-menu>
                                                             <template v-slot:activator="{ on }">
@@ -89,11 +92,11 @@
                                                             </template>
                                                         </v-menu>
                                                     </template>
-                                                </v-textarea>
+                                                </v-text-field>
                                             </v-form>
                                         </div>
                                         <div v-else>
-                                            <v-btn text small color="red" class="mt-3" @click="showAddInstruction = true">
+                                            <v-btn text small color="red" class="mt-3" @click="addInstructionMode = true">
                                                 <v-icon class="mr-2">mdi-plus-circle</v-icon>
                                                 Add Instruction
                                             </v-btn>
@@ -117,6 +120,9 @@
                                             </template>
                                         </v-list-item-group>
                                     </v-list>
+                                    <div v-if="recipe.instructions.length == 0">
+                                        You have not added any instructions.
+                                    </div>
                                 </v-flex>
                             </v-layout>
                         </v-card-text>
@@ -142,8 +148,8 @@
                 editMode: false,
                 recipe: '',
                 loading: true,
-                showAddIngredient: false,
-                showAddInstruction: false,
+                addIngredientMode: false,
+                addInstructionMode: false,
                 ingredient: '',
                 instruction: ''
             }
@@ -159,7 +165,6 @@
             },
             addIngredient() {
                 if (this.$refs.ingredientForm.validate()) {
-                    // this.ingredients.push({ingredient: this.ingredient})
                     let ingredient = this.ingredient
                     let recipe_id = this.id
 
@@ -171,12 +176,12 @@
 
                         this.ingredient = ''
                         this.$refs.ingredient.focus();
+                        this.$refs.ingredientForm.resetValidation()
                     })
                 }
             },
             addInstruction() {
                 if (this.$refs.instructionForm.validate()) {
-                    // this.instructions.push({ingredient: this.instruction})
                     let instruction = this.instruction
                     let recipe_id = this.id
 
@@ -188,6 +193,7 @@
 
                         this.instruction = ''
                         this.$refs.instruction.focus();
+                        this.$refs.instructionForm.resetValidation()
                     })
                 }
             },
