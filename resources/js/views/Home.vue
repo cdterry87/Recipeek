@@ -18,11 +18,7 @@
                                 </v-list-item-content>
                                 <v-list-item-avatar tile size="80" color="grey"></v-list-item-avatar>
                             </v-list-item>
-                            <v-chip color="red" dark small close @click:close="" class="ma-1">Instant pot</v-chip>
-                            <v-chip color="red" dark small close @click:close="" class="ma-1">Chicken</v-chip>
-                            <v-chip color="red" dark small close @click:close="" class="ma-1">Veggies</v-chip>
-                            <v-chip color="red" dark small close @click:close="" class="ma-1">Quick and Easy</v-chip>
-                            <v-chip color="red" dark small close @click:close="" class="ma-1">&lt; 30 minutes</v-chip>
+                            <v-chip v-for="(tag, index) in recipe.tags" :key="tag.id" color="red" dark small class="ma-1">{{ tag.tag }}</v-chip>
                         </v-card-text>
                     </v-card>
                 </v-flex>

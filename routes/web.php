@@ -33,6 +33,7 @@ Route::group(['middleware' => 'auth'], function () {
         Route::resource('/recipes', 'RecipeController');
         Route::resource('/ingredients', 'RecipeIngredientController');
         Route::resource('/instructions', 'RecipeInstructionController');
+        Route::resource('/tags', 'RecipeTagController');
 
         // User account routes
         Route::get('/user', 'UserController@index');

@@ -17,8 +17,7 @@ class CreateRecipesTagsTable extends Migration
             $table->bigIncrements('id');
             $table->bigInteger('recipe_id')->unsigned();
             $table->foreign('recipe_id')->references('id')->on('recipes')->onDelete('cascade');
-            $table->bigInteger('tag_id')->unsigned();
-            $table->foreign('tag_id')->references('id')->on('tags')->onDelete('cascade');
+            $table->string('tag', 30);
             $table->timestamps();
         });
     }

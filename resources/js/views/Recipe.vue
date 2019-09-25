@@ -29,6 +29,38 @@
                                 </div>
                                 <div v-html="recipe.description" class="mt-3"></div>
                             </div>
+                            <div>
+                                <h2 class="title"><v-icon>mdi-tag</v-icon> Tags</h2>
+                                <div v-if="editMode">
+                                    <div v-if="addTagMode">
+                                        <v-form method="POST" id="tagForm" class="fadein" @submit.prevent="addTag" ref="tagForm" lazy-validation>
+                                            <v-text-field color="grey darken-2" append-icon="mdi-close" @click:append="addTagMode = false" label="Tag" :rules="[v => !!v || 'Tag is required']" id="tag" name="tag" ref="tag" v-model="tag" type="text" required maxlength="30">
+                                                <template v-slot:append-outer>
+                                                    <v-menu>
+                                                        <template v-slot:activator="{ on }">
+                                                            <v-btn type="submit" v-on="on" text color="green">
+                                                                <v-icon>mdi-check-bold</v-icon>
+                                                            </v-btn>
+                                                        </template>
+                                                    </v-menu>
+                                                </template>
+                                            </v-text-field>
+                                        </v-form>
+                                    </div>
+                                    <div v-else>
+                                        <v-btn text small color="red" class="mt-3" @click="addTagMode = true">
+                                            <v-icon class="mr-2">mdi-plus-circle</v-icon>
+                                            Add Tag
+                                        </v-btn>
+                                    </div>
+                                </div>
+                                <div v-if="recipe.tags.length == 0" class="mt-2">
+                                    This recipe does not currently have any tags.
+                                </div>
+                                <div v-else>
+                                    <v-chip v-for="(tag, index) in recipe.tags" :key="index" class="ma-1" dark color="red" @click:close="deleteTag(tag.id)" close>{{ tag.tag }}</v-chip>
+                                </div>
+                            </div>
                             <v-layout row class="mt-3">
                                 <v-flex xs12 md5>
                                     <h2 class="title"><v-icon>mdi-apple</v-icon> Ingredients</h2>
@@ -55,7 +87,10 @@
                                             </v-btn>
                                         </div>
                                     </div>
-                                    <v-list>
+                                    <div v-if="recipe.ingredients.length == 0" class="mt-2">
+                                        This recipe does not currently have any ingredients.
+                                    </div>
+                                    <v-list v-else>
                                         <v-list-item-group multiple>
                                             <template v-for="(ingredient, index) in recipe.ingredients">
                                                 <v-list-item :key="ingredient.ingredient">
@@ -73,9 +108,6 @@
                                             </template>
                                         </v-list-item-group>
                                     </v-list>
-                                    <div v-if="recipe.ingredients.length == 0">
-                                        You have not added any ingredients.
-                                    </div>
                                 </v-flex>
                                 <v-flex xs12 md7>
                                     <h2 class="title"><v-icon>mdi-format-list-numbered</v-icon> Instructions</h2>
@@ -102,7 +134,10 @@
                                             </v-btn>
                                         </div>
                                     </div>
-                                    <v-list>
+                                    <div v-if="recipe.instructions.length == 0" class="mt-2">
+                                        This recipe does not currently have any instructions.
+                                    </div>
+                                    <v-list v-else>
                                         <v-list-item-group multiple>
                                             <template v-for="(instruction, index) in recipe.instructions">
                                                 <v-list-item :key="instruction.ininstructionstruction">
@@ -120,9 +155,6 @@
                                             </template>
                                         </v-list-item-group>
                                     </v-list>
-                                    <div v-if="recipe.instructions.length == 0">
-                                        You have not added any instructions.
-                                    </div>
                                 </v-flex>
                             </v-layout>
                         </v-card-text>
@@ -151,7 +183,9 @@
                 addIngredientMode: false,
                 addInstructionMode: false,
                 ingredient: '',
-                instruction: ''
+                instruction: '',
+                tag: '',
+                addTagMode: false
             }
         },
         methods: {
@@ -197,6 +231,23 @@
                     })
                 }
             },
+            addTag() {
+                if (this.$refs.tagForm.validate()) {
+                    let tag = this.tag
+                    let recipe_id = this.id
+
+                    axios.post('/api/tags', { tag, recipe_id })
+                    .then(response => {
+                        this.getRecipe()
+
+                        Event.$emit('success', response.data.message)
+
+                        this.tag = ''
+                        this.$refs.tag.focus();
+                        this.$refs.tagForm.resetValidation()
+                    })
+                }
+            },
             deleteIngredient(id) {
                 axios.delete('/api/ingredients/' + id)
                 .then(response => {
@@ -207,6 +258,14 @@
             },
             deleteInstruction(id) {
                 axios.delete('/api/instructions/' + id)
+                .then(response => {
+                    this.getRecipe()
+
+                    Event.$emit('success', response.data.message)
+                })
+            },
+            deleteTag(id) {
+                axios.delete('/api/tags/' + id)
                 .then(response => {
                     this.getRecipe()
 

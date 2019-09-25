@@ -15,7 +15,7 @@ class RecipeController extends Controller
      */
     public function index()
     {
-        return response()->json(Auth::user()->recipes()->get());
+        return response()->json(Auth::user()->recipes()->with('tags')->get());
     }
 
     /**
@@ -54,7 +54,7 @@ class RecipeController extends Controller
      */
     public function show(Recipe $recipe)
     {
-        return response()->json($recipe->where('id', $recipe->id)->with('ingredients')->with('instructions')->first());
+        return response()->json($recipe->where('id', $recipe->id)->with('ingredients')->with('instructions')->with('tags')->first());
     }
 
     /**
