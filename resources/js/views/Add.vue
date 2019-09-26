@@ -29,10 +29,10 @@
                                 <v-text-field hide-details color="white" label="Prep Minutes" filled prepend-inner-icon="mdi-alarm" id="prep_minutes" name="prep_minutes" v-model="prep_minutes" type="text" maxlength="2"></v-text-field>
                             </v-flex>
                             <v-flex xs6 md3>
-                                <v-text-field hide-details color="white" label="Total Hours" filled prepend-inner-icon="mdi-alarm" id="total_hours" name="total_hours" v-model="total_hours" type="text" maxlength="2"></v-text-field>
+                                <v-text-field hide-details color="white" label="Cook Hours" filled prepend-inner-icon="mdi-alarm" id="cook_hours" name="cook_hours" v-model="cook_hours" type="text" maxlength="2"></v-text-field>
                             </v-flex>
                             <v-flex xs6 md3>
-                                <v-text-field hide-details color="white" label="Total Minutes" filled prepend-inner-icon="mdi-alarm" id="total_minutes" name="total_minutes" v-model="total_minutes" type="text" maxlength="2"></v-text-field>
+                                <v-text-field hide-details color="white" label="Cook Minutes" filled prepend-inner-icon="mdi-alarm" id="cook_minutes" name="cook_minutes" v-model="cook_minutes" type="text" maxlength="2"></v-text-field>
                             </v-flex>
                         </v-layout>
                         <v-layout row>
@@ -78,8 +78,8 @@
                 description: '',
                 prep_hours: 0,
                 prep_minutes: 0,
-                total_hours: 0,
-                total_minutes: 0,
+                cook_hours: 0,
+                cook_minutes: 0,
                 servings: 0,
                 calories: 0,
                 image: '',
@@ -94,15 +94,15 @@
                     let description = this.description
                     let prep_hours = this.prep_hours
                     let prep_minutes = this.prep_minutes
-                    let total_hours = this.total_hours
-                    let total_minutes = this.total_minutes
+                    let cook_hours = this.cook_hours
+                    let cook_minutes = this.cook_minutes
                     let servings = this.servings
                     let calories = this.calories
                     let image = this.image
                     let video = this.video
                     let private_recipe = this.private
 
-                    axios.post('/api/recipes', { title, description, prep_hours, prep_minutes, total_hours, total_minutes, servings, calories, image, video, private_recipe })
+                    axios.post('/api/recipes', { title, description, prep_hours, prep_minutes, cook_hours, cook_minutes, servings, calories, image, video, private_recipe })
                     .then(response => {
                         let recipe_id = response.data.data.id
 
@@ -119,8 +119,8 @@
                 this.description = ''
                 this.prep_hours = ''
                 this.prep_minutes = ''
-                this.total_hours = ''
-                this.total_minutes = ''
+                this.cook_hours = ''
+                this.cook_minutes = ''
                 this.servings = ''
                 this.calories = ''
                 this.image = ''

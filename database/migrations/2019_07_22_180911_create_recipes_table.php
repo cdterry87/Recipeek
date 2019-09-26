@@ -21,8 +21,8 @@ class CreateRecipesTable extends Migration
             $table->text('description')->nullable();
             $table->tinyInteger('prep_hours')->nullable();
             $table->tinyInteger('prep_minutes')->nullable();
-            $table->tinyInteger('total_hours')->nullable();
-            $table->tinyInteger('total_minutes')->nullable();
+            $table->tinyInteger('cook_hours')->nullable();
+            $table->tinyInteger('cook_minutes')->nullable();
             $table->tinyInteger('servings')->nullable();
             $table->integer('calories')->nullable();
             $table->text('image')->nullable();

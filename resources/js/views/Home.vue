@@ -1,6 +1,17 @@
 <template>
     <div id="home">
-        <v-container fluid grid-list-lg>
+        <v-container v-if="recipes.length == 0" class="fill-height" fluid>
+            <v-row align="center" justify="center">
+                <v-col cols="12" class="text-center ma-5 headline">
+                    You have not saved any recipes yet.
+                    <div class="mt-5">
+                        <v-btn text to="/add">Add A Recipe</v-btn> or
+                        <v-btn text to="/discover">Discover New Recipes</v-btn>!
+                    </div>
+                </v-col>
+            </v-row>
+        </v-container>
+        <v-container v-else fluid grid-list-lg>
             <v-layout row wrap>
                 <v-flex xs12 md4 v-for="(recipe, index) in recipes" :key="index">
                     <v-card light class="mx-auto recipe-card">
@@ -18,7 +29,7 @@
                                 </v-list-item-content>
                                 <v-list-item-avatar tile size="80" color="grey"></v-list-item-avatar>
                             </v-list-item>
-                            <v-chip v-for="(tag, index) in recipe.tags" :key="tag.id" color="red" dark small class="ma-1">{{ tag.tag }}</v-chip>
+                            <v-chip v-for="(tag, index) in recipe.tags" :key="index" color="red" dark small class="ma-1">{{ tag.tag }}</v-chip>
                         </v-card-text>
                     </v-card>
                 </v-flex>

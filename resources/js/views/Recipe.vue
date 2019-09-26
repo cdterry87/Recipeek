@@ -6,6 +6,7 @@
                     <Loading v-if="loading" />
                     <v-card light v-else>
                         <v-card-actions>
+                            <v-btn icon small v-if="editMode" @click="deleteRecipe"><v-icon>mdi-close</v-icon></v-btn>
                             <v-spacer></v-spacer>
                             <v-btn color="red" outlined @click="editMode = !editMode"><v-icon>mdi-pencil</v-icon> Edit</v-btn>
                         </v-card-actions>
@@ -14,16 +15,21 @@
                                 <h1 class="headline">{{ recipe.title }}</h1>
                                 <div class="mt-3">
                                     <span>
-                                        <v-icon>mdi-alarm</v-icon>
-                                        <span v-if="recipe.total_hours > 0">{{ recipe.total_hours }}h</span>
-                                        <span v-if="recipe.total_minutes > 0">{{ recipe.total_minutes }}m</span>
+                                        <v-icon title="Prep Time">mdi-alarm</v-icon>
+                                        <span v-if="recipe.prep_hours > 0">{{ recipe.prep_hours }}h</span>
+                                        <span v-if="recipe.prep_minutes > 0">{{ recipe.prep_minutes }}m</span>
+                                        <span v-if="$vuetify.breakpoint.mdAndUp"> prep time</span>
+                                        <v-icon title="Cook Time">mdi-stove</v-icon>
+                                        <span v-if="recipe.cook_hours > 0">{{ recipe.cook_hours }}h</span>
+                                        <span v-if="recipe.cook_minutes > 0">{{ recipe.cook_minutes }}m</span>
+                                        <span v-if="$vuetify.breakpoint.mdAndUp"> cook time</span>
                                     </span>
                                     <span>
-                                        <v-icon>mdi-chart-pie</v-icon>
+                                        <v-icon title="Servings">mdi-chart-pie</v-icon>
                                         {{ recipe.servings }} <span v-if="$vuetify.breakpoint.mdAndUp">servings</span>
                                     </span>
                                     <span>
-                                        <v-icon>mdi-nutrition</v-icon>
+                                        <v-icon title="Calories">mdi-nutrition</v-icon>
                                         {{ recipe.calories }} <span v-if="$vuetify.breakpoint.mdAndUp">calories</span>
                                     </span>
                                 </div>
@@ -57,8 +63,8 @@
                                 <div v-if="recipe.tags.length == 0" class="mt-2">
                                     This recipe does not currently have any tags.
                                 </div>
-                                <div v-else>
-                                    <v-chip v-for="(tag, index) in recipe.tags" :key="index" class="ma-1" dark color="red" @click:close="deleteTag(tag.id)" close>{{ tag.tag }}</v-chip>
+                                <div v-else class="mt-2">
+                                    <v-chip v-for="(tag, index) in recipe.tags" :key="index" class="ma-1" dark color="red" @click:close="deleteTag(tag.id)" :close="editMode">{{ tag.tag }}</v-chip>
                                 </div>
                             </div>
                             <v-layout row class="mt-3">
@@ -100,7 +106,7 @@
                                                             <v-checkbox v-else v-model="active" @click="toggle" class="mx-2" color="red"></v-checkbox>
                                                         </v-list-item-action>
                                                         <v-list-item-content>
-                                                            <v-list-item-title>{{ ingredient.ingredient }}</v-list-item-title>
+                                                            <v-list-item-subtitle>{{ ingredient.ingredient }}</v-list-item-subtitle>
                                                         </v-list-item-content>
                                                     </template>
                                                 </v-list-item>
@@ -140,14 +146,14 @@
                                     <v-list v-else>
                                         <v-list-item-group multiple>
                                             <template v-for="(instruction, index) in recipe.instructions">
-                                                <v-list-item :key="instruction.ininstructionstruction">
+                                                <v-list-item :key="instruction.instruction">
                                                     <template v-slot:default="{ active, toggle }">
                                                         <v-list-item-action>
                                                             <v-icon v-if="editMode" @click="deleteInstruction(instruction.id)">mdi-close</v-icon>
                                                             <v-checkbox v-else v-model="active" @click="toggle" class="mx-2" color="red"></v-checkbox>
                                                         </v-list-item-action>
                                                         <v-list-item-content>
-                                                            <v-list-item-title>{{ instruction.instruction }}</v-list-item-title>
+                                                            <v-list-item-subtitle>{{ instruction.instruction }}</v-list-item-subtitle>
                                                         </v-list-item-content>
                                                     </template>
                                                 </v-list-item>
@@ -195,6 +201,13 @@
                     this.recipe = response.data
 
                     this.loading = false
+                })
+            },
+            deleteRecipe() {
+                axios.delete('/api/recipes/' + this.id)
+                .then(response => {
+                    this.recipe = response.data
+                    this.$router.push('/home')
                 })
             },
             addIngredient() {

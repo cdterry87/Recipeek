@@ -31,8 +31,8 @@ class RecipeController extends Controller
             'description' => $request->description,
             'prep_hours' => $request->prep_hours,
             'prep_minutes' => $request->prep_minutes,
-            'total_hours' => $request->total_hours,
-            'total_minutes' => $request->total_minutes,
+            'cook_hours' => $request->cook_hours,
+            'cook_minutes' => $request->cook_minutes,
             'servings' => $request->servings,
             'calories' => $request->calories,
             'private' => $request->private_recipe,
@@ -67,7 +67,7 @@ class RecipeController extends Controller
     public function update(Request $request, Recipe $recipe)
     {
         $status = $recipe->update(
-            $request->only(['title', 'description', 'prep_hours', 'prep_minutes', 'total_hours', 'total_minutes', 'servings', 'calories', 'private'])
+            $request->only(['title', 'description', 'prep_hours', 'prep_minutes', 'cook_hours', 'cook_minutes', 'servings', 'calories', 'private'])
         );
 
         return response()->json([
