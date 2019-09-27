@@ -59,6 +59,10 @@ a {
   box-shadow: none !important;
 }
 
+.v-speed-dial {
+  position: fixed;
+}
+
 .fadein {
   animation: fadein 2s;
   -moz-animation: fadein 2s;
