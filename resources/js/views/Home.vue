@@ -25,7 +25,7 @@
                         <v-card-text>
                             <v-list-item three-line>
                                 <v-list-item-content>
-                                    <v-list-item-title class="headline" v-html="recipe.title"></v-list-item-title>
+                                    <v-list-item-title :class="($vuetify.breakpoint.smAndDown ? 'subtitle-1' : 'headline')" v-html="recipe.title"></v-list-item-title>
                                     <v-list-item-subtitle v-html="recipe.description"></v-list-item-subtitle>
                                 </v-list-item-content>
                                 <v-list-item-avatar tile size="80" color="grey"></v-list-item-avatar>

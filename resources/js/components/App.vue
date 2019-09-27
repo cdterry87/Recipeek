@@ -29,7 +29,7 @@
             </v-toolbar>
             <div v-else>
                 <v-toolbar color="transparent" flat>
-                    <a href="/home" class="display-1 logo">Recipeek</a>
+                    <a href="/home" class="headline logo">Recipeek</a>
                     <v-spacer></v-spacer>
                     <v-btn outlined to="/home" v-if="this.$router.currentRoute.name != 'home'" class="ml-1"><v-icon>mdi-home</v-icon></v-btn>
                     <v-btn outlined to="/account" class="ml-1"><v-icon>mdi-account-circle</v-icon></v-btn>
