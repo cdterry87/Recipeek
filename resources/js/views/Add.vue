@@ -29,10 +29,10 @@
                                 <v-text-field hide-details color="white" label="Prep Minutes" filled prepend-inner-icon="mdi-alarm" id="prep_minutes" name="prep_minutes" v-model="prep_minutes" type="text" maxlength="2"></v-text-field>
                             </v-flex>
                             <v-flex xs6 md3>
-                                <v-text-field hide-details color="white" label="Cook Hours" filled prepend-inner-icon="mdi-alarm" id="cook_hours" name="cook_hours" v-model="cook_hours" type="text" maxlength="2"></v-text-field>
+                                <v-text-field hide-details color="white" label="Cook Hours" filled prepend-inner-icon="mdi-stove" id="cook_hours" name="cook_hours" v-model="cook_hours" type="text" maxlength="2"></v-text-field>
                             </v-flex>
                             <v-flex xs6 md3>
-                                <v-text-field hide-details color="white" label="Cook Minutes" filled prepend-inner-icon="mdi-alarm" id="cook_minutes" name="cook_minutes" v-model="cook_minutes" type="text" maxlength="2"></v-text-field>
+                                <v-text-field hide-details color="white" label="Cook Minutes" filled prepend-inner-icon="mdi-stove" id="cook_minutes" name="cook_minutes" v-model="cook_minutes" type="text" maxlength="2"></v-text-field>
                             </v-flex>
                         </v-layout>
                         <v-layout row>

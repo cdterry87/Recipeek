@@ -6,13 +6,67 @@
                     <Loading v-if="loading" />
                     <v-card light v-else>
                         <v-card-actions>
-                            <v-btn icon small v-if="editMode" @click="deleteRecipe"><v-icon>mdi-close</v-icon></v-btn>
+                            <v-btn icon small color="red" v-if="editMode" @click="deleteRecipe"><v-icon>mdi-close</v-icon></v-btn>
                             <v-spacer></v-spacer>
-                            <v-btn color="red" outlined @click="editMode = !editMode"><v-icon>mdi-pencil</v-icon> Edit</v-btn>
+                            <v-btn color="red" outlined @click="editModeToggle">
+                                <span v-if="editMode"><v-icon>mdi-cancel</v-icon> Cancel</span>
+                                <span v-else><v-icon>mdi-pencil</v-icon> Edit</span>
+                            </v-btn>
                         </v-card-actions>
                         <v-card-text>
-                            <div class="text-center mb-5">
-                                <h1 class="headline">{{ recipe.title }}</h1>
+                            <div v-if="editRecipeMode">
+                                <h2 class="title"><v-icon>mdi-pencil</v-icon> Recipe Details</h2>
+                                <v-form method="POST" id="recipeForm" class="fadein" @submit.prevent="saveRecipe" ref="recipeForm" lazy-validation>
+                                    <v-flex xs12>
+                                        <v-layout row>
+                                            <v-flex xs12>
+                                                <v-text-field hide-details label="Recipe Name" :rules="[v => !!v || 'Recipe Name is required']" prepend-inner-icon="mdi-silverware-fork-knife" id="title" name="title" v-model="recipe.title" type="text" required></v-text-field>
+                                            </v-flex>
+                                        </v-layout>
+                                        <v-layout row>
+                                            <v-flex xs12>
+                                                <v-textarea hide-details name="description" prepend-inner-icon="mdi-format-align-justify" id="description" label="Description" v-model="recipe.description"></v-textarea>
+                                            </v-flex>
+                                        </v-layout>
+                                        <v-layout row>
+                                            <v-flex xs6 md3>
+                                                <v-text-field hide-details label="Prep Hours" prepend-inner-icon="mdi-alarm" id="prep_hours" name="prep_hours" v-model="recipe.prep_hours" type="text" maxlength="2"></v-text-field>
+                                            </v-flex>
+                                            <v-flex xs6 md3>
+                                                <v-text-field hide-details label="Prep Minutes" prepend-inner-icon="mdi-alarm" id="prep_minutes" name="prep_minutes" v-model="recipe.prep_minutes" type="text" maxlength="2"></v-text-field>
+                                            </v-flex>
+                                            <v-flex xs6 md3>
+                                                <v-text-field hide-details label="Cook Hours" prepend-inner-icon="mdi-stove" id="cook_hours" name="cook_hours" v-model="recipe.cook_hours" type="text" maxlength="2"></v-text-field>
+                                            </v-flex>
+                                            <v-flex xs6 md3>
+                                                <v-text-field hide-details label="Cook Minutes" prepend-inner-icon="mdi-stove" id="cook_minutes" name="cook_minutes" v-model="recipe.cook_minutes" type="text" maxlength="2"></v-text-field>
+                                            </v-flex>
+                                        </v-layout>
+                                        <v-layout row>
+                                            <v-flex xs6 md4>
+                                                <v-text-field hide-details color="white" label="Servings" prepend-inner-icon="mdi-chart-pie" id="servings" name="servings" v-model="recipe.servings" type="text" maxlength="2"></v-text-field>
+                                            </v-flex>
+                                            <v-flex xs6 md4>
+                                                <v-text-field hide-details color="white" label="Calories" prepend-inner-icon="mdi-nutrition" id="calories" name="calories" v-model="recipe.calories" type="text" maxlength="6"></v-text-field>
+                                            </v-flex>
+                                            <v-flex xs12 md4>
+                                                <v-checkbox hide-details color="white" id="private" name="private" label="Private"></v-checkbox>
+                                            </v-flex>
+                                        </v-layout>
+                                        <v-layout row class="text-center mt-5">
+                                            <v-flex xs12>
+                                                <v-btn outlined type="submit" color="red">Save Recipe</v-btn>
+                                                <v-btn text @click="editRecipeMode = false">Cancel</v-btn>
+                                            </v-flex>
+                                        </v-layout>
+                                    </v-flex>
+                                </v-form>
+                            </div>
+                            <div v-else class="text-center">
+                                <h1 class="headline">
+                                    <v-icon color="red" class="mr-2" @click="editRecipeMode = true" v-if="editMode">mdi-pencil</v-icon>
+                                    {{ recipe.title }}
+                                </h1>
                                 <div class="mt-3">
                                     <span>
                                         <v-icon title="Prep Time">mdi-alarm</v-icon>
@@ -35,7 +89,7 @@
                                 </div>
                                 <div v-html="recipe.description" class="mt-3"></div>
                             </div>
-                            <div>
+                            <div class="mt-5">
                                 <h2 class="title"><v-icon>mdi-tag</v-icon> Tags</h2>
                                 <div v-if="editMode">
                                     <div v-if="addTagMode">
@@ -191,10 +245,17 @@
                 ingredient: '',
                 instruction: '',
                 tag: '',
-                addTagMode: false
+                addTagMode: false,
+                editRecipeMode: false,
             }
         },
         methods: {
+            editModeToggle() {
+                this.editMode = !this.editMode
+                this.editRecipeMode = false
+                this.addIngredientMode = false
+                this.addInstructionMode = false
+            },
             getRecipe() {
                 axios.get('/api/recipes/' + this.id)
                 .then(response => {
@@ -202,6 +263,26 @@
 
                     this.loading = false
                 })
+            },
+            saveRecipe() {
+                if (this.$refs.recipeForm.validate()) {
+                    let title = this.recipe.title
+                    let description = this.recipe.description
+                    let prep_hours = this.recipe.prep_hours
+                    let prep_minutes = this.recipe.prep_minutes
+                    let cook_hours = this.recipe.cook_hours
+                    let cook_minutes = this.recipe.cook_minutes
+                    let servings = this.recipe.servings
+                    let calories = this.recipe.calories
+                    let private_recipe = this.recipe.private
+
+                    axios.put('/api/recipes/' + this.id, { title, description, prep_hours, prep_minutes, cook_hours, cook_minutes, servings, calories, private_recipe })
+                    .then(response => {
+                        this.getRecipe()
+
+                        Event.$emit('success', response.data.message)
+                    })
+                }
             },
             deleteRecipe() {
                 axios.delete('/api/recipes/' + this.id)
