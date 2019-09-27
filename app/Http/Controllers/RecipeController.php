@@ -15,7 +15,7 @@ class RecipeController extends Controller
      */
     public function index()
     {
-        return response()->json(Auth::user()->recipes()->with('tags')->get());
+        return response()->json(Auth::user()->recipes()->with('tags')->with('favorites')->get());
     }
 
     /**

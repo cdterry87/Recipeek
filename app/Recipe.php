@@ -29,4 +29,9 @@ class Recipe extends Model
     {
         return $this->hasMany('App\RecipeTags');
     }
+
+    public function favorites()
+    {
+        return $this->hasMany('App\UserFavorites')->where('user_id', auth()->id());
+    }
 }

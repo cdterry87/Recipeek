@@ -39,6 +39,8 @@ Route::group(['middleware' => 'auth'], function () {
         Route::get('/user', 'UserController@index');
         Route::post('/account', 'UserController@account');
         Route::post('/password', 'UserController@password');
+        Route::post('/favorite', 'UserController@favorite');
+        Route::post('/unfavorite', 'UserController@unfavorite');
     });
 
     // Catch-all route

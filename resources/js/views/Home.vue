@@ -19,7 +19,8 @@
                             <v-btn outlined small dark color="red" :to="'/recipe/' + recipe.id">Start Cooking!</v-btn>
                             <v-spacer></v-spacer>
                             <v-btn small icon text><v-icon>mdi-share</v-icon></v-btn>
-                            <v-btn small icon text><v-icon>mdi-heart</v-icon></v-btn>
+                            <v-btn v-if="recipe.favorites.length == 0" small icon text @click="addFavorite(recipe.id)"><v-icon>mdi-heart</v-icon></v-btn>
+                            <v-btn v-else small icon text color="red" @click="removeFavorite(recipe.id)"><v-icon>mdi-heart</v-icon></v-btn>
                         </v-card-actions>
                         <v-card-text>
                             <v-list-item three-line>
@@ -60,6 +61,18 @@
                     this.recipes = response.data
 
                     this.loading = false
+                })
+            },
+            addFavorite(id) {
+                axios.post('/api/favorite', { id })
+                .then(response => {
+                    this.getRecipes()
+                })
+            },
+            removeFavorite(id) {
+                axios.post('/api/unfavorite', { id })
+                .then(response => {
+                    this.getRecipes()
                 })
             }
         },
