@@ -16,7 +16,7 @@
                         <v-card-text>
                             <div v-if="editRecipeMode">
                                 <h2 class="title"><v-icon>mdi-pencil</v-icon> Recipe Details</h2>
-                                <v-form method="POST" id="recipeForm" class="fadein" @submit.prevent="saveRecipe" ref="recipeForm" lazy-validation>
+                                <v-form method="POST" id="recipeForm" class="fadein" @submit.prevent="saveRecipe" ref="recipeForm" autocomplete="off" lazy-validation>
                                     <v-flex xs12>
                                         <v-layout row>
                                             <v-flex xs12>
@@ -93,7 +93,7 @@
                                 <h2 class="title"><v-icon>mdi-tag</v-icon> Tags</h2>
                                 <div v-if="editMode">
                                     <div v-if="addTagMode">
-                                        <v-form method="POST" id="tagForm" class="fadein" @submit.prevent="addTag" ref="tagForm" lazy-validation>
+                                        <v-form method="POST" id="tagForm" class="fadein" @submit.prevent="addTag" ref="tagForm" autocomplete="off" lazy-validation>
                                             <v-text-field color="grey darken-2" append-icon="mdi-close" @click:append="addTagMode = false" label="Tag" :rules="[v => !!v || 'Tag is required']" id="tag" name="tag" ref="tag" v-model="tag" type="text" required maxlength="30">
                                                 <template v-slot:append-outer>
                                                     <v-menu>
@@ -126,7 +126,7 @@
                                     <h2 class="title"><v-icon>mdi-apple</v-icon> Ingredients</h2>
                                     <div v-if="editMode">
                                         <div v-if="addIngredientMode">
-                                            <v-form method="POST" id="ingredientForm" class="fadein" @submit.prevent="addIngredient" ref="ingredientForm" lazy-validation>
+                                            <v-form method="POST" id="ingredientForm" class="fadein" @submit.prevent="addIngredient" ref="ingredientForm" autocomplete="off" lazy-validation>
                                                 <v-text-field color="grey darken-2" append-icon="mdi-close" @click:append="addIngredientMode = false" label="Ingredient" :rules="[v => !!v || 'Ingredient is required']" id="ingredient" name="ingredient" ref="ingredient" v-model="ingredient" type="text" required maxlength="250">
                                                     <template v-slot:append-outer>
                                                         <v-menu>
@@ -173,7 +173,7 @@
                                     <h2 class="title"><v-icon>mdi-format-list-numbered</v-icon> Instructions</h2>
                                     <div v-if="editMode">
                                         <div v-if="addInstructionMode">
-                                            <v-form method="POST" id="instructionForm" class="fadein" @submit.prevent="addInstruction" ref="instructionForm" lazy-validation>
+                                            <v-form method="POST" id="instructionForm" class="fadein" @submit.prevent="addInstruction" ref="instructionForm" autocomplete="off" lazy-validation>
                                                 <v-text-field color="grey darken-2" append-icon="mdi-close" @click:append="addInstructionMode = false" label="Instruction" :rules="[v => !!v || 'Instruction is required']" id="instruction" name="instruction" ref="instruction" v-model="instruction" type="text" required>
                                                     <template v-slot:append-outer>
                                                         <v-menu>

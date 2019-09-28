@@ -5,8 +5,8 @@
                 <v-layout align-center justify-center wrap>
                     <v-flex xs12 sm10 md5>
                         <div class="text-center mb-5">
-                            <h1 class="display-1">{{ title }}</h1>
-                            <h2 class="title mt-2">Sign in to do someting great!</h2>
+                            <h1 class="display-1 logo">{{ title }}</h1>
+                            <h2 class="title mt-2">Sign in and start cooking!</h2>
                         </div>
                         <div class="mt-3 mb-5" v-if="errorMessages.length > 0">
                             <Errors :errors="errorMessages" />
