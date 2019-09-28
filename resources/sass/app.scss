@@ -25,7 +25,8 @@ a {
 }
 
 .v-application .logo, .logo {
-    font-family: 'Molle', cursive !important;
+    // font-family: 'Molle', cursive !important;        // Does not work in Safari mobile
+    font-family: 'Righteous', sans-serif !important;
 }
 
 /* Removes the weird gap on the toolbar */
