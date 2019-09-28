@@ -35,6 +35,9 @@ Route::group(['middleware' => 'auth'], function () {
         Route::resource('/instructions', 'RecipeInstructionController');
         Route::resource('/tags', 'RecipeTagController');
 
+        Route::get('/discover', 'DiscoverController@index');
+        Route::get('/favorites', 'FavoriteController@index');
+
         // User account routes
         Route::get('/user', 'UserController@index');
         Route::post('/account', 'UserController@account');
