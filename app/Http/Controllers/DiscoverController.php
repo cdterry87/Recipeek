@@ -15,6 +15,7 @@ class DiscoverController extends Controller
      */
     public function index()
     {
-        return response()->json(DB::table('recipes')->where('user_id', '!=', auth()->id())->get());
+        $recipe = new Recipe;
+        return response()->json($recipe->where('user_id', '!=', auth()->id())->with('tags')->with('favorites')->get());
     }
 }
