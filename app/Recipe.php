@@ -10,10 +10,7 @@ class Recipe extends Model
 
     protected $guarded = [];
 
-    public function user()
-    {
-        return $this->belongsTo('App\User')->withTimestamps();
-    }
+
 
     public function ingredients()
     {
@@ -33,5 +30,10 @@ class Recipe extends Model
     public function favorites()
     {
         return $this->hasMany('App\UserFavorites')->where('user_id', auth()->id());
+    }
+
+    public function user()
+    {
+        return $this->belongsTo('App\User');
     }
 }

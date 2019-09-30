@@ -66,6 +66,9 @@
                                 <h1 class="headline">
                                     <v-icon color="red" class="mr-2" @click="editRecipeMode = true" v-if="editMode">mdi-pencil</v-icon>
                                     {{ recipe.title }}
+                                    <div class="caption">
+                                        by {{ recipe.user.name }}
+                                    </div>
                                 </h1>
                                 <div class="mt-3">
                                     <span>

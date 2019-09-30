@@ -12,6 +12,7 @@ class FavoriteController extends Controller
             ->favorites()
             ->with('recipe.tags')           // Retrieves the recipe and its tags
             ->with('recipe.favorites')      // Retrieves the recipe and its favorites
+            ->with('recipe.user')           // Retrieves the recipe and its associated user
             ->latest()
             ->get());
     }
