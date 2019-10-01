@@ -6,10 +6,10 @@
                     <Loading v-if="loading" />
                     <v-card light v-else>
                         <v-card-actions>
-                            <v-btn icon small color="red" v-if="editMode" @click="deleteRecipe"><v-icon>mdi-close</v-icon></v-btn>
+                            <v-btn icon small color="red" v-if="editMode" @click="deleteRecipe"><v-icon>mdi-trash-can</v-icon></v-btn>
                             <v-spacer></v-spacer>
                             <v-btn color="red" outlined @click="editModeToggle">
-                                <span v-if="editMode"><v-icon>mdi-cancel</v-icon> Cancel</span>
+                                <span v-if="editMode"><v-icon>mdi-cancel</v-icon> Done</span>
                                 <span v-else><v-icon>mdi-pencil</v-icon> Edit</span>
                             </v-btn>
                         </v-card-actions>
