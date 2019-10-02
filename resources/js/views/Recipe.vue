@@ -50,7 +50,12 @@
                                                 <v-text-field hide-details color="white" label="Calories" prepend-inner-icon="mdi-nutrition" id="calories" name="calories" v-model="recipe.calories" type="text" maxlength="6"></v-text-field>
                                             </v-flex>
                                             <v-flex xs12 md4>
-                                                <v-checkbox hide-details color="white" id="private" name="private" label="Private"></v-checkbox>
+                                                <v-checkbox hide-details id="private" name="private" label="Private"></v-checkbox>
+                                            </v-flex>
+                                        </v-layout>
+                                        <v-layout row>
+                                            <v-flex>
+                                                <v-file-input @change="storeImage" ref="image" :label="recipe.image ? 'Update Recipe Image' : 'Upload Recipe Image'"></v-file-input>
                                             </v-flex>
                                         </v-layout>
                                         <v-layout row class="text-center mt-5">
@@ -250,6 +255,7 @@
                 tag: '',
                 addTagMode: false,
                 editRecipeMode: false,
+                image: ''
             }
         },
         methods: {
@@ -269,22 +275,38 @@
             },
             saveRecipe() {
                 if (this.$refs.recipeForm.validate()) {
-                    let title = this.recipe.title
-                    let description = this.recipe.description
-                    let prep_hours = this.recipe.prep_hours
-                    let prep_minutes = this.recipe.prep_minutes
-                    let cook_hours = this.recipe.cook_hours
-                    let cook_minutes = this.recipe.cook_minutes
-                    let servings = this.recipe.servings
-                    let calories = this.recipe.calories
-                    let private_recipe = this.recipe.private
+                    let recipeForm = new FormData()
+                    recipeForm.append('_method', 'PUT');
+                    recipeForm.append('title', this.recipe.title);
+                    recipeForm.append('description', this.recipe.description);
+                    recipeForm.append('prep_hours', this.recipe.prep_hours);
+                    recipeForm.append('prep_minutes', this.recipe.prep_minutes);
+                    recipeForm.append('cook_hours', this.recipe.cook_hours);
+                    recipeForm.append('cook_minutes', this.recipe.cook_minutes);
+                    recipeForm.append('servings', this.recipe.servings);
+                    recipeForm.append('calories', this.recipe.calories);
 
-                    axios.put('/api/recipes/' + this.id, { title, description, prep_hours, prep_minutes, cook_hours, cook_minutes, servings, calories, private_recipe })
+                    if (typeof(this.recipe.image) === 'object') {
+                        recipeForm.append('newImage', this.recipe.image);
+                    }
+                    
+                    recipeForm.append('private_recipe', this.recipe.private);
+
+                    axios.post('/api/recipes/' + this.id, recipeForm, { headers: { 'content-type': 'multipart/form-data' } })
                     .then(response => {
                         this.getRecipe()
 
                         Event.$emit('success', response.data.message)
                     })
+                }
+            },
+            storeImage(e) {
+                let allowedTypes = ['image/bmp', 'image/gif', 'image/jpeg', 'image/png']
+                if (allowedTypes.includes(e.type)) {
+                    this.recipe['image'] = e
+                } else {
+                    this.recipe['image'] = ""
+                    this.$refs.image.value = ""
                 }
             },
             deleteRecipe() {

@@ -46,6 +46,11 @@
                                 <v-checkbox hide-details color="white" id="private" name="private" label="Private"></v-checkbox>
                             </v-flex>
                         </v-layout>
+                        <v-layout row>
+                            <v-flex xs12>
+                                <v-file-input @change="storeImage" ref="image" color="white" filled label="Upload an image"></v-file-input>
+                            </v-flex>
+                        </v-layout>
                         <v-layout>
                             <v-flex xs12 class="text-center mt-5">
                                 <v-icon class="mr-2">mdi-information</v-icon>
@@ -90,19 +95,20 @@
         methods: {
             addRecipe() {
                 if (this.$refs.form.validate()) {
-                    let title = this.title
-                    let description = this.description
-                    let prep_hours = this.prep_hours
-                    let prep_minutes = this.prep_minutes
-                    let cook_hours = this.cook_hours
-                    let cook_minutes = this.cook_minutes
-                    let servings = this.servings
-                    let calories = this.calories
-                    let image = this.image
-                    let video = this.video
-                    let private_recipe = this.private
+                    let recipeForm = new FormData()
+                    recipeForm.append('title', this.title);
+                    recipeForm.append('description', this.description);
+                    recipeForm.append('prep_hours', this.prep_hours);
+                    recipeForm.append('prep_minutes', this.prep_minutes);
+                    recipeForm.append('cook_hours', this.cook_hours);
+                    recipeForm.append('cook_minutes', this.cook_minutes);
+                    recipeForm.append('servings', this.servings);
+                    recipeForm.append('calories', this.calories);
+                    recipeForm.append('image', this.image);
+                    recipeForm.append('video', this.video);  
+                    recipeForm.append('private_recipe', this.private === false ? 0 : 1);
 
-                    axios.post('/api/recipes', { title, description, prep_hours, prep_minutes, cook_hours, cook_minutes, servings, calories, image, video, private_recipe })
+                    axios.post('/api/recipes', recipeForm, { headers: { 'content-type': 'multipart/form-data' } })
                     .then(response => {
                         let recipe_id = response.data.data.id
 
@@ -127,6 +133,15 @@
                 this.video = ''
                 this.private = ''
                 this.$refs.form.resetValidation()
+            },
+            storeImage(e) {
+                let allowedTypes = ['image/bmp', 'image/gif', 'image/jpeg', 'image/png']
+                if (allowedTypes.includes(e.type)) {
+                    this.image = e
+                } else {
+                    this.image = ""
+                    this.$refs.image.value = ""
+                }
             }
         }
     }
