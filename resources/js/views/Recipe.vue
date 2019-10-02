@@ -68,34 +68,45 @@
                                 </v-form>
                             </div>
                             <div v-else class="text-center">
-                                <h1 class="headline">
-                                    <v-icon color="red" class="mr-2" @click="editRecipeMode = true" v-if="editMode">mdi-pencil</v-icon>
-                                    {{ recipe.title }}
-                                    <div class="caption">
-                                        by {{ recipe.user.name }}
-                                    </div>
-                                </h1>
-                                <div class="mt-3">
-                                    <span>
-                                        <v-icon title="Prep Time">mdi-alarm</v-icon>
-                                        <span v-if="recipe.prep_hours > 0">{{ recipe.prep_hours }}h</span>
-                                        <span v-if="recipe.prep_minutes > 0">{{ recipe.prep_minutes }}m</span>
-                                        <span v-if="$vuetify.breakpoint.mdAndUp"> prep time</span>
-                                        <v-icon title="Cook Time">mdi-stove</v-icon>
-                                        <span v-if="recipe.cook_hours > 0">{{ recipe.cook_hours }}h</span>
-                                        <span v-if="recipe.cook_minutes > 0">{{ recipe.cook_minutes }}m</span>
-                                        <span v-if="$vuetify.breakpoint.mdAndUp"> cook time</span>
-                                    </span>
-                                    <span>
-                                        <v-icon title="Servings">mdi-chart-pie</v-icon>
-                                        {{ recipe.servings }} <span v-if="$vuetify.breakpoint.mdAndUp">servings</span>
-                                    </span>
-                                    <span>
-                                        <v-icon title="Calories">mdi-nutrition</v-icon>
-                                        {{ recipe.calories }} <span v-if="$vuetify.breakpoint.mdAndUp">calories</span>
-                                    </span>
-                                </div>
-                                <div v-html="recipe.description" class="mt-3"></div>
+                                <v-container fluid grid-list-lg>
+                                    <v-layout row>
+                                        <v-flex xs12 md3>
+                                            <div class="text-center">
+                                                <img v-if="recipe.image" :src="recipe.image" :alt="recipe.title" class="elevation-3" height="200" width="200">
+                                            </div>
+                                        </v-flex>
+                                        <v-flex xs12 md9>
+                                            <h1 class="headline">
+                                                <v-icon color="red" class="mr-2" @click="editRecipeMode = true" v-if="editMode">mdi-pencil</v-icon>
+                                                {{ recipe.title }}
+                                                <div class="caption">
+                                                    by {{ recipe.user.name }}
+                                                </div>
+                                            </h1>
+                                            <div class="mt-3">
+                                                <span>
+                                                    <v-icon title="Prep Time">mdi-alarm</v-icon>
+                                                    <span v-if="recipe.prep_hours > 0">{{ recipe.prep_hours }}h</span>
+                                                    <span v-if="recipe.prep_minutes > 0">{{ recipe.prep_minutes }}m</span>
+                                                    <span v-if="$vuetify.breakpoint.mdAndUp"> prep time</span>
+                                                    <v-icon title="Cook Time">mdi-stove</v-icon>
+                                                    <span v-if="recipe.cook_hours > 0">{{ recipe.cook_hours }}h</span>
+                                                    <span v-if="recipe.cook_minutes > 0">{{ recipe.cook_minutes }}m</span>
+                                                    <span v-if="$vuetify.breakpoint.mdAndUp"> cook time</span>
+                                                </span>
+                                                <span>
+                                                    <v-icon title="Servings">mdi-chart-pie</v-icon>
+                                                    {{ recipe.servings }} <span v-if="$vuetify.breakpoint.mdAndUp">servings</span>
+                                                </span>
+                                                <span>
+                                                    <v-icon title="Calories">mdi-nutrition</v-icon>
+                                                    {{ recipe.calories }} <span v-if="$vuetify.breakpoint.mdAndUp">calories</span>
+                                                </span>
+                                            </div>
+                                            <div v-html="recipe.description" class="mt-3"></div>
+                                        </v-flex>
+                                    </v-layout>
+                                </v-container>
                             </div>
                             <div class="mt-5">
                                 <h2 class="title"><v-icon>mdi-tag</v-icon> Tags</h2>
