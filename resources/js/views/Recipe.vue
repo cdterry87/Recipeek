@@ -20,42 +20,42 @@
                                     <v-flex xs12>
                                         <v-layout row>
                                             <v-flex xs12>
-                                                <v-text-field hide-details label="Recipe Name" :rules="[v => !!v || 'Recipe Name is required']" prepend-inner-icon="mdi-silverware-fork-knife" id="title" name="title" v-model="recipe.title" type="text" required></v-text-field>
+                                                <v-text-field hide-details color="red" label="Recipe Name" :rules="[v => !!v || 'Recipe Name is required']" prepend-inner-icon="mdi-silverware-fork-knife" id="title" name="title" v-model="recipe.title" type="text" required></v-text-field>
                                             </v-flex>
                                         </v-layout>
                                         <v-layout row>
                                             <v-flex xs12>
-                                                <v-textarea hide-details name="description" prepend-inner-icon="mdi-format-align-justify" id="description" label="Description" v-model="recipe.description"></v-textarea>
+                                                <v-textarea hide-details color="red" name="description" prepend-inner-icon="mdi-format-align-justify" id="description" label="Description" v-model="recipe.description"></v-textarea>
                                             </v-flex>
                                         </v-layout>
                                         <v-layout row>
                                             <v-flex xs6 md3>
-                                                <v-text-field hide-details label="Prep Hours" prepend-inner-icon="mdi-alarm" id="prep_hours" name="prep_hours" v-model="recipe.prep_hours" type="text" maxlength="2"></v-text-field>
+                                                <v-text-field hide-details color="red" label="Prep Hours" prepend-inner-icon="mdi-alarm" id="prep_hours" name="prep_hours" v-model="recipe.prep_hours" type="text" maxlength="2"></v-text-field>
                                             </v-flex>
                                             <v-flex xs6 md3>
-                                                <v-text-field hide-details label="Prep Minutes" prepend-inner-icon="mdi-alarm" id="prep_minutes" name="prep_minutes" v-model="recipe.prep_minutes" type="text" maxlength="2"></v-text-field>
+                                                <v-text-field hide-details color="red" label="Prep Minutes" prepend-inner-icon="mdi-alarm" id="prep_minutes" name="prep_minutes" v-model="recipe.prep_minutes" type="text" maxlength="2"></v-text-field>
                                             </v-flex>
                                             <v-flex xs6 md3>
-                                                <v-text-field hide-details label="Cook Hours" prepend-inner-icon="mdi-stove" id="cook_hours" name="cook_hours" v-model="recipe.cook_hours" type="text" maxlength="2"></v-text-field>
+                                                <v-text-field hide-details color="red" label="Cook Hours" prepend-inner-icon="mdi-stove" id="cook_hours" name="cook_hours" v-model="recipe.cook_hours" type="text" maxlength="2"></v-text-field>
                                             </v-flex>
                                             <v-flex xs6 md3>
-                                                <v-text-field hide-details label="Cook Minutes" prepend-inner-icon="mdi-stove" id="cook_minutes" name="cook_minutes" v-model="recipe.cook_minutes" type="text" maxlength="2"></v-text-field>
+                                                <v-text-field hide-details color="red" label="Cook Minutes" prepend-inner-icon="mdi-stove" id="cook_minutes" name="cook_minutes" v-model="recipe.cook_minutes" type="text" maxlength="2"></v-text-field>
                                             </v-flex>
                                         </v-layout>
                                         <v-layout row>
                                             <v-flex xs6 md4>
-                                                <v-text-field hide-details color="white" label="Servings" prepend-inner-icon="mdi-chart-pie" id="servings" name="servings" v-model="recipe.servings" type="text" maxlength="2"></v-text-field>
+                                                <v-text-field hide-details color="red" label="Servings" prepend-inner-icon="mdi-chart-pie" id="servings" name="servings" v-model="recipe.servings" type="text" maxlength="2"></v-text-field>
                                             </v-flex>
                                             <v-flex xs6 md4>
-                                                <v-text-field hide-details color="white" label="Calories" prepend-inner-icon="mdi-nutrition" id="calories" name="calories" v-model="recipe.calories" type="text" maxlength="6"></v-text-field>
+                                                <v-text-field hide-details color="red" label="Calories" prepend-inner-icon="mdi-nutrition" id="calories" name="calories" v-model="recipe.calories" type="text" maxlength="6"></v-text-field>
                                             </v-flex>
                                             <v-flex xs12 md4>
-                                                <v-checkbox hide-details id="private" name="private" label="Private"></v-checkbox>
+                                                <v-checkbox hide-details color="red" id="private" name="private" label="Private"></v-checkbox>
                                             </v-flex>
                                         </v-layout>
                                         <v-layout row>
                                             <v-flex>
-                                                <v-file-input @change="storeImage" ref="image" :label="recipe.image ? 'Update Recipe Image' : 'Upload Recipe Image'"></v-file-input>
+                                                <v-file-input @change="storeImage" color="red" prepend-inner-icon="mdi-camera" prepend-icon="" ref="image" :label="recipe.image ? 'Update Recipe Image' : 'Upload Recipe Image'"></v-file-input>
                                             </v-flex>
                                         </v-layout>
                                         <v-layout row class="text-center mt-5">
@@ -289,7 +289,7 @@
                     if (typeof(this.recipe.image) === 'object') {
                         recipeForm.append('newImage', this.recipe.image);
                     }
-                    
+
                     recipeForm.append('private_recipe', this.recipe.private);
 
                     axios.post('/api/recipes/' + this.id, recipeForm, { headers: { 'content-type': 'multipart/form-data' } })

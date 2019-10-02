@@ -48,7 +48,7 @@
                         </v-layout>
                         <v-layout row>
                             <v-flex xs12>
-                                <v-file-input @change="storeImage" ref="image" color="white" filled label="Upload an image"></v-file-input>
+                                <v-file-input @change="storeImage" prepend-icon="" prepend-inner-icon="mdi-camera" ref="image" color="white" filled label="Upload an image"></v-file-input>
                             </v-flex>
                         </v-layout>
                         <v-layout>
@@ -105,7 +105,7 @@
                     recipeForm.append('servings', this.servings);
                     recipeForm.append('calories', this.calories);
                     recipeForm.append('image', this.image);
-                    recipeForm.append('video', this.video);  
+                    recipeForm.append('video', this.video);
                     recipeForm.append('private_recipe', this.private === false ? 0 : 1);
 
                     axios.post('/api/recipes', recipeForm, { headers: { 'content-type': 'multipart/form-data' } })
