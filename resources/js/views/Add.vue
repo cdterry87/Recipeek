@@ -97,7 +97,9 @@
                 if (this.$refs.form.validate()) {
                     let recipeForm = new FormData()
                     recipeForm.append('title', this.title);
-                    recipeForm.append('description', this.description);
+                    if (this.description != null) {
+                        recipeForm.append('description', this.description);
+                    }
                     recipeForm.append('prep_hours', this.prep_hours);
                     recipeForm.append('prep_minutes', this.prep_minutes);
                     recipeForm.append('cook_hours', this.cook_hours);

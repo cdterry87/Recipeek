@@ -103,7 +103,7 @@
                                                     {{ recipe.calories }} <span v-if="$vuetify.breakpoint.mdAndUp">calories</span>
                                                 </span>
                                             </div>
-                                            <div v-html="recipe.description" class="mt-3"></div>
+                                            <div class="mt-3">{{ recipe.description }}</div>
                                         </v-flex>
                                     </v-layout>
                                 </v-container>
@@ -289,7 +289,9 @@
                     let recipeForm = new FormData()
                     recipeForm.append('_method', 'PUT');
                     recipeForm.append('title', this.recipe.title);
-                    recipeForm.append('description', this.recipe.description);
+                    if (this.recipe.description != null) {
+                        recipeForm.append('description', this.recipe.description);
+                    }
                     recipeForm.append('prep_hours', this.recipe.prep_hours);
                     recipeForm.append('prep_minutes', this.recipe.prep_minutes);
                     recipeForm.append('cook_hours', this.recipe.cook_hours);
