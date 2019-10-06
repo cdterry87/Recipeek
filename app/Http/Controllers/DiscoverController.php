@@ -16,6 +16,6 @@ class DiscoverController extends Controller
     public function index()
     {
         $recipe = new Recipe;
-        return response()->json($recipe->where('user_id', '!=', auth()->id())->where('private', '!=', 1)->with('tags')->with('favorites')->get());
+        return response()->json($recipe->where('user_id', '!=', auth()->id())->where('private', '!=', 1)->with('tags')->with('favorites')->with('user')->get());
     }
 }
