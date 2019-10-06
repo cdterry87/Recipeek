@@ -70,12 +70,12 @@
                             <div v-else class="text-center">
                                 <v-container fluid grid-list-lg>
                                     <v-layout row>
-                                        <v-flex xs12 md3>
+                                        <v-flex xs12 :md3="recipe.image">
                                             <div class="text-center">
                                                 <img v-if="recipe.image" :src="recipe.image" :alt="recipe.title" class="elevation-3" height="200" width="200">
                                             </div>
                                         </v-flex>
-                                        <v-flex xs12 md9>
+                                        <v-flex xs12 :md9="recipe.image">
                                             <h1 class="headline">
                                                 <v-icon color="red" class="mr-2" @click="editRecipeMode = true" v-if="editMode">mdi-pencil</v-icon>
                                                 {{ recipe.title }}
