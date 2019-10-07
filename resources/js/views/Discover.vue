@@ -3,8 +3,8 @@
         <Loading v-if="loading" />
         <div v-else>
             <v-container fluid grid-list-lg>
-                <v-row align="center" justify="center">
-                    <div v-if="recipes.length == 0" class="text-center">
+                <v-row align="center" justify="center" v-if="recipes.length == 0">
+                    <div  class="text-center">
                         <div class="mt-5 display-1">Sorry :(</div>
                         <div class="mt-5 title">No recipes are available at this time.</div>
                         <div class="mt-2 title">Please check back later.</div>
@@ -12,8 +12,10 @@
                             <v-btn outlined to="/home">Return Home</v-btn>
                         </div>
                     </div>
-                    <RecipeCard v-else v-for="(recipe, index) in recipes" :key="index" :recipe="recipe" />
                 </v-row>
+                <v-layout row wrap v-else>
+                    <RecipeCard v-for="(recipe, index) in recipes" :key="index" :recipe="recipe" />
+                </v-layout>
             </v-container>
         </div>
     </div>
