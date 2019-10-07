@@ -41,14 +41,14 @@
 
                 <v-speed-dial v-if="$vuetify.breakpoint.smAndDown && this.$router.currentRoute.name == 'home'" class="mb-3" v-model="fab" :bottom="fab_bottom" :right="fab_right" :direction="fab_direction" :transition="fab_transition">
                     <template v-slot:activator>
-                        <v-btn v-model="fab" color="cyan darken-3" dark fab >
+                        <v-btn v-model="fab" color="deep-purple" dark fab >
                             <v-icon v-if="fab">mdi-close</v-icon>
                             <v-icon v-else>mdi-menu</v-icon>
                         </v-btn>
                     </template>
-                    <v-btn fab dark small color="cyan darken-2" to="/discover"><v-icon>mdi-eye</v-icon></v-btn>
-                    <v-btn fab dark small color="cyan darken-1" to="/favorites"><v-icon>mdi-star</v-icon></v-btn>
-                    <v-btn fab dark small color="cyan" to="/add"><v-icon>mdi-plus</v-icon></v-btn>
+                    <v-btn fab dark small color="blue" to="/discover"><v-icon>mdi-eye</v-icon></v-btn>
+                    <v-btn fab dark small color="orange" to="/favorites"><v-icon>mdi-star</v-icon></v-btn>
+                    <v-btn fab dark small color="green" to="/add"><v-icon>mdi-plus</v-icon></v-btn>
                 </v-speed-dial>
 
                 <v-snackbar v-model="snackbar.enabled" :color="snackbar.color" :bottom="true" :timeout="snackbar.timeout">
