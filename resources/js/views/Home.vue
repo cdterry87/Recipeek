@@ -8,7 +8,7 @@
                         You have not saved any recipes yet.
                         <div class="mt-5">
                             <v-btn text to="/add">Add A Recipe</v-btn> or
-                            <v-btn text to="/discover">Discover New Recipes</v-btn>!
+                            <v-btn text to="/discover">Discover New Recipes</v-btn>
                         </div>
                     </v-col>
                 </v-row>

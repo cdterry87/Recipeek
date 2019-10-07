@@ -3,12 +3,18 @@
         <Loading v-if="loading" />
         <div v-else>
             <v-container fluid grid-list-lg>
-                <v-layout row wrap>
-                    <div v-if="favorites.length == 0">
-                        You have not added any favorites yet.  Come back when you've added a few!
+                <v-row align="center" justify="center">
+                    <div v-if="favorites.length == 0" class="text-center">
+                        <div class="mt-5 display-1">Uh oh,</div>
+                        <div class="mt-5 title">You have not added any favorites yet.</div>
+                        <div class="mt-2 title">Come back when you've added a few!</div>
+                        <div class="mt-5">
+                            <v-btn text to="/home">Return Home</v-btn> or
+                            <v-btn text to="/discover">Discover Recipes</v-btn>
+                        </div>
                     </div>
                     <RecipeCard v-else v-for="(favorite, index) in favorites" :key="index" :recipe="favorite.recipe" />
-                </v-layout>
+                </v-row>
             </v-container>
         </div>
     </div>
