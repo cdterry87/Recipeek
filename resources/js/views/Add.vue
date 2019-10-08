@@ -10,7 +10,7 @@
                     <div class="mt-3 mb-5" v-if="errors.length > 0">
                         <Errors :errors="errors" />
                     </div>
-                    <v-form method="POST" id="recipeForm" class="fadein" @submit.prevent="addRecipe" ref="form" autocomplete="off" lazy-validation>
+                    <v-form method="POST" enctype="multipart/form-data" id="recipeForm" class="fadein" @submit.prevent="addRecipe" ref="form" autocomplete="off" lazy-validation>
                         <v-layout row>
                             <v-flex xs12>
                                 <v-text-field hide-details color="white" label="Recipe Name" :rules="[v => !!v || 'Recipe Name is required']" filled prepend-inner-icon="mdi-silverware-fork-knife" id="title" name="title" v-model="title" type="text" required></v-text-field>

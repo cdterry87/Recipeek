@@ -16,7 +16,7 @@
                         <v-card-text>
                             <div v-if="editRecipeMode">
                                 <h2 class="title"><v-icon>mdi-pencil</v-icon> Recipe Details</h2>
-                                <v-form method="POST" id="recipeForm" class="fadein" @submit.prevent="saveRecipe" ref="recipeForm" autocomplete="off" lazy-validation>
+                                <v-form method="POST" enctype="multipart/form-data" id="recipeForm" class="fadein" @submit.prevent="saveRecipe" ref="recipeForm" autocomplete="off" lazy-validation>
                                     <v-flex xs12>
                                         <v-layout row>
                                             <v-flex xs12>
