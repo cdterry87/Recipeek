@@ -48,7 +48,7 @@
                         </v-layout>
                         <v-layout row>
                             <v-flex xs12>
-                                <v-file-input @change="storeImage" prepend-icon="" prepend-inner-icon="mdi-camera" ref="image" color="white" filled label="Upload an image"></v-file-input>
+                                <v-file-input @change="storeImage" accept="image/*" prepend-icon="" prepend-inner-icon="mdi-camera" ref="image" color="white" filled label="Upload an image"></v-file-input>
                             </v-flex>
                         </v-layout>
                         <v-layout>

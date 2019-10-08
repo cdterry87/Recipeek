@@ -55,7 +55,7 @@
                                         </v-layout>
                                         <v-layout row>
                                             <v-flex>
-                                                <v-file-input @change="storeImage" color="red" prepend-inner-icon="mdi-camera" prepend-icon="" ref="image" :label="recipe.image ? 'Update Recipe Image' : 'Upload Recipe Image'"></v-file-input>
+                                                <v-file-input @change="storeImage" accept="image/*" color="red" prepend-inner-icon="mdi-camera" prepend-icon="" ref="image" :label="recipe.image ? 'Update Recipe Image' : 'Upload Recipe Image'"></v-file-input>
                                             </v-flex>
                                         </v-layout>
                                         <v-layout row class="text-center mt-5">
@@ -315,13 +315,7 @@
                 }
             },
             storeImage(e) {
-                let allowedTypes = ['image/bmp', 'image/gif', 'image/jpeg', 'image/png']
-                if (allowedTypes.includes(e.type)) {
-                    this.recipe['image'] = e
-                } else {
-                    this.recipe['image'] = ""
-                    this.$refs.image.value = ""
-                }
+                this.recipe['image'] = e
             },
             deleteRecipe() {
                 axios.delete('/api/recipes/' + this.id)
