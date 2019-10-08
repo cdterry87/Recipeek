@@ -5,7 +5,7 @@
                 <v-flex xs12 md10 offset-md1>
                     <Loading v-if="loading" />
                     <v-card light v-else>
-                        <v-card-actions>
+                        <v-card-actions v-if="canEdit">
                             <v-btn icon small color="red" v-if="editMode" @click="deleteRecipe"><v-icon>mdi-trash-can</v-icon></v-btn>
                             <v-spacer></v-spacer>
                             <v-btn color="red" outlined @click="editModeToggle">
@@ -266,7 +266,8 @@
                 tag: '',
                 addTagMode: false,
                 editRecipeMode: false,
-                image: ''
+                image: '',
+                user: ''
             }
         },
         methods: {
@@ -403,10 +404,22 @@
 
                     Event.$emit('success', response.data.message)
                 })
+            },
+            getUser() {
+                axios.get('/api/user')
+                .then(response => {
+                    this.user = response.data
+                })
+            }
+        },
+        computed: {
+            canEdit() {
+                return this.user.id === this.recipe.user_id
             }
         },
         created() {
             this.getRecipe()
+            this.getUser()
         }
     }
 </script>
