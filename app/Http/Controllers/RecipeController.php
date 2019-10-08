@@ -88,10 +88,12 @@ class RecipeController extends Controller
             $request->request->add(['image' => $imageFile]);
             $updates[] = 'image';
 
-            if (!is_null($recipe->image) && file_exists('app/public/recipe_images/' . end($oldImageParts))) {
+            if (!is_null($recipe->image)) {
                 $oldImageParts = explode('/', $recipe->image);
-                $fileToDelete = storage_path('app/public/recipe_images/' . end($oldImageParts));
-                unlink($fileToDelete);
+                if (file_exists('app/public/recipe_images/' . end($oldImageParts))) {
+                    $fileToDelete = storage_path('app/public/recipe_images/' . end($oldImageParts));
+                    unlink($fileToDelete);
+                }
             }
         }
 
