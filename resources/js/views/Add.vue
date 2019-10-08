@@ -48,7 +48,7 @@
                         </v-layout>
                         <v-layout row>
                             <v-flex xs12>
-                                <v-file-input prepend-icon="" prepend-inner-icon="mdi-camera" ref="image" color="white" filled label="Upload an image"></v-file-input>
+                                <v-file-input @change="storeImage" prepend-icon="" prepend-inner-icon="mdi-camera" ref="image" color="white" filled label="Upload an image"></v-file-input>
                             </v-flex>
                         </v-layout>
                         <v-layout>
@@ -137,13 +137,7 @@
                 this.$refs.form.resetValidation()
             },
             storeImage(e) {
-                let allowedTypes = ['image/bmp', 'image/gif', 'image/jpeg', 'image/png']
-                if (allowedTypes.includes(e.type)) {
-                    this.image = e
-                } else {
-                    this.image = ""
-                    this.$refs.image.value = ""
-                }
+                this.image = e
             }
         }
     }
