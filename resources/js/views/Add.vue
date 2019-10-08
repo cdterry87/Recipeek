@@ -51,6 +51,11 @@
                                 <v-file-input @change="storeImage" accept="image/*" prepend-icon="" prepend-inner-icon="mdi-camera" ref="image" color="white" filled label="Upload an image"></v-file-input>
                             </v-flex>
                         </v-layout>
+                        <v-layout row>
+                            <v-flex xs12>
+                                <v-file-input ref="image2" color="white" filled label="Upload Test"></v-file-input>
+                            </v-flex>
+                        </v-layout>
                         <v-layout>
                             <v-flex xs12 class="text-center mt-5">
                                 <v-icon class="mr-2">mdi-information</v-icon>
@@ -90,6 +95,7 @@
                 image: '',
                 video: '',
                 private: false,
+                image2: ''
             }
         },
         methods: {
