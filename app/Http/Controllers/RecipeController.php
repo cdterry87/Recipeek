@@ -76,30 +76,34 @@ class RecipeController extends Controller
      */
     public function update(Request $request, Recipe $recipe)
     {
-        $updates = ['title', 'description', 'prep_hours', 'prep_minutes', 'cook_hours', 'cook_minutes', 'servings', 'calories', 'private'];
+        if (auth()->id() != $request->user_id) {
+            $status = false;
+        } else {
+            $updates = ['title', 'description', 'prep_hours', 'prep_minutes', 'cook_hours', 'cook_minutes', 'servings', 'calories', 'private'];
 
-        if ($request->hasFile('newImage')) {
-            $file = $request->file('newImage');
+            if ($request->hasFile('newImage')) {
+                $file = $request->file('newImage');
 
-            $filename = time() . '.' . $file->getClientOriginalExtension();
-            $imageFile = '/storage/recipe_images/' . $filename;
-            $file->move(storage_path('app/public/recipe_images'), $filename);
+                $filename = time() . '.' . $file->getClientOriginalExtension();
+                $imageFile = '/storage/recipe_images/' . $filename;
+                $file->move(storage_path('app/public/recipe_images'), $filename);
 
-            $request->request->add(['image' => $imageFile]);
-            $updates[] = 'image';
+                $request->request->add(['image' => $imageFile]);
+                $updates[] = 'image';
 
-            if (!is_null($recipe->image)) {
-                $oldImageParts = explode('/', $recipe->image);
-                if (file_exists('app/public/recipe_images/' . end($oldImageParts))) {
-                    $fileToDelete = storage_path('app/public/recipe_images/' . end($oldImageParts));
-                    unlink($fileToDelete);
+                if (!is_null($recipe->image)) {
+                    $oldImageParts = explode('/', $recipe->image);
+                    if (file_exists('app/public/recipe_images/' . end($oldImageParts))) {
+                        $fileToDelete = storage_path('app/public/recipe_images/' . end($oldImageParts));
+                        unlink($fileToDelete);
+                    }
                 }
             }
-        }
 
-        $status = $recipe->update(
-            $request->only($updates)
-        );
+            $status = $recipe->update(
+                $request->only($updates)
+            );
+        }
 
         return response()->json([
             'status' => $status,
