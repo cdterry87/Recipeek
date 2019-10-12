@@ -299,6 +299,7 @@
                     recipeForm.append('cook_minutes', this.recipe.cook_minutes);
                     recipeForm.append('servings', this.recipe.servings);
                     recipeForm.append('calories', this.recipe.calories);
+                    recipeForm.append('user_id', this.recipe.user_id);
 
                     if (typeof(this.recipe.image) === 'object') {
                         recipeForm.append('newImage', this.recipe.image);
