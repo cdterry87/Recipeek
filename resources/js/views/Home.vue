@@ -4,8 +4,8 @@
         <div v-else>
             <v-container v-if="recipes.length == 0" class="fill-height" fluid>
                 <v-row align="center" justify="center">
-                    <v-col cols="12" class="text-center ma-5 headline">
-                        You have not saved any recipes yet.
+                    <v-col cols="12" class="text-center ma-5 title">
+                        You haven't saved any recipes yet.
                         <div class="mt-5">
                             <v-btn text to="/add">Add A Recipe</v-btn> or
                             <v-btn text to="/discover">Discover New Recipes</v-btn>

@@ -11,6 +11,13 @@
                         <div class="mt-3 mb-5" v-if="errorMessages.length > 0">
                             <Errors :errors="errorMessages" />
                         </div>
+                        <div class="mb-3">
+                            <v-alert type="warning" color="amber darken-2">
+                                <div class="subheading">To demo this application, use the following credentials:</div>
+                                <div class="caption">Username: admin@example.com</div>
+                                <div class="caption">Password: password</div>
+                            </v-alert>
+                        </div>
                         <v-text-field color="white" label="Email" filled prepend-inner-icon="mdi-email" id="email" name="email" type="text" required></v-text-field>
                         <v-text-field color="white" label="Password" filled prepend-inner-icon="mdi-lock" id="password" name="password" type="password" required></v-text-field>
                         <v-checkbox color="white" id="remember" name="remember" label="Remember Me" value="on"></v-checkbox>
