@@ -13,6 +13,10 @@ export default {
         extend: {
             fontFamily: {
                 sans: ['Figtree', ...defaultTheme.fontFamily.sans],
+                jost: ["Jost", "sans-serif"],
+                poiret: ["Poiret One", "sans-serif"],
+                figtree: ["Figtree", "sans-serif"],
+                inter: ["Inter", "sans-serif"],
             },
         },
     },
