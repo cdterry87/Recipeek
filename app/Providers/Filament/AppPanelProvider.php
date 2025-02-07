@@ -6,6 +6,7 @@ use Filament\Pages;
 use Filament\Panel;
 use Filament\Widgets;
 use Filament\PanelProvider;
+use Filament\Pages\Auth\Login;
 use Filament\Support\Colors\Color;
 use Illuminate\Support\Facades\Blade;
 use Filament\Http\Middleware\Authenticate;
@@ -32,11 +33,17 @@ class AppPanelProvider extends PanelProvider
             ->registration()
             ->passwordReset()
             ->profile()
-            ->topNavigation()
+            // ->topNavigation()
+            ->homeUrl(url('/'))
+            ->brandLogo(fn() => view('components.layouts.logo-black'))
+            ->darkModeBrandLogo(fn() => view('components.layouts.logo-white'))
+            ->brandLogoHeight('7rem')
+            ->darkMode(false)
             ->colors([
                 'primary' => Color::Rose,
                 'gray' => Color::Slate
             ])
+            ->viteTheme('resources/css/filament/app/theme.css')
             ->discoverResources(in: app_path('Filament/Resources'), for: 'App\\Filament\\Resources')
             ->discoverPages(in: app_path('Filament/Pages'), for: 'App\\Filament\\Pages')
             ->pages([
