@@ -74,7 +74,7 @@
 
                 <div class="space-x-6 hidden md:flex md:items-center">
                     <a
-                        href="#"
+                        href="{{ route('discover-recipes') }}"
                         class="text-white font-bold hover:text-slate-200"
                     >Discover</a>
                     {{-- @todo - login/auth menu --}}
@@ -111,7 +111,7 @@
                 </a>
                 <a
                     class="block px-6 py-2 flex-1 hover:bg-slate-900 rounded-lg transition ease-in-out duration-300"
-                    href="#"
+                    href="{{ route('about') }}"
                 >
                     <h3 class="text-lg font-semibold mb-2">About</h3>
                     <p class="text-sm text-gray-400">
@@ -120,7 +120,7 @@
                 </a>
                 <a
                     class="block px-6 py-2 flex-1 hover:bg-slate-900 rounded-lg transition ease-in-out duration-300"
-                    href="#"
+                    href="{{ route('discover-recipes') }}"
                 >
                     <h3 class="text-lg font-semibold mb-2">Discover</h3>
                     <p class="text-sm text-gray-400">
@@ -129,7 +129,7 @@
                 </a>
                 <a
                     class="block px-6 py-2 flex-1 hover:bg-slate-900 rounded-lg transition ease-in-out duration-300"
-                    href="#"
+                    href="{{ route('login') }}"
                 >
                     <h3 class="text-lg font-semibold mb-2">Join</h3>
                     <p class="text-sm text-gray-400">
@@ -141,15 +141,15 @@
             <div class="flex flex-col md:flex-row justify-between gap-6 text-xs">
                 <div class="flex items-center justify-center gap-3 md:gap-6">
                     <x-link
-                        href="#"
+                        href="{{ route('cookie-policy') }}"
                         secondary
                     >Cookie Policy</x-link>
                     <x-link
-                        href="#"
+                        href="{{ route('privacy-policy') }}"
                         secondary
                     >Privacy Policy</x-link>
                     <x-link
-                        href="#"
+                        href="{{ route('terms-of-use') }}"
                         secondary
                     >Terms of Use</x-link>
                 </div>

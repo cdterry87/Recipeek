@@ -28,7 +28,7 @@
                     class="px-4 py-3 rounded-full text-black bg-white w-3/4 md:w-2/3"
                 >
                 <a
-                    href="#"
+                    href="{{ route('search-recipes') }}"
                     class="mt-6 bg-rose-500 px-6 py-3 rounded-full text-lg hover:bg-rose-600"
                 >
                     Start Searching!

@@ -45,3 +45,23 @@
     background-position: center;
     background-repeat: no-repeat;
 }
+
+/* .blob-mask {
+    clip-path: path(
+        "M41.5,-50.4C54.9,-38.7,67.1,-25.6,70.8,-9.8C74.5,6,69.6,24.4,58.9,37.5C48.2,50.7,31.8,58.7,15.7,60.2C-0.4,61.6,-16.2,56.4,-29.3,46.3C-42.3,36.2,-52.5,21.2,-55.9,4.3C-59.2,-12.7,-55.6,-31.5,-43.7,-43C-31.9,-54.5,-11.9,-58.7,5.9,-61C23.7,-63.2,47.3,-63.5,41.5,-50.4Z"
+    );
+} */
+
+.about-blob-mask {
+    @apply h-96 md:h-80 w-80 sm:w-80 md:w-full object-cover object-center;
+    clip-path: url(#aboutBlobClip);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    @apply font-bold uppercase font-[Jost];
+}
