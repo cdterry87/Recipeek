@@ -53,7 +53,7 @@
 } */
 
 .about-blob-mask {
-    @apply h-96 md:h-80 w-80 sm:w-80 md:w-full object-cover object-center;
+    @apply h-80 w-80 md:mt-12 md:w-full object-cover object-center;
     clip-path: url(#aboutBlobClip);
 }
 

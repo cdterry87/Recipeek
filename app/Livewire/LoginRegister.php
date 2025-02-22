@@ -8,6 +8,7 @@ class LoginRegister extends Component
 {
     public function render()
     {
-        return view('livewire.login-register');
+        return view('livewire.login-register')
+            ->layout('components.layouts.auth');
     }
 }

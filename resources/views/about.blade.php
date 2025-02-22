@@ -1,5 +1,5 @@
 <x-layouts.app>
-    <div class="max-w-4xl mx-auto p-6 my-16 flex flex-col md:flex-row gap-16 md:gap-8">
+    <div class="max-w-4xl mx-auto p-6 my-16 flex flex-col md:flex-row gap-16">
         <div class="md:w-3/5 flex flex-col gap-4">
             <h1 class="text-3xl font-bold text-gray-900 mb-4">About Recipeek</h1>
             <p class="text-gray-700 leading-7">Recipeek is a vibrant community website where food enthusiasts from
@@ -14,21 +14,25 @@
                 environment where everyone can contribute their knowledge and passion for food.
             </p>
             <p class="text-gray-700 leading-7">
-                At Recipeek, we value creativity, collaboration, and the love of cooking. Our platform is designed to be
-                user-friendly and accessible, making it easy for anyone to share their favorite recipes or find new ones
-                to try. We encourage our users to engage with each other, share their experiences, and provide feedback
-                on recipes. This way, we can all learn and grow together as a community of food lovers.
+                At Recipeek, we value creativity, collaboration, and the love of good food. Our platform allows users to
+                create
+                their own recipes, share them with the community, and discover new culinary delights. We also encourage
+                users
+                to rate and review recipes, helping others find the best dishes to try.
             </p>
         </div>
         <div class="md:w-2/5">
-            <svg>
+            <svg
+                width="0"
+                height="0"
+            >
                 <defs>
                     <clipPath
                         id="aboutBlobClip"
                         clipPathUnits="objectBoundingBox"
                     >
                         <path
-                            d="M0.85,0.3C0.8,0.15,0.65,0.05,0.5,0S0.25,0.05,0.15,0.2C0.05,0.35,0,0.55,0.1,0.7S0.3,1,0.5,1s0.45,-0.1,0.55,-0.25S0.9,0.45,0.85,0.3"
+                            d="M0.9,0.3C0.8,0.1,0.7,0,0.55,0.05C0.4,0.1,0.35,0.25,0.25,0.3C0.1,0.35,0,0.45,0.05,0.6C0.1,0.75,0.3,0.9,0.45,0.95C0.6,1,0.75,0.95,0.85,0.85C0.95,0.75,1,0.6,0.95,0.45C0.9,0.35,1,0.4,0.9,0.3"
                         />
                     </clipPath>
                 </defs>
