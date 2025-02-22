@@ -31,28 +31,35 @@
             >
                 <h2 class="text-2xl font-bold text-center text-gray-800 mb-4">Welcome To Our Kitchen!</h2>
                 <p class="text-gray-600 text-center mb-6">Login to continue</p>
-                <form>
-                    <div class="mb-4">
-                        <label class="block text-gray-700 font-medium mb-1">Email</label>
-                        <input
-                            type="email"
-                            class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
-                            placeholder="Enter your email"
-                        >
-                    </div>
-                    <div class="mb-4">
-                        <label class="block text-gray-700 font-medium mb-1">Password</label>
-                        <input
-                            type="password"
-                            class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
-                            placeholder="Enter your password"
-                        >
-                    </div>
-                    <button class="btn btn-primary btn-block">
+                <form class="flex flex-col gap-4">
+                    <x-input-text
+                        label="Email"
+                        id="email"
+                        name="email"
+                        type="email"
+                        placeholder="Enter your email address"
+                        required
+                        block
+                    />
+                    <x-input-text
+                        label="Password"
+                        id="password"
+                        name="password"
+                        type="password"
+                        placeholder="Enter your password"
+                        required
+                        block
+                    />
+                    <x-button
+                        primary
+                        block
+                    >
                         Login
-                    </button>
+                    </x-button>
                     <hr class="w-full md:w-1/2 mx-auto border-2 border-black my-6">
-                    <button class="btn btn-block bg-white text-black border-[#e5e5e5]">
+                    <button
+                        class="btn btn-block bg-white hover:brightness-90 transition ease-in-out duration-200 text-black border-[#e5e5e5]"
+                    >
                         <svg
                             aria-label="Google logo"
                             width="16"
@@ -89,7 +96,7 @@
                         <a
                             href="#"
                             class="text-primary font-medium hover:underline"
-                            @click="showRegister = true"
+                            @click.prevent="showRegister = true"
                         >Join Our Community!</a>
                     </p>
                 </form>
@@ -104,47 +111,53 @@
             >
                 <h2 class="text-2xl font-bold text-center text-gray-800 mb-4">Join Our Community!</h2>
                 <p class="text-gray-600 text-center mb-6">Create an account to get started</p>
-                <form>
-                    <div class="mb-3">
-                        <label class="block text-gray-700 font-medium mb-1">Name</label>
-                        <input
-                            type="text"
-                            class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
-                            placeholder="Enter your name"
-                        >
-                    </div>
-                    <div class="mb-3">
-                        <label class="block text-gray-700 font-medium mb-1">Email</label>
-                        <input
-                            type="email"
-                            class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
-                            placeholder="Enter your email"
-                        >
-                    </div>
-                    <div class="mb-3">
-                        <label class="block text-gray-700 font-medium mb-1">Password</label>
-                        <input
-                            type="password"
-                            class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
-                            placeholder="Create a password"
-                        >
-                    </div>
-                    <div class="mb-3">
-                        <label class="block text-gray-700 font-medium mb-1">Confirm Password</label>
-                        <input
-                            type="password"
-                            class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
-                            placeholder="Confirm your password"
-                        >
-                    </div>
-                    <button class="btn btn-primary btn-block">
+                <form class="flex flex-col gap-4">
+                    <x-input-text
+                        label="Name"
+                        id="name"
+                        name="name"
+                        placeholder="Enter your name"
+                        required
+                        block
+                    />
+                    <x-input-text
+                        label="Email"
+                        id="email"
+                        name="email"
+                        type="email"
+                        placeholder="Enter your email address"
+                        required
+                        block
+                    />
+                    <x-input-text
+                        label="Password"
+                        id="password"
+                        name="password"
+                        type="password"
+                        placeholder="Enter your password"
+                        required
+                        block
+                    />
+                    <x-input-text
+                        label="Confirm Password"
+                        id="password-confirmation"
+                        name="password-confirmation"
+                        type="password"
+                        placeholder="Confirm your password"
+                        required
+                        block
+                    />
+                    <x-button
+                        primary
+                        block
+                    >
                         Register
-                    </button>
+                    </x-button>
                     <p class="text-sm text-center text-gray-600 mt-8">Already have an account?
                         <a
                             href="#"
                             class="text-primary font-medium hover:underline"
-                            @click="showRegister = false"
+                            @click.prevent="showRegister = false"
                         >Return to Login</a>
                     </p>
                 </form>

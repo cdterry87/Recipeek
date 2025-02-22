@@ -17,6 +17,7 @@
     'block' => false,
     'loading' => false,
     'uppercase' => false,
+    'rounded' => false,
 ])
 
 @php
@@ -39,6 +40,7 @@
         $uppercase ? 'uppercase' : null,
         $outline ? 'btn-outline' : null,
         $block ? 'btn-block' : null,
+        $rounded ? 'btn-rounded' : null,
     ]);
 @endphp
 
