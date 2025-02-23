@@ -63,27 +63,99 @@
 >
     <header>
         <!-- Navbar -->
-        <nav class="bg-black shadow-md px-6 py-1 lg:px-16 flex items-center">
-            <div class="container mx-auto flex justify-between items-center">
-                <a
-                    href="{{ route('home') }}"
-                    class="text-5xl font-bold text-white font-[Arizonia] py-3"
-                >
-                    Recipeek
-                </a>
+        <nav class="bg-black shadow-sm px-6 py-1 lg:px-16 flex items-center">
+            <div class="container mx-auto">
+                <div class="navbar">
+                    <div class="flex-1">
+                        <a
+                            href="{{ route('home') }}"
+                            class="text-5xl font-bold text-white font-[Arizonia] py-3"
+                        >
+                            Recipeek
+                        </a>
+                    </div>
+                    <div class="flex-none">
+                        <ul class="menu menu-horizontal px-1">
+                            <li>
+                                <a
+                                    href="{{ route('discover-recipes') }}"
+                                    class="text-white font-bold hover:text-slate-200"
+                                >
+                                    Discover
+                                </a>
+                            </li>
+                            <li>
+                                @if (auth()->check())
+                                    <details class="text-white font-bold hover:text-slate-200">
+                                        <summary class="flex items-center gap-1">
+                                            <svg
+                                                xmlns="http://www.w3.org/2000/svg"
+                                                fill="none"
+                                                viewBox="0 0 24 24"
+                                                stroke-width="1.5"
+                                                stroke="currentColor"
+                                                class="size-6"
+                                            >
+                                                <path
+                                                    stroke-linecap="round"
+                                                    stroke-linejoin="round"
+                                                    d="M17.982 18.725A7.488 7.488 0 0 0 12 15.75a7.488 7.488 0 0 0-5.982 2.975m11.963 0a9 9 0 1 0-11.963 0m11.963 0A8.966 8.966 0 0 1 12 21a8.966 8.966 0 0 1-5.982-2.275M15 9.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"
+                                                />
+                                            </svg>
+                                            <span>
+                                                {{ auth()->user()->name }}
+                                            </span>
+                                        </summary>
+                                        <ul
+                                            tabindex="0"
+                                            class="menu menu-sm dropdown-content bg-black rounded-box z-30 mt-3 w-52 p-2 shadow"
+                                        >
+                                            <li><a>Link 1</a></li>
+                                            <li>
+                                                <form
+                                                    method="POST"
+                                                    action="{{ route('logout') }}"
+                                                    class="inline"
+                                                >
+                                                    @csrf
 
-                <div class="space-x-6 hidden md:flex md:items-center">
-                    <a
-                        href="{{ route('discover-recipes') }}"
-                        class="text-white font-bold hover:text-slate-200"
-                    >Discover</a>
-                    {{-- @todo - login/auth menu --}}
-                    <a
-                        href="{{ route('login') }}"
-                        class="btn btn-primary"
-                    >
-                        Login
-                    </a>
+                                                    <button
+                                                        type="submit"
+                                                        class="text-white flex items-center gap-1"
+                                                    >
+                                                        <svg
+                                                            xmlns="http://www.w3.org/2000/svg"
+                                                            fill="none"
+                                                            viewBox="0 0 24 24"
+                                                            stroke-width="1.5"
+                                                            stroke="currentColor"
+                                                            class="size-6"
+                                                        >
+                                                            <path
+                                                                stroke-linecap="round"
+                                                                stroke-linejoin="round"
+                                                                d="M15.75 9V5.25A2.25 2.25 0 0 0 13.5 3h-6a2.25 2.25 0 0 0-2.25 2.25v13.5A2.25 2.25 0 0 0 7.5 21h6a2.25 2.25 0 0 0 2.25-2.25V15M12 9l-3 3m0 0 3 3m-3-3h12.75"
+                                                            />
+                                                        </svg>
+                                                        <span>
+                                                            {{ __('Log Out') }}
+                                                        </span>
+                                                    </button>
+                                                </form>
+                                            </li>
+                                        </ul>
+                                    </details>
+                                @else
+                                    <a
+                                        href="{{ route('login') }}"
+                                        class="btn btn-primary"
+                                    >
+                                        Login
+                                    </a>
+                                @endif
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </nav>

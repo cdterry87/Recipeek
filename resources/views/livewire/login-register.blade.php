@@ -16,7 +16,7 @@
             <div class="text-center mb-6">
                 <a
                     href="{{ route('home') }}"
-                    class="text-6xl text-center font-bold text-primary font-[Arizonia] py-3"
+                    class="text-5xl text-center font-bold text-primary font-[Arizonia] py-2"
                 >
                     Recipeek
                 </a>
@@ -29,15 +29,29 @@
                 x-transition:enter-start="opacity-0"
                 x-transition:enter-end="opacity-100"
             >
-                <h2 class="text-2xl font-bold text-center text-gray-800 mb-4">Welcome To Our Kitchen!</h2>
+                <h2 class="text-2xl font-bold text-center text-gray-800 mb-2">Welcome To Our Kitchen!</h2>
                 <p class="text-gray-600 text-center mb-6">Login to continue</p>
-                <form class="flex flex-col gap-4">
+
+                @if (session('login-error'))
+                    <x-alert
+                        error
+                        class="mb-2"
+                    >
+                        {{ session('login-error') }}
+                    </x-alert>
+                @endif
+
+                <form
+                    class="flex flex-col gap-2"
+                    wire:submit.prevent="login"
+                >
                     <x-input-text
                         label="Email"
                         id="email"
                         name="email"
                         type="email"
                         placeholder="Enter your email address"
+                        wire:model="email"
                         required
                         block
                     />
@@ -47,12 +61,14 @@
                         name="password"
                         type="password"
                         placeholder="Enter your password"
+                        wire:model="password"
                         required
                         block
                     />
                     <x-button
                         primary
                         block
+                        class="mt-4"
                     >
                         Login
                     </x-button>
@@ -109,14 +125,19 @@
                 x-transition:enter-start="opacity-0"
                 x-transition:enter-end="opacity-100"
             >
-                <h2 class="text-2xl font-bold text-center text-gray-800 mb-4">Join Our Community!</h2>
+                <h2 class="text-2xl font-bold text-center text-gray-800 mb-2">Join Our Community!</h2>
                 <p class="text-gray-600 text-center mb-6">Create an account to get started</p>
-                <form class="flex flex-col gap-4">
+
+                <form
+                    class="flex flex-col gap-2"
+                    wire:submit.prevent="register"
+                >
                     <x-input-text
                         label="Name"
                         id="name"
                         name="name"
                         placeholder="Enter your name"
+                        wire:model="name"
                         required
                         block
                     />
@@ -126,6 +147,7 @@
                         name="email"
                         type="email"
                         placeholder="Enter your email address"
+                        wire:model="email"
                         required
                         block
                     />
@@ -135,21 +157,24 @@
                         name="password"
                         type="password"
                         placeholder="Enter your password"
+                        wire:model="password"
                         required
                         block
                     />
                     <x-input-text
                         label="Confirm Password"
-                        id="password-confirmation"
-                        name="password-confirmation"
+                        id="password_confirmation"
+                        name="password_confirmation"
                         type="password"
                         placeholder="Confirm your password"
+                        wire:model="password_confirmation"
                         required
                         block
                     />
                     <x-button
                         primary
                         block
+                        class="mt-4"
                     >
                         Register
                     </x-button>

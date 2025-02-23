@@ -62,6 +62,6 @@
         ]) }}
     />
     @error($id)
-        <p class="fieldset-label">{{ $message }}</p>
+        <p class="fieldset-label text-error">{{ $message }}</p>
     @enderror
 </fieldset>

@@ -22,6 +22,12 @@ Route::get('/', function () {
 // Login/Register (with Google login with Socialite)
 Route::get('login', LoginRegister::class)->name('login');
 
+Route::post('logout', function () {
+    auth()->logout();
+    session()->invalidate();
+    return redirect()->route('home');
+})->name('logout');
+
 // Forgot Password
 Route::get('forgot-password', ForgotPassword::class)->name('forgot-password');
 
