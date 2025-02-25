@@ -2,10 +2,7 @@
     'label',
     'id',
     'name',
-    'value' => '',
     'required' => false,
-    'autocomplete' => 'off',
-    'type' => 'text',
     'placeholder' => '',
     'primary' => false,
     'secondary' => false,
@@ -27,22 +24,22 @@
 
 @php
     $classes = array_filter([
-        'input',
-        $primary ? 'input-primary' : null,
-        $secondary ? 'input-secondary' : null,
-        $accent ? 'input-accent' : null,
-        $neutral ? 'input-neutral' : null,
-        $ghost ? 'input-ghost' : null,
-        $info ? 'input-info' : null,
-        $success ? 'input-success' : null,
-        $warning ? 'input-warning' : null,
-        $error ? 'input-error' : null,
+        'file-input',
+        $primary ? 'file-input-primary' : null,
+        $secondary ? 'file-input-secondary' : null,
+        $accent ? 'file-input-accent' : null,
+        $neutral ? 'file-input-neutral' : null,
+        $ghost ? 'file-input-ghost' : null,
+        $info ? 'file-input-info' : null,
+        $success ? 'file-input-success' : null,
+        $warning ? 'file-input-warning' : null,
+        $error ? 'file-input-error' : null,
         $block ? 'w-full' : null,
-        $xs ? 'input-xs' : null,
-        $sm ? 'input-sm' : null,
-        $md ? 'input-md' : null,
-        $lg ? 'input-lg' : null,
-        $xl ? 'input-xl' : null,
+        $xs ? 'file-input-xs' : null,
+        $sm ? 'file-input-sm' : null,
+        $md ? 'file-input-md' : null,
+        $lg ? 'file-input-lg' : null,
+        $xl ? 'file-input-xl' : null,
     ]);
 @endphp
 
@@ -57,13 +54,11 @@
         {{ $attributes->merge([
             'id' => $id,
             'name' => $name,
-            'value' => $value,
             'required' => $required,
-            'autocomplete' => $autocomplete,
-            'type' => $type,
             'class' => implode(' ', $classes),
             'placeholder' => $placeholder,
             'aria-required' => $required ? 'true' : 'false',
+            'type' => 'file',
         ]) }}
     />
     @error($id)

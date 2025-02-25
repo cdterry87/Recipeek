@@ -6,8 +6,6 @@
             class="h-42 lg:h-full w-full object-cover"
         >
     </div>
-
-    <!-- Right Side (Login / Register) -->
     <div
         class="w-full lg:w-3/5 flex items-center justify-center bg-white"
         x-data="{ showRegister: false }"
@@ -21,8 +19,6 @@
                     Recipeek
                 </a>
             </div>
-
-            <!-- Login Form -->
             <div
                 x-show="!showRegister"
                 x-transition:enter="transition-opacity duration-500"
@@ -40,7 +36,6 @@
                         {{ session('login-error') }}
                     </x-alert>
                 @endif
-
                 <form
                     class="flex flex-col gap-2"
                     wire:submit.prevent="login"
@@ -117,8 +112,6 @@
                     </p>
                 </form>
             </div>
-
-            <!-- Registration Form -->
             <div
                 x-show="showRegister"
                 x-transition:enter="transition-opacity duration-500"
@@ -187,7 +180,6 @@
                     </p>
                 </form>
             </div>
-
         </div>
     </div>
 </div>

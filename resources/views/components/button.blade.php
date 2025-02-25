@@ -18,6 +18,12 @@
     'loading' => false,
     'uppercase' => false,
     'rounded' => false,
+    'xs' => false,
+    'sm' => false,
+    'md' => false,
+    'lg' => false,
+    'xl' => false,
+    'wide' => false,
 ])
 
 @php
@@ -41,6 +47,12 @@
         $outline ? 'btn-outline' : null,
         $block ? 'btn-block' : null,
         $rounded ? 'btn-rounded' : null,
+        $xs ? 'btn-xs' : null,
+        $sm ? 'btn-sm' : null,
+        $md ? 'btn-md' : null,
+        $lg ? 'btn-lg' : null,
+        $xl ? 'btn-xl' : null,
+        $wide ? 'btn-wide' : null,
     ]);
 @endphp
 

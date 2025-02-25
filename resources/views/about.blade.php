@@ -1,8 +1,8 @@
 <x-layouts.app>
-    <div class="max-w-4xl mx-auto p-6 my-16 flex flex-col md:flex-row gap-16">
-        <div class="md:w-1/2 flex flex-col justify-center gap-4">
-            <h1 class="text-3xl font-bold text-gray-900 mb-4 text-center">About Recipeek</h1>
-            <p class="text-gray-700 leading-9 font-[Jost] text-center">
+    <div class="max-w-4xl mx-auto p-6 mt-6 mb-16 flex flex-col md:flex-row gap-16">
+        <div class="md:w-1/2 flex flex-col justify-center gap-4 text-center md:text-left">
+            <h1 class="text-3xl font-bold text-gray-900 mb-4">About Recipeek</h1>
+            <p class="text-gray-700 leading-9 font-[Jost]">
                 Recipeek is a vibrant community website where food enthusiasts from
                 all over the world come together to share, discover, and celebrate recipes. Whether you're a home cook
                 or a professional chef, Recipeek provides a space to exchange ideas, explore new flavors, and create

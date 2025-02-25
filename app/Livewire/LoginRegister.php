@@ -10,9 +10,8 @@ class LoginRegister extends Component
 
     public function mount()
     {
-        // Check if the user is already authenticated
+        // Redirect to the home page or any other page
         if (auth()->check()) {
-            // Redirect to the home page or any other page
             return redirect()->route('home');
         }
     }
@@ -36,7 +35,7 @@ class LoginRegister extends Component
         ];
 
         if (auth()->attempt($credentials)) {
-            return redirect()->intended('dashboard');
+            return redirect()->intended('home');
         }
 
         session()->flash('login-error', 'Invalid credentials. Please try again.');
@@ -58,6 +57,6 @@ class LoginRegister extends Component
 
         auth()->login($user);
 
-        return redirect()->route('dashboard');
+        return redirect()->route('home');
     }
 }

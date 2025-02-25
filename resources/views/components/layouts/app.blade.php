@@ -192,6 +192,7 @@
                                             </span>
                                         </a>
                                     </li>
+                                    <li></li>
                                     <li>
                                         <form
                                             method="POST"
@@ -324,6 +325,7 @@
                         Recipeek
                     </a>
                 </li>
+                <li></li>
                 <li>
                     <a
                         href="{{ route('discover-recipes') }}"
@@ -348,6 +350,7 @@
                         </span>
                     </a>
                 </li>
+                <li></li>
                 @if (auth()->check())
                     <li>
                         <a
@@ -423,6 +426,7 @@
                             </span>
                         </a>
                     </li>
+                    <li></li>
                     <li>
                         <form
                             method="POST"
@@ -481,6 +485,7 @@
                         </a>
                     </li>
                 @endif
+                <li></li>
             </ul>
         </div>
 

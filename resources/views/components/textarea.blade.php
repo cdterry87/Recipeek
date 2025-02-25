@@ -4,8 +4,6 @@
     'name',
     'value' => '',
     'required' => false,
-    'autocomplete' => 'off',
-    'type' => 'text',
     'placeholder' => '',
     'primary' => false,
     'secondary' => false,
@@ -23,26 +21,27 @@
     'lg' => false,
     'xl' => false,
     'hiddenLabel' => false,
+    'rows' => 5,
 ])
 
 @php
     $classes = array_filter([
-        'input',
-        $primary ? 'input-primary' : null,
-        $secondary ? 'input-secondary' : null,
-        $accent ? 'input-accent' : null,
-        $neutral ? 'input-neutral' : null,
-        $ghost ? 'input-ghost' : null,
-        $info ? 'input-info' : null,
-        $success ? 'input-success' : null,
-        $warning ? 'input-warning' : null,
-        $error ? 'input-error' : null,
+        'textarea',
+        $primary ? 'textarea-primary' : null,
+        $secondary ? 'textarea-secondary' : null,
+        $accent ? 'textarea-accent' : null,
+        $neutral ? 'textarea-neutral' : null,
+        $ghost ? 'textarea-ghost' : null,
+        $info ? 'textarea-info' : null,
+        $success ? 'textarea-success' : null,
+        $warning ? 'textarea-warning' : null,
+        $error ? 'textarea-error' : null,
         $block ? 'w-full' : null,
-        $xs ? 'input-xs' : null,
-        $sm ? 'input-sm' : null,
-        $md ? 'input-md' : null,
-        $lg ? 'input-lg' : null,
-        $xl ? 'input-xl' : null,
+        $xs ? 'textarea-xs' : null,
+        $sm ? 'textarea-sm' : null,
+        $md ? 'textarea-md' : null,
+        $lg ? 'textarea-lg' : null,
+        $xl ? 'textarea-xl' : null,
     ]);
 @endphp
 
@@ -53,19 +52,17 @@
             <span class="text-error">*</span>
         @endif
     </legend>
-    <input
+    <textarea
         {{ $attributes->merge([
             'id' => $id,
             'name' => $name,
-            'value' => $value,
             'required' => $required,
-            'autocomplete' => $autocomplete,
-            'type' => $type,
             'class' => implode(' ', $classes),
             'placeholder' => $placeholder,
             'aria-required' => $required ? 'true' : 'false',
+            'rows' => $rows,
         ]) }}
-    />
+    >{{ $value }}</textarea>
     @error($id)
         <p class="fieldset-label text-error">{{ $message }}</p>
     @enderror

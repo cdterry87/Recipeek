@@ -63,23 +63,26 @@ Route::get('search', SearchRecipes::class)->name('search-recipes');
 // Recipe
 Route::get('recipe/{recipe}', ViewRecipe::class)->name('view-recipe');
 
-// User Profile
-Route::get('profile', UserProfile::class)->name('user-profile');
 
-// Dashboard
-Route::get('dashboard', Dashboard::class)->name('dashboard');
+// ///////////////////////
+// Authenticated Routes
+// ///////////////////////
+Route::middleware(['auth:web'])->group(function () {
+    // User Profile
+    Route::get('profile', UserProfile::class)->name('user-profile');
 
-// My Recipes
-Route::get('my-recipes', MyRecipes::class)->name('my-recipes');
+    // My Recipes
+    Route::get('my-recipes', MyRecipes::class)->name('my-recipes');
 
-// Create Recipe
-Route::get('create-recipe', CreateRecipe::class)->name('create-recipe');
+    // Create Recipe
+    Route::get('create-recipe', CreateRecipe::class)->name('create-recipe');
 
-// Edit Recipe
-Route::get('edit-recipe/{recipe}', EditRecipe::class)->name('edit-recipe');
+    // Edit Recipe
+    Route::get('edit-recipe/{recipe}', EditRecipe::class)->name('edit-recipe');
 
-// Saved Recipes
-Route::get('saved-recipes', SavedRecipes::class)->name('saved-recipes');
+    // Saved Recipes
+    Route::get('saved-recipes', SavedRecipes::class)->name('saved-recipes');
 
-// Rated Recipes
-Route::get('rated-recipes', RatedRecipes::class)->name('rated-recipes');
+    // Rated Recipes
+    Route::get('rated-recipes', RatedRecipes::class)->name('rated-recipes');
+});
