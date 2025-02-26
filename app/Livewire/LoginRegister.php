@@ -35,7 +35,7 @@ class LoginRegister extends Component
         ];
 
         if (auth()->attempt($credentials)) {
-            return redirect()->intended('home');
+            return redirect()->intended(route('home'));
         }
 
         session()->flash('login-error', 'Invalid credentials. Please try again.');
