@@ -3,11 +3,6 @@
     'image' => null,
     'imageFull' => false,
     'imageSide' => false,
-    'xs' => false,
-    'sm' => false,
-    'md' => false,
-    'lg' => false,
-    'xl' => false,
     'actions' => null,
 ])
 
@@ -15,13 +10,10 @@
     $classes = array_filter([
         'card',
         'shadow-md',
+        'w-full',
+        'card-sm',
         $imageSide ? 'card-side' : null,
         $imageFull ? 'image-full' : null,
-        $xs ? 'card-xs' : null,
-        $sm ? 'card-sm' : null,
-        $md ? 'card-md' : null,
-        $lg ? 'card-lg' : null,
-        $xl ? 'card-xl' : null,
     ]);
 @endphp
 
@@ -33,18 +25,19 @@
             <img
                 src="{{ $image }}"
                 alt="{{ $title }}"
+                class="h-64 w-full object-cover"
             />
         </figure>
     @endif
-    <div class="card-body">
+    <div class="card-body font-[Jost]">
         @if ($title)
             <h2 class="card-title">{{ $title }}</h2>
         @endif
-        <div>
+        <div class="text-gray-600">
             {{ $slot }}
         </div>
         @if ($actions)
-            <div class="justify-end card-actions">
+            <div class="w-full">
                 {{ $actions }}
             </div>
         @endif

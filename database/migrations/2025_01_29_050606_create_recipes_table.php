@@ -14,8 +14,8 @@ return new class extends Migration
         Schema::create('recipes', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained()->cascadeOnDelete()->cascadeOnUpdate();
-            $table->string('title');
-            $table->text('description')->nullable();
+            $table->string('title', 60);
+            $table->string('description', 80)->nullable();
             $table->tinyInteger('prep_hours')->nullable();
             $table->tinyInteger('prep_minutes')->nullable();
             $table->tinyInteger('cook_hours')->nullable();

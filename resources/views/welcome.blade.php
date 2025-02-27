@@ -1,6 +1,6 @@
 <x-layouts.app>
     <!-- Hero Section with Video Background -->
-    <section class="relative w-full h-[80vh] overflow-hidden">
+    <section class="relative w-full h-[85vh] overflow-hidden">
         <video
             autoplay
             loop
@@ -63,22 +63,30 @@
             </p>
             <hr class="w-full md:w-1/2 mx-auto border-2 border-rose-500 my-6">
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                <x-recipe-card
+                <x-card
                     title="Rice & Eggs"
-                    image="images/demo1.jpg"
-                />
-                <x-recipe-card
+                    :image="asset('images/demo1.jpg')"
+                >
+                    A simple yet delicious dish that combines rice and eggs for a quick meal.
+                </x-card>
+                <x-card
                     title="Salmon Curry"
-                    image="images/demo2.jpg"
-                />
-                <x-recipe-card
+                    :image="asset('images/demo2.jpg')"
+                >
+                    A flavorful salmon curry that is perfect for a cozy dinner.
+                </x-card>
+                <x-card
                     title="Chicken & Veggies"
-                    image="images/demo3.jpg"
-                />
-                <x-recipe-card
+                    :image="asset('images/demo3.jpg')"
+                >
+                    A healthy and colorful dish that combines chicken and fresh vegetables.
+                </x-card>
+                <x-card
                     title="Fancy Ramen"
-                    image="images/demo4.jpg"
-                />
+                    :image="asset('images/demo4.jpg')"
+                >
+                    A gourmet ramen dish that is sure to impress your guests.
+                </x-card>
             </div>
         </section>
 
@@ -108,7 +116,7 @@
                         >
                         <button
                             type="submit"
-                            class="bg-rose-500 text-white px-6 py-1 rounded-full md:rounded-none md:rounded-r-full text-lg hover:bg-rose-600 md:-ml-32"
+                            class="bg-rose-500 text-white px-6 py-1 rounded-full md:rounded-none md:rounded-r-full text-lg hover:bg-rose-600 md:-ml-32 cursor-pointer"
                             @click.prevent="isSubmitted = true"
                         >
                             Subscribe

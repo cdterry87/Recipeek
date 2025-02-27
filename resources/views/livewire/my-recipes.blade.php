@@ -132,45 +132,18 @@
 
     <!-- Recipes Grid -->
     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-        <!-- Recipe Card -->
-        <div class="card w-full bg-base-100 shadow-xl">
-            <figure>
-                <img
-                    src="https://via.placeholder.com/300"
-                    alt="Recipe Image"
-                    class="h-40 w-full object-cover"
-                >
-            </figure>
-            <div class="card-body">
-                <h2 class="card-title">Recipe Name</h2>
-                <p class="text-gray-500 text-sm">Short description of the recipe.</p>
-                <div class="card-actions justify-between mt-2">
+        <x-card
+            title="Recipe name"
+            :image="asset('images/demo1.jpg')"
+        >
+            <p>Short description of recipe...</p>
+            <x-slot:actions>
+                <div class="flex justify-between">
                     <span class="badge badge-outline">30 mins</span>
                     <button class="btn btn-sm btn-primary">View</button>
                 </div>
-            </div>
-        </div>
-
-        <!-- Duplicate the above card for more recipes -->
-        <div class="card w-full bg-base-100 shadow-xl">
-            <figure>
-                <img
-                    src="https://via.placeholder.com/300"
-                    alt="Recipe Image"
-                    class="h-40 w-full object-cover"
-                >
-            </figure>
-            <div class="card-body">
-                <h2 class="card-title">Recipe Name</h2>
-                <p class="text-gray-500 text-sm">Short description of the recipe.</p>
-                <div class="card-actions justify-between mt-2">
-                    <span class="badge badge-outline">45 mins</span>
-                    <button class="btn btn-sm btn-primary">View</button>
-                </div>
-            </div>
-        </div>
-
-        <!-- Repeat recipe cards dynamically from backend -->
+            </x-slot:actions>
+        </x-card>
     </div>
 
     <!-- No Recipes Message -->
