@@ -1,5 +1,6 @@
 <?php
 
+use App\Livewire\Welcome;
 use App\Livewire\Dashboard;
 use App\Livewire\MyRecipes;
 use App\Livewire\EditRecipe;
@@ -15,9 +16,7 @@ use App\Livewire\ForgotPassword;
 use App\Livewire\DiscoverRecipes;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('welcome');
-})->name('home');
+Route::get('/', Welcome::class)->name('home');
 
 // Login/Register (with Google login with Socialite)
 Route::get('login', LoginRegister::class)->name('login');

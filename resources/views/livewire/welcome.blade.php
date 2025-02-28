@@ -1,4 +1,4 @@
-<x-layouts.app>
+<div>
     <!-- Hero Section with Video Background -->
     <section class="relative w-full h-[85vh] overflow-hidden">
         <video
@@ -62,32 +62,25 @@
                 Discover the most popular recipes created and rated by our community.
             </p>
             <hr class="w-full md:w-1/2 mx-auto border-2 border-rose-500 my-6">
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-                <x-card
-                    title="Rice & Eggs"
-                    :image="asset('images/demo1.jpg')"
-                >
-                    A simple yet delicious dish that combines rice and eggs for a quick meal.
-                </x-card>
-                <x-card
-                    title="Salmon Curry"
-                    :image="asset('images/demo2.jpg')"
-                >
-                    A flavorful salmon curry that is perfect for a cozy dinner.
-                </x-card>
-                <x-card
-                    title="Chicken & Veggies"
-                    :image="asset('images/demo3.jpg')"
-                >
-                    A healthy and colorful dish that combines chicken and fresh vegetables.
-                </x-card>
-                <x-card
-                    title="Fancy Ramen"
-                    :image="asset('images/demo4.jpg')"
-                >
-                    A gourmet ramen dish that is sure to impress your guests.
-                </x-card>
-            </div>
+            @if ($recipes && !$recipes->isNotEmpty())
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                    @foreach ($recipes as $recipe)
+                        <x-card
+                            :title="$recipe->title"
+                            :image="$recipe->image"
+                            :description="$recipe->description"
+                            :link="'recipes/' . $recipe->id"
+                            :category="$recipe->category"
+                            :difficulty="$recipe->difficulty"
+                            :time="$recipe->getFormattedTime()"
+                        />
+                    @endforeach
+                </div>
+            @else
+                <div class="font-[Jost] text-xl text-center text-gray-600 flex items-center justify-center h-32">
+                    No recipes are trending at this time, but check back often for new delicious recipes!
+                </div>
+            @endif
         </section>
 
         <section class="bg-rose-50 h-80 flex items-center justify-center blob-scatter blob-scatter-2 mt-8">
@@ -99,31 +92,37 @@
                     Get the latest recipes, cooking tips, and exclusive offers delivered straight to your inbox.
                 </p>
                 <div
-                    x-data="{ isSubmitted: false }"
+                    x-data="{ isSubscribed: @entangle('isSubscribed') }"
                     class="mt-8"
                 >
                     <form
+                        x-show="!isSubscribed"
                         method="POST"
-                        x-show="!isSubmitted"
-                        class="flex flex-col gap-4 md:flex-row md:gap-0 justify-center"
+                        class="flex flex-col gap-3"
+                        wire:submit.prevent="subscribe"
                     >
-                        <input
-                            type="email"
-                            placeholder="Enter your email"
-                            class="border border-rose-200 px-4 py-2 rounded-full text-black w-full md:w-1/2 bg-white"
-                            required
-                            pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
-                        >
-                        <button
-                            type="submit"
-                            class="bg-rose-500 text-white px-6 py-1 rounded-full md:rounded-none md:rounded-r-full text-lg hover:bg-rose-600 md:-ml-32 cursor-pointer"
-                            @click.prevent="isSubmitted = true"
-                        >
-                            Subscribe
-                        </button>
+                        @error('email')
+                            <div class="text-rose-800 text-sm font-bold text-center">{{ $message }}</div>
+                        @enderror
+                        <div class="flex flex-col gap-4 md:flex-row md:gap-0 justify-center">
+                            <input
+                                type="email"
+                                placeholder="Enter your email"
+                                class="border border-rose-200 px-4 py-2 rounded-full text-black w-full md:w-1/2 bg-white"
+                                required
+                                pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
+                                wire:model="email"
+                            >
+                            <button
+                                type="submit"
+                                class="bg-rose-500 text-white px-6 py-1 rounded-full md:rounded-none md:rounded-r-full text-lg hover:bg-rose-600 md:-ml-32 cursor-pointer"
+                            >
+                                Subscribe
+                            </button>
+                        </div>
                     </form>
                     <div
-                        x-show="isSubmitted"
+                        x-show="isSubscribed"
                         x-transition:enter="transition-opacity duration-500"
                         x-transition:enter-start="opacity-0"
                         x-transition:enter-end="opacity-100"
@@ -135,4 +134,4 @@
             </div>
         </section>
     </div>
-</x-layouts.app>
+</div>
