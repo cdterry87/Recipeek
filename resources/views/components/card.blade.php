@@ -1,9 +1,13 @@
 @props([
     'title' => null,
     'image' => null,
+    'description' => null,
     'imageFull' => false,
     'imageSide' => false,
-    'actions' => null,
+    'category' => null,
+    'difficulty' => null,
+    'time' => null,
+    'link' => null,
 ])
 
 @php
@@ -12,33 +16,58 @@
         'shadow-md',
         'w-full',
         'card-sm',
+        'border-3 border-white',
+        'hover:border-slate-300',
+        'transition ease-in-out duration-300',
         $imageSide ? 'card-side' : null,
         $imageFull ? 'image-full' : null,
+        $link ? 'relative hover:shadow-lg transition-all duration-200 cursor-pointer overflow-hidden rounded-lg' : null,
     ]);
 @endphp
 
-<div {{ $attributes->merge([
-    'class' => implode(' ', $classes),
-]) }}>
+<div
+    {{ $attributes->merge([
+        'class' => implode(' ', $classes),
+        'title' => 'View ' . $title,
+        'aria-label' => 'View ' . $title,
+    ]) }}>
+    @if ($link)
+        <a
+            href="{{ $link }}"
+            class="absolute inset-0 z-10 rounded"
+        ></a>
+    @endif
     @if ($image)
-        <figure>
+        <figure class="overflow-hidden rounded-t">
             <img
                 src="{{ $image }}"
                 alt="{{ $title }}"
-                class="h-64 w-full object-cover"
+                class="h-56 w-full object-cover"
             />
         </figure>
     @endif
-    <div class="card-body font-[Jost]">
+    <div class="card-body font-[Jost] relative z-20">
         @if ($title)
-            <h2 class="card-title">{{ $title }}</h2>
+            <h2 class="card-title">{{ Str::limit($title, 20) }}</h2>
         @endif
-        <div class="text-gray-600">
-            {{ $slot }}
-        </div>
-        @if ($actions)
-            <div class="w-full">
-                {{ $actions }}
+        @if ($description)
+            <div class="text-gray-600">
+                {{ $description }}
+            </div>
+        @endif
+        @if ($time || $difficulty || $category)
+            <div class="card-actions h-full items-end">
+                <div class="flex items-center gap-1">
+                    @if ($time)
+                        <span class="badge badge-outline badge-sm">{{ $time }}</span>
+                    @endif
+                    @if ($difficulty)
+                        <span class="badge badge-outline badge-sm">{{ $difficulty }}</span>
+                    @endif
+                    @if ($category)
+                        <span class="badge badge-outline badge-sm">{{ $category }}</span>
+                    @endif
+                </div>
             </div>
         @endif
     </div>

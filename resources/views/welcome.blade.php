@@ -62,7 +62,7 @@
                 Discover the most popular recipes created and rated by our community.
             </p>
             <hr class="w-full md:w-1/2 mx-auto border-2 border-rose-500 my-6">
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
                 <x-card
                     title="Rice & Eggs"
                     :image="asset('images/demo1.jpg')"
@@ -90,7 +90,7 @@
             </div>
         </section>
 
-        <section class="bg-rose-50 h-80 flex items-center justify-center blob-scatter blob-scatter-2">
+        <section class="bg-rose-50 h-80 flex items-center justify-center blob-scatter blob-scatter-2 mt-8">
             <div class="container mx-auto py-12 px-6">
                 <h2 class="text-xl md:text-3xl text-center font-bold mb-2 text-gray-800 font-[Jost] uppercase">
                     Subscribe to Our Newsletter

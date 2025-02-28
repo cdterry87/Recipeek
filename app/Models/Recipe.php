@@ -49,4 +49,21 @@ class Recipe extends Model
     {
         return $this->ratings()->avg('rating');
     }
+
+    public function getFormattedTime()
+    {
+        $hours = $this->hours;
+        $minutes = $this->minutes;
+
+        if ($hours === null && $minutes === null) return null;
+
+        $formattedTime = '';
+        if ($hours > 0) {
+            $formattedTime .= $hours . 'h ';
+        }
+        if ($minutes > 0) {
+            $formattedTime .= $minutes . 'm';
+        }
+        return trim($formattedTime);
+    }
 }

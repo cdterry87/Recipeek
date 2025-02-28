@@ -16,10 +16,10 @@ return new class extends Migration
             $table->foreignId('user_id')->constrained()->cascadeOnDelete()->cascadeOnUpdate();
             $table->string('title', 60);
             $table->string('description', 80)->nullable();
-            $table->tinyInteger('prep_hours')->nullable();
-            $table->tinyInteger('prep_minutes')->nullable();
-            $table->tinyInteger('cook_hours')->nullable();
-            $table->tinyInteger('cook_minutes')->nullable();
+            $table->string('category', 16)->nullable();
+            $table->string('difficulty', 16)->nullable();
+            $table->tinyInteger('hours')->nullable();
+            $table->tinyInteger('minutes')->nullable();
             $table->tinyInteger('servings')->nullable();
             $table->integer('calories')->nullable();
             $table->text('image')->nullable();
