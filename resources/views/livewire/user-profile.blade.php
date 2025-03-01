@@ -55,6 +55,13 @@
                     @endif
                 </div>
 
+                @if ($avatar && $avatar->temporaryUrl())
+                    <p class="text-xs font-semibold italic text-rose-600">
+                        A preview of your new avatar will be shown above. Please save your changes to apply the new
+                        avatar.
+                    </p>
+                @endif
+
                 <x-input-text
                     label="Name"
                     id="name"

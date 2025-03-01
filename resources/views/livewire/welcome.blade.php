@@ -25,7 +25,7 @@
                     type="text"
                     name="search"
                     placeholder="Search for something delicious!"
-                    class="px-4 py-3 rounded-full text-black bg-white w-3/4 md:w-2/3"
+                    class="px-4 py-3 rounded-full text-black bg-white w-4/5 md:w-2/3"
                 >
                 <a
                     href="{{ route('search-recipes') }}"
@@ -62,7 +62,7 @@
                 Discover the most popular recipes created and rated by our community.
             </p>
             <hr class="w-full md:w-1/2 mx-auto border-2 border-rose-500 my-6">
-            @if ($recipes && !$recipes->isNotEmpty())
+            @if ($recipes && $recipes->isNotEmpty())
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
                     @foreach ($recipes as $recipe)
                         <x-card

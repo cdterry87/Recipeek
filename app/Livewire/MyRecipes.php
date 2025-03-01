@@ -29,7 +29,7 @@ class MyRecipes extends Component
         $user = Auth::user();
 
         $recipes = Recipe::where('user_id', $user->id)
-            ->when($this->search, function ($query) {
+            ->when(strlen($this->search) >= 3, function ($query) {
                 $query->where('title', 'like', '%' . $this->search . '%');
             })
             ->when($this->category, function ($query) {

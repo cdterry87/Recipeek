@@ -17,7 +17,7 @@
         'w-full',
         'card-sm',
         'border-3 border-white',
-        'hover:border-slate-300',
+        'hover:border-slate-200',
         'transition ease-in-out duration-300',
         $imageSide ? 'card-side' : null,
         $imageFull ? 'image-full' : null,

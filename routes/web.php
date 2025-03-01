@@ -1,13 +1,11 @@
 <?php
 
 use App\Livewire\Welcome;
-use App\Livewire\Dashboard;
 use App\Livewire\MyRecipes;
 use App\Livewire\EditRecipe;
 use App\Livewire\ViewRecipe;
 use App\Livewire\UserProfile;
 use App\Livewire\CreateRecipe;
-use App\Livewire\RatedRecipes;
 use App\Livewire\SavedRecipes;
 use App\Livewire\LoginRegister;
 use App\Livewire\ResetPassword;
@@ -81,7 +79,4 @@ Route::middleware(['auth:web'])->group(function () {
 
     // Saved Recipes
     Route::get('saved-recipes', SavedRecipes::class)->name('saved-recipes');
-
-    // Rated Recipes
-    Route::get('rated-recipes', RatedRecipes::class)->name('rated-recipes');
 });

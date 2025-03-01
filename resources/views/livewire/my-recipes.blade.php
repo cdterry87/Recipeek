@@ -1,7 +1,7 @@
 <div class="max-w-6xl mx-auto p-6">
     <!-- Page Header -->
     <div class="flex flex-row gap-4 justify-between items-center mb-6">
-        <h1 class="text-xl sm:text-3xl font-bold">My Recipes</h1>
+        <h1 class="text-2xl sm:text-3xl font-bold">My Recipes</h1>
         <button class="btn btn-primary btn-sm sm:btn-md">
             <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -62,7 +62,7 @@
             <x-search
                 placeholder="Search my recipes..."
                 class="w-full lg:w-64"
-                wire:model.live="search"
+                wire:model.live.debounce.600ms="search"
             />
         </div>
     </div>
