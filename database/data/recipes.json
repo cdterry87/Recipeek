@@ -1,0 +1,1287 @@
+[
+    {
+        "title": "Spaghetti Bolognese",
+        "user_id": 1,
+        "description": "A classic Italian pasta dish.",
+        "category": "Main Course",
+        "cuisine": "Italian",
+        "difficulty": "Medium",
+        "method": "Boiling",
+        "occasion": "Dinner",
+        "hours": 0,
+        "minutes": 30,
+        "servings": 4,
+        "calories": 600,
+        "image": "spaghetti-bolognese.jpg",
+        "private": false,
+        "ingredients": [
+            {
+                "ingredient": "Spaghetti",
+                "quantity": "400",
+                "unit": "grams"
+            },
+            {
+                "ingredient": "Ground Beef",
+                "quantity": "300",
+                "unit": "grams"
+            },
+            {
+                "ingredient": "Tomato Sauce",
+                "quantity": "1",
+                "unit": "cup"
+            },
+            {
+                "ingredient": "Onion",
+                "quantity": "1",
+                "unit": "large"
+            },
+            {
+                "ingredient": "Garlic",
+                "quantity": "2",
+                "unit": "cloves"
+            }
+        ],
+        "instructions": [
+            {
+                "instruction": "Boil the spaghetti according to the package instructions.",
+                "order": 1
+            },
+            {
+                "instruction": "Fry the ground beef in a pan until browned.",
+                "order": 2
+            },
+            {
+                "instruction": "Add chopped onion and garlic, and sauté for 5 minutes.",
+                "order": 3
+            },
+            {
+                "instruction": "Pour in the tomato sauce and let it simmer for 10 minutes.",
+                "order": 4
+            },
+            {
+                "instruction": "Serve the sauce over the spaghetti.",
+                "order": 5
+            }
+        ]
+    },
+    {
+        "title": "Chicken Caesar Salad",
+        "user_id": 1,
+        "description": "A fresh, light salad with grilled chicken.",
+        "category": "Salad",
+        "cuisine": "American",
+        "difficulty": "Easy",
+        "method": "Grilling",
+        "occasion": "Lunch",
+        "hours": 0,
+        "minutes": 20,
+        "servings": 2,
+        "calories": 400,
+        "image": "chicken-caesar-salad.jpg",
+        "private": false,
+        "ingredients": [
+            {
+                "ingredient": "Chicken Breast",
+                "quantity": "2",
+                "unit": "pieces"
+            },
+            {
+                "ingredient": "Romaine Lettuce",
+                "quantity": "1",
+                "unit": "head"
+            },
+            {
+                "ingredient": "Caesar Dressing",
+                "quantity": "3",
+                "unit": "tablespoons"
+            },
+            {
+                "ingredient": "Croutons",
+                "quantity": "1",
+                "unit": "cup"
+            },
+            {
+                "ingredient": "Parmesan Cheese",
+                "quantity": "1/4",
+                "unit": "cup"
+            }
+        ],
+        "instructions": [
+            {
+                "instruction": "Grill the chicken breasts until fully cooked.",
+                "order": 1
+            },
+            {
+                "instruction": "Chop the romaine lettuce and place in a bowl.",
+                "order": 2
+            },
+            {
+                "instruction": "Slice the grilled chicken and add to the lettuce.",
+                "order": 3
+            },
+            {
+                "instruction": "Toss with Caesar dressing and top with croutons and Parmesan cheese.",
+                "order": 4
+            }
+        ]
+    },
+    {
+        "title": "Chocolate Cake",
+        "user_id": 1,
+        "description": "A rich and moist chocolate cake.",
+        "category": "Dessert",
+        "cuisine": "American",
+        "difficulty": "Medium",
+        "method": "Baking",
+        "occasion": "Any",
+        "hours": 1,
+        "minutes": 15,
+        "servings": 8,
+        "calories": 350,
+        "image": "chocolate-cake.jpg",
+        "private": false,
+        "ingredients": [
+            {
+                "ingredient": "Flour",
+                "quantity": "2",
+                "unit": "cups"
+            },
+            {
+                "ingredient": "Cocoa Powder",
+                "quantity": "1",
+                "unit": "cup"
+            },
+            {
+                "ingredient": "Sugar",
+                "quantity": "2",
+                "unit": "cups"
+            },
+            {
+                "ingredient": "Eggs",
+                "quantity": "3",
+                "unit": "large"
+            },
+            {
+                "ingredient": "Butter",
+                "quantity": "1",
+                "unit": "cup"
+            }
+        ],
+        "instructions": [
+            {
+                "instruction": "Preheat the oven to 350°F (175°C).",
+                "order": 1
+            },
+            {
+                "instruction": "Mix the dry ingredients together in a bowl.",
+                "order": 2
+            },
+            {
+                "instruction": "In another bowl, beat the eggs and butter together.",
+                "order": 3
+            },
+            {
+                "instruction": "Combine the wet and dry ingredients and pour into a greased baking pan.",
+                "order": 4
+            },
+            {
+                "instruction": "Bake for 30-40 minutes until a toothpick comes out clean.",
+                "order": 5
+            }
+        ]
+    },
+    {
+        "title": "Vegetable Stir-Fry",
+        "user_id": 1,
+        "description": "A healthy, quick vegetable stir-fry.",
+        "category": "Main Course",
+        "cuisine": "Chinese",
+        "difficulty": "Easy",
+        "method": "Stir-frying",
+        "occasion": "Dinner",
+        "hours": 0,
+        "minutes": 20,
+        "servings": 3,
+        "calories": 250,
+        "image": "vegetable-stir-fry.jpg",
+        "private": false,
+        "ingredients": [
+            {
+                "ingredient": "Bell Peppers",
+                "quantity": "2",
+                "unit": "pieces"
+            },
+            {
+                "ingredient": "Carrots",
+                "quantity": "1",
+                "unit": "large"
+            },
+            {
+                "ingredient": "Broccoli",
+                "quantity": "1",
+                "unit": "cup"
+            },
+            {
+                "ingredient": "Soy Sauce",
+                "quantity": "2",
+                "unit": "tablespoons"
+            },
+            {
+                "ingredient": "Garlic",
+                "quantity": "2",
+                "unit": "cloves"
+            }
+        ],
+        "instructions": [
+            {
+                "instruction": "Chop all vegetables into bite-sized pieces.",
+                "order": 1
+            },
+            {
+                "instruction": "Heat oil in a pan and sauté garlic until fragrant.",
+                "order": 2
+            },
+            {
+                "instruction": "Add the vegetables and stir-fry for 5-7 minutes.",
+                "order": 3
+            },
+            {
+                "instruction": "Pour in the soy sauce and stir for another 2 minutes.",
+                "order": 4
+            }
+        ]
+    },
+    {
+        "title": "Pancakes",
+        "user_id": 1,
+        "description": "Fluffy and delicious pancakes for breakfast.",
+        "category": "Breakfast",
+        "cuisine": "American",
+        "difficulty": "Easy",
+        "method": "Grilling",
+        "occasion": "Breakfast",
+        "hours": 0,
+        "minutes": 15,
+        "servings": 4,
+        "calories": 300,
+        "image": "pancakes.jpg",
+        "private": false,
+        "ingredients": [
+            {
+                "ingredient": "Flour",
+                "quantity": "1",
+                "unit": "cup"
+            },
+            {
+                "ingredient": "Egg",
+                "quantity": "1",
+                "unit": "large"
+            },
+            {
+                "ingredient": "Milk",
+                "quantity": "1",
+                "unit": "cup"
+            },
+            {
+                "ingredient": "Baking Powder",
+                "quantity": "2",
+                "unit": "teaspoons"
+            },
+            {
+                "ingredient": "Butter",
+                "quantity": "2",
+                "unit": "tablespoons"
+            }
+        ],
+        "instructions": [
+            {
+                "instruction": "Mix all ingredients together in a bowl.",
+                "order": 1
+            },
+            {
+                "instruction": "Heat a griddle or pan over medium heat.",
+                "order": 2
+            },
+            {
+                "instruction": "Pour the batter onto the griddle and cook for 2-3 minutes on each side.",
+                "order": 3
+            },
+            {
+                "instruction": "Serve with syrup and butter.",
+                "order": 4
+            }
+        ]
+    },
+    {
+        "title": "Chicken Alfredo",
+        "user_id": 1,
+        "description": "A creamy and rich chicken pasta dish.",
+        "category": "Main Course",
+        "cuisine": "Italian",
+        "difficulty": "Medium",
+        "method": "Boiling",
+        "occasion": "Dinner",
+        "hours": 0,
+        "minutes": 45,
+        "servings": 4,
+        "calories": 800,
+        "image": "chicken-alfredo.jpg",
+        "private": false,
+        "ingredients": [
+            {
+                "ingredient": "Chicken Breast",
+                "quantity": "2",
+                "unit": "pieces"
+            },
+            {
+                "ingredient": "Fettuccine Pasta",
+                "quantity": "400",
+                "unit": "grams"
+            },
+            {
+                "ingredient": "Heavy Cream",
+                "quantity": "1",
+                "unit": "cup"
+            },
+            {
+                "ingredient": "Parmesan Cheese",
+                "quantity": "1/2",
+                "unit": "cup"
+            },
+            {
+                "ingredient": "Garlic",
+                "quantity": "2",
+                "unit": "cloves"
+            }
+        ],
+        "instructions": [
+            {
+                "instruction": "Cook the pasta according to package instructions.",
+                "order": 1
+            },
+            {
+                "instruction": "Grill or pan-fry the chicken breasts until fully cooked.",
+                "order": 2
+            },
+            {
+                "instruction": "In a pan, sauté garlic, then add heavy cream and Parmesan cheese.",
+                "order": 3
+            },
+            {
+                "instruction": "Mix in the cooked chicken and pasta, and toss to coat.",
+                "order": 4
+            }
+        ]
+    },
+    {
+        "title": "Beef Tacos",
+        "user_id": 1,
+        "description": "Delicious beef tacos with all the toppings.",
+        "category": "Main Course",
+        "cuisine": "Mexican",
+        "difficulty": "Medium",
+        "method": "Grilling",
+        "occasion": "Dinner",
+        "hours": 0,
+        "minutes": 30,
+        "servings": 4,
+        "calories": 500,
+        "image": "beef-tacos.jpg",
+        "private": false,
+        "ingredients": [
+            {
+                "ingredient": "Ground Beef",
+                "quantity": "500",
+                "unit": "grams"
+            },
+            {
+                "ingredient": "Taco Shells",
+                "quantity": "8",
+                "unit": "pieces"
+            },
+            {
+                "ingredient": "Lettuce",
+                "quantity": "1",
+                "unit": "head"
+            },
+            {
+                "ingredient": "Cheese",
+                "quantity": "1",
+                "unit": "cup"
+            },
+            {
+                "ingredient": "Salsa",
+                "quantity": "1",
+                "unit": "cup"
+            }
+        ],
+        "instructions": [
+            {
+                "instruction": "Cook the ground beef in a pan until browned.",
+                "order": 1
+            },
+            {
+                "instruction": "Warm the taco shells in the oven.",
+                "order": 2
+            },
+            {
+                "instruction": "Fill the taco shells with beef, lettuce, cheese, and salsa.",
+                "order": 3
+            }
+        ]
+    },
+    {
+        "title": "Lasagna",
+        "user_id": 1,
+        "description": "A comforting Italian dish with layers of pasta and sauce.",
+        "category": "Main Course",
+        "cuisine": "Italian",
+        "difficulty": "Medium",
+        "method": "Baking",
+        "occasion": "Dinner",
+        "hours": 1,
+        "minutes": 0,
+        "servings": 6,
+        "calories": 700,
+        "image": "lasagna.jpg",
+        "private": false,
+        "ingredients": [
+            {
+                "ingredient": "Lasagna Noodles",
+                "quantity": "12",
+                "unit": "pieces"
+            },
+            {
+                "ingredient": "Ground Beef",
+                "quantity": "500",
+                "unit": "grams"
+            },
+            {
+                "ingredient": "Ricotta Cheese",
+                "quantity": "1",
+                "unit": "cup"
+            },
+            {
+                "ingredient": "Tomato Sauce",
+                "quantity": "2",
+                "unit": "cups"
+            },
+            {
+                "ingredient": "Mozzarella Cheese",
+                "quantity": "2",
+                "unit": "cups"
+            }
+        ],
+        "instructions": [
+            {
+                "instruction": "Preheat the oven to 375°F (190°C).",
+                "order": 1
+            },
+            {
+                "instruction": "Boil the lasagna noodles according to package instructions.",
+                "order": 2
+            },
+            {
+                "instruction": "Brown the ground beef and mix with tomato sauce.",
+                "order": 3
+            },
+            {
+                "instruction": "Layer the lasagna noodles, meat sauce, and cheese in a baking dish.",
+                "order": 4
+            },
+            {
+                "instruction": "Bake for 45 minutes until bubbly and golden.",
+                "order": 5
+            }
+        ]
+    },
+    {
+        "title": "Grilled Salmon",
+        "user_id": 1,
+        "description": "Perfectly grilled salmon with a fresh lemon glaze.",
+        "category": "Main Course",
+        "cuisine": "American",
+        "difficulty": "Medium",
+        "method": "Grilling",
+        "occasion": "Dinner",
+        "hours": 0,
+        "minutes": 20,
+        "servings": 2,
+        "calories": 400,
+        "image": "grilled-salmon.jpg",
+        "private": false,
+        "ingredients": [
+            {
+                "ingredient": "Salmon Fillets",
+                "quantity": "2",
+                "unit": "pieces"
+            },
+            {
+                "ingredient": "Lemon",
+                "quantity": "1",
+                "unit": "piece"
+            },
+            {
+                "ingredient": "Garlic",
+                "quantity": "2",
+                "unit": "cloves"
+            },
+            {
+                "ingredient": "Olive Oil",
+                "quantity": "2",
+                "unit": "tablespoons"
+            },
+            {
+                "ingredient": "Salt",
+                "quantity": "1",
+                "unit": "teaspoon"
+            }
+        ],
+        "instructions": [
+            {
+                "instruction": "Preheat the grill to medium-high heat.",
+                "order": 1
+            },
+            {
+                "instruction": "Season the salmon fillets with olive oil, garlic, salt, and lemon juice.",
+                "order": 2
+            },
+            {
+                "instruction": "Grill the salmon for 5-7 minutes on each side.",
+                "order": 3
+            },
+            {
+                "instruction": "Serve with a fresh lemon wedge.",
+                "order": 4
+            }
+        ]
+    },
+    {
+        "title": "Beef Wellington",
+        "user_id": 1,
+        "description": "A luxurious and tender beef roast wrapped in pastry.",
+        "category": "Main Course",
+        "cuisine": "British",
+        "difficulty": "Hard",
+        "method": "Baking",
+        "occasion": "Special Occasion",
+        "hours": 2,
+        "minutes": 30,
+        "servings": 6,
+        "calories": 1000,
+        "image": "beef-wellington.jpg",
+        "private": false,
+        "ingredients": [
+            {
+                "ingredient": "Beef Tenderloin",
+                "quantity": "1",
+                "unit": "kg"
+            },
+            {
+                "ingredient": "Puff Pastry",
+                "quantity": "500",
+                "unit": "grams"
+            },
+            {
+                "ingredient": "Mushrooms",
+                "quantity": "200",
+                "unit": "grams"
+            },
+            {
+                "ingredient": "Prosciutto",
+                "quantity": "100",
+                "unit": "grams"
+            },
+            {
+                "ingredient": "Egg Yolk",
+                "quantity": "1",
+                "unit": "piece"
+            }
+        ],
+        "instructions": [
+            {
+                "instruction": "Sear the beef tenderloin on all sides until browned.",
+                "order": 1
+            },
+            {
+                "instruction": "Chop the mushrooms finely and sauté until the moisture evaporates.",
+                "order": 2
+            },
+            {
+                "instruction": "Wrap the beef in prosciutto and then in the mushroom mixture.",
+                "order": 3
+            },
+            {
+                "instruction": "Wrap the entire thing in puff pastry and seal it.",
+                "order": 4
+            },
+            {
+                "instruction": "Brush with egg yolk and bake at 400°F (200°C) for 25-30 minutes.",
+                "order": 5
+            }
+        ]
+    },
+    {
+        "title": "Fish Tacos",
+        "user_id": 1,
+        "description": "Light and crispy fish tacos with fresh toppings.",
+        "category": "Main Course",
+        "cuisine": "Mexican",
+        "difficulty": "Easy",
+        "method": "Frying",
+        "occasion": "Dinner",
+        "hours": 0,
+        "minutes": 25,
+        "servings": 4,
+        "calories": 350,
+        "image": "fish-tacos.jpg",
+        "private": false,
+        "ingredients": [
+            {
+                "ingredient": "White Fish Fillets",
+                "quantity": "500",
+                "unit": "grams"
+            },
+            {
+                "ingredient": "Corn Tortillas",
+                "quantity": "8",
+                "unit": "pieces"
+            },
+            {
+                "ingredient": "Cabbage",
+                "quantity": "1",
+                "unit": "cup"
+            },
+            {
+                "ingredient": "Lime",
+                "quantity": "1",
+                "unit": "piece"
+            },
+            {
+                "ingredient": "Cilantro",
+                "quantity": "1/4",
+                "unit": "cup"
+            }
+        ],
+        "instructions": [
+            {
+                "instruction": "Fry the fish fillets until crispy and golden.",
+                "order": 1
+            },
+            {
+                "instruction": "Warm the tortillas in a pan.",
+                "order": 2
+            },
+            {
+                "instruction": "Shred the cabbage and cilantro for the toppings.",
+                "order": 3
+            },
+            {
+                "instruction": "Place the fish in the tortilla and top with cabbage, cilantro, and a squeeze of lime.",
+                "order": 4
+            }
+        ]
+    },
+    {
+        "title": "Eggplant Parmesan",
+        "user_id": 1,
+        "description": "A comforting Italian vegetarian dish with crispy eggplant.",
+        "category": "Main Course",
+        "cuisine": "Italian",
+        "difficulty": "Medium",
+        "method": "Baking",
+        "occasion": "Dinner",
+        "hours": 1,
+        "minutes": 20,
+        "servings": 4,
+        "calories": 500,
+        "image": "eggplant-parmesan.jpg",
+        "private": false,
+        "ingredients": [
+            {
+                "ingredient": "Eggplant",
+                "quantity": "2",
+                "unit": "pieces"
+            },
+            {
+                "ingredient": "Breadcrumbs",
+                "quantity": "1",
+                "unit": "cup"
+            },
+            {
+                "ingredient": "Mozzarella Cheese",
+                "quantity": "1",
+                "unit": "cup"
+            },
+            {
+                "ingredient": "Tomato Sauce",
+                "quantity": "2",
+                "unit": "cups"
+            },
+            {
+                "ingredient": "Parmesan Cheese",
+                "quantity": "1/4",
+                "unit": "cup"
+            }
+        ],
+        "instructions": [
+            {
+                "instruction": "Slice the eggplant and coat with breadcrumbs.",
+                "order": 1
+            },
+            {
+                "instruction": "Fry the eggplant slices until golden and crispy.",
+                "order": 2
+            },
+            {
+                "instruction": "Layer the fried eggplant with tomato sauce, mozzarella, and Parmesan cheese in a baking dish.",
+                "order": 3
+            },
+            {
+                "instruction": "Bake at 375°F (190°C) for 20-25 minutes.",
+                "order": 4
+            }
+        ]
+    },
+    {
+        "title": "Chicken Tikka Masala",
+        "user_id": 1,
+        "description": "A flavorful, spiced chicken curry in a rich tomato sauce.",
+        "category": "Main Course",
+        "cuisine": "Indian",
+        "difficulty": "Hard",
+        "method": "Simmering",
+        "occasion": "Dinner",
+        "hours": 1,
+        "minutes": 0,
+        "servings": 4,
+        "calories": 700,
+        "image": "chicken-tikka-masala.jpg",
+        "private": false,
+        "ingredients": [
+            {
+                "ingredient": "Chicken Breast",
+                "quantity": "500",
+                "unit": "grams"
+            },
+            {
+                "ingredient": "Yogurt",
+                "quantity": "1/2",
+                "unit": "cup"
+            },
+            {
+                "ingredient": "Tomato Sauce",
+                "quantity": "2",
+                "unit": "cups"
+            },
+            {
+                "ingredient": "Onion",
+                "quantity": "1",
+                "unit": "large"
+            },
+            {
+                "ingredient": "Garlic",
+                "quantity": "2",
+                "unit": "cloves"
+            }
+        ],
+        "instructions": [
+            {
+                "instruction": "Marinate the chicken in yogurt and spices for 30 minutes.",
+                "order": 1
+            },
+            {
+                "instruction": "Cook the chicken in a pan until browned.",
+                "order": 2
+            },
+            {
+                "instruction": "Add chopped onions and garlic to the pan and sauté.",
+                "order": 3
+            },
+            {
+                "instruction": "Add tomato sauce and simmer for 20 minutes.",
+                "order": 4
+            }
+        ]
+    },
+    {
+        "title": "Pineapple Fried Rice",
+        "user_id": 1,
+        "description": "A vibrant fried rice with sweet pineapple and savory vegetables.",
+        "category": "Side Dish",
+        "cuisine": "Thai",
+        "difficulty": "Easy",
+        "method": "Frying",
+        "occasion": "Any",
+        "hours": 0,
+        "minutes": 20,
+        "servings": 4,
+        "calories": 350,
+        "image": "pineapple-fried-rice.jpg",
+        "private": false,
+        "ingredients": [
+            {
+                "ingredient": "Jasmine Rice",
+                "quantity": "2",
+                "unit": "cups"
+            },
+            {
+                "ingredient": "Pineapple",
+                "quantity": "1",
+                "unit": "cup"
+            },
+            {
+                "ingredient": "Carrots",
+                "quantity": "1",
+                "unit": "small"
+            },
+            {
+                "ingredient": "Green Peas",
+                "quantity": "1/2",
+                "unit": "cup"
+            },
+            {
+                "ingredient": "Soy Sauce",
+                "quantity": "2",
+                "unit": "tablespoons"
+            }
+        ],
+        "instructions": [
+            {
+                "instruction": "Cook the rice and set aside to cool.",
+                "order": 1
+            },
+            {
+                "instruction": "Stir-fry the vegetables and pineapple in a pan.",
+                "order": 2
+            },
+            {
+                "instruction": "Add the cooled rice and soy sauce to the pan, and fry for 5 minutes.",
+                "order": 3
+            }
+        ]
+    },
+    {
+        "title": "Beef Stir-Fry",
+        "user_id": 1,
+        "description": "A quick and tasty stir-fry with tender beef and vegetables.",
+        "category": "Main Course",
+        "cuisine": "Chinese",
+        "difficulty": "Medium",
+        "method": "Stir-frying",
+        "occasion": "Dinner",
+        "hours": 0,
+        "minutes": 30,
+        "servings": 4,
+        "calories": 450,
+        "image": "beef-stir-fry.jpg",
+        "private": false,
+        "ingredients": [
+            {
+                "ingredient": "Beef Strips",
+                "quantity": "400",
+                "unit": "grams"
+            },
+            {
+                "ingredient": "Bell Peppers",
+                "quantity": "2",
+                "unit": "pieces"
+            },
+            {
+                "ingredient": "Soy Sauce",
+                "quantity": "3",
+                "unit": "tablespoons"
+            },
+            {
+                "ingredient": "Garlic",
+                "quantity": "2",
+                "unit": "cloves"
+            },
+            {
+                "ingredient": "Ginger",
+                "quantity": "1",
+                "unit": "inch"
+            }
+        ],
+        "instructions": [
+            {
+                "instruction": "Stir-fry the beef in a hot pan for 2-3 minutes.",
+                "order": 1
+            },
+            {
+                "instruction": "Add sliced bell peppers, garlic, and ginger.",
+                "order": 2
+            },
+            {
+                "instruction": "Pour in soy sauce and stir-fry for another 3 minutes.",
+                "order": 3
+            }
+        ]
+    },
+    {
+        "title": "Pork Schnitzel",
+        "user_id": 1,
+        "description": "A crispy, breaded pork cutlet.",
+        "category": "Main Course",
+        "cuisine": "German",
+        "difficulty": "Medium",
+        "method": "Frying",
+        "occasion": "Dinner",
+        "hours": 0,
+        "minutes": 30,
+        "servings": 4,
+        "calories": 600,
+        "image": "pork-schnitzel.jpg",
+        "private": false,
+        "ingredients": [
+            {
+                "ingredient": "Pork Cutlets",
+                "quantity": "4",
+                "unit": "pieces"
+            },
+            {
+                "ingredient": "Breadcrumbs",
+                "quantity": "1",
+                "unit": "cup"
+            },
+            {
+                "ingredient": "Eggs",
+                "quantity": "2",
+                "unit": "large"
+            },
+            {
+                "ingredient": "Flour",
+                "quantity": "1",
+                "unit": "cup"
+            },
+            {
+                "ingredient": "Lemon",
+                "quantity": "1",
+                "unit": "piece"
+            }
+        ],
+        "instructions": [
+            {
+                "instruction": "Dredge the pork cutlets in flour, dip in beaten eggs, and coat with breadcrumbs.",
+                "order": 1
+            },
+            {
+                "instruction": "Fry the cutlets until golden and crispy.",
+                "order": 2
+            },
+            {
+                "instruction": "Serve with a wedge of lemon.",
+                "order": 3
+            }
+        ]
+    },
+    {
+        "title": "Grilled Chicken & Veggies Bowl",
+        "user_id": 1,
+        "description": "A healthy and colorful bowl with grilled chicken and fresh vegetables.",
+        "category": "Main Course",
+        "cuisine": "American",
+        "difficulty": "Medium",
+        "method": "Grilling",
+        "occasion": "Lunch",
+        "hours": 0,
+        "minutes": 40,
+        "servings": 4,
+        "calories": 500,
+        "image": "grilled-chicken-veggies-bowl.jpg",
+        "private": false,
+        "ingredients": [
+            {
+                "ingredient": "Chicken Breasts",
+                "quantity": "4",
+                "unit": "pieces"
+            },
+            {
+                "ingredient": "Bell Peppers",
+                "quantity": "2",
+                "unit": "pieces"
+            },
+            {
+                "ingredient": "Zucchini",
+                "quantity": "1",
+                "unit": "piece"
+            },
+            {
+                "ingredient": "Olive Oil",
+                "quantity": "2",
+                "unit": "tablespoons"
+            },
+            {
+                "ingredient": "Quinoa",
+                "quantity": "1",
+                "unit": "cup"
+            }
+        ],
+        "instructions": [
+            {
+                "instruction": "Season chicken breasts with olive oil, salt, and pepper.",
+                "order": 1
+            },
+            {
+                "instruction": "Grill the chicken breasts and vegetables until cooked through.",
+                "order": 2
+            },
+            {
+                "instruction": "Cook quinoa according to package instructions.",
+                "order": 3
+            },
+            {
+                "instruction": "Slice the chicken and vegetables, and assemble the bowl with quinoa.",
+                "order": 4
+            }
+        ]
+    },
+    {
+        "title": "Pork Ramen",
+        "user_id": 1,
+        "description": "A flavorful bowl of ramen with tender pork and savory broth.",
+        "category": "Main Course",
+        "cuisine": "Japanese",
+        "difficulty": "Medium",
+        "method": "Simmering",
+        "occasion": "Dinner",
+        "hours": 1,
+        "minutes": 10,
+        "servings": 4,
+        "calories": 600,
+        "image": "pork-ramen.jpg",
+        "private": false,
+        "ingredients": [
+            {
+                "ingredient": "Pork Belly",
+                "quantity": "500",
+                "unit": "grams"
+            },
+            {
+                "ingredient": "Ramen Noodles",
+                "quantity": "4",
+                "unit": "pieces"
+            },
+            {
+                "ingredient": "Soy Sauce",
+                "quantity": "3",
+                "unit": "tablespoons"
+            },
+            {
+                "ingredient": "Ginger",
+                "quantity": "1",
+                "unit": "inch"
+            },
+            {
+                "ingredient": "Green Onions",
+                "quantity": "1",
+                "unit": "bunch"
+            }
+        ],
+        "instructions": [
+            {
+                "instruction": "Brown the pork belly in a pot, then add ginger and soy sauce.",
+                "order": 1
+            },
+            {
+                "instruction": "Add water and simmer for 40 minutes.",
+                "order": 2
+            },
+            {
+                "instruction": "Cook ramen noodles in a separate pot according to package instructions.",
+                "order": 3
+            },
+            {
+                "instruction": "Assemble the ramen by adding noodles to the bowl and topping with the pork and broth.",
+                "order": 4
+            },
+            {
+                "instruction": "Garnish with green onions and serve.",
+                "order": 5
+            }
+        ]
+    },
+    {
+        "title": "Rotisserie Chicken and Veggies",
+        "user_id": 1,
+        "description": "A simple and delicious meal with rotisserie chicken and roasted vegetables.",
+        "category": "Main Course",
+        "cuisine": "American",
+        "difficulty": "Easy",
+        "method": "Roasting",
+        "occasion": "Dinner",
+        "hours": 1,
+        "minutes": 20,
+        "servings": 4,
+        "calories": 700,
+        "image": "rotisserie-chicken-veggies.jpg",
+        "private": false,
+        "ingredients": [
+            {
+                "ingredient": "Rotisserie Chicken",
+                "quantity": "1",
+                "unit": "whole"
+            },
+            {
+                "ingredient": "Carrots",
+                "quantity": "2",
+                "unit": "pieces"
+            },
+            {
+                "ingredient": "Potatoes",
+                "quantity": "3",
+                "unit": "pieces"
+            },
+            {
+                "ingredient": "Olive Oil",
+                "quantity": "2",
+                "unit": "tablespoons"
+            },
+            {
+                "ingredient": "Rosemary",
+                "quantity": "2",
+                "unit": "sprigs"
+            }
+        ],
+        "instructions": [
+            {
+                "instruction": "Preheat the oven to 400°F (200°C).",
+                "order": 1
+            },
+            {
+                "instruction": "Chop carrots and potatoes into bite-sized pieces and toss in olive oil and rosemary.",
+                "order": 2
+            },
+            {
+                "instruction": "Roast the vegetables for 30 minutes, or until golden and tender.",
+                "order": 3
+            },
+            {
+                "instruction": "Serve the rotisserie chicken with roasted vegetables on the side.",
+                "order": 4
+            }
+        ]
+    },
+    {
+        "title": "Mexican Fiesta Bowl",
+        "user_id": 1,
+        "description": "A colorful and hearty bowl with rice, beans, and seasoned toppings.",
+        "category": "Main Course",
+        "cuisine": "Mexican",
+        "difficulty": "Medium",
+        "method": "Assembling",
+        "occasion": "Lunch",
+        "hours": 0,
+        "minutes": 30,
+        "servings": 4,
+        "calories": 450,
+        "image": "mexican-fiesta-bowl.jpg",
+        "private": false,
+        "ingredients": [
+            {
+                "ingredient": "Rice",
+                "quantity": "1",
+                "unit": "cup"
+            },
+            {
+                "ingredient": "Black Beans",
+                "quantity": "1",
+                "unit": "cup"
+            },
+            {
+                "ingredient": "Corn",
+                "quantity": "1",
+                "unit": "cup"
+            },
+            {
+                "ingredient": "Avocado",
+                "quantity": "1",
+                "unit": "piece"
+            },
+            {
+                "ingredient": "Lime",
+                "quantity": "1",
+                "unit": "piece"
+            }
+        ],
+        "instructions": [
+            {
+                "instruction": "Cook the rice according to package instructions.",
+                "order": 1
+            },
+            {
+                "instruction": "Heat the black beans and corn in a pan.",
+                "order": 2
+            },
+            {
+                "instruction": "Slice the avocado and cut the lime into wedges.",
+                "order": 3
+            },
+            {
+                "instruction": "Assemble the bowl with rice, beans, corn, and avocado. Squeeze lime on top.",
+                "order": 4
+            }
+        ]
+    },
+    {
+        "title": "Salmon Butter Masala",
+        "user_id": 1,
+        "description": "A rich and creamy salmon curry in a fragrant butter masala sauce.",
+        "category": "Main Course",
+        "cuisine": "Indian",
+        "difficulty": "Medium",
+        "method": "Simmering",
+        "occasion": "Dinner",
+        "hours": 0,
+        "minutes": 35,
+        "servings": 4,
+        "calories": 650,
+        "image": "salmon-butter-masala.jpg",
+        "private": false,
+        "ingredients": [
+            {
+                "ingredient": "Salmon Fillets",
+                "quantity": "4",
+                "unit": "pieces"
+            },
+            {
+                "ingredient": "Butter",
+                "quantity": "3",
+                "unit": "tablespoons"
+            },
+            {
+                "ingredient": "Tomato Puree",
+                "quantity": "1",
+                "unit": "cup"
+            },
+            {
+                "ingredient": "Cream",
+                "quantity": "1/2",
+                "unit": "cup"
+            },
+            {
+                "ingredient": "Garam Masala",
+                "quantity": "1",
+                "unit": "tablespoon"
+            }
+        ],
+        "instructions": [
+            {
+                "instruction": "Heat butter in a pan and sauté the salmon fillets until golden.",
+                "order": 1
+            },
+            {
+                "instruction": "Add tomato puree and garam masala to the pan.",
+                "order": 2
+            },
+            {
+                "instruction": "Pour in cream and simmer for 10-15 minutes.",
+                "order": 3
+            },
+            {
+                "instruction": "Serve the salmon with the rich butter masala sauce.",
+                "order": 4
+            }
+        ]
+    }
+]

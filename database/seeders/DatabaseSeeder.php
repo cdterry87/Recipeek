@@ -21,10 +21,14 @@ class DatabaseSeeder extends Seeder
             'password' => bcrypt('password'), // Use bcrypt to hash the password
         ]);
 
-        // Create recipes for the demo user
-        Recipe::factory(10)->create([
-            'user_id' => $demoUser->id,
+        $this->call([
+            RecipeSeeder::class,
         ]);
+
+        // Create recipes for the demo user
+        // Recipe::factory(10)->create([
+        //     'user_id' => $demoUser->id,
+        // ]);
 
         // @todo - Add ingredients for each recipe
         // @todo - Add instructions for each recipe

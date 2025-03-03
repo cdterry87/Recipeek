@@ -61,7 +61,7 @@ class MyRecipes extends Component
                     });
                 } else if ($this->time === 'TI') {
                     $query->where('hours', '>=', 1)
-                        ->where('minutes', '>=', 0);
+                        ->where('minutes', '>', 0);
                 }
             })
             ->when($this->difficulty, function ($query) {

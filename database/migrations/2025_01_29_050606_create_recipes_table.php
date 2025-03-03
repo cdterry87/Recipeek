@@ -16,8 +16,11 @@ return new class extends Migration
             $table->foreignId('user_id')->constrained()->cascadeOnDelete()->cascadeOnUpdate();
             $table->string('title', 60);
             $table->string('description', 80)->nullable();
-            $table->string('category', 16)->nullable();
-            $table->string('difficulty', 16)->nullable();
+            $table->string('category', 20)->nullable();
+            $table->string('cuisine', 20)->nullable();
+            $table->string('difficulty', 20)->nullable();
+            $table->string('method', 20)->nullable();
+            $table->string('occasion', 20)->nullable();
             $table->tinyInteger('hours')->nullable();
             $table->tinyInteger('minutes')->nullable();
             $table->tinyInteger('servings')->nullable();

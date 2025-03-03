@@ -2,7 +2,10 @@
     <!-- Page Header -->
     <div class="flex flex-row gap-4 justify-between items-center mb-6">
         <h1 class="text-2xl sm:text-3xl font-bold">My Recipes</h1>
-        <button class="btn btn-primary btn-sm sm:btn-md">
+        <a
+            href="{{ route('create-recipe') }}"
+            class="btn btn-primary btn-sm sm:btn-md"
+        >
             <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
@@ -17,9 +20,8 @@
                     d="M12 4.5v15m7.5-7.5h-15"
                 />
             </svg>
-
             New Recipe
-        </button>
+        </a>
     </div>
 
     <!-- Search & Filters Section -->
@@ -35,6 +37,8 @@
                 <option value="Dinner">Dinner</option>
                 <option value="Snack">Snack</option>
                 <option value="Dessert">Dessert</option>
+                <option value="Appetizer">Appetizer</option>
+                <option value="Side">Side</option>
                 <option value="Drink">Drink</option>
             </select>
             <select

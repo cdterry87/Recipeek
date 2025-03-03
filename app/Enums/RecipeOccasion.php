@@ -8,8 +8,8 @@ enum RecipeOccasion: string
     case CHRISTMAS = 'Christmas';
     case THANKSGIVING = 'Thanksgiving';
     case EASTER = 'Easter';
-    case SUMMER = 'Summer Picnic';
-    case WINTER_COMFORT = 'Winter Comfort';
+    case SUMMER = 'Summer';
+    case WINTER = 'Winter';
     case BBQ = 'BBQ';
 
     /**
