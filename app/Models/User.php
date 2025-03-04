@@ -46,6 +46,21 @@ class User extends Authenticatable
         ];
     }
 
+    public function recipes()
+    {
+        return $this->hasMany(Recipe::class);
+    }
+
+    public function saves()
+    {
+        return $this->hasMany(RecipeSave::class);
+    }
+
+    public function ratings()
+    {
+        return $this->hasMany(RecipeRating::class);
+    }
+
     public function getInitials()
     {
         if ($this->name) {

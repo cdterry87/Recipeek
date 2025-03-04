@@ -4,9 +4,6 @@
     'name',
     'value' => '',
     'required' => false,
-    'autocomplete' => 'off',
-    'type' => 'text',
-    'placeholder' => '',
     'primary' => false,
     'secondary' => false,
     'accent' => false,
@@ -23,26 +20,29 @@
     'lg' => false,
     'xl' => false,
     'hiddenLabel' => false,
+    'blankLabel' => false,
+    'options' => [],
 ])
 
 @php
     $classes = array_filter([
-        'input',
-        $primary ? 'input-primary' : null,
-        $secondary ? 'input-secondary' : null,
-        $accent ? 'input-accent' : null,
-        $neutral ? 'input-neutral' : null,
-        $ghost ? 'input-ghost' : null,
-        $info ? 'input-info' : null,
-        $success ? 'input-success' : null,
-        $warning ? 'input-warning' : null,
-        $error ? 'input-error' : null,
+        'select',
+        'select-bordered',
+        $primary ? 'select-primary' : null,
+        $secondary ? 'select-secondary' : null,
+        $accent ? 'select-accent' : null,
+        $neutral ? 'select-neutral' : null,
+        $ghost ? 'select-ghost' : null,
+        $info ? 'select-info' : null,
+        $success ? 'select-success' : null,
+        $warning ? 'select-warning' : null,
+        $error ? 'select-error' : null,
         $block ? 'w-full' : null,
-        $xs ? 'input-xs' : null,
-        $sm ? 'input-sm' : null,
-        $md ? 'input-md' : null,
-        $lg ? 'input-lg' : null,
-        $xl ? 'input-xl' : null,
+        $xs ? 'select-xs' : null,
+        $sm ? 'select-sm' : null,
+        $md ? 'select-md' : null,
+        $lg ? 'select-lg' : null,
+        $xl ? 'select-xl' : null,
     ]);
 @endphp
 
@@ -53,19 +53,24 @@
             <span class="text-error">*</span>
         @endif
     </legend>
-    <input
+    <select
         {{ $attributes->merge([
             'id' => $id,
             'name' => $name,
-            'value' => $value,
             'required' => $required,
-            'autocomplete' => $autocomplete,
-            'type' => $type,
             'class' => implode(' ', $classes),
-            'placeholder' => $placeholder,
             'aria-required' => $required ? 'true' : 'false',
         ]) }}
-    />
+    >
+        @if ($blankLabel)
+            <option value="">{{ $blankLabel }}</option>
+        @endif
+        @if ($options)
+            @foreach ($options as $value => $label)
+                <option value="{{ $value }}">{{ $label }}</option>
+            @endforeach
+        @endif
+    </select>
     @error($id)
         <p class="fieldset-label text-error">{{ $message }}</p>
     @enderror

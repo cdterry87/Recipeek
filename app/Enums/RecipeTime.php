@@ -2,17 +2,13 @@
 
 namespace App\Enums;
 
+use App\Traits\WithEnumValues;
+
 enum RecipeTime: string
 {
-    case F = 'Fast';
-    case N = 'Normal';
-    case T = 'Time-Intensive';
+    use WithEnumValues;
 
-    /**
-     * Get all tag values.
-     */
-    public static function values(): array
-    {
-        return array_column(self::cases(), 'value');
-    }
+    case FAST = 'Fast';
+    case NORMAL = 'Normal';
+    case TIME_INTENSIVE = 'Time-Intensive';
 }

@@ -2,8 +2,12 @@
 
 namespace App\Enums;
 
+use App\Traits\WithEnumValues;
+
 enum RecipeTag: string
 {
+    use WithEnumValues;
+
     case VEGAN = 'Vegan';
     case VEGETARIAN = 'Vegetarian';
     case GLUTEN_FREE = 'Gluten-Free';
@@ -17,12 +21,4 @@ enum RecipeTag: string
     case SUGAR_FREE = 'Sugar-Free';
     case HALAL = 'Halal';
     case KOSHER = 'Kosher';
-
-    /**
-     * Get all tag values.
-     */
-    public static function values(): array
-    {
-        return array_column(self::cases(), 'value');
-    }
 }

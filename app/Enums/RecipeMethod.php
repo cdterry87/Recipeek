@@ -2,28 +2,27 @@
 
 namespace App\Enums;
 
-enum RecipeTag: string
-{
-    case BAKED = 'Baked';
-    case GRILLED = 'Grilled';
-    case ROASTED = 'Roasted';
-    case STIR_FRY = 'Stir-Fried';
-    case SLOW_COOKER = 'Slow Cooker';
-    case AIR_FRYER = 'Air Fryer';
-    case INSTANT_POT = 'Instant Pot';
-    case STEAMED = 'Steamed';
-    case RAW = 'Raw';
-    case DEEP_FRY = 'Deep Fried';
-    case BROILED = 'Broiled';
-    case BBQ = 'BBQ';
-    case SAUTÉED = 'Sautéed';
-    case SMOKED = 'Smoked';
+use App\Traits\WithEnumValues;
 
-    /**
-     * Get all tag values.
-     */
-    public static function values(): array
-    {
-        return array_column(self::cases(), 'value');
-    }
+enum RecipeMethod: string
+{
+    use WithEnumValues;
+
+    case AIR_FRYER = 'Air Fryer';
+    case ASSEMBLED = 'Assembled';
+    case BAKED = 'Baked';
+    case BBQ = 'BBQ';
+    case BOIL = 'Boiled';
+    case BROILED = 'Broiled';
+    case DEEP_FRY = 'Deep Fried';
+    case GRILLED = 'Grilled';
+    case INSTANT_POT = 'Instant Pot';
+    case RAW = 'Raw';
+    case ROASTED = 'Roasted';
+    case SAUTEED = 'Sautéed';
+    case SIMMER = 'Simmer';
+    case SLOW_COOKER = 'Slow Cooker';
+    case SMOKED = 'Smoked';
+    case STEAMED = 'Steamed';
+    case STIR_FRY = 'Stir-Fried';
 }

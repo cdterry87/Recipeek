@@ -1,173 +1,171 @@
-<div class="max-w-3xl mx-auto p-6 bg-white shadow-md rounded-lg">
-    <h2 class="text-2xl font-semibold text-gray-800 mb-4">Create a New Recipe</h2>
+<div class="max-w-4xl mx-auto p-6 bg-white rounded-lg shadow-lg">
+    <h2 class="text-2xl font-bold text-center mb-6">Create New Recipe</h2>
 
-    <form
-        wire:submit.prevent="saveRecipe"
-        class="space-y-4"
-    >
-
-        <div class="form-control">
-            <label class="label">Title</label>
-            <input
-                type="text"
-                wire:model="title"
-                class="input input-bordered"
-                placeholder="Recipe title"
-            >
-            @error('title')
-                <span class="text-red-500 text-sm">{{ $message }}</span>
-            @enderror
+    @if (session()->has('message'))
+        <div class="alert alert-success mb-6">
+            <span>{{ session('message') }}</span>
         </div>
+    @endif
 
-        <div class="form-control">
-            <label class="label">Description</label>
-            <input
-                type="text"
-                wire:model="description"
-                class="input input-bordered"
-                placeholder="Short description"
-            >
-            @error('description')
-                <span class="text-red-500 text-sm">{{ $message }}</span>
-            @enderror
-        </div>
-
-        <div class="grid grid-cols-2 gap-4">
-            <div class="form-control">
-                <label class="label">Category</label>
-                <select
-                    wire:model="category"
-                    class="select select-bordered"
-                >
-                    <option value="">Select Category</option>
-                    <option value="breakfast">Breakfast</option>
-                    <option value="lunch">Lunch</option>
-                    <option value="dinner">Dinner</option>
-                    <option value="snack">Snack</option>
-                </select>
-                @error('category')
-                    <span class="text-red-500 text-sm">{{ $message }}</span>
-                @enderror
+    <form wire:submit.prevent="saveRecipe">
+        <div class="space-y-6">
+            <!-- Recipe Details Section -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div class="form-control">
+                    <label class="label">Title</label>
+                    <input
+                        type="text"
+                        wire:model="title"
+                        class="input input-bordered w-full"
+                        placeholder="Recipe Title"
+                        required
+                    />
+                </div>
+                <div class="form-control">
+                    <label class="label">Category</label>
+                    <input
+                        type="text"
+                        wire:model="category"
+                        class="input input-bordered w-full"
+                        placeholder="Category"
+                    />
+                </div>
             </div>
 
-            <div class="form-control">
-                <label class="label">Difficulty</label>
-                <select
-                    wire:model="difficulty"
-                    class="select select-bordered"
-                >
-                    <option value="">Select Difficulty</option>
-                    <option value="easy">Easy</option>
-                    <option value="medium">Medium</option>
-                    <option value="hard">Hard</option>
-                </select>
-                @error('difficulty')
-                    <span class="text-red-500 text-sm">{{ $message }}</span>
-                @enderror
-            </div>
-        </div>
-
-        <div class="grid grid-cols-3 gap-4">
-            <div class="form-control">
-                <label class="label">Hours</label>
-                <input
-                    type="number"
-                    wire:model="hours"
-                    class="input input-bordered"
-                    min="0"
-                    max="23"
-                >
-                @error('hours')
-                    <span class="text-red-500 text-sm">{{ $message }}</span>
-                @enderror
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div class="form-control">
+                    <label class="label">Cuisine</label>
+                    <input
+                        type="text"
+                        wire:model="cuisine"
+                        class="input input-bordered w-full"
+                        placeholder="Cuisine"
+                    />
+                </div>
+                <div class="form-control">
+                    <label class="label">Difficulty</label>
+                    <input
+                        type="text"
+                        wire:model="difficulty"
+                        class="input input-bordered w-full"
+                        placeholder="Difficulty"
+                    />
+                </div>
             </div>
 
-            <div class="form-control">
-                <label class="label">Minutes</label>
-                <input
-                    type="number"
-                    wire:model="minutes"
-                    class="input input-bordered"
-                    min="0"
-                    max="59"
-                >
-                @error('minutes')
-                    <span class="text-red-500 text-sm">{{ $message }}</span>
-                @enderror
+            <!-- Ingredients Section -->
+            <div class="space-y-2">
+                <h3 class="text-xl font-semibold">Ingredients</h3>
+                <div class="space-y-2">
+                    @foreach ($ingredients as $index => $ingredient)
+                        <div class="flex items-center space-x-4">
+                            <input
+                                type="text"
+                                wire:model="ingredients.{{ $index }}.ingredient"
+                                class="input input-bordered w-full"
+                                placeholder="Ingredient"
+                            />
+                            <input
+                                type="text"
+                                wire:model="ingredients.{{ $index }}.quantity"
+                                class="input input-bordered w-full"
+                                placeholder="Quantity"
+                            />
+                            <input
+                                type="text"
+                                wire:model="ingredients.{{ $index }}.unit"
+                                class="input input-bordered w-full"
+                                placeholder="Unit"
+                            />
+                            <button
+                                type="button"
+                                wire:click="removeIngredient({{ $index }})"
+                                class="btn btn-error"
+                            >Remove</button>
+                        </div>
+                    @endforeach
+                    <div class="flex items-center space-x-4">
+                        <input
+                            type="text"
+                            wire:model="newIngredient.ingredient"
+                            class="input input-bordered w-full"
+                            placeholder="New Ingredient"
+                        />
+                        <input
+                            type="text"
+                            wire:model="newIngredient.quantity"
+                            class="input input-bordered w-full"
+                            placeholder="Quantity"
+                        />
+                        <input
+                            type="text"
+                            wire:model="newIngredient.unit"
+                            class="input input-bordered w-full"
+                            placeholder="Unit"
+                        />
+                        <button
+                            type="button"
+                            wire:click="addIngredient"
+                            class="btn btn-primary"
+                        >Add Ingredient</button>
+                    </div>
+                </div>
             </div>
 
-            <div class="form-control">
-                <label class="label">Servings</label>
-                <input
-                    type="number"
-                    wire:model="servings"
-                    class="input input-bordered"
-                    min="1"
-                    max="50"
-                >
-                @error('servings')
-                    <span class="text-red-500 text-sm">{{ $message }}</span>
-                @enderror
+            <!-- Instructions Section -->
+            <div class="space-y-2">
+                <h3 class="text-xl font-semibold">Instructions</h3>
+                <div class="space-y-2">
+                    @foreach ($instructions as $index => $instruction)
+                        <div class="flex items-center space-x-4">
+                            <input
+                                type="text"
+                                wire:model="instructions.{{ $index }}.instruction"
+                                class="input input-bordered w-full"
+                                placeholder="Instruction"
+                            />
+                            <input
+                                type="number"
+                                wire:model="instructions.{{ $index }}.order"
+                                class="input input-bordered w-full"
+                                placeholder="Order"
+                            />
+                            <button
+                                type="button"
+                                wire:click="removeInstruction({{ $index }})"
+                                class="btn btn-error"
+                            >Remove</button>
+                        </div>
+                    @endforeach
+                    <div class="flex items-center space-x-4">
+                        <input
+                            type="text"
+                            wire:model="newInstruction.instruction"
+                            class="input input-bordered w-full"
+                            placeholder="New Instruction"
+                        />
+                        <input
+                            type="number"
+                            wire:model="newInstruction.order"
+                            class="input input-bordered w-full"
+                            placeholder="Order"
+                        />
+                        <button
+                            type="button"
+                            wire:click="addInstruction"
+                            class="btn btn-primary"
+                        >Add Instruction</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Submit Button -->
+            <div class="mt-6">
+                <button
+                    type="submit"
+                    class="btn btn-success w-full"
+                >Save Recipe</button>
             </div>
         </div>
-
-        <div class="form-control">
-            <label class="label">Calories</label>
-            <input
-                type="number"
-                wire:model="calories"
-                class="input input-bordered"
-                min="0"
-                max="5000"
-            >
-            @error('calories')
-                <span class="text-red-500 text-sm">{{ $message }}</span>
-            @enderror
-        </div>
-
-        <div class="form-control">
-            <label class="label">Recipe Image</label>
-            <input
-                type="file"
-                wire:model="image"
-                class="file-input file-input-bordered w-full"
-            >
-            @error('image')
-                <span class="text-red-500 text-sm">{{ $message }}</span>
-            @enderror
-        </div>
-
-        <div class="form-control">
-            <label class="label">Video URL</label>
-            <input
-                type="url"
-                wire:model="video"
-                class="input input-bordered"
-                placeholder="https://example.com/video"
-            >
-            @error('video')
-                <span class="text-red-500 text-sm">{{ $message }}</span>
-            @enderror
-        </div>
-
-        <div class="form-control">
-            <label class="cursor-pointer flex items-center">
-                <input
-                    type="checkbox"
-                    wire:model="private"
-                    class="checkbox"
-                >
-                <span class="ml-2">Make this recipe private</span>
-            </label>
-            @error('private')
-                <span class="text-red-500 text-sm">{{ $message }}</span>
-            @enderror
-        </div>
-
-        <button
-            type="submit"
-            class="btn btn-primary w-full"
-        >Save Recipe</button>
-
     </form>
 </div>

@@ -2,8 +2,12 @@
 
 namespace App\Enums;
 
+use App\Traits\WithEnumValues;
+
 enum RecipeCategory: string
 {
+    use WithEnumValues;
+
     case BREAKFAST = 'Breakfast';
     case LUNCH = 'Lunch';
     case DINNER = 'Dinner';
@@ -15,12 +19,4 @@ enum RecipeCategory: string
     case SALAD = 'Salad';
     case BEVERAGE = 'Beverage';
     case SMOOTHIE = 'Smoothie';
-
-    /**
-     * Get all tag values.
-     */
-    public static function values(): array
-    {
-        return array_column(self::cases(), 'value');
-    }
 }

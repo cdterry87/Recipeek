@@ -5,6 +5,9 @@
     'imageFull' => false,
     'imageSide' => false,
     'category' => null,
+    'cuisine' => null,
+    'method' => null,
+    'occasion' => null,
     'difficulty' => null,
     'time' => null,
     'link' => null,
@@ -57,15 +60,24 @@
         @endif
         @if ($time || $difficulty || $category)
             <div class="card-actions h-full items-end">
-                <div class="flex items-center gap-1">
-                    @if ($time)
-                        <span class="badge badge-outline badge-sm">{{ $time }}</span>
+                <div class="flex flex-wrap items-center gap-1">
+                    @if ($category)
+                        <span class="badge badge-outline badge-sm">{{ $category }}</span>
+                    @endif
+                    @if ($cuisine)
+                        <span class="badge badge-outline badge-sm">{{ $cuisine }}</span>
+                    @endif
+                    @if ($method)
+                        <span class="badge badge-outline badge-sm">{{ $method }}</span>
                     @endif
                     @if ($difficulty)
                         <span class="badge badge-outline badge-sm">{{ $difficulty }}</span>
                     @endif
-                    @if ($category)
-                        <span class="badge badge-outline badge-sm">{{ $category }}</span>
+                    @if ($occasion)
+                        <span class="badge badge-outline badge-sm">{{ $occasion }}</span>
+                    @endif
+                    @if ($time)
+                        <span class="badge badge-outline badge-sm">{{ $time }}</span>
                     @endif
                 </div>
             </div>

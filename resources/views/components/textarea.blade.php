@@ -46,7 +46,7 @@
 @endphp
 
 <fieldset class="fieldset">
-    <legend class="fieldset-legend {{ $hiddenLabel ?? 'hidden' }}">
+    <legend class="fieldset-legend {{ $hiddenLabel ? 'sr-only' : '' }}">
         {{ $label }}
         @if ($required)
             <span class="text-error">*</span>

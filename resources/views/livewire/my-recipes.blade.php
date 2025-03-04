@@ -25,51 +25,7 @@
     </div>
 
     <!-- Search & Filters Section -->
-    <div class="flex flex-col gap-2 lg:flex-row items-center lg:justify-between mb-6">
-        <div class="flex flex-col gap-2 sm:flex-row sm:items-center w-full">
-            <select
-                wire:model.live="category"
-                class="select select-bordered w-full sm:w-1/3 lg:w-40"
-            >
-                <option value="">All Categories</option>
-                <option value="Breakfast">Breakfast</option>
-                <option value="Lunch">Lunch</option>
-                <option value="Dinner">Dinner</option>
-                <option value="Snack">Snack</option>
-                <option value="Dessert">Dessert</option>
-                <option value="Appetizer">Appetizer</option>
-                <option value="Side">Side</option>
-                <option value="Drink">Drink</option>
-            </select>
-            <select
-                wire:model.live="difficulty"
-                class="select select-bordered w-full sm:w-1/3 lg:w-40"
-            >
-                <option value="">All Difficulties</option>
-                <option value="Easy">Easy</option>
-                <option value="Normal">Normal</option>
-                <option value="Hard">Hard</option>
-                <option value="Expert">Expert</option>
-            </select>
-            <select
-                wire:model.live="time"
-                class="select select-bordered w-full sm:w-1/3 lg:w-40"
-            >
-                <option value="">All Times</option>
-                <option value="F">Fast</option>
-                <option value="N">Normal</option>
-                <option value="TI">Time-Intensive</option>
-            </select>
-        </div>
-
-        <div class="w-full lg:w-auto">
-            <x-search
-                placeholder="Search my recipes..."
-                class="w-full lg:w-64"
-                wire:model.live.debounce.600ms="search"
-            />
-        </div>
-    </div>
+    <x-filters :results-count="$recipes->count()" />
 
     <!-- Recipes Grid -->
     @if ($recipes && $recipes->isNotEmpty())
@@ -81,8 +37,13 @@
                     :description="$recipe->description"
                     :link="'recipes/' . $recipe->id"
                     :category="$recipe->category"
+                    :cuisine="$recipe->cuisine"
                     :difficulty="$recipe->difficulty"
+                    :method="$recipe->method"
+                    :occasion="$recipe->occasion"
+                    :servings="$recipe->servings"
                     :time="$recipe->getFormattedTime()"
+                    wire:key="recipe-{{ $recipe->id }}"
                 />
             @endforeach
         </div>

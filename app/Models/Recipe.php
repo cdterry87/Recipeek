@@ -35,9 +35,14 @@ class Recipe extends Model
         return $this->hasMany(RecipeTag::class);
     }
 
-    public function likes(): BelongsToMany
+    public function saves()
     {
-        return $this->belongsToMany(User::class, 'recipes_likes')->withTimestamps();
+        return $this->belongsToMany(User::class, 'recipes_saves', 'recipe_id', 'user_id');
+    }
+
+    public function totalSaves(): int
+    {
+        return $this->saves()->count();
     }
 
     public function ratings(): HasMany

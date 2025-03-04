@@ -4,9 +4,9 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class UserSave extends Model
+class RecipeSave extends Model
 {
-    protected $table = 'users_saves';
+    protected $table = 'recipes_saves';
     protected $guarded = [];
 
     public function recipe()

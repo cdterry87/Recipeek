@@ -2,27 +2,19 @@
 
 namespace App\Livewire;
 
-use Livewire\Component;
-use Livewire\WithPagination;
 use App\Models\Recipe;
+use Livewire\Component;
+use App\Enums\RecipeSortBy;
+use Livewire\WithPagination;
+use App\Traits\WithRecipeFilters;
+use App\Traits\WithRecipeSorting;
 use Illuminate\Support\Facades\Auth;
 
 class MyRecipes extends Component
 {
     use WithPagination;
-
-    public $search = '';
-    public $category = '';
-    public $time = '';
-    public $difficulty = '';
-
-    public function updating($field)
-    {
-        // Reset pagination when any filter is updated
-        if (in_array($field, ['search', 'category', 'time', 'difficulty'])) {
-            $this->resetPage();
-        }
-    }
+    use WithRecipeFilters;
+    use WithRecipeSorting;
 
     public function render()
     {
@@ -35,17 +27,29 @@ class MyRecipes extends Component
             ->when($this->category, function ($query) {
                 $query->where('category', $this->category);
             })
+            ->when($this->cuisine, function ($query) {
+                $query->where('cuisine', $this->cuisine);
+            })
+            ->when($this->difficulty, function ($query) {
+                $query->where('difficulty', $this->difficulty);
+            })
+            ->when($this->method, function ($query) {
+                $query->where('method', $this->method);
+            })
+            ->when($this->occasion, function ($query) {
+                $query->where('occasion', $this->occasion);
+            })
             ->when($this->time, function ($query) {
                 $query->where(function ($query) {
                     $query->where('hours', '>', 0)
                         ->orWhere('minutes', '>', 0);
                 });
-                if ($this->time === 'F') {
+                if ($this->time === 'Fast') {
                     $query->where(function ($query) {
                         $query->whereNull('hours')
                             ->orWhere('hours', 0);
                     })->where('minutes', '<=', 30);
-                } else if ($this->time === 'N') {
+                } else if ($this->time === 'Normal') {
                     $query->where(function ($query) {
                         $query->where(function ($query) {
                             $query->whereNull('hours')
@@ -59,16 +63,27 @@ class MyRecipes extends Component
                                     });
                             });
                     });
-                } else if ($this->time === 'TI') {
+                } else if ($this->time === 'Time-Intensive') {
                     $query->where('hours', '>=', 1)
                         ->where('minutes', '>', 0);
                 }
             })
-            ->when($this->difficulty, function ($query) {
-                $query->where('difficulty', $this->difficulty);
+            ->when($this->sort_by === RecipeSortBy::POPULARITY->value, function ($query) {
+                $query->withCount('saves')->orderBy('saves_count', $this->sort_direction);
             })
-            ->latest()
-            ->paginate(8);
+            ->when($this->sort_by === RecipeSortBy::RATING->value, function ($query) {
+                $query->withAvg('ratings', 'rating')->orderBy('ratings_avg_rating', $this->sort_direction);
+            })
+            ->when($this->sort_by === RecipeSortBy::COOK_TIME->value, function ($query) {
+                $query->orderByRaw('(hours * 60 + minutes) ' . $this->sort_direction);
+            })
+            // Prevent default sorting if sorting by popularity, rating, or cook time
+            ->when($this->sort_by !== RecipeSortBy::POPULARITY->value
+                && $this->sort_by !== RecipeSortBy::RATING->value
+                && $this->sort_by !== RecipeSortBy::COOK_TIME->value, function ($query) {
+                $query->orderBy($this->sort_by, $this->sort_direction);
+            })
+            ->paginate($this->results_per_page);
 
         return view('livewire.my-recipes', [
             'recipes' => $recipes,
