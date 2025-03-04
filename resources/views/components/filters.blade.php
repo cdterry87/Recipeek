@@ -101,7 +101,7 @@
         class="w-full flex flex-col gap-1"
     >
         <h2 class="font-bold text-xs text-gray-700">Filters</h2>
-        <div class="grid grid-cols-1 gap-1 md:gap-2 lg:gap-3 md:grid-cols-2 lg:grid-cols-3">
+        <div class="grid grid-cols-1 gap-1 md:gap-3 md:grid-cols-3">
             <x-select
                 label="Category"
                 id="category"

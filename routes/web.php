@@ -58,7 +58,7 @@ Route::get('discover', DiscoverRecipes::class)->name('discover-recipes');
 Route::get('search', SearchRecipes::class)->name('search-recipes');
 
 // Recipe
-Route::get('recipe/{recipe}', ViewRecipe::class)->name('view-recipe');
+Route::get('recipes/{recipe}', ViewRecipe::class)->name('view-recipe');
 
 
 // ///////////////////////
