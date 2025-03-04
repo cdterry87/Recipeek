@@ -12,6 +12,7 @@ use App\Livewire\ResetPassword;
 use App\Livewire\SearchRecipes;
 use App\Livewire\ForgotPassword;
 use App\Livewire\DiscoverRecipes;
+use App\Livewire\ViewCreator;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', Welcome::class)->name('home');
@@ -59,6 +60,9 @@ Route::get('search', SearchRecipes::class)->name('search-recipes');
 
 // Recipe
 Route::get('recipes/{recipe}', ViewRecipe::class)->name('view-recipe');
+
+// Creator
+Route::get('creators/{user}', ViewCreator::class)->name('view-creator');
 
 
 // ///////////////////////

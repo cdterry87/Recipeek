@@ -13,38 +13,115 @@
         </div>
     </div>
 
-    <section class="container mx-auto px-6 py-8 lg:px-16">
-
-        {{-- @todo - Add rating / save buttons --}}
+    <section class="container mx-auto px-6 py-8 lg:px-16 font-[Jost]">
 
         <div class="flex flex-col gap-8">
-            <div class="flex flex-wrap gap-4 text-gray-600">
-                <span class="badge badge-outline">Category: {{ $recipe->category }}</span>
-                <span class="badge badge-outline">Cuisine: {{ $recipe->cuisine }}</span>
-                <span class="badge badge-outline">Difficulty: {{ $recipe->difficulty }}</span>
-                <span class="badge badge-outline">Method: {{ $recipe->method }}</span>
-                <span class="badge badge-outline">Occasion: {{ $recipe->occasion }}</span>
+            <div class="flex flex-col items-center gap-6 md:flex-row md:justify-between text-gray-500">
+                <div>
+                    {{-- @todo - add a link to the user's creator page to view all of their public recipes (unless they have a private account) --}}
+                    <div class="text-2xl font-bold text-gray-900">by {{ ucwords($recipe->user->name) }}</div>
+                    <div>on {{ $recipe->created_at->format('M n, Y') }}</div>
+                </div>
+                <div class="flex flex-col items-center gap-1">
+                    <div class="rating">
+                        <div
+                            class="mask mask-star"
+                            aria-label="1 star"
+                        ></div>
+                        <div
+                            class="mask mask-star"
+                            aria-label="2 star"
+                        ></div>
+                        <div
+                            class="mask mask-star"
+                            aria-label="3 star"
+                            aria-current="true"
+                        ></div>
+                        <div
+                            class="mask mask-star"
+                            aria-label="4 star"
+                        ></div>
+                        <div
+                            class="mask mask-star"
+                            aria-label="5 star"
+                        ></div>
+                    </div>
+                    <span class="text-sm">
+                        <strong>(3.0)</strong>
+                        <span>0 ratings</span>
+                    </span>
+                </div>
+            </div>
+
+
+            {{-- @todo - Add rating / save buttons --}}
+
+            <div class="flex flex-wrap gap-3 text-gray-600">
+                @if ($recipe->category)
+                    <span class="badge badge-outline">Category: {{ $recipe->category }}</span>
+                @endif
+                @if ($recipe->cuisine)
+                    <span class="badge badge-outline">Cuisine: {{ $recipe->cuisine }}</span>
+                @endif
+                @if ($recipe->difficulty)
+                    <span class="badge badge-outline">Difficulty: {{ $recipe->difficulty }}</span>
+                @endif
+                @if ($recipe->method)
+                    <span class="badge badge-outline">Method: {{ $recipe->method }}</span>
+                @endif
+                @if ($recipe->occasion)
+                    <span class="badge badge-outline">Occasion: {{ $recipe->occasion }}</span>
+                @endif
                 <span class="badge badge-outline">Cook Time: {{ $recipe->getFormattedTime() }}</span>
-                <span class="badge badge-outline">Calories: {{ $recipe->calories }} calories</span>
-                <span class="badge badge-outline">Servings: {{ $recipe->servings }}</span>
+                @if ($recipe->calories)
+                    <span class="badge badge-outline">Calories: {{ $recipe->calories }}</span>
+                @endif
+                @if ($recipe->servings)
+                    <span class="badge badge-outline">Servings: {{ $recipe->servings }}</span>
+                @endif
             </div>
 
-            <div>
-                <h2 class="text-2xl font-semibold mb-4">Ingredients</h2>
-                <ul class="list-disc pl-5 text-gray-700 font-[Jost]">
-                    @foreach ($recipe->ingredients as $ingredient)
-                        <li>{{ $ingredient->quantity }} {{ $ingredient->unit }} - {{ $ingredient->ingredient }}</li>
-                    @endforeach
-                </ul>
-            </div>
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                <div class="col-span-1">
+                    <div>
+                        <h2 class="text-2xl font-semibold mb-4">Ingredients</h2>
+                        <ul class="list-none text-gray-700 space-y-2">
+                            @foreach ($recipe->ingredients as $ingredient)
+                                <li>
+                                    <strong>{{ $ingredient->quantity }} {{ $ingredient->unit }}</strong>
+                                    {{ $ingredient->ingredient }}
+                                </li>
+                            @endforeach
+                        </ul>
+                    </div>
+                </div>
 
-            <div>
-                <h2 class="text-2xl font-semibold mb-4">Instructions</h2>
-                <ol class="list-decimal pl-5 text-gray-700 font-[Jost]">
-                    @foreach ($recipe->instructions as $step)
-                        <li class="mb-2">{{ $step->instruction }}</li>
-                    @endforeach
-                </ol>
+                <div class="col-span-2 flex flex-col gap-6">
+                    <div>
+                        <h2 class="text-2xl font-semibold mb-4">Instructions</h2>
+                        <ol class="list-decimal pl-5 text-gray-700">
+                            @foreach ($recipe->instructions as $step)
+                                <li class="mb-2">{{ $step->instruction }}</li>
+                            @endforeach
+                        </ol>
+                    </div>
+
+                    @if ($recipe->video)
+                        <div>
+                            <h2 class="text-2xl font-semibold mb-4">Video Instructions</h2>
+                            <div class="video-embed">
+                                {!! $recipe->video !!}
+                            </div>
+                        </div>
+                    @endif
+
+                    @if ($recipe->notes)
+                        <div>
+                            <h2 class="text-2xl font-semibold mb-4">Notes</h2>
+                            <p class="text-gray-700">{!! nl2br($recipe->notes) !!}</p>
+                        </div>
+                    @endif
+                </div>
             </div>
         </div>
     </section>

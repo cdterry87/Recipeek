@@ -27,6 +27,7 @@ return new class extends Migration
             $table->integer('calories')->nullable();
             $table->text('image')->nullable();
             $table->text('video')->nullable();
+            $table->text('notes')->nullable();
             $table->boolean('private');
             $table->timestamps();
         });
