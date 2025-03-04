@@ -38,10 +38,6 @@
                     :link="'recipes/' . $recipe->id"
                     :category="$recipe->category"
                     :cuisine="$recipe->cuisine"
-                    :difficulty="$recipe->difficulty"
-                    :method="$recipe->method"
-                    :occasion="$recipe->occasion"
-                    :servings="$recipe->servings"
                     :time="$recipe->getFormattedTime()"
                     wire:key="recipe-{{ $recipe->id }}"
                 />

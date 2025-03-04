@@ -139,6 +139,7 @@
         "servings": 8,
         "calories": 350,
         "image": "chocolate-cake.jpg",
+        "video": "<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/wfPt0r0Nl5o?si=apz-NevInu9168Rn\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen></iframe>",
         "private": false,
         "ingredients": [
             {

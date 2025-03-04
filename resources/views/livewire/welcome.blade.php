@@ -71,7 +71,7 @@
                             :description="$recipe->description"
                             :link="'recipes/' . $recipe->id"
                             :category="$recipe->category"
-                            :difficulty="$recipe->difficulty"
+                            :cuisine="$recipe->cuisine"
                             :time="$recipe->getFormattedTime()"
                         />
                     @endforeach

@@ -40,7 +40,7 @@ class UserProfile extends Component
         $this->validate([
             'name' => 'required|string|max:255',
             'email' => 'required|email|max:255',
-            'bio' => 'nullable|string|max:500',
+            'bio' => 'nullable|string|max:2000',
             'avatar' => 'nullable|image|max:2048',
         ]);
 

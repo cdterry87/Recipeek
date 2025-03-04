@@ -10,6 +10,8 @@ enum RecipeCuisine: string
 
     case AFRICAN = 'African';
     case AMERICAN = 'American';
+    case AUSTRALIAN = 'Australian';
+    case BRITISH = 'British';
     case CARIBBEAN = 'Caribbean';
     case CHINESE = 'Chinese';
     case FRENCH = 'French';

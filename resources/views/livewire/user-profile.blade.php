@@ -70,6 +70,7 @@
                     wire:model="name"
                     required
                     block
+                    maxlength="255"
                 />
                 <x-input-text
                     label="Email"
@@ -80,6 +81,7 @@
                     wire:model="email"
                     required
                     block
+                    maxlength="255"
                 />
                 <x-file
                     label="Avatar"
@@ -95,6 +97,7 @@
                     name="bio"
                     placeholder="Tell the community about yourself"
                     wire:model="bio"
+                    maxlength="2000"
                     block
                 >
 

@@ -14,7 +14,6 @@
     </div>
 
     <section class="container mx-auto px-6 py-8 lg:px-16 font-[Jost]">
-
         <div class="flex flex-col gap-8">
             <div class="flex flex-col items-center gap-6 md:flex-row md:justify-between text-gray-500">
                 <div>
@@ -99,9 +98,10 @@
                 <div class="col-span-2 flex flex-col gap-6">
                     <div>
                         <h2 class="text-2xl font-semibold mb-4">Instructions</h2>
-                        <ol class="list-decimal pl-5 text-gray-700">
+                        <ol class="list-decimal pl-5 text-gray-700 space-y-2">
                             @foreach ($recipe->instructions as $step)
-                                <li class="mb-2">{{ $step->instruction }}</li>
+                                <li>{{ $step->instruction }}</li>
+                                <hr class="border border-gray-200 my-6">
                             @endforeach
                         </ol>
                     </div>
