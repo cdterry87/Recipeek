@@ -62,6 +62,22 @@
                 </div>
                 <h2 class="text-xl text-center font-semibold mt-4">{{ $creator->name }}</h2>
                 <p class="text-center text-gray-600 mt-2 font-[Jost]">{{ $creator->bio }}</p>
+                <div class="flex flex-col gap-2 mt-6">
+                    <x-button
+                        primary
+                        block
+                        wire:click.prevent="follow"
+                    >
+                        Follow
+                    </x-button>
+                    <x-button
+                        secondary
+                        block
+                        wire:click.prevent="addFriend"
+                    >
+                        Add Friend
+                    </x-button>
+                </div>
             </div>
 
             <!-- User's Recipes -->
@@ -76,10 +92,11 @@
                             :title="$recipe->title"
                             :image="asset($recipe->image)"
                             :description="$recipe->description"
-                            :link="'recipes/' . $recipe->slug"
+                            :link="route('view-recipe', $recipe->slug)"
                             :category="$recipe->category"
                             :cuisine="$recipe->cuisine"
                             :time="$recipe->getFormattedTime()"
+                            wire:key="recipe-{{ $recipe->id }}"
                         />
                     @endforeach
                 </div>

@@ -23,6 +23,16 @@ class ViewCreator extends Component
         $this->creatorId = $creator->id;
     }
 
+    public function follow()
+    {
+        // @todo implement follow functionality
+    }
+
+    public function addFriend()
+    {
+        // @todo implement add friend functionality
+    }
+
     /**
      * Computed property to get the creator's details (i.e. $this->creator)
      */

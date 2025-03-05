@@ -31,6 +31,8 @@ class RecipeSeeder extends Seeder
                 'servings' => $recipeData['servings'],
                 'calories' => $recipeData['calories'],
                 'image' => 'demo/' . $recipeData['image'],
+                'video' => isset($recipeData['video']) ? $recipeData['video'] : null,
+                'notes' => isset($recipeData['notes']) ? $recipeData['notes'] : null,
                 'public' => $recipeData['public'],
             ]);
 

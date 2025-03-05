@@ -69,10 +69,11 @@
                             :title="$recipe->title"
                             :image="$recipe->image"
                             :description="$recipe->description"
-                            :link="'recipes/' . $recipe->slug"
+                            :link="route('view-recipe', $recipe->slug)"
                             :category="$recipe->category"
                             :cuisine="$recipe->cuisine"
                             :time="$recipe->getFormattedTime()"
+                            wire:key="recipe-{{ $recipe->id }}"
                         />
                     @endforeach
                 </div>

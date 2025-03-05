@@ -102,7 +102,7 @@
                     <div class="hidden md:flex items-center gap-4">
                         <a
                             href="{{ route('discover-recipes') }}"
-                            class="text-sm font-semibold text-black hover:text-rose-600 transition ease-in-out duration-300"
+                            class="btn btn-sm btn-link text-xs font-semibold text-gray-800 hover:text-rose-600 transition ease-in-out duration-300"
                         >
                             Discover
                         </a>
@@ -117,14 +117,14 @@
                                         tabindex="0"
                                         role="button"
                                         src="{{ asset(auth()->user()->avatar) }}"
-                                        class="cursor-pointer h-12 w-12 rounded-full object-cover shadow-md border-2 border-rose-600 hover:brightness-120 transition duration-200 ease-in-out"
+                                        class="cursor-pointer h-10 w-10 rounded-full object-cover shadow-md border-2 border-rose-600 hover:brightness-120 transition duration-200 ease-in-out"
                                         alt="Profile Picture"
                                     >
                                 @else
                                     <div
                                         tabindex="0"
                                         role="button"
-                                        class="select-none cursor-pointer bg-slate-800 text-white font-bold rounded-full h-12 w-12 flex items-center justify-center hover:bg-rose-600 transition duration-300 ease-in-out"
+                                        class="select-none cursor-pointer bg-slate-800 text-white font-bold rounded-full h-10 w-10 flex items-center justify-center hover:bg-rose-600 transition duration-300 ease-in-out"
                                     >
                                         {{ auth()->user()->getInitials() }}
                                     </div>
