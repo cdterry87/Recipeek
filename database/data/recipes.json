@@ -13,7 +13,7 @@
         "servings": 4,
         "calories": 600,
         "image": "spaghetti-bolognese.jpg",
-        "private": false,
+        "public": true,
         "ingredients": [
             {
                 "ingredient": "Spaghetti",
@@ -78,7 +78,7 @@
         "servings": 2,
         "calories": 400,
         "image": "chicken-caesar-salad.jpg",
-        "private": false,
+        "public": true,
         "ingredients": [
             {
                 "ingredient": "Chicken Breast",
@@ -140,7 +140,7 @@
         "calories": 350,
         "image": "chocolate-cake.jpg",
         "video": "<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/wfPt0r0Nl5o?si=apz-NevInu9168Rn\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen></iframe>",
-        "private": false,
+        "public": true,
         "ingredients": [
             {
                 "ingredient": "Flour",
@@ -205,7 +205,7 @@
         "servings": 3,
         "calories": 250,
         "image": "vegetable-stir-fry.jpg",
-        "private": false,
+        "public": true,
         "ingredients": [
             {
                 "ingredient": "Bell Peppers",
@@ -266,7 +266,7 @@
         "servings": 4,
         "calories": 300,
         "image": "pancakes.jpg",
-        "private": false,
+        "public": true,
         "ingredients": [
             {
                 "ingredient": "Flour",
@@ -327,7 +327,7 @@
         "servings": 4,
         "calories": 800,
         "image": "chicken-alfredo.jpg",
-        "private": false,
+        "public": true,
         "ingredients": [
             {
                 "ingredient": "Chicken Breast",
@@ -388,7 +388,7 @@
         "servings": 4,
         "calories": 500,
         "image": "beef-tacos.jpg",
-        "private": false,
+        "public": true,
         "ingredients": [
             {
                 "ingredient": "Ground Beef",
@@ -445,7 +445,7 @@
         "servings": 6,
         "calories": 700,
         "image": "lasagna.jpg",
-        "private": false,
+        "public": true,
         "ingredients": [
             {
                 "ingredient": "Lasagna Noodles",
@@ -510,7 +510,7 @@
         "servings": 2,
         "calories": 400,
         "image": "grilled-salmon.jpg",
-        "private": false,
+        "public": true,
         "ingredients": [
             {
                 "ingredient": "Salmon Fillets",
@@ -571,7 +571,7 @@
         "servings": 6,
         "calories": 1000,
         "image": "beef-wellington.jpg",
-        "private": false,
+        "public": true,
         "ingredients": [
             {
                 "ingredient": "Beef Tenderloin",
@@ -636,7 +636,7 @@
         "servings": 4,
         "calories": 350,
         "image": "fish-tacos.jpg",
-        "private": false,
+        "public": true,
         "ingredients": [
             {
                 "ingredient": "White Fish Fillets",
@@ -697,7 +697,7 @@
         "servings": 4,
         "calories": 500,
         "image": "eggplant-parmesan.jpg",
-        "private": false,
+        "public": true,
         "ingredients": [
             {
                 "ingredient": "Eggplant",
@@ -758,7 +758,7 @@
         "servings": 4,
         "calories": 700,
         "image": "chicken-tikka-masala.jpg",
-        "private": false,
+        "public": true,
         "ingredients": [
             {
                 "ingredient": "Chicken Breast",
@@ -819,7 +819,7 @@
         "servings": 4,
         "calories": 350,
         "image": "pineapple-fried-rice.jpg",
-        "private": false,
+        "public": true,
         "ingredients": [
             {
                 "ingredient": "Jasmine Rice",
@@ -876,7 +876,7 @@
         "servings": 4,
         "calories": 450,
         "image": "beef-stir-fry.jpg",
-        "private": false,
+        "public": true,
         "ingredients": [
             {
                 "ingredient": "Beef Strips",
@@ -933,7 +933,7 @@
         "servings": 4,
         "calories": 600,
         "image": "pork-schnitzel.jpg",
-        "private": false,
+        "public": true,
         "ingredients": [
             {
                 "ingredient": "Pork Cutlets",
@@ -990,7 +990,7 @@
         "servings": 4,
         "calories": 500,
         "image": "grilled-chicken-veggies-bowl.jpg",
-        "private": false,
+        "public": true,
         "ingredients": [
             {
                 "ingredient": "Chicken Breasts",
@@ -1051,7 +1051,7 @@
         "servings": 4,
         "calories": 600,
         "image": "pork-ramen.jpg",
-        "private": false,
+        "public": true,
         "ingredients": [
             {
                 "ingredient": "Pork Belly",
@@ -1116,7 +1116,7 @@
         "servings": 4,
         "calories": 700,
         "image": "rotisserie-chicken-veggies.jpg",
-        "private": false,
+        "public": true,
         "ingredients": [
             {
                 "ingredient": "Rotisserie Chicken",
@@ -1177,7 +1177,7 @@
         "servings": 4,
         "calories": 450,
         "image": "mexican-fiesta-bowl.jpg",
-        "private": false,
+        "public": true,
         "ingredients": [
             {
                 "ingredient": "Rice",
@@ -1238,7 +1238,7 @@
         "servings": 4,
         "calories": 650,
         "image": "salmon-butter-masala.jpg",
-        "private": false,
+        "public": true,
         "ingredients": [
             {
                 "ingredient": "Salmon Fillets",

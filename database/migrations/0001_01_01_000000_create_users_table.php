@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('avatar')->nullable();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->boolean('private')->default(false);
+            $table->boolean('public')->default(false); // User profiles are private by default
             $table->string('slug')->nullable()->unique();
             $table->rememberToken();
             $table->timestamps();

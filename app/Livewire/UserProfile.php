@@ -11,6 +11,7 @@ class UserProfile extends Component
     use WithFileUploads;
 
     public $name, $email, $bio, $avatar, $password, $password_confirmation;
+    public $public = false;
     public $avatarPath = null;
 
     public function mount()
@@ -28,6 +29,7 @@ class UserProfile extends Component
         $this->email = $user->email;
         $this->bio = $user->bio;
         $this->avatarPath = $user->avatar;
+        $this->public = $user->public ? true : false;
     }
 
     public function render()
@@ -42,17 +44,19 @@ class UserProfile extends Component
             'email' => 'required|email|max:255',
             'bio' => 'nullable|string|max:2000',
             'avatar' => 'nullable|image|max:2048',
+            'public' => 'boolean',
         ]);
 
         $user = auth()->user();
         if ($this->avatar) {
             $path = $this->avatar->store('avatars', 'public');
-            $user->avatar = $path;
+            $user->avatar = 'storage/' . $path;
         }
 
         $user->name = $this->name;
         $user->email = $this->email;
         $user->bio = $this->bio;
+        $user->public = $this->public ?? false;
         $user->save();
 
         // Set the avatar path if a file was uploaded

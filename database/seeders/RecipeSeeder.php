@@ -31,7 +31,7 @@ class RecipeSeeder extends Seeder
                 'servings' => $recipeData['servings'],
                 'calories' => $recipeData['calories'],
                 'image' => 'demo/' . $recipeData['image'],
-                'private' => $recipeData['private'],
+                'public' => $recipeData['public'],
             ]);
 
             // Insert ingredients

@@ -68,8 +68,8 @@
             class="drawer-toggle"
         />
         <div class="drawer-content">
-            <header class="px-6 md:px-16">
-                <nav class="navbar bg-base-100">
+            <header class="max-w-6xl mx-auto px-6">
+                <nav class="px-0 navbar bg-base-100">
                     <div class="flex-1">
                         <a
                             href="{{ route('home') }}"
@@ -102,7 +102,7 @@
                     <div class="hidden md:flex items-center gap-4">
                         <a
                             href="{{ route('discover-recipes') }}"
-                            class="text-xs font-semibold text-black hover:text-rose-600 transition ease-in-out duration-300"
+                            class="text-sm font-semibold text-black hover:text-rose-600 transition ease-in-out duration-300"
                         >
                             Discover
                         </a>
@@ -116,15 +116,15 @@
                                     <img
                                         tabindex="0"
                                         role="button"
-                                        src="{{ asset('storage/' . auth()->user()->avatar) }}"
-                                        class="cursor-pointer h-10 w-10 rounded-full object-cover shadow-md border-2 border-rose-600 hover:brightness-120 transition duration-200 ease-in-out"
+                                        src="{{ asset(auth()->user()->avatar) }}"
+                                        class="cursor-pointer h-12 w-12 rounded-full object-cover shadow-md border-2 border-rose-600 hover:brightness-120 transition duration-200 ease-in-out"
                                         alt="Profile Picture"
                                     >
                                 @else
                                     <div
                                         tabindex="0"
                                         role="button"
-                                        class="select-none cursor-pointer bg-slate-800 text-white font-bold rounded-full h-10 w-10 flex items-center justify-center hover:bg-rose-600 transition duration-300 ease-in-out"
+                                        class="select-none cursor-pointer bg-slate-800 text-white font-bold rounded-full h-12 w-12 flex items-center justify-center hover:bg-rose-600 transition duration-300 ease-in-out"
                                     >
                                         {{ auth()->user()->getInitials() }}
                                     </div>
@@ -258,10 +258,10 @@
             </main>
 
             <!-- Footer -->
-            <footer class="bg-slate-950 text-white px-6 py-8 lg:px-16">
-                <div class="container mx-auto text-center">
+            <footer class="bg-slate-950 text-white px-6 py-8">
+                <div class="max-w-6xl mx-auto p-6 text-center">
                     <div
-                        class="flex flex-col md:flex-row items-center justify-between gap-4 md:gap-12 text-center md:text-left">
+                        class="flex flex-col lg:flex-row items-center justify-between gap-4 lg:gap-8 text-center lg:text-left">
                         <a
                             href="{{ route('home') }}"
                             class="flex items-center justify-center"
@@ -293,13 +293,21 @@
                         </a>
                         <a
                             class="block px-6 py-2 flex-1 hover:bg-slate-900 rounded-lg transition ease-in-out duration-300"
-                            href="{{ route('login') }}"
+                            href="{{ auth()->check() ? route('my-recipes') : route('login') }}"
                         >
-                            <h3 class="text-lg font-semibold mb-2">Join</h3>
-                            <p class="text-sm text-gray-400">
-                                Join our community and start contributing your own recipes!
-                            </p>
+                            @if (auth()->check())
+                                <h3 class="text-lg font-semibold mb-2">Contribute</h3>
+                                <p class="text-sm text-gray-400">
+                                    Create your own recipes and share them with the world!
+                                </p>
+                            @else
+                                <h3 class="text-lg font-semibold mb-2">Join</h3>
+                                <p class="text-sm text-gray-400">
+                                    Join our community and start contributing your own recipes!
+                                </p>
+                            @endif
                         </a>
+
                     </div>
                     <hr class="w-full mx-auto border-2 border-slate-900 my-8">
                     <div class="flex flex-col md:flex-row justify-between gap-6 text-xs">
@@ -348,7 +356,7 @@
                                 class="hover:brightness-120 hover:scale-105 transition duration-200 ease-in-out"
                             >
                                 <img
-                                    src="{{ asset('storage/' . auth()->user()->avatar) }}"
+                                    src="{{ asset(auth()->user()->avatar) }}"
                                     class="h-12 w-12 rounded-full object-cover shadow-md border-2 border-rose-600"
                                     alt="Profile Picture"
                                 >

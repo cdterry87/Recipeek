@@ -84,7 +84,7 @@
             </button>
             <div class="w-full lg:w-auto">
                 <x-search
-                    placeholder="Search my recipes..."
+                    placeholder="Search recipes..."
                     class="w-full lg:w-64"
                     wire:model.live.debounce.600ms="search"
                 />

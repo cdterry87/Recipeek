@@ -16,23 +16,23 @@
         </video>
         <div class="absolute inset-0 bg-black/50 z-20 flex justify-center items-center text-white text-center">
             <form
-                method="GET"
                 class="flex flex-col justify-center items-center"
+                wire:submit.prevent="discover"
             >
                 <h1 class="text-4xl md:text-6xl font-bold select-none">Discover Amazing Recipes</h1>
                 <p class="my-8 text-lg select-none">Explore the best dishes created by people like you.</p>
                 <input
                     type="text"
                     name="search"
+                    id="search"
+                    wire:model="search"
+                    minlength="3"
                     placeholder="Search for something delicious!"
                     class="px-4 py-3 rounded-full text-black bg-white w-4/5 md:w-2/3"
                 >
-                <a
-                    href="{{ route('search-recipes') }}"
-                    class="mt-6 bg-rose-500 px-6 py-3 rounded-full text-lg hover:bg-rose-600"
-                >
+                <button class="mt-6 bg-rose-500 px-6 py-3 rounded-full text-lg hover:bg-rose-600 cursor-pointer">
                     Start Searching!
-                </a>
+                </button>
             </form>
         </div>
     </section>

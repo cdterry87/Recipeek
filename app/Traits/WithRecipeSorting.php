@@ -8,7 +8,7 @@ use App\Enums\ResultsPerPage;
 
 trait WithRecipeSorting
 {
-    public $sort_by;
+    public $sort_by = 'created_at';
     public $sort_direction = 'desc';
     public $results_per_page = 8;
 

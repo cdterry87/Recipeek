@@ -37,7 +37,7 @@
                     @if ($avatarPath)
                         <div class="flex items-center justify-center flex-col gap-2">
                             <img
-                                src="{{ asset('storage/' . $avatarPath) }}"
+                                src="{{ asset($avatarPath) }}"
                                 class="h-24 w-24 rounded-full object-cover shadow-md border-2 border-rose-600"
                                 alt="Profile Picture"
                             >
@@ -70,7 +70,7 @@
                     wire:model="name"
                     required
                     block
-                    maxlength="255"
+                    maxlength=
                 />
                 <x-input-text
                     label="Email"
@@ -99,9 +99,14 @@
                     wire:model="bio"
                     maxlength="2000"
                     block
-                >
-
-                </x-textarea>
+                ></x-textarea>
+                <x-toggle
+                    label="Public Profile - Enable to make your profile visible to others"
+                    id="public"
+                    name="public"
+                    wire:model="public"
+                    primary
+                />
                 <x-button
                     primary
                     block

@@ -29,7 +29,7 @@ return new class extends Migration
             $table->text('image')->nullable();
             $table->text('video')->nullable();
             $table->text('notes')->nullable();
-            $table->boolean('private');
+            $table->boolean('public')->default(false); // Recipes are private by default
             $table->timestamps();
         });
     }

@@ -19,14 +19,18 @@
                 <div>
                     <div class="text-2xl font-bold text-gray-900">
                         by
-                        <a
-                            href="{{ route('view-creator', $recipe->user->slug) }}"
-                            class="text-primary hover:brightness-90 transition duration-200 ease-in-out"
-                            title="View {{ ucwords($recipe->user->name) }}'s profile"
-                            aria-label="View {{ ucwords($recipe->user->name) }}'s profile"
-                        >
+                        @if ($recipe->user->public)
+                            <a
+                                href="{{ route('view-creator', $recipe->user->slug) }}"
+                                class="text-primary hover:brightness-90 transition duration-200 ease-in-out"
+                                title="View {{ ucwords($recipe->user->name) }}'s profile"
+                                aria-label="View {{ ucwords($recipe->user->name) }}'s profile"
+                            >
+                                {{ ucwords($recipe->user->name) }}
+                            </a>
+                        @else
                             {{ ucwords($recipe->user->name) }}
-                        </a>
+                        @endif
                     </div>
                     <div>on {{ $recipe->created_at->format('M n, Y') }}</div>
                 </div>

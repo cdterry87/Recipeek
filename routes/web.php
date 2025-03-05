@@ -9,7 +9,6 @@ use App\Livewire\CreateRecipe;
 use App\Livewire\SavedRecipes;
 use App\Livewire\LoginRegister;
 use App\Livewire\ResetPassword;
-use App\Livewire\SearchRecipes;
 use App\Livewire\ForgotPassword;
 use App\Livewire\DiscoverRecipes;
 use App\Livewire\ViewCreator;
@@ -55,14 +54,11 @@ Route::get('cookie-policy', function () {
 // Discover
 Route::get('discover', DiscoverRecipes::class)->name('discover-recipes');
 
-// Search
-Route::get('search', SearchRecipes::class)->name('search-recipes');
-
 // Recipe
 Route::get('recipes/{recipe}', ViewRecipe::class)->name('view-recipe');
 
 // Creator
-Route::get('creators/{user}', ViewCreator::class)->name('view-creator');
+Route::get('/creators/{creator}', ViewCreator::class)->name('view-creator');
 
 
 // ///////////////////////

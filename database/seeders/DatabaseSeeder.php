@@ -15,26 +15,17 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         // Create a demo user
-        $demoUser = User::factory()->create([
+        User::factory()->create([
             'name' => 'Demo User',
             'email' => 'demo@example.com',
             'password' => bcrypt('password'), // Use bcrypt to hash the password
+            'avatar' => 'demo/demo-user.jpg', // Path to the demo avatar image
+            'bio' => 'I may just be a demo user, but I love cooking and sharing all of my delicious recipes with the Recipeek community! I hope you enjoy my recipes as much as I do!',
+            'public' => true
         ]);
 
         $this->call([
             RecipeSeeder::class,
         ]);
-
-        // Create recipes for the demo user
-        // Recipe::factory(10)->create([
-        //     'user_id' => $demoUser->id,
-        // ]);
-
-        // @todo - Add ingredients for each recipe
-        // @todo - Add instructions for each recipe
-        // @todo - Add tags for each recipe
-        // @todo - Add ratings for each recipe
-
-        // @todo - Instead of making it seed random text for recipes, instead have it seed some real recipes with real images
     }
 }
