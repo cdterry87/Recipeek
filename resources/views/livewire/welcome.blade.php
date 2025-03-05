@@ -69,7 +69,7 @@
                             :title="$recipe->title"
                             :image="$recipe->image"
                             :description="$recipe->description"
-                            :link="'recipes/' . $recipe->id"
+                            :link="'recipes/' . $recipe->slug"
                             :category="$recipe->category"
                             :cuisine="$recipe->cuisine"
                             :time="$recipe->getFormattedTime()"

@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Recipe;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
@@ -16,7 +17,7 @@ class RecipeSeeder extends Seeder
 
         foreach ($recipes as $recipeData) {
             // Create the recipe record
-            $recipe = DB::table('recipes')->insertGetId([
+            $recipe = Recipe::create([
                 'user_id' => $recipeData['user_id'],
                 'title' => $recipeData['title'],
                 'description' => $recipeData['description'],
@@ -31,14 +32,12 @@ class RecipeSeeder extends Seeder
                 'calories' => $recipeData['calories'],
                 'image' => 'demo/' . $recipeData['image'],
                 'private' => $recipeData['private'],
-                'created_at' => now(),
-                'updated_at' => now(),
             ]);
 
             // Insert ingredients
             foreach ($recipeData['ingredients'] as $ingredient) {
                 DB::table('recipes_ingredients')->insert([
-                    'recipe_id' => $recipe,
+                    'recipe_id' => $recipe->id,
                     'ingredient' => $ingredient['ingredient'],
                     'quantity' => $ingredient['quantity'],
                     'unit' => $ingredient['unit'],
@@ -50,7 +49,7 @@ class RecipeSeeder extends Seeder
             // Insert instructions
             foreach ($recipeData['instructions'] as $instruction) {
                 DB::table('recipes_instructions')->insert([
-                    'recipe_id' => $recipe,
+                    'recipe_id' => $recipe->id,
                     'instruction' => $instruction['instruction'],
                     'order' => $instruction['order'],
                     'created_at' => now(),

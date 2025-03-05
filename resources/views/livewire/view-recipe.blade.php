@@ -17,8 +17,17 @@
         <div class="flex flex-col gap-8">
             <div class="flex flex-col items-center gap-6 md:flex-row md:justify-between text-gray-500">
                 <div>
-                    {{-- @todo - add a link to the user's creator page to view all of their public recipes (unless they have a private account) --}}
-                    <div class="text-2xl font-bold text-gray-900">by {{ ucwords($recipe->user->name) }}</div>
+                    <div class="text-2xl font-bold text-gray-900">
+                        by
+                        <a
+                            href="{{ route('view-creator', $recipe->user->slug) }}"
+                            class="text-primary hover:brightness-90 transition duration-200 ease-in-out"
+                            title="View {{ ucwords($recipe->user->name) }}'s profile"
+                            aria-label="View {{ ucwords($recipe->user->name) }}'s profile"
+                        >
+                            {{ ucwords($recipe->user->name) }}
+                        </a>
+                    </div>
                     <div>on {{ $recipe->created_at->format('M n, Y') }}</div>
                 </div>
                 <div class="flex flex-col items-center gap-1">
