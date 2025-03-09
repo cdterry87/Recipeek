@@ -1,5 +1,4 @@
 <div class="mx-auto">
-    <!-- Cover Image -->
     <div class="relative w-full h-80">
         <img
             src="{{ asset($recipe->image) }}"
@@ -64,7 +63,6 @@
                     </span>
                 </div>
             </div>
-
 
             {{-- @todo - Add rating / save buttons --}}
 

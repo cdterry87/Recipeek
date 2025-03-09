@@ -1,6 +1,6 @@
 <div class="max-w-6xl mx-auto p-6">
     @if (!$creator->public)
-        <div class="h-[75vh]">
+        <div class="h-[75vh] my-16">
             <div class="flex flex-col gap-8 items-center justify-center h-full">
                 <div>
                     <svg
@@ -47,7 +47,6 @@
         </div>
     @else
         <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
-            <!-- Sidebar - User Details -->
             <div class="md:col-span-1 mb-8">
                 <div class="flex items-center justify-center">
                     <div class="avatar px-6">
@@ -86,25 +85,14 @@
 
                 <x-filters :results-count="$recipes->count()" />
 
-                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                    @foreach ($recipes as $recipe)
-                        <x-card
-                            :title="$recipe->title"
-                            :image="asset($recipe->image)"
-                            :description="$recipe->description"
-                            :link="route('view-recipe', $recipe->slug)"
-                            :category="$recipe->category"
-                            :cuisine="$recipe->cuisine"
-                            :time="$recipe->getFormattedTime()"
-                            wire:key="recipe-{{ $recipe->id }}"
-                        />
-                    @endforeach
-                </div>
-
-                <!-- Pagination -->
-                <div class="mt-6">
-                    {{ $recipes->links() }}
-                </div>
+                @if ($recipes && $recipes->isNotEmpty())
+                    <x-recipe-grid
+                        :recipes="$recipes"
+                        md
+                    />
+                @else
+                    <x-recipe-empty />
+                @endif
             </div>
         </div>
     @endif

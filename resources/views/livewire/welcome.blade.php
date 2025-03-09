@@ -63,20 +63,7 @@
             </p>
             <hr class="w-full md:w-1/2 mx-auto border-2 border-rose-500 my-6">
             @if ($recipes && $recipes->isNotEmpty())
-                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-                    @foreach ($recipes as $recipe)
-                        <x-card
-                            :title="$recipe->title"
-                            :image="$recipe->image"
-                            :description="$recipe->description"
-                            :link="route('view-recipe', $recipe->slug)"
-                            :category="$recipe->category"
-                            :cuisine="$recipe->cuisine"
-                            :time="$recipe->getFormattedTime()"
-                            wire:key="recipe-{{ $recipe->id }}"
-                        />
-                    @endforeach
-                </div>
+                <x-recipe-grid :recipes="$recipes" />
             @else
                 <div class="font-[Jost] text-xl text-center text-gray-600 flex items-center justify-center h-32">
                     No recipes are trending at this time, but check back often for new delicious recipes!
