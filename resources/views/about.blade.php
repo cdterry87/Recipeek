@@ -1,41 +1,33 @@
 <x-layouts.app>
-    <div class="max-w-4xl mx-auto p-6 mt-6 mb-16 flex flex-col md:flex-row gap-16">
-        <div class="md:w-1/2 flex flex-col justify-center gap-4 text-center md:text-left">
-            <h1 class="text-3xl font-bold text-gray-900 mb-4">About Recipeek</h1>
-            <p class="text-gray-700 leading-9 font-[Jost]">
-                Recipeek is a vibrant community website where food enthusiasts from
-                all over the world come together to share, discover, and celebrate recipes. Whether you're a home cook
-                or a professional chef, Recipeek provides a space to exchange ideas, explore new flavors, and create
-                culinary masterpieces.
-            </p>
-        </div>
-        <div class="md:w-1/2">
-            <svg
-                width="0"
-                height="0"
-            >
-                <defs>
-                    <clipPath
-                        id="aboutBlobClip"
-                        clipPathUnits="objectBoundingBox"
-                    >
-                        <path
-                            d="M0.9,0.3C0.8,0.1,0.7,0,0.55,0.05C0.4,0.1,0.35,0.25,0.25,0.3C0.1,0.35,0,0.45,0.05,0.6C0.1,0.75,0.3,0.9,0.45,0.95C0.6,1,0.75,0.95,0.85,0.85C0.95,0.75,1,0.6,0.95,0.45C0.9,0.35,1,0.4,0.9,0.3"
-                        />
-                    </clipPath>
-                </defs>
-            </svg>
-            <div class="flex items-center justify-center relative">
-                <img
-                    src="{{ asset('images/about.jpg') }}"
-                    alt="About Recipeek"
-                    class="about-blob-mask rounded-full"
-                >
+    <section class="relative w-full h-[85vh] overflow-hidden">
+        <div class="bg-gray-800 absolute inset-0 w-full h-full bg-cover bg-center animated-about-bg z-10"></div>
+        <div
+            class="absolute inset-0 bg-black/50 z-20 flex justify-center items-center text-black text-center font-[Jost]">
+            <div class="bg-rose-100/85 shadow-2xl border-y-5 border-rose-600 w-full py-4">
+                <div class="card-body md:w-2/3 lg:w-1/2 mx-auto flex flex-col justify-center gap-4 text-center ">
+                    <h1 class="text-3xl font-bold mb-4">About Us</h1>
+                    <p class="italic font-semibold text-sm md:text-base leading-8">
+                        Recipeek is a vibrant community website where food enthusiasts from
+                        all over the world come together to share, discover, and celebrate recipes. Whether you're a
+                        home cook or a professional chef, Recipeek provides a space to exchange ideas, explore new
+                        flavors, and create culinary masterpieces.
+                    </p>
+                </div>
             </div>
+
         </div>
+    </section>
+
+    <div class="max-w-4xl mx-auto p-6 my-16">
+        <h2 class="text-2xl font-semibold text-gray-800 mb-4 text-center">Contact Us!</h2>
+        <p class="text-gray-700 mb-4 italic text-center">
+            Having issues with the site? Want more info about us? Feel free to reach out!
+        </p>
+
+        <livewire:contact-form />
     </div>
 
-    <div class="bg-rose-50 text-rose-900 text-center px-6 py-16">
+    <div class="bg-rose-50 text-rose-900 text-center px-6 py-16 circle-scatter">
         <div class="relative max-w-3xl mx-auto">
             <div class="absolute -top-6 left-1/2 transform -translate-x-1/2 text-6xl text-rose-200 opacity-50">
                 &#10077;
@@ -49,37 +41,7 @@
                     and passion.
                 </p>
             </div>
-            <hr class="w-full sm:w-1/2 mx-auto border-2 border-rose-500 my-2">
-        </div>
-    </div>
-
-
-    <div class="max-w-4xl mx-auto p-6 my-16">
-        <h2 class="text-2xl font-semibold text-gray-800 mb-4 text-center">Contact Us!</h2>
-        <p class="text-xl text-gray-700 mb-4 italic text-center">
-            Having issues with the site? Want more info about us? Feel free to reach out!
-        </p>
-        <div class="flex flex-col md:flex-row items-center gap-6 mt-16">
-            <div class="w-full text-center">
-                <h3 class="text-lg font-semibold text-gray-800">By Email</h3>
-                <p class="text-gray-700">
-                    <a href="#">support@recipeek.com</a>
-                </p>
-            </div>
-            <div class="w-full text-center">
-                <h3 class="text-lg font-semibold text-gray-800">By Phone</h3>
-                <p class="text-gray-700">
-                    <a href="#">+1 (555) 123-4567</a>
-                </p>
-            </div>
-            <div class="w-full text-center">
-                <h3 class="text-lg font-semibold text-gray-800">By Social</h3>
-                <p class="text-gray-700">
-                    <a href="#">Facebook</a>
-                    <a href="#">X</a>
-                    <a href="#">TikTok</a>
-                </p>
-            </div>
+            <hr class="w-full sm:w-1/2 mx-auto border-2 border-rose-200 opacity-50 my-2">
         </div>
     </div>
 </x-layouts.app>

@@ -3,12 +3,14 @@
 namespace App\Livewire;
 
 use Livewire\Component;
+use App\Models\Subscriber;
+use Illuminate\Support\Str;
 
 class Welcome extends Component
 {
     public $search;
     public $email;
-    public $isSubscribed = false;
+    public $isFormSubmitted = false;
 
     public function render()
     {
@@ -37,11 +39,14 @@ class Welcome extends Component
     public function subscribe()
     {
         $this->validate([
-            'email' => 'required|email',
+            'email' => 'required|email|unique:subscribers',
         ]);
 
-        // Subscriptions will not work in this demo site
+        Subscriber::create([
+            'email' => $this->email,
+            'token' => Str::uuid()
+        ]);
 
-        $this->isSubscribed = true;
+        $this->isFormSubmitted = true;
     }
 }

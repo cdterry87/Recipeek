@@ -15,8 +15,8 @@
     --color-base-content: oklch(21% 0.006 285.885);
     --color-primary: oklch(64% 0.246 16.439);
     --color-primary-content: oklch(97% 0.014 308.299);
-    --color-secondary: oklch(100% 0 0);
-    --color-secondary-content: oklch(64% 0.246 16.439);
+    --color-secondary: oklch(14% 0.005 285.823);
+    --color-secondary-content: oklch(92% 0.004 286.32);
     --color-accent: oklch(45% 0.187 3.815);
     --color-accent-content: oklch(96% 0.018 272.314);
     --color-neutral: oklch(27% 0.006 286.033);
@@ -46,9 +46,11 @@
     background-repeat: no-repeat;
 }
 
-.about-blob-mask {
-    @apply h-80 w-80 md:mt-12 md:w-full object-cover object-center;
-    clip-path: url(#aboutBlobClip);
+.circle-scatter {
+    background-image: url('data:image/svg+xml,<svg id="visual" viewBox="0 0 960 540" width="960" height="540" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1"><g fill="%23fdc4cd"><circle r="96" cx="86" cy="147"></circle><circle r="24" cx="281" cy="258"></circle><circle r="70" cx="435" cy="444"></circle><circle r="78" cx="900" cy="496"></circle><circle r="24" cx="743" cy="297"></circle><circle r="41" cx="174" cy="535"></circle></g></svg>');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 .private-blob-mask {
@@ -83,4 +85,37 @@ h6 {
 
 .btn-link {
     @apply !no-underline hover:!no-underline;
+}
+
+.animated-about-bg {
+    background-image: url("/public/images/about.jpg");
+    background-size: 120%; /* Slightly larger for smooth movement */
+    background-repeat: no-repeat;
+    animation: panAnimation 60s infinite linear alternate;
+}
+
+/* Faster animation on mobile screens */
+@media (max-width: 480px) {
+    .animated-about-bg {
+        animation: panAnimation 20s infinite linear alternate;
+    }
+}
+
+/* Animation to pan across a background image */
+@keyframes panAnimation {
+    0% {
+        background-position: 50% 50%; /* Start from center */
+    }
+    25% {
+        background-position: 20% 40%; /* Slight move */
+    }
+    50% {
+        background-position: 50% 60%; /* Middle move */
+    }
+    75% {
+        background-position: 40% 20%; /* Another direction */
+    }
+    100% {
+        background-position: 0% 0%; /* Reset */
+    }
 }

@@ -10,7 +10,7 @@ trait WithRecipeSorting
 {
     public $sort_by = 'created_at';
     public $sort_direction = 'desc';
-    public $results_per_page = 8;
+    public $results_per_page = 12;
 
     public function mountWithRecipeSorting()
     {

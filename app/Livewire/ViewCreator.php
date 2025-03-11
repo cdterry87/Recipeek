@@ -5,7 +5,9 @@ namespace App\Livewire;
 use App\Models\User;
 use App\Models\Recipe;
 use Livewire\Component;
+use App\Models\UserFriend;
 use App\Enums\RecipeSortBy;
+use App\Models\UserFollower;
 use Livewire\WithPagination;
 use App\Traits\WithRecipeFilters;
 use App\Traits\WithRecipeSorting;
@@ -17,20 +19,77 @@ class ViewCreator extends Component
     use WithRecipeSorting;
 
     public $creatorId;
+    public $isFollowing = false;
+    public $isFriend = false;
 
     public function mount(User $creator)
     {
         $this->creatorId = $creator->id;
+
+        if (auth()->check()) {
+            $this->isFollowing = UserFollower::query()
+                ->where('user_id', $this->creatorId)
+                ->where('follower_id', auth()->id())
+                ->exists();
+
+            $this->isFriend = UserFriend::query()
+                ->where('user_id', auth()->id())
+                ->where('friend_id', $this->creatorId)
+                ->exists();
+        }
     }
 
     public function follow()
     {
-        // @todo implement follow functionality
+        UserFollower::create([
+            'user_id' => $this->creatorId,
+            'follower_id' => auth()->id(),
+        ]);
+
+        $this->isFollowing = true;
+
+        session()->flash('message', 'You started following ' . $this->creator->name . '.');
+    }
+
+    public function unfollow()
+    {
+        UserFollower::query()
+            ->where('user_id', $this->creatorId)
+            ->where('follower_id', auth()->id())
+            ->delete();
+
+        $this->isFollowing = false;
+
+        session()->flash('message', 'You unfollowed ' . $this->creator->name . '.');
     }
 
     public function addFriend()
     {
-        // @todo implement add friend functionality
+        if ($this->creator->public === false) {
+            session()->flash('error', 'This creator has a private account and cannot be followed.');
+            return;
+        }
+
+        UserFriend::create([
+            'user_id' => auth()->id(),
+            'friend_id' => $this->creatorId,
+        ]);
+
+        $this->isFriend = true;
+
+        session()->flash('message', 'A friend request was sent to ' . $this->creator->name . '.');
+    }
+
+    public function removeFriend()
+    {
+        UserFriend::query()
+            ->where('user_id', auth()->id())
+            ->where('friend_id', $this->creatorId)
+            ->delete();
+
+        $this->isFriend = false;
+
+        session()->flash('message', 'You removed ' . $this->creator->name . ' from your friends.');
     }
 
     /**

@@ -1,5 +1,4 @@
 <div>
-    <!-- Hero Section with Video Background -->
     <section class="relative w-full h-[85vh] overflow-hidden">
         <video
             autoplay
@@ -71,7 +70,7 @@
             @endif
         </section>
 
-        <section class="bg-rose-50 h-80 flex items-center justify-center blob-scatter blob-scatter-2 mt-8">
+        <section class="bg-rose-50 h-80 flex items-center justify-center blob-scatter mt-8">
             <div class="container mx-auto py-12 px-6">
                 <h2 class="text-xl md:text-3xl text-center font-bold mb-2 text-gray-800 font-[Jost] uppercase">
                     Subscribe to Our Newsletter
@@ -80,11 +79,11 @@
                     Get the latest recipes, cooking tips, and exclusive offers delivered straight to your inbox.
                 </p>
                 <div
-                    x-data="{ isSubscribed: @entangle('isSubscribed') }"
+                    x-data="{ isFormSubmitted: @entangle('isFormSubmitted') }"
                     class="mt-8"
                 >
                     <form
-                        x-show="!isSubscribed"
+                        x-show="!isFormSubmitted"
                         method="POST"
                         class="flex flex-col gap-3"
                         wire:submit.prevent="subscribe"
@@ -110,11 +109,11 @@
                         </div>
                     </form>
                     <div
-                        x-show="isSubscribed"
+                        x-show="isFormSubmitted"
                         x-transition:enter="transition-opacity duration-500"
                         x-transition:enter-start="opacity-0"
                         x-transition:enter-end="opacity-100"
-                        class="text-2xl font-bold text-center text-rose-800 font-[Jost]"
+                        class="text-lg md:text-2xl font-bold text-center text-rose-800 font-[Jost]"
                     >
                         Thank you for subscribing!
                     </div>

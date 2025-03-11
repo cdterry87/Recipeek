@@ -99,7 +99,13 @@
                             </svg>
                         </label>
                     </div>
-                    <div class="hidden md:flex items-center gap-4">
+                    <div class="hidden md:flex items-center gap-2">
+                        <a
+                            href="{{ route('about') }}"
+                            class="btn btn-sm btn-link text-xs font-semibold text-gray-800 hover:text-rose-600 transition ease-in-out duration-300"
+                        >
+                            About
+                        </a>
                         <a
                             href="{{ route('discover-recipes') }}"
                             class="btn btn-sm btn-link text-xs font-semibold text-gray-800 hover:text-rose-600 transition ease-in-out duration-300"
@@ -113,21 +119,17 @@
                                 aria-label="Navigation Menu"
                             >
                                 @if (auth()->user()->avatar)
-                                    <img
-                                        tabindex="0"
-                                        role="button"
-                                        src="{{ asset(auth()->user()->avatar) }}"
-                                        class="cursor-pointer h-10 w-10 rounded-full object-cover shadow-md border-2 border-rose-600 hover:brightness-120 transition duration-200 ease-in-out"
-                                        alt="Profile Picture"
-                                    >
+                                    <x-avatar
+                                        :image="asset(auth()->user()->avatar)"
+                                        :alt="auth()->user()->name . 'Profile Picture'"
+                                        :title="auth()->user()->name . 'Profile Picture'"
+                                        sm
+                                    />
                                 @else
-                                    <div
-                                        tabindex="0"
-                                        role="button"
-                                        class="select-none cursor-pointer bg-slate-800 text-white font-bold rounded-full h-10 w-10 flex items-center justify-center hover:bg-rose-600 transition duration-300 ease-in-out"
-                                    >
-                                        {{ auth()->user()->getInitials() }}
-                                    </div>
+                                    <x-initials
+                                        :initials="auth()->user()->getInitials()"
+                                        sm
+                                    />
                                 @endif
                                 <ul
                                     tabindex="0"
@@ -364,6 +366,30 @@
                         @endif
                     </div>
                     <ul class="flex flex-col gap-2 ">
+                        <li>
+                            <a
+                                href="{{ route('about') }}"
+                                class="flex items-center gap-1 hover:brightness-80 transition ease-in-out duration-200"
+                            >
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    fill="none"
+                                    viewBox="0 0 24 24"
+                                    stroke-width="1.5"
+                                    stroke="currentColor"
+                                    class="size-6"
+                                >
+                                    <path
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        d="m11.25 11.25.041-.02a.75.75 0 0 1 1.063.852l-.708 2.836a.75.75 0 0 0 1.063.853l.041-.021M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9-3.75h.008v.008H12V8.25Z"
+                                    />
+                                </svg>
+                                <span>
+                                    About
+                                </span>
+                            </a>
+                        </li>
                         <li>
                             <a
                                 href="{{ route('discover-recipes') }}"

@@ -12,55 +12,76 @@
         </div>
     </div>
 
-    <section class="container mx-auto px-6 py-8 lg:px-16 font-[Jost]">
-        <div class="flex flex-col gap-8">
+    <section class="max-w-6xl mx-auto px-6 py-12 font-[Jost]">
+        <div class="flex flex-col gap-12">
             <div class="flex flex-col items-center gap-6 md:flex-row md:justify-between text-gray-500">
-                <div>
-                    <div class="text-2xl font-bold text-gray-900">
-                        by
-                        @if ($recipe->user->public)
-                            <a
-                                href="{{ route('view-creator', $recipe->user->slug) }}"
-                                class="text-primary hover:brightness-90 transition duration-200 ease-in-out"
-                                title="View {{ ucwords($recipe->user->name) }}'s profile"
-                                aria-label="View {{ ucwords($recipe->user->name) }}'s profile"
-                            >
+                <div class="flex flex-col md:flex-row items-center gap-6 md:gap-16 text-center md:text-left">
+                    <div>
+                        <div class="text-2xl font-bold text-gray-900">
+                            by
+                            @if ($recipe->user->public)
+                                <a
+                                    href="{{ route('view-creator', $recipe->user->slug) }}"
+                                    class="text-primary hover:brightness-90 transition duration-200 ease-in-out"
+                                    title="View {{ ucwords($recipe->user->name) }}'s profile"
+                                    aria-label="View {{ ucwords($recipe->user->name) }}'s profile"
+                                >
+                                    {{ ucwords($recipe->user->name) }}
+                                </a>
+                            @else
                                 {{ ucwords($recipe->user->name) }}
-                            </a>
-                        @else
-                            {{ ucwords($recipe->user->name) }}
-                        @endif
+                            @endif
+                        </div>
+                        <div class="text-sm">
+                            on {{ $recipe->created_at->format('M n, Y') }}
+                        </div>
                     </div>
-                    <div>on {{ $recipe->created_at->format('M n, Y') }}</div>
+                    <div class="flex flex-col gap-1">
+                        <div class="rating">
+                            <div
+                                class="mask mask-star"
+                                aria-label="1 star"
+                            ></div>
+                            <div
+                                class="mask mask-star"
+                                aria-label="2 star"
+                            ></div>
+                            <div
+                                class="mask mask-star"
+                                aria-label="3 star"
+                                aria-current="true"
+                            ></div>
+                            <div
+                                class="mask mask-star"
+                                aria-label="4 star"
+                            ></div>
+                            <div
+                                class="mask mask-star"
+                                aria-label="5 star"
+                            ></div>
+                        </div>
+                        <span class="text-sm">
+                            <strong>(3.0)</strong>
+                            <span>0 ratings</span>
+                        </span>
+                    </div>
                 </div>
-                <div class="flex flex-col items-center gap-1">
-                    <div class="rating">
-                        <div
-                            class="mask mask-star"
-                            aria-label="1 star"
-                        ></div>
-                        <div
-                            class="mask mask-star"
-                            aria-label="2 star"
-                        ></div>
-                        <div
-                            class="mask mask-star"
-                            aria-label="3 star"
-                            aria-current="true"
-                        ></div>
-                        <div
-                            class="mask mask-star"
-                            aria-label="4 star"
-                        ></div>
-                        <div
-                            class="mask mask-star"
-                            aria-label="5 star"
-                        ></div>
-                    </div>
-                    <span class="text-sm">
-                        <strong>(3.0)</strong>
-                        <span>0 ratings</span>
-                    </span>
+                <div class="flex items-center gap-2">
+                    <x-button
+                        primary
+                        wire:click.prevent="save"
+                    >
+                        Save
+                    </x-button>
+                    <x-button
+                        secondary
+                        wire:click.prevent="print"
+                    >
+                        Print
+                    </x-button>
+                    <x-button tertiary>
+                        Share
+                    </x-button>
                 </div>
             </div>
 

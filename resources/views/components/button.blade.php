@@ -24,6 +24,7 @@
     'lg' => false,
     'xl' => false,
     'wide' => false,
+    'icon' => null,
 ])
 
 @php
@@ -62,6 +63,9 @@
     <span class="flex items-center gap-2">
         @if ($loading)
             <span class="loading loading-spinner"></span>
+        @endif
+        @if ($icon)
+            {{ $icon }}
         @endif
         <span>
             {{ $slot }}
