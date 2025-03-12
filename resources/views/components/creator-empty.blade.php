@@ -1,45 +1,39 @@
-<div class="h-[75vh] my-16">
-    <div class="flex flex-col gap-8 items-center justify-center h-full">
-        <div>
-            <svg
-                width="0"
-                height="0"
-            >
-                <defs>
-                    <clipPath
-                        id="privateBlobClip"
-                        clipPathUnits="objectBoundingBox"
+<section class="relative w-full h-[85vh] overflow-hidden">
+    <div class="bg-gray-800 absolute inset-0 w-full h-full bg-cover bg-center private-bg pan-animation z-10"></div>
+    <div class="absolute inset-0 bg-black/50 z-20 flex justify-center items-center text-black text-center font-[Jost]">
+        <div class="card py-4">
+            <div class="card-body bg-white/90 md:w-2/3 lg:w-1/2 mx-auto flex flex-col justify-center gap-4 text-center ">
+                <div class="flex justify-center">
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke-width="1.5"
+                        stroke="currentColor"
+                        class="size-6 md:size-12"
                     >
                         <path
-                            d="M0.865 0.321C0.939 0.452 1 0.596 0.971 0.734C0.943 0.872 0.825 0.995 0.683 1C0.54 0.999 0.389 0.89 0.26 0.812C0.132 0.734 0.026 0.688 0 0.555C-0.026 0.423 0.045 0.216 0.139 0.1C0.233 -0.015 0.349 -0.042 0.495 0.018C0.641 0.078 0.792 0.189 0.865 0.321Z"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            d="M16.5 10.5V6.75a4.5 4.5 0 1 0-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 0 0 2.25-2.25v-6.75a2.25 2.25 0 0 0-2.25-2.25H6.75a2.25 2.25 0 0 0-2.25 2.25v6.75a2.25 2.25 0 0 0 2.25 2.25Z"
                         />
-                    </clipPath>
-                </defs>
-            </svg>
-            <div class="flex items-center justify-center relative">
-                <img
-                    src="{{ asset('images/private.jpg') }}"
-                    alt="Private Profile"
-                    class="private-blob-mask rounded-full"
-                >
+                    </svg>
+                </div>
+
+                <h1 class="text-3xl font-bold mb-4">Private Profile</h1>
+                <p class="text-sm md:text-base leading-8">
+                    Sorry, this creator's profile is private. You will not be able to view their recipes or other
+                    details unless you are their friend or their profile is changed to public.
+                </p>
+                <div>
+                    <a
+                        href="{{ route('home') }}"
+                        class="btn btn-primary"
+                    >
+                        Go Back
+                    </a>
+                </div>
             </div>
         </div>
-
-        <div class="text-center">
-            <h2 class="text-2xl font-semibold mb-4">Sorry, this creator's profile is private.</h2>
-            <p class="text-gray-600">
-                You will not be able to view their recipes or details unless you are a friend or they have made
-                their profile public.
-            </p>
-        </div>
-
-        <div>
-            <a
-                href="{{ route('home') }}"
-                class="btn btn-primary"
-            >
-                Go Back
-            </a>
-        </div>
     </div>
-</div>
+</section>

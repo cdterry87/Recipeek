@@ -25,7 +25,7 @@
         crossorigin
     >
     <link
-        href="https://fonts.googleapis.com/css2?family=Figtree&family=Jost&family=Arizonia&family=Dancing+Script&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Figtree&family=Jost&family=Arizonia&display=swap"
         rel="stylesheet"
     >
 
@@ -58,7 +58,7 @@
 </head>
 
 <body
-    class="font-sans antialiased"
+    class="font-[Jost] antialiased"
     style="visibility: hidden;"
 >
     <div class="drawer">

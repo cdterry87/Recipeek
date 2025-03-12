@@ -1,6 +1,6 @@
 <div
     x-data="{ isFormSubmitted: @entangle('isFormSubmitted') }"
-    class="max-w-6xl mx-auto p-6"
+    class="max-w-xl mx-auto py-6 px-12 border-x border-gray-200"
 >
     @if (session('error'))
         <x-alert
@@ -59,7 +59,7 @@
         x-transition:enter="transition-opacity duration-500"
         x-transition:enter-start="opacity-0"
         x-transition:enter-end="opacity-100"
-        class="text-lg md:text-2xl font-bold text-center text-rose-800 font-[Jost] flex flex-col gap-3"
+        class="text-lg md:text-2xl font-bold text-center text-rose-800 font-[Jost] flex flex-col gap-3 py-6"
     >
         <p>Thank you for contacting us!</p>
         <p class="text-sm md:text-base">

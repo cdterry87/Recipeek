@@ -29,9 +29,9 @@
     --color-warning-content: oklch(98% 0.022 95.277);
     --color-error: oklch(57% 0.245 27.325);
     --color-error-content: oklch(97% 0.013 17.38);
-    --radius-selector: 0.5rem;
-    --radius-field: 0.5rem;
-    --radius-box: 0.5rem;
+    --radius-selector: 0rem;
+    --radius-field: 0rem;
+    --radius-box: 0rem;
     --size-selector: 0.25rem;
     --size-field: 0.25rem;
     --border: 1px;
@@ -87,17 +87,45 @@ h6 {
     @apply !no-underline hover:!no-underline;
 }
 
-.animated-about-bg {
+.about-bg {
     background-image: url("/public/images/about.jpg");
-    background-size: 120%; /* Slightly larger for smooth movement */
+    background-size: 125%; /* Slightly larger for smooth movement */
     background-repeat: no-repeat;
+}
+
+.private-bg {
+    background-image: url("/public/images/private.jpg");
+    background-size: 125%; /* Slightly larger for smooth movement */
+    background-repeat: no-repeat;
+}
+
+.error-404-bg {
+    background-image: url("/public/images/404.jpg");
+    background-size: 125%; /* Slightly larger for smooth movement */
+    background-repeat: no-repeat;
+}
+
+.error-500-bg {
+    background-image: url("/public/images/500.jpg");
+    background-size: 125%; /* Slightly larger for smooth movement */
+    background-repeat: no-repeat;
+}
+
+.pan-animation {
     animation: panAnimation 60s infinite linear alternate;
 }
 
-/* Faster animation on mobile screens */
-@media (max-width: 480px) {
-    .animated-about-bg {
+/* Faster animation on mobile */
+@media (max-width: 640px) {
+    .pan-animation {
         animation: panAnimation 20s infinite linear alternate;
+    }
+
+    .about-bg,
+    .private-bg,
+    .error-404-bg,
+    .error-500-bg {
+        background-size: cover !important;
     }
 }
 
