@@ -93,8 +93,14 @@ h6 {
     background-repeat: no-repeat;
 }
 
-.private-bg {
-    background-image: url("/public/images/private.jpg");
+.private-creator-bg {
+    background-image: url("/public/images/private-creator.jpg");
+    background-size: 125%; /* Slightly larger for smooth movement */
+    background-repeat: no-repeat;
+}
+
+.private-recipe-bg {
+    background-image: url("/public/images/private-recipe.jpg");
     background-size: 125%; /* Slightly larger for smooth movement */
     background-repeat: no-repeat;
 }
@@ -122,7 +128,8 @@ h6 {
     }
 
     .about-bg,
-    .private-bg,
+    .private-creator-bg,
+    .private-recipe-bg,
     .error-404-bg,
     .error-500-bg {
         background-size: cover !important;

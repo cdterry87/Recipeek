@@ -1,6 +1,6 @@
 <div>
     @if (!$creator->public && !$isFriend)
-        <x-creator-empty />
+        <x-private-creator />
     @else
         <div class="max-w-6xl mx-auto p-6">
             <div class="grid grid-cols-1 md:grid-cols-6 lg:grid-cols-4 gap-6">
