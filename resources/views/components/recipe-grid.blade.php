@@ -1,4 +1,4 @@
-@props(['recipes', 'md' => false])
+@props(['recipes', 'md' => false, 'route' => 'view-recipe'])
 
 @php
     $classes = array_filter([
@@ -12,11 +12,11 @@
 <div>
     <div {{ $attributes->merge(['class' => implode(' ', $classes)]) }}>
         @foreach ($recipes as $recipe)
-            <x-card
+            <x-recipe-card
                 :title="$recipe->title"
                 :image="asset($recipe->image)"
                 :description="$recipe->description"
-                :link="route('view-recipe', $recipe->slug)"
+                :link="route($route, $recipe->slug)"
                 :category="$recipe->category"
                 :cuisine="$recipe->cuisine"
                 :time="$recipe->getFormattedTime()"

@@ -26,7 +26,10 @@
     <x-filters :results-count="$recipes->count()" />
 
     @if ($recipes && $recipes->isNotEmpty())
-        <x-recipe-grid :recipes="$recipes" />
+        <x-recipe-grid
+            :recipes="$recipes"
+            route="edit-recipe"
+        />
     @else
         <x-recipe-empty />
     @endif

@@ -58,6 +58,24 @@ class Recipe extends Model
         return $this->ratings()->avg('rating');
     }
 
+    public function isOwnedByUser(): bool
+    {
+        if (auth()->guest()) {
+            return false;
+        }
+
+        return $this->user_id === auth()->id();
+    }
+
+    public function isSavedByUser(): bool
+    {
+        if (auth()->guest()) {
+            return false;
+        }
+
+        return $this->saves()->where('user_id', auth()->id())->exists();
+    }
+
     public function getFormattedTime()
     {
         $hours = $this->hours;

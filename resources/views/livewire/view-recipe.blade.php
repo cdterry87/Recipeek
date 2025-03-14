@@ -18,6 +18,12 @@
 
             <section class="max-w-6xl mx-auto px-6 py-12 font-[Jost]">
                 <div class="flex flex-col gap-12">
+                    @if (session('message'))
+                        <x-alert success>
+                            {{ session('message') }}
+                        </x-alert>
+                    @endif
+
                     <div class="flex flex-col items-center gap-6 md:flex-row md:justify-between text-gray-500">
                         <div class="flex flex-col md:flex-row items-center gap-6 md:gap-16 text-center md:text-left">
                             <div>
@@ -71,12 +77,31 @@
                             </div>
                         </div>
                         <div class="flex items-center gap-2">
-                            <x-button
-                                primary
-                                wire:click.prevent="save"
-                            >
-                                Save
-                            </x-button>
+                            @if ($recipe->isOwnedByUser())
+                                <x-button
+                                    primary
+                                    wire:click.prevent="edit"
+                                >
+                                    Edit
+                                </x-button>
+                            @else
+                                @if ($recipe->isSavedByUser())
+                                    <x-button
+                                        primary
+                                        outline
+                                        wire:click.prevent="unsave"
+                                    >
+                                        Unsave
+                                    </x-button>
+                                @else
+                                    <x-button
+                                        primary
+                                        wire:click.prevent="save"
+                                    >
+                                        Save
+                                    </x-button>
+                                @endif
+                            @endif
                             <x-button
                                 secondary
                                 wire:click.prevent="print"
