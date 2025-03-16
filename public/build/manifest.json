@@ -1,0 +1,33 @@
+{
+  "public/images/404.jpg": {
+    "file": "assets/404-5_W2pqL1.jpg",
+    "src": "public/images/404.jpg"
+  },
+  "public/images/500.jpg": {
+    "file": "assets/500-B1DSiNWJ.jpg",
+    "src": "public/images/500.jpg"
+  },
+  "public/images/about.jpg": {
+    "file": "assets/about-CBw1y8yR.jpg",
+    "src": "public/images/about.jpg"
+  },
+  "public/images/private-creator.jpg": {
+    "file": "assets/private-creator-Bn678MT1.jpg",
+    "src": "public/images/private-creator.jpg"
+  },
+  "public/images/private-recipe.jpg": {
+    "file": "assets/private-recipe-CgP7YDSq.jpg",
+    "src": "public/images/private-recipe.jpg"
+  },
+  "resources/css/app.css": {
+    "file": "assets/app-CVxRP880.css",
+    "src": "resources/css/app.css",
+    "isEntry": true
+  },
+  "resources/js/app.js": {
+    "file": "assets/app-CqflisoM.js",
+    "name": "app",
+    "src": "resources/js/app.js",
+    "isEntry": true
+  }
+}
