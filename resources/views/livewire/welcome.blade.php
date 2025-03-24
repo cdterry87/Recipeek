@@ -95,14 +95,14 @@
                             <input
                                 type="email"
                                 placeholder="Enter your email"
-                                class="border border-rose-200 px-4 py-2 rounded-full text-black w-full md:w-1/2 bg-white"
+                                class="border border-rose-200 px-4 py-2 pr-32 rounded-full text-black w-full md:w-1/2 bg-white"
                                 required
                                 pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
                                 wire:model="email"
                             >
                             <button
                                 type="submit"
-                                class="bg-rose-500 text-white px-6 py-1 rounded-full md:rounded-none md:rounded-r-full text-lg hover:bg-rose-600 md:-ml-32 cursor-pointer"
+                                class="bg-rose-500 text-white px-6 py-1 rounded-full md:rounded-none md:rounded-r-full text-lg hover:bg-rose-600 md:-ml-30 cursor-pointer"
                             >
                                 Subscribe
                             </button>
