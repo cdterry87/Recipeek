@@ -46,35 +46,8 @@
                                     on {{ $recipe->created_at->format('M n, Y') }}
                                 </div>
                             </div>
-                            <div class="flex flex-col gap-1">
-                                <div class="rating">
-                                    <div
-                                        class="mask mask-star"
-                                        aria-label="1 star"
-                                    ></div>
-                                    <div
-                                        class="mask mask-star"
-                                        aria-label="2 star"
-                                    ></div>
-                                    <div
-                                        class="mask mask-star"
-                                        aria-label="3 star"
-                                        aria-current="true"
-                                    ></div>
-                                    <div
-                                        class="mask mask-star"
-                                        aria-label="4 star"
-                                    ></div>
-                                    <div
-                                        class="mask mask-star"
-                                        aria-label="5 star"
-                                    ></div>
-                                </div>
-                                <span class="text-sm">
-                                    <strong>(3.0)</strong>
-                                    <span>0 ratings</span>
-                                </span>
-                            </div>
+
+                            <livewire:recipe-rating :recipe="$recipe" />
                         </div>
                         <div class="flex items-center gap-2">
                             @if ($recipe->isOwnedByUser())

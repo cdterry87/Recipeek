@@ -53,9 +53,42 @@ class Recipe extends Model
         return $this->hasMany(RecipeRating::class);
     }
 
+    public function canRate(): bool
+    {
+        // If user is not logged in, they cannot rate
+        if (auth()->guest()) {
+            return false;
+        }
+
+        // If user is the owner of this recipe, they cannot rate
+        if (auth()->check() && $this->user_id === auth()->id()) {
+            return false;
+        }
+
+        return true;
+    }
+
+    public function currentUserRating(): int|null
+    {
+        if (auth()->guest()) {
+            return null;
+        }
+
+        $userRating = $this->ratings()->where('user_id', auth()->id())->first();
+        if ($userRating && $userRating->rating >= 0 && $userRating->rating <= 5) {
+            return $userRating->rating;
+        }
+        return null;
+    }
+
     public function averageRating(): float
     {
-        return $this->ratings()->avg('rating');
+        return round($this->ratings()->avg('rating') ?? 0, 1);
+    }
+
+    public function totalRatings(): int
+    {
+        return $this->ratings()->count() ?? 0;
     }
 
     public function isOwnedByUser(): bool
