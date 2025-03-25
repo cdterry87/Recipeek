@@ -5,7 +5,7 @@
             class="absolute inset-0 bg-black/50 z-20 flex justify-center items-center text-black text-center font-[Jost]">
             <div class="card py-4">
                 <div
-                    class="card-body bg-white/90 md:w-2/3 lg:w-1/2 mx-auto flex flex-col justify-center gap-4 text-center ">
+                    class="card-body bg-white/90 md:w-2/3 lg:w-1/2 mx-auto flex flex-col justify-center gap-4 text-center px-8">
                     <div class="flex justify-center">
                         <svg
                             xmlns="http://www.w3.org/2000/svg"

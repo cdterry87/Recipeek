@@ -25,6 +25,7 @@
     'xl' => false,
     'wide' => false,
     'icon' => null,
+    'title' => null,
 ])
 
 @php
@@ -57,9 +58,14 @@
     ]);
 @endphp
 
-<button {{ $attributes->merge([
-    'class' => implode(' ', $classes),
-]) }}>
+<button
+    {{ $attributes->merge([
+        'class' => implode(' ', $classes),
+        'title' => $title ?? null,
+        'alt' => $title ?? null,
+        'aria-label' => $title ?? null,
+    ]) }}
+>
     <span class="flex items-center gap-2">
         @if ($loading)
             <span class="loading loading-spinner"></span>

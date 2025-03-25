@@ -11,6 +11,8 @@ use App\Livewire\LoginRegister;
 use App\Livewire\ResetPassword;
 use App\Livewire\ForgotPassword;
 use App\Livewire\DiscoverRecipes;
+use App\Livewire\Following;
+use App\Livewire\Friends;
 use App\Livewire\ViewCreator;
 use Illuminate\Support\Facades\Route;
 
@@ -79,4 +81,10 @@ Route::middleware(['auth:web'])->group(function () {
 
     // Saved Recipes
     Route::get('saved-recipes', SavedRecipes::class)->name('saved-recipes');
+
+    // Following
+    Route::get('following', Following::class)->name('following');
+
+    // Friends
+    Route::get('friends', Friends::class)->name('friends');
 });

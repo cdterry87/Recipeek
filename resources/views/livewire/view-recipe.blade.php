@@ -54,6 +54,7 @@
                                 <x-button
                                     primary
                                     wire:click.prevent="edit"
+                                    title="Edit Recipe"
                                 >
                                     Edit
                                 </x-button>
@@ -63,6 +64,7 @@
                                         primary
                                         outline
                                         wire:click.prevent="unsave"
+                                        title="Unsave Recipe"
                                     >
                                         Unsave
                                     </x-button>
@@ -70,6 +72,7 @@
                                     <x-button
                                         primary
                                         wire:click.prevent="save"
+                                        title="Save Recipe"
                                     >
                                         Save
                                     </x-button>
@@ -78,10 +81,14 @@
                             <x-button
                                 secondary
                                 wire:click.prevent="print"
+                                title="Print Recipe"
                             >
                                 Print
                             </x-button>
-                            <x-button tertiary>
+                            <x-button
+                                tertiary
+                                title="Share Recipe"
+                            >
                                 Share
                             </x-button>
                         </div>

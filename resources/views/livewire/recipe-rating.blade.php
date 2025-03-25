@@ -43,7 +43,12 @@
             />
         </div>
     @else
-        <div class="rating rating-sm">
+        <a
+            href="{{ route('login') }}"
+            class="rating rating-sm"
+            title="Login to rate this recipe"
+            aria-label="Login to rate this recipe"
+        >
             <div
                 class="mask mask-star"
                 aria-label="1 star"
@@ -69,7 +74,7 @@
                 aria-label="5 star"
                 aria-current="{{ $averageRating >= 5 ? 'true' : 'false' }}"
             ></div>
-        </div>
+        </a>
     @endif
     <span class="text-sm">
         <strong>({{ number_format($averageRating, 1) }})</strong>

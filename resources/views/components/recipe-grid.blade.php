@@ -3,8 +3,7 @@
 @php
     $classes = array_filter([
         'grid grid-cols-1 sm:grid-cols-2 gap-6',
-        'grid grid-cols-1 sm:grid-cols-2 gap-6',
-        $md ? 'lg:grid-cols-3' : 'md:grid-cols-3 lg:grid-cols-4',
+        $md ? 'lg:grid-cols-3' : 'md:grid-cols-2 xl:grid-cols-4',
     ]);
 @endphp
 

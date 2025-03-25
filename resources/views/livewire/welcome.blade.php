@@ -102,7 +102,7 @@
                             >
                             <button
                                 type="submit"
-                                class="bg-rose-500 text-white px-6 py-1 rounded-full md:rounded-none md:rounded-r-full text-lg hover:bg-rose-600 md:-ml-30 cursor-pointer"
+                                class="bg-rose-500 text-white px-6 py-1 rounded-full md:rounded-none md:rounded-r-full text-lg hover:bg-rose-600 md:-ml-31 cursor-pointer"
                             >
                                 Subscribe
                             </button>
