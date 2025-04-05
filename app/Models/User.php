@@ -68,6 +68,21 @@ class User extends Authenticatable
         return $this->hasMany(RecipeRating::class);
     }
 
+    public function followers()
+    {
+        return $this->hasMany(UserFollower::class);
+    }
+
+    public function friends()
+    {
+        return $this->hasMany(UserFriend::class);
+    }
+
+    public function following()
+    {
+        return $this->hasMany(UserFollower::class, 'follower_id');
+    }
+
     public function getInitials()
     {
         if ($this->name) {

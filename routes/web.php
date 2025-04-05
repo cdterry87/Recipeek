@@ -12,6 +12,7 @@ use App\Livewire\ResetPassword;
 use App\Livewire\ForgotPassword;
 use App\Livewire\DiscoverRecipes;
 use App\Livewire\Following;
+use App\Livewire\FriendRequests;
 use App\Livewire\Friends;
 use App\Livewire\ViewCreator;
 use Illuminate\Support\Facades\Route;
@@ -87,4 +88,5 @@ Route::middleware(['auth:web'])->group(function () {
 
     // Friends
     Route::get('friends', Friends::class)->name('friends');
+    Route::get('friend-requests', FriendRequests::class)->name('friend-requests');
 });

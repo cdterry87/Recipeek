@@ -41,7 +41,7 @@
         ></a>
     @endif
     @if ($image)
-        <figure class="overflow-hidden rounded-t">
+        <figure class="overflow-hidden">
             <img
                 src="{{ $image }}"
                 alt="{{ $title }}"

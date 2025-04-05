@@ -2,29 +2,24 @@
 
 namespace App\Livewire;
 
-use App\Models\Recipe;
+use App\Models\User;
 use Livewire\Component;
-use App\Enums\RecipeSortBy;
-use App\Enums\UserSortBy;
 use App\Models\UserFollower;
-use App\Traits\WithUserFilters;
 use Livewire\WithPagination;
-use App\Traits\WithUserSorting;
 use Illuminate\Support\Facades\Auth;
+use App\Traits\WithUserSortAndFilter;
 
 class Following extends Component
 {
     use WithPagination;
-    use WithUserSorting;
-    use WithUserFilters;
+    use WithUserSortAndFilter;
 
     public function render()
     {
-        $user = Auth::user();
-
-        $users = UserFollower::where('follower_id', $user->id)
-            ->select('users_followers.*', 'users.name', 'users.avatar')
-            ->join('users', 'users.id', '=', 'users_followers.user_id')
+        $results = User::query()
+            ->select('users.id', 'users.name', 'users.avatar', 'users_followers.created_at')
+            ->join('users_followers', 'users_followers.user_id', '=', 'users.id')
+            ->where('users_followers.follower_id', auth()->id())
             ->when(strlen($this->search) >= 3, function ($query) {
                 $query->where('users.name', 'like', '%' . $this->search . '%');
             })
@@ -32,7 +27,43 @@ class Following extends Component
             ->paginate($this->results_per_page);
 
         return view('livewire.following', [
-            'users' => $users,
+            'results' => $results,
+        ]);
+    }
+
+    public function unfollow($id)
+    {
+        $user = User::query()
+            ->where('id', $id)
+            ->first();
+
+        if (!$user) {
+            session()->flash('error', 'User not found.');
+            return;
+        }
+
+        UserFollower::query()
+            ->where('user_id', $id)
+            ->where('follower_id', auth()->id())
+            ->delete();
+
+        $this->resetPage();
+
+        session()->flash('success', 'You unfollowed ' . $user->name . '.');
+    }
+
+    public function view($id)
+    {
+        $user = User::query()
+            ->where('id', $id)
+            ->first();
+        if (!$user) {
+            session()->flash('error', 'User not found.');
+            return;
+        }
+
+        return redirect()->route('view-creator', [
+            'creator' => $user,
         ]);
     }
 }

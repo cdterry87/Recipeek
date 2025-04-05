@@ -18,9 +18,7 @@ class MyRecipes extends Component
 
     public function render()
     {
-        $user = Auth::user();
-
-        $recipes = Recipe::where('user_id', $user->id)
+        $recipes = Recipe::where('user_id', auth()->id())
             ->when(strlen($this->search) >= 3, function ($query) {
                 $query->where('title', 'like', '%' . $this->search . '%');
             })

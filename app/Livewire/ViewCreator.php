@@ -8,6 +8,7 @@ use Livewire\Component;
 use App\Models\UserFriend;
 use App\Enums\RecipeSortBy;
 use App\Models\UserFollower;
+use App\Models\UserFriendRequest;
 use Livewire\WithPagination;
 use App\Traits\WithRecipeFilters;
 use App\Traits\WithRecipeSorting;
@@ -21,6 +22,7 @@ class ViewCreator extends Component
     public $creatorId;
     public $isFollowing = false;
     public $isFriend = false;
+    public $isFriendRequestSent = false;
 
     public function mount(User $creator)
     {
@@ -36,6 +38,13 @@ class ViewCreator extends Component
                 ->where('user_id', auth()->id())
                 ->where('friend_id', $this->creatorId)
                 ->exists();
+
+            if (!$this->isFriend) {
+                $this->isFriendRequestSent = UserFriendRequest::query()
+                    ->where('from_user_id', auth()->id())
+                    ->where('to_user_id', $this->creatorId)
+                    ->exists();
+            }
         }
     }
 
@@ -48,7 +57,7 @@ class ViewCreator extends Component
 
         $this->isFollowing = true;
 
-        session()->flash('message', 'You started following ' . $this->creator->name . '.');
+        session()->flash('success', 'You started following ' . $this->creator->name . '.');
     }
 
     public function unfollow()
@@ -60,36 +69,36 @@ class ViewCreator extends Component
 
         $this->isFollowing = false;
 
-        session()->flash('message', 'You unfollowed ' . $this->creator->name . '.');
+        session()->flash('success', 'You unfollowed ' . $this->creator->name . '.');
     }
 
-    public function addFriend()
+    public function sendFriendRequest()
     {
         if ($this->creator->public === false) {
             session()->flash('error', 'This creator has a private account and cannot be followed.');
             return;
         }
 
-        UserFriend::create([
-            'user_id' => auth()->id(),
-            'friend_id' => $this->creatorId,
+        UserFriendRequest::create([
+            'from_user_id' => auth()->id(),
+            'to_user_id' => $this->creatorId,
         ]);
 
-        $this->isFriend = true;
+        $this->isFriendRequestSent = true;
 
-        session()->flash('message', 'A friend request was sent to ' . $this->creator->name . '.');
+        session()->flash('success', 'A friend request was sent to ' . $this->creator->name . '.');
     }
 
-    public function removeFriend()
+    public function cancelFriendRequest()
     {
-        UserFriend::query()
-            ->where('user_id', auth()->id())
-            ->where('friend_id', $this->creatorId)
+        UserFriendRequest::query()
+            ->where('from_user_id', auth()->id())
+            ->where('to_user_id', $this->creatorId)
             ->delete();
 
-        $this->isFriend = false;
+        $this->isFriendRequestSent = false;
 
-        session()->flash('message', 'You removed ' . $this->creator->name . ' from your friends.');
+        session()->flash('success', 'Your friend request to ' . $this->creator->name . ' has been cancelled.');
     }
 
     /**

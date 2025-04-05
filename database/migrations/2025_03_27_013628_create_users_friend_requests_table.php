@@ -11,12 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('users_friends', function (Blueprint $table) {
+        Schema::create('users_friend_requests', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->constrained()->onDelete('cascade');
-            $table->foreignId('friend_id')->constrained('users')->onDelete('cascade');
-            $table->timestamp('accepted_at')->nullable();
-            $table->unique(['user_id', 'friend_id']);
+            $table->foreignId('from_user_id')->constrained('users')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreignId('to_user_id')->constrained('users')->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();
         });
     }
@@ -26,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('users_friends');
+        Schema::dropIfExists('users_friend_requests');
     }
 };

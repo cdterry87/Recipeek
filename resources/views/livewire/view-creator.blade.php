@@ -99,11 +99,36 @@
 
                                     Remove Friend
                                 </x-button>
+                            @elseif($isFriendRequestSent)
+                                <x-button
+                                    secondary
+                                    outline
+                                    block
+                                    wire:click.prevent="cancelFriendRequest"
+                                >
+                                    <x-slot:icon>
+                                        <svg
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            fill="none"
+                                            viewBox="0 0 24 24"
+                                            stroke-width="1.5"
+                                            stroke="currentColor"
+                                            class="size-6"
+                                        >
+                                            <path
+                                                stroke-linecap="round"
+                                                stroke-linejoin="round"
+                                                d="M18 7.5v3m0 0v3m0-3h3m-3 0h-3m-2.25-4.125a3.375 3.375 0 1 1-6.75 0 3.375 3.375 0 0 1 6.75 0ZM3 19.235v-.11a6.375 6.375 0 0 1 12.75 0v.109A12.318 12.318 0 0 1 9.374 21c-2.331 0-4.512-.645-6.374-1.766Z"
+                                            />
+                                        </svg>
+                                    </x-slot:icon>
+                                    Cancel Friend Request
+                                </x-button>
                             @else
                                 <x-button
                                     secondary
                                     block
-                                    wire:click.prevent="addFriend"
+                                    wire:click.prevent="sendFriendRequest"
                                 >
                                     <x-slot:icon>
                                         <svg
@@ -130,18 +155,17 @@
                 </div>
 
                 <div class="md:col-span-4 lg:col-span-3">
-                    @if (session('message'))
-                        <x-alert
-                            success
-                            class="mb-4"
-                        >
-                            {{ session('message') }}
-                        </x-alert>
-                    @endif
+                    <div class="flex flex-col gap-6">
+                        <h2 class="text-2xl font-semibold">Recipes by {{ $creator->name }}</h2>
 
-                    <h2 class="text-2xl font-semibold mb-4">Recipes by {{ $creator->name }}</h2>
+                        @if (session('success'))
+                            <x-alert success>
+                                {{ session('success') }}
+                            </x-alert>
+                        @endif
 
-                    <x-filters :results-count="$recipes->count()" />
+                        <x-filters :results-count="$recipes->count()" />
+                    </div>
 
                     @if ($recipes && $recipes->isNotEmpty())
                         <x-recipe-grid

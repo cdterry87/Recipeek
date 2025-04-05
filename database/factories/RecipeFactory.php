@@ -28,7 +28,7 @@ class RecipeFactory extends Factory
             'calories' => fake()->numberBetween(100, 1000),
             'image' => 'demo/recipe-' . fake()->numberBetween(1, 12) . '.jpg',
             'video' => null,
-            'private' => false,
+            'public' => true,
             'user_id' => User::factory(),
         ];
     }

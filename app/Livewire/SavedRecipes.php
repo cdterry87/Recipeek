@@ -18,12 +18,9 @@ class SavedRecipes extends Component
 
     public function render()
     {
-        // Get recipes saved for the authenticated user
-        $user = Auth::user();
-
         $recipes = Recipe::query()
-            ->whereHas('saves', function ($query) use ($user) {
-                $query->where('user_id', $user->id);
+            ->whereHas('saves', function ($query) {
+                $query->where('user_id', auth()->id());
             })
             ->when(strlen($this->search) >= 3, function ($query) {
                 $query->where('title', 'like', '%' . $this->search . '%');

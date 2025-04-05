@@ -27,5 +27,10 @@ class DatabaseSeeder extends Seeder
         $this->call([
             RecipeSeeder::class,
         ]);
+
+        // Create 10 random users with 1 - 3 recipes each
+        User::factory(10)->create()->each(function ($user) {
+            $user->recipes()->saveMany(Recipe::factory(rand(1, 3))->make());
+        });
     }
 }

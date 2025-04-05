@@ -26,6 +26,7 @@
     'wide' => false,
     'icon' => null,
     'title' => null,
+    'badge' => null,
 ])
 
 @php
@@ -65,6 +66,7 @@
         'alt' => $title ?? null,
         'aria-label' => $title ?? null,
     ]) }}
+    wire:loading.attr="disabled"
 >
     <span class="flex items-center gap-2">
         @if ($loading)
@@ -73,8 +75,15 @@
         @if ($icon)
             {{ $icon }}
         @endif
-        <span>
-            {{ $slot }}
-        </span>
+        @if ($slot && $slot->isNotEmpty())
+            <span>
+                {{ $slot }}
+            </span>
+        @endif
+        @if ($badge)
+            <div class="badge badge-sm badge-outline badge-primary">
+                {{ $badge }}
+            </div>
+        @endif
     </span>
 </button>
