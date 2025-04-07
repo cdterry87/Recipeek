@@ -71,6 +71,11 @@
                     />
                 </svg>
                 Received
+                @if ($receivedRequestsCount > 0)
+                    <span class="badge badge-primary badge-sm">
+                        {{ $receivedRequestsCount }}
+                    </span>
+                @endif
             </a>
             <a
                 role="tab"
@@ -92,6 +97,11 @@
                     />
                 </svg>
                 Sent
+                @if ($sentRequestsCount > 0)
+                    <span class="badge badge-primary badge-sm">
+                        {{ $sentRequestsCount }}
+                    </span>
+                @endif
             </a>
         </div>
 

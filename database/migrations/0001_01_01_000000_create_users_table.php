@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('password');
             $table->boolean('public')->default(false); // User profiles are private by default
             $table->string('slug')->nullable()->unique();
+            $table->string('private_friend_request_id')->unique()->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

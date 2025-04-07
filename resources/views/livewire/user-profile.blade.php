@@ -172,4 +172,66 @@
             </form>
         </div>
     </div>
+    <hr class="w-full md:w-1/2 mx-auto border-2 border-rose-600 my-8">
+    <div class="w-full grid grid-cols-1 lg:grid-cols-2 gap-2 lg:gap-8">
+        <div class="w-full mb-6 flex flex-col gap-4">
+            <h2 class="font-bold text-3xl font-[Jost]">
+                Friend Request Link
+            </h2>
+            <p class="text-sm italic">
+                Share this link with your friends to allow them to send you friend requests, even if your profile is
+                private. You can regenerate this link at any time to create a new one or clear it and set your profile
+                to private to no longer receive friend requests.
+            </p>
+        </div>
+
+        <div class="w-full">
+            <form class="flex flex-col gap-2">
+                @if (session('change-password-message'))
+                    <x-alert
+                        success
+                        class="mb-2"
+                    >
+                        {{ session('change-password-message') }}
+                    </x-alert>
+                @endif
+                <label class="input w-full">
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke-width="1.5"
+                        stroke="currentColor"
+                        class="size-6"
+                    >
+                        <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            d="M12 21a9.004 9.004 0 0 0 8.716-6.747M12 21a9.004 9.004 0 0 1-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 0 1 7.843 4.582M12 3a8.997 8.997 0 0 0-7.843 4.582m15.686 0A11.953 11.953 0 0 1 12 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0 1 21 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0 1 12 16.5c-3.162 0-6.133-.815-8.716-2.247m0 0A9.015 9.015 0 0 1 3 12c0-1.605.42-3.113 1.157-4.418"
+                        />
+                    </svg>
+                    <input
+                        wire:model="private_friend_request_link"
+                        readonly
+                    />
+                </label>
+                <div class="grid grid-cols-2 gap-6 mt-4">
+                    <x-button
+                        primary
+                        block
+                        wire:click.prevent="regenerateFriendRequestLink"
+                    >
+                        Regenerate
+                    </x-button>
+                    <x-button
+                        secondary
+                        block
+                        wire:click.prevent="clearFriendRequestLink"
+                    >
+                        Clear
+                    </x-button>
+                </div>
+            </form>
+        </div>
+    </div>
 </div>

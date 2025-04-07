@@ -3,6 +3,7 @@
 namespace App\Livewire;
 
 use Livewire\Component;
+use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Storage;
 use Livewire\Features\SupportFileUploads\WithFileUploads;
 
@@ -13,6 +14,7 @@ class UserProfile extends Component
     public $name, $email, $bio, $avatar, $password, $password_confirmation;
     public $public = false;
     public $avatarPath = null;
+    public $private_friend_request_link = null;
 
     public function mount()
     {
@@ -30,6 +32,8 @@ class UserProfile extends Component
         $this->bio = $user->bio;
         $this->avatarPath = $user->avatar;
         $this->public = $user->public ? true : false;
+
+        $this->private_friend_request_link = $user->getPrivateFriendRequestLink();
     }
 
     public function render()
@@ -92,5 +96,27 @@ class UserProfile extends Component
             $this->avatarPath = null;
             session()->flash('update-profile-message', 'Avatar removed successfully.');
         }
+    }
+
+    public function regenerateFriendRequestLink()
+    {
+        $user = auth()->user();
+        $user->private_friend_request_id = Str::uuid();
+        $user->save();
+
+        $this->private_friend_request_link = $user->getPrivateFriendRequestLink();
+
+        session()->flash('regenerate-link-message', 'Friend request link regenerated successfully.');
+    }
+
+    public function clearFriendRequestLink()
+    {
+        $user = auth()->user();
+        $user->private_friend_request_id = null;
+        $user->save();
+
+        $this->private_friend_request_link = null;
+
+        session()->flash('clear-link-message', 'Friend request link cleared successfully.');
     }
 }

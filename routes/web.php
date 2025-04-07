@@ -1,21 +1,22 @@
 <?php
 
+use App\Livewire\Friends;
 use App\Livewire\Welcome;
+use App\Livewire\Following;
 use App\Livewire\MyRecipes;
 use App\Livewire\EditRecipe;
 use App\Livewire\ViewRecipe;
 use App\Livewire\UserProfile;
+use App\Livewire\ViewCreator;
 use App\Livewire\CreateRecipe;
 use App\Livewire\SavedRecipes;
 use App\Livewire\LoginRegister;
 use App\Livewire\ResetPassword;
 use App\Livewire\ForgotPassword;
-use App\Livewire\DiscoverRecipes;
-use App\Livewire\Following;
 use App\Livewire\FriendRequests;
-use App\Livewire\Friends;
-use App\Livewire\ViewCreator;
+use App\Livewire\DiscoverRecipes;
 use Illuminate\Support\Facades\Route;
+use App\Livewire\PrivateFriendRequest;
 
 Route::get('/', Welcome::class)->name('home');
 
@@ -89,4 +90,5 @@ Route::middleware(['auth:web'])->group(function () {
     // Friends
     Route::get('friends', Friends::class)->name('friends');
     Route::get('friend-requests', FriendRequests::class)->name('friend-requests');
+    Route::get('private-friend-request/{private_friend_request_id}', PrivateFriendRequest::class)->name('private-friend-request');
 });

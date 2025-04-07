@@ -100,6 +100,13 @@ class User extends Authenticatable
         return strtoupper(substr($this->name, 0, 2));
     }
 
+    public function getPrivateFriendRequestLink()
+    {
+        if (!$this->private_friend_request_id) return null;
+
+        return route('private-friend-request', ['private_friend_request_id' => $this->private_friend_request_id]);
+    }
+
     /**
      * Get the options for generating the slug.
      */

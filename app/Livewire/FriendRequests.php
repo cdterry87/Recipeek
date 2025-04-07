@@ -18,6 +18,16 @@ class FriendRequests extends Component
 
     public function render()
     {
+        // Get count of sent friend requests
+        $receivedRequestsCount = UserFriendRequest::query()
+            ->where('to_user_id', auth()->id())
+            ->count();
+
+        // Get count of received friend requests
+        $sentRequestsCount = UserFriendRequest::query()
+            ->where('from_user_id', auth()->id())
+            ->count();
+
         $results = User::query()
             ->select('users.id', 'users.name', 'users.avatar', 'users_friend_requests.created_at')
             ->when($this->areSentRequestsShown, function ($query) {
@@ -35,6 +45,8 @@ class FriendRequests extends Component
 
         return view('livewire.friend-requests', [
             'results' => $results,
+            'receivedRequestsCount' => $receivedRequestsCount,
+            'sentRequestsCount' => $sentRequestsCount,
         ]);
     }
 
