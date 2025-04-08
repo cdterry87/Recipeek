@@ -74,4 +74,9 @@ class PrivateFriendRequest extends Component
 
         session()->flash('success', 'A friend request was sent to ' . $this->user->name . '.');
     }
+
+    public function returnHome()
+    {
+        return redirect()->route('home');
+    }
 }
