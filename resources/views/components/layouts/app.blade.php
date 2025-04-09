@@ -12,6 +12,7 @@
         content="{{ csrf_token() }}"
     >
 
+    <title>@yield('page-title', config('app.name', 'Recipeek') . ' - ' . config('app.tagline', 'Take a Peek, Then Eat!'))</title>
     <title>{{ config('app.name', 'Laravel') }} - {{ config('app.tagline') }}</title>
 
     <!-- Fonts -->

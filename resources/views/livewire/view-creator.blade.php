@@ -179,4 +179,6 @@
             </div>
         </div>
     @endif
+
+    @section('page-title', $creator->name . '\'s Recipes | ' . config('app.name'))
 </div>

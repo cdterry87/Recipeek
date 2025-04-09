@@ -88,9 +88,12 @@
                             <x-button
                                 tertiary
                                 title="Share Recipe"
+                                onclick="share__modal.showModal()"
                             >
                                 Share
                             </x-button>
+
+                            <x-share-modal :recipe="$recipe" />
                         </div>
                     </div>
 
@@ -168,4 +171,6 @@
             </section>
         </div>
     @endif
+
+    @section('page-title', $recipe->title . ' by ' . $recipe->user->name . ' | ' . config('app.name'))
 </div>
