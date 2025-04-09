@@ -3,8 +3,9 @@
 namespace App\Livewire;
 
 use App\Models\Recipe;
-use App\Models\RecipeSave;
 use Livewire\Component;
+use App\Models\RecipeSave;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 class ViewRecipe extends Component
 {
@@ -73,8 +74,36 @@ class ViewRecipe extends Component
         return redirect()->route('edit-recipe', ['recipe' => $this->recipe->slug]);
     }
 
-    public function print()
+    protected function getStoragePath($fileName = null)
     {
-        //
+        $storagePath = storage_path('app/recipe-prints');
+
+        // Create storage path directory if it doesn't already exist
+        if (!file_exists($storagePath)) {
+            mkdir($storagePath, 0777, true);
+        }
+
+        if ($fileName) {
+            return $storagePath . '/' . $fileName;
+        }
+        return $storagePath;
+    }
+
+    public function printRecipe()
+    {
+        // Set a file name for the file
+        $fileName = 'Recipeek-' . $this->recipe->slug . '.pdf';
+
+        // Get the path where the file will be stored for downloading
+        $filePath = $this->getStoragePath($fileName);
+
+        // Generate the pdf
+        Pdf::loadView('print-recipe', [
+            'recipe' => $this->recipe
+        ])
+            ->save($filePath);
+
+        // Prompt user to download the file
+        return response()->download($filePath);
     }
 }

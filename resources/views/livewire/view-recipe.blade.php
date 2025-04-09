@@ -80,7 +80,7 @@
                             @endif
                             <x-button
                                 secondary
-                                wire:click.prevent="print"
+                                wire:click.prevent="printRecipe"
                                 title="Print Recipe"
                             >
                                 Print
