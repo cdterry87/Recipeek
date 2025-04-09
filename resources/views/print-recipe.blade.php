@@ -2,6 +2,7 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
 <head>
+    <meta charset="UTF-8">
     <meta
         http-equiv="Content-Type"
         content="text/html; charset=utf-8"
@@ -56,7 +57,6 @@
             height: 50px;
             font-size: 9px;
             font-weight: bold;
-            text-align: center;
             line-height: 35px;
         }
     </style>
@@ -133,7 +133,7 @@
 
     <footer>
         <p>
-            Printed from <strong>&copy;{{ config('app.name') }}</strong> on
+            Printed from <strong>{{ config('app.name') }}</strong> on
             <strong>{{ date('m/d/Y H:i') }}</strong>
         </p>
     </footer>

@@ -104,6 +104,6 @@ class ViewRecipe extends Component
             ->save($filePath);
 
         // Prompt user to download the file
-        return response()->download($filePath);
+        return response()->download($filePath)->deleteFileAfterSend(true);
     }
 }
