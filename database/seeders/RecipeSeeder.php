@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\Recipe;
+use Illuminate\Support\Str;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
@@ -34,6 +35,7 @@ class RecipeSeeder extends Seeder
                 'video' => isset($recipeData['video']) ? $recipeData['video'] : null,
                 'notes' => isset($recipeData['notes']) ? $recipeData['notes'] : null,
                 'public' => $recipeData['public'],
+                'uuid' => Str::uuid()
             ]);
 
             // Insert ingredients

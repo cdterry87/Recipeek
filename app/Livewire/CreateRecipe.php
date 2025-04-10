@@ -3,61 +3,48 @@
 namespace App\Livewire;
 
 use App\Models\Recipe;
-use App\Models\RecipeIngredient;
-use App\Models\RecipeInstruction;
 use Livewire\Component;
+use Illuminate\Support\Str;
+use Livewire\Features\SupportFileUploads\WithFileUploads;
 
 class CreateRecipe extends Component
 {
-    public $title, $description, $category, $cuisine, $difficulty, $method, $occasion;
-    public $hours, $minutes, $servings, $calories, $image, $video, $private = false;
+    use WithFileUploads;
 
-    public $ingredients = [];
-    public $newIngredient = ['ingredient' => '', 'quantity' => '', 'unit' => ''];
-
-    public $instructions = [];
-    public $newInstruction = ['instruction' => '', 'order' => 1];
-
-    public function addIngredient()
-    {
-        $this->ingredients[] = $this->newIngredient;
-        $this->newIngredient = ['ingredient' => '', 'quantity' => '', 'unit' => ''];
-    }
-
-    public function removeIngredient($index)
-    {
-        unset($this->ingredients[$index]);
-        $this->ingredients = array_values($this->ingredients);
-    }
-
-    public function addInstruction()
-    {
-        $this->instructions[] = $this->newInstruction;
-        $this->newInstruction = ['instruction' => '', 'order' => max(array_column($this->instructions, 'order')) + 1];
-    }
-
-    public function removeInstruction($index)
-    {
-        unset($this->instructions[$index]);
-        $this->instructions = array_values($this->instructions);
-    }
+    public $title, $description, $image, $category;
+    public $cuisine, $difficulty, $method, $occasion;
+    public $servings, $calories, $video, $notes;
+    public $hours = 0;
+    public $minutes = 0;
+    public $public = false;
 
     public function saveRecipe()
     {
-        $validatedData = $this->validate([
+        $this->validate([
             'title' => 'required|string|max:60',
+            'description' => 'nullable|string|max:255',
             'category' => 'nullable|string|max:20',
             'cuisine' => 'nullable|string|max:20',
             'difficulty' => 'nullable|string|max:20',
             'method' => 'nullable|string|max:20',
             'occasion' => 'nullable|string|max:20',
-            'hours' => 'nullable|integer',
-            'minutes' => 'nullable|integer',
-            'servings' => 'nullable|integer',
-            'calories' => 'nullable|integer',
-            'image' => 'nullable|string',
+            'hours' => 'required|integer|max:99',
+            'minutes' => 'required|integer|max:59',
+            'servings' => 'nullable|integer|max:999',
+            'calories' => 'nullable|integer|max:99999',
+            'image' => 'required|image|max:2048',
             'video' => 'nullable|string',
+            'notes' => 'nullable|string',
+            'public' => 'boolean',
         ]);
+
+        $imagePath = null;
+        if ($this->image) {
+            $path = $this->image->store('recipes', 'public');
+            $imagePath = 'storage/' . $path;
+        }
+
+        $public = $this->public ?? false;
 
         $recipe = Recipe::create([
             'title' => $this->title,
@@ -71,31 +58,19 @@ class CreateRecipe extends Component
             'minutes' => $this->minutes,
             'servings' => $this->servings,
             'calories' => $this->calories,
-            'image' => $this->image,
+            'image' => $imagePath,
             'video' => $this->video,
-            'private' => $this->private,
+            'notes' => $this->notes,
+            'public' => $public,
+            'uuid' => Str::uuid(),
             'user_id' => auth()->id(),
         ]);
 
-        foreach ($this->ingredients as $ingredient) {
-            RecipeIngredient::create([
-                'recipe_id' => $recipe->id,
-                'ingredient' => $ingredient['ingredient'],
-                'quantity' => $ingredient['quantity'],
-                'unit' => $ingredient['unit'],
-            ]);
-        }
+        session()->flash('message', 'Recipe created successfully! Please add ingredients and instructions.');
 
-        foreach ($this->instructions as $instruction) {
-            RecipeInstruction::create([
-                'recipe_id' => $recipe->id,
-                'instruction' => $instruction['instruction'],
-                'order' => $instruction['order'],
-            ]);
-        }
-
-        session()->flash('message', 'Recipe created successfully!');
-        return redirect()->route('recipes.index');
+        return redirect()->route('edit-recipe', [
+            'uuid' => $recipe->uuid,
+        ]);
     }
 
     public function render()

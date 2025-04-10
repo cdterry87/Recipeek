@@ -79,7 +79,7 @@ Route::middleware(['auth:web'])->group(function () {
     Route::get('create-recipe', CreateRecipe::class)->name('create-recipe');
 
     // Edit Recipe
-    Route::get('edit-recipe/{recipe}', EditRecipe::class)->name('edit-recipe');
+    Route::get('edit-recipe/{uuid}', EditRecipe::class)->name('edit-recipe');
 
     // Saved Recipes
     Route::get('saved-recipes', SavedRecipes::class)->name('saved-recipes');

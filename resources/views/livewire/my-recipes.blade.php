@@ -24,7 +24,7 @@
             </a>
         </div>
 
-        <x-filters :results-count="$recipes->count()" />
+        <x-recipe-filters :results-count="$recipes->count()" />
     </div>
 
     @if ($recipes && $recipes->isNotEmpty())

@@ -70,7 +70,7 @@
                     wire:model="name"
                     required
                     block
-                    maxlength=
+                    maxlength="255"
                 />
                 <x-input-text
                     label="Email"

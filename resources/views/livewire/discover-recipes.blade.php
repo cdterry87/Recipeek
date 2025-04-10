@@ -3,7 +3,7 @@
         <h1 class="text-2xl sm:text-3xl font-bold">Discover Recipes</h1>
     </div>
 
-    <x-filters :results-count="$recipes->count()" />
+    <x-recipe-filters :results-count="$recipes->count()" />
 
     @if ($recipes && $recipes->isNotEmpty())
         <x-recipe-grid :recipes="$recipes" />

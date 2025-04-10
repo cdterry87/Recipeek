@@ -1,171 +1,202 @@
-<div class="max-w-4xl mx-auto p-6 bg-white rounded-lg shadow-lg">
-    <h2 class="text-2xl font-bold text-center mb-6">Create New Recipe</h2>
+<div class="max-w-4xl mx-auto p-6 my-8 flex flex-col gap-16">
+    <h1 class="font-bold text-4xl">
+        Create a Recipe
+    </h1>
 
-    @if (session()->has('message'))
-        <div class="alert alert-success mb-6">
-            <span>{{ session('message') }}</span>
+    <div class="w-full grid grid-cols-1 lg:grid-cols-2 gap-2 lg:gap-8">
+        <div class="w-full mb-6 flex flex-col gap-4">
+            <h2 class="font-bold text-3xl font-[Jost]">
+                Recipe Details
+            </h2>
+            <p class="text-sm italic">
+                Create your recipe by filling out the following details. Make sure to provide a clear title,
+                description, and image.
+                <strong>Your recipe will not be visible to others unless you enable the public option.</strong>
+            </p>
+            <p class="text-sm italic">
+                After creating your recipe, you will be able to <strong>add ingredients and instructions</strong>. You
+                can always edit your recipe at a later time.
+            </p>
         </div>
-    @endif
 
-    <form wire:submit.prevent="saveRecipe">
-        <div class="space-y-6">
-            <!-- Recipe Details Section -->
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <div class="form-control">
-                    <label class="label">Title</label>
-                    <input
-                        type="text"
-                        wire:model="title"
-                        class="input input-bordered w-full"
-                        placeholder="Recipe Title"
+        <div class="w-full">
+            <form
+                class="flex flex-col gap-2"
+                wire:submit.prevent="saveRecipe"
+            >
+                @if ($image && $image->temporaryUrl())
+                    <div class="flex items-start flex-col gap-2">
+                        <img
+                            src="{{ $image->temporaryUrl() }}"
+                            class="h-24 w-24 rounded-full object-cover shadow-md border-2 border-rose-600"
+                            alt="Recipe Image Preview"
+                        >
+                        <div class="text-xs font-semibold italic">Recipe Image Preview</div>
+                    </div>
+                @endif
+
+                <x-input-text
+                    label="Title"
+                    id="title"
+                    name="title"
+                    placeholder="Give your recipe a title"
+                    wire:model="title"
+                    required
+                    block
+                    maxlength="60"
+                />
+
+                <x-textarea
+                    label="Description"
+                    id="description"
+                    name="description"
+                    placeholder="Describe your recipe"
+                    wire:model="description"
+                    maxlength="255"
+                    block
+                ></x-textarea>
+
+                <x-file
+                    label="Image"
+                    id="image"
+                    name="image"
+                    placeholder="Upload an image of your recipe"
+                    wire:model="image"
+                    block
+                    required
+                />
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-x-8">
+                    <x-select
+                        label="Category"
+                        id="category"
+                        name="category"
+                        wire:model.live="category"
+                        blank-label="All Categories"
+                        :options="App\Enums\RecipeCategory::dropdown()"
+                        block
                         required
                     />
-                </div>
-                <div class="form-control">
-                    <label class="label">Category</label>
-                    <input
-                        type="text"
-                        wire:model="category"
-                        class="input input-bordered w-full"
-                        placeholder="Category"
+                    <x-select
+                        label="Cuisine"
+                        id="cuisine"
+                        name="cuisine"
+                        wire:model.live="cuisine"
+                        blank-label="All Cuisines"
+                        :options="App\Enums\RecipeCuisine::dropdown()"
+                        block
+                        required
                     />
-                </div>
-            </div>
-
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <div class="form-control">
-                    <label class="label">Cuisine</label>
-                    <input
-                        type="text"
-                        wire:model="cuisine"
-                        class="input input-bordered w-full"
-                        placeholder="Cuisine"
+                    <x-select
+                        label="Difficulty"
+                        id="difficulty"
+                        name="difficulty"
+                        wire:model.live="difficulty"
+                        blank-label="All Difficulties"
+                        :options="App\Enums\RecipeDifficulty::dropdown()"
+                        block
+                        required
                     />
-                </div>
-                <div class="form-control">
-                    <label class="label">Difficulty</label>
-                    <input
-                        type="text"
-                        wire:model="difficulty"
-                        class="input input-bordered w-full"
-                        placeholder="Difficulty"
+                    <x-select
+                        label="Method"
+                        id="method"
+                        name="method"
+                        wire:model.live="method"
+                        blank-label="All Methods"
+                        :options="App\Enums\RecipeMethod::dropdown()"
+                        block
                     />
-                </div>
-            </div>
-
-            <!-- Ingredients Section -->
-            <div class="space-y-2">
-                <h3 class="text-xl font-semibold">Ingredients</h3>
-                <div class="space-y-2">
-                    @foreach ($ingredients as $index => $ingredient)
-                        <div class="flex items-center space-x-4">
-                            <input
-                                type="text"
-                                wire:model="ingredients.{{ $index }}.ingredient"
-                                class="input input-bordered w-full"
-                                placeholder="Ingredient"
-                            />
-                            <input
-                                type="text"
-                                wire:model="ingredients.{{ $index }}.quantity"
-                                class="input input-bordered w-full"
-                                placeholder="Quantity"
-                            />
-                            <input
-                                type="text"
-                                wire:model="ingredients.{{ $index }}.unit"
-                                class="input input-bordered w-full"
-                                placeholder="Unit"
-                            />
-                            <button
-                                type="button"
-                                wire:click="removeIngredient({{ $index }})"
-                                class="btn btn-error"
-                            >Remove</button>
-                        </div>
-                    @endforeach
-                    <div class="flex items-center space-x-4">
-                        <input
-                            type="text"
-                            wire:model="newIngredient.ingredient"
-                            class="input input-bordered w-full"
-                            placeholder="New Ingredient"
-                        />
-                        <input
-                            type="text"
-                            wire:model="newIngredient.quantity"
-                            class="input input-bordered w-full"
-                            placeholder="Quantity"
-                        />
-                        <input
-                            type="text"
-                            wire:model="newIngredient.unit"
-                            class="input input-bordered w-full"
-                            placeholder="Unit"
-                        />
-                        <button
-                            type="button"
-                            wire:click="addIngredient"
-                            class="btn btn-primary"
-                        >Add Ingredient</button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Instructions Section -->
-            <div class="space-y-2">
-                <h3 class="text-xl font-semibold">Instructions</h3>
-                <div class="space-y-2">
-                    @foreach ($instructions as $index => $instruction)
-                        <div class="flex items-center space-x-4">
-                            <input
-                                type="text"
-                                wire:model="instructions.{{ $index }}.instruction"
-                                class="input input-bordered w-full"
-                                placeholder="Instruction"
-                            />
-                            <input
-                                type="number"
-                                wire:model="instructions.{{ $index }}.order"
-                                class="input input-bordered w-full"
-                                placeholder="Order"
-                            />
-                            <button
-                                type="button"
-                                wire:click="removeInstruction({{ $index }})"
-                                class="btn btn-error"
-                            >Remove</button>
-                        </div>
-                    @endforeach
-                    <div class="flex items-center space-x-4">
-                        <input
-                            type="text"
-                            wire:model="newInstruction.instruction"
-                            class="input input-bordered w-full"
-                            placeholder="New Instruction"
-                        />
-                        <input
+                    <x-select
+                        label="Occasion"
+                        id="occasion"
+                        name="occasion"
+                        wire:model.live="occasion"
+                        blank-label="All Occasions"
+                        :options="App\Enums\RecipeOccasion::dropdown()"
+                        block
+                    />
+                    <x-input-text
+                        label="Calories"
+                        id="calories"
+                        name="calories"
+                        wire:model="calories"
+                        block
+                        min="0"
+                        max="99999"
+                        type="number"
+                    />
+                    <x-input-text
+                        label="Servings"
+                        id="servings"
+                        name="servings"
+                        wire:model="servings"
+                        block
+                        min="0"
+                        max="999"
+                        type="number"
+                    />
+                    <div class="grid grid-cols-2 gap-2 sm:gap-x-8">
+                        <x-input-text
+                            label="Hours"
+                            id="hours"
+                            name="hours"
+                            wire:model="hours"
+                            block
+                            min="0"
+                            max="99"
                             type="number"
-                            wire:model="newInstruction.order"
-                            class="input input-bordered w-full"
-                            placeholder="Order"
+                            required
                         />
-                        <button
-                            type="button"
-                            wire:click="addInstruction"
-                            class="btn btn-primary"
-                        >Add Instruction</button>
+                        <x-input-text
+                            label="Minutes"
+                            id="minutes"
+                            name="minutes"
+                            wire:model="minutes"
+                            block
+                            min="0"
+                            max="59"
+                            type="number"
+                            required
+                        />
                     </div>
                 </div>
-            </div>
 
-            <!-- Submit Button -->
-            <div class="mt-6">
-                <button
-                    type="submit"
-                    class="btn btn-success w-full"
-                >Save Recipe</button>
-            </div>
+                <x-textarea
+                    label="Video Embed Code"
+                    id="video"
+                    name="video"
+                    placeholder="If you have a video of your recipe, paste the embed code here"
+                    wire:model="video"
+                    block
+                ></x-textarea>
+
+                <x-textarea
+                    label="Notes"
+                    id="notes"
+                    name="notes"
+                    placeholder="Add any notes or special instructions about your recipe"
+                    wire:model="notes"
+                    block
+                ></x-textarea>
+
+                <x-toggle
+                    label="Public Recipe - Enable to allow others to view your recipe"
+                    id="public"
+                    name="public"
+                    wire:model="public"
+                    primary
+                />
+
+                <div>
+                    <x-button
+                        primary
+                        block
+                        class="mt-4"
+                    >
+                        Save Recipe
+                    </x-button>
+                </div>
+            </form>
         </div>
-    </form>
+    </div>
 </div>

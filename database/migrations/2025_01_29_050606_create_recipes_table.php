@@ -13,10 +13,11 @@ return new class extends Migration
     {
         Schema::create('recipes', function (Blueprint $table) {
             $table->id();
+            $table->uuid('uuid')->unique();
             $table->foreignId('user_id')->constrained()->cascadeOnDelete()->cascadeOnUpdate();
             $table->string('title', 60);
             $table->string('slug')->nullable()->unique();
-            $table->string('description', 80)->nullable();
+            $table->string('description')->nullable();
             $table->string('category', 20)->nullable();
             $table->string('cuisine', 20)->nullable();
             $table->string('difficulty', 20)->nullable();

@@ -30,6 +30,7 @@ class RecipeFactory extends Factory
             'video' => null,
             'public' => true,
             'user_id' => User::factory(),
+            'uuid' => fake()->uuid(),
         ];
     }
 }
