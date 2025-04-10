@@ -11,11 +11,18 @@
 <div>
     <div {{ $attributes->merge(['class' => implode(' ', $classes)]) }}>
         @foreach ($recipes as $recipe)
+            @php
+                $routeParams = $recipe->slug;
+                if ($route === 'edit-recipe') {
+                    $routeParams = $recipe->uuid;
+                }
+            @endphp
+
             <x-recipe-card
                 :title="$recipe->title"
                 :image="asset($recipe->image)"
                 :description="$recipe->description"
-                :link="route($route, $recipe->slug)"
+                :link="route($route, $routeParams)"
                 :category="$recipe->category"
                 :cuisine="$recipe->cuisine"
                 :time="$recipe->getFormattedTime()"

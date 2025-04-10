@@ -32,7 +32,7 @@ class CreateRecipe extends Component
             'minutes' => 'required|integer|max:59',
             'servings' => 'nullable|integer|max:999',
             'calories' => 'nullable|integer|max:99999',
-            'image' => 'required|image|max:2048',
+            'image' => 'nullable|image|max:2048',
             'video' => 'nullable|string',
             'notes' => 'nullable|string',
             'public' => 'boolean',
