@@ -15,6 +15,7 @@ class EditRecipe extends Component
 
     public $uuid;
     public $recipeId;
+    public $slug;
     public $title, $description, $image, $category;
     public $cuisine, $difficulty, $method, $occasion;
     public $servings, $calories, $video, $notes;
@@ -43,6 +44,7 @@ class EditRecipe extends Component
 
         $this->recipeId = $recipe->id;
         $this->uuid = $recipe->uuid;
+        $this->slug = $recipe->slug;
         $this->title = $recipe->title;
         $this->description = $recipe->description;
         $this->category = $recipe->category;
@@ -133,45 +135,20 @@ class EditRecipe extends Component
         session()->flash('recipe-message', 'Recipe updated successfully!');
     }
 
-    public function saveIngredient()
+    public function deleteRecipe()
     {
-        $this->validate([
-            'ingredient' => 'required|string|max:80',
-            'quantity' => 'nullable|string|max:20',
-            'unit' => 'nullable|string|max:20',
-        ]);
+        $recipe = Recipe::query()
+            ->where('uuid', $this->uuid)
+            ->where('user_id', auth()->id())
+            ->first();
 
-        RecipeIngredient::create([
-            'recipe_id' => $this->recipeId,
-            'ingredient' => $this->ingredient,
-            'quantity' => $this->quantity,
-            'unit' => $this->unit,
-        ]);
-
-        $this->ingredient = null;
-        $this->quantity = null;
-        $this->unit = null;
-
-        session()->flash('recipe-ingredients-message', 'Ingredient added successfully!');
-    }
-
-    public function saveInstruction()
-    {
-        $this->validate([
-            'instruction' => 'required|string|min:3|max:9999',
-            'order' => 'required|integer|min:1|max:9999',
-        ]);
-
-        RecipeInstruction::create([
-            'recipe_id' => $this->recipeId,
-            'instruction' => $this->instruction,
-            'order' => $this->order,
-        ]);
-
-        $this->instruction = null;
-        $this->order = null;
-
-        session()->flash('recipe-instructions-message', 'Instruction added successfully!');
+        if ($recipe) {
+            $recipe->delete();
+            session()->flash('recipe-message', 'Recipe deleted successfully.');
+            return redirect()->route('my-recipes');
+        } else {
+            session()->flash('recipe-message', 'Recipe could not be deleted. Please try again later.');
+        }
     }
 
     public function render()

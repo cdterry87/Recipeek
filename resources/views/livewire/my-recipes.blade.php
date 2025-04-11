@@ -24,6 +24,15 @@
             </a>
         </div>
 
+        @if (session('recipe-message'))
+            <x-alert
+                success
+                class="mb-2"
+            >
+                {{ session('recipe-message') }}
+            </x-alert>
+        @endif
+
         <x-recipe-filters :results-count="$recipes->count()" />
     </div>
 

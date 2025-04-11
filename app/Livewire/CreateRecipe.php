@@ -66,7 +66,7 @@ class CreateRecipe extends Component
             'user_id' => auth()->id(),
         ]);
 
-        session()->flash('message', 'Recipe created successfully! Please add ingredients and instructions.');
+        session()->flash('edit-recipe-message', 'Recipe created successfully! Please add ingredients and instructions.');
 
         return redirect()->route('edit-recipe', [
             'uuid' => $recipe->uuid,
