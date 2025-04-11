@@ -4,6 +4,8 @@ namespace App\Livewire;
 
 use App\Models\Recipe;
 use Livewire\Component;
+use App\Models\RecipeIngredient;
+use App\Models\RecipeInstruction;
 use Illuminate\Support\Facades\Storage;
 use Livewire\Features\SupportFileUploads\WithFileUploads;
 
@@ -12,6 +14,7 @@ class EditRecipe extends Component
     use WithFileUploads;
 
     public $uuid;
+    public $recipeId;
     public $title, $description, $image, $category;
     public $cuisine, $difficulty, $method, $occasion;
     public $servings, $calories, $video, $notes;
@@ -20,10 +23,17 @@ class EditRecipe extends Component
     public $public = false;
     public $imagePath;
 
+    public $ingredient, $quantity, $unit;
+    public $instruction, $order;
+
+    public $ingredients = [];
+    public $instructions = [];
+
     public function mount()
     {
         $recipe = Recipe::query()
             ->where('uuid', request()->route('uuid'))
+            ->with('ingredients', 'instructions')
             ->firstOrFail();
 
         // If the user is not the owner of the recipe, redirect them to the view recipe page
@@ -31,6 +41,7 @@ class EditRecipe extends Component
             return redirect()->route('view-recipe', ['recipe' => $recipe->slug]);
         }
 
+        $this->recipeId = $recipe->id;
         $this->uuid = $recipe->uuid;
         $this->title = $recipe->title;
         $this->description = $recipe->description;
@@ -47,6 +58,9 @@ class EditRecipe extends Component
         $this->notes = $recipe->notes;
         $this->public = $recipe->public ? true : false;
         $this->imagePath = $recipe->image;
+
+        $this->ingredients = $recipe->ingredients;
+        $this->instructions = $recipe->instructions;
     }
 
     public function removeImage()
@@ -61,9 +75,9 @@ class EditRecipe extends Component
             $recipe->image = null;
             $recipe->save();
             $this->imagePath = null;
-            session()->flash('message', 'Recipe image removed successfully.');
+            session()->flash('recipe-message', 'Recipe image removed successfully.');
         } else {
-            session()->flash('message', 'Image could not be removed. Please try again later.');
+            session()->flash('recipe-message', 'Image could not be removed. Please try again later.');
         }
     }
 
@@ -95,7 +109,7 @@ class EditRecipe extends Component
 
         $public = $this->public ?? false;
 
-        $recipe = Recipe::query()
+        Recipe::query()
             ->where('uuid', $this->uuid)
             ->where('user_id', auth()->id())
             ->update([
@@ -116,7 +130,48 @@ class EditRecipe extends Component
                 'public' => $public,
             ]);
 
-        session()->flash('message', 'Recipe updated successfully!');
+        session()->flash('recipe-message', 'Recipe updated successfully!');
+    }
+
+    public function saveIngredient()
+    {
+        $this->validate([
+            'ingredient' => 'required|string|max:80',
+            'quantity' => 'nullable|string|max:20',
+            'unit' => 'nullable|string|max:20',
+        ]);
+
+        RecipeIngredient::create([
+            'recipe_id' => $this->recipeId,
+            'ingredient' => $this->ingredient,
+            'quantity' => $this->quantity,
+            'unit' => $this->unit,
+        ]);
+
+        $this->ingredient = null;
+        $this->quantity = null;
+        $this->unit = null;
+
+        session()->flash('recipe-ingredients-message', 'Ingredient added successfully!');
+    }
+
+    public function saveInstruction()
+    {
+        $this->validate([
+            'instruction' => 'required|string|min:3|max:9999',
+            'order' => 'required|integer|min:1|max:9999',
+        ]);
+
+        RecipeInstruction::create([
+            'recipe_id' => $this->recipeId,
+            'instruction' => $this->instruction,
+            'order' => $this->order,
+        ]);
+
+        $this->instruction = null;
+        $this->order = null;
+
+        session()->flash('recipe-instructions-message', 'Instruction added successfully!');
     }
 
     public function render()

@@ -4,12 +4,12 @@
     class="flex flex-col gap-2"
     wire:submit.prevent="saveRecipe"
 >
-    @if (session('message'))
+    @if (session('recipe-message'))
         <x-alert
             success
             class="mb-2"
         >
-            {{ session('message') }}
+            {{ session('recipe-message') }}
         </x-alert>
     @endif
 
