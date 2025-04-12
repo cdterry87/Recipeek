@@ -52,10 +52,11 @@
             No instructions added yet.
         </p>
     @else
-        <ol class="list-decimal space-y-3">
+        <ol class="space-y-3">
             @foreach ($instructions as $instruction)
-                <li class="flex items-center justify-between gap-4">
+                <li class="flex items-start justify-between gap-4">
                     <span>
+                        <strong class="uppercase underline select-none">Step {{ $loop->index + 1 }}.</strong>
                         {{ $instruction->instruction }}
                     </span>
                     <button

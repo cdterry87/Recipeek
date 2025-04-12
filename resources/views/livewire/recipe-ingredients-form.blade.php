@@ -64,7 +64,7 @@
     @else
         <ul class="space-y-3">
             @foreach ($ingredients as $ingredient)
-                <li class="flex items-center justify-between gap-4">
+                <li class="flex items-start justify-between gap-4">
                     <span>
                         <strong>{{ $ingredient->quantity }} {{ $ingredient->unit }}</strong>
                         {{ $ingredient->ingredient }}

@@ -18,6 +18,18 @@ class RecipeInstructionsForm extends Component
             'order' => 'required|integer|min:1|max:9999',
         ]);
 
+        // Check if the order already exists
+        $existingInstruction = RecipeInstruction::where('recipe_id', $this->recipeId)
+            ->where('order', $this->order)
+            ->first();
+
+        if ($existingInstruction) {
+            // Increment the order of subsequent instructions
+            RecipeInstruction::where('recipe_id', $this->recipeId)
+                ->where('order', '>=', $this->order)
+                ->increment('order');
+        }
+
         RecipeInstruction::create([
             'recipe_id' => $this->recipeId,
             'instruction' => $this->instruction,
@@ -32,7 +44,16 @@ class RecipeInstructionsForm extends Component
 
     public function removeInstruction($instructionId)
     {
-        RecipeInstruction::destroy($instructionId);
+        $instruction = RecipeInstruction::find($instructionId);
+
+        if ($instruction) {
+            // Decrement the order of subsequent instructions
+            RecipeInstruction::where('recipe_id', $this->recipeId)
+                ->where('order', '>', $instruction->order)
+                ->decrement('order');
+        }
+
+        $instruction->destroy($instructionId);
         session()->flash('recipe-instructions-message', 'Instruction removed successfully!');
     }
 
