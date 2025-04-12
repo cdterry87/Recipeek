@@ -1,6 +1,6 @@
 <x-layouts.app>
     <section class="relative w-full h-[85vh] overflow-hidden">
-        <div class="bg-gray-800 absolute inset-0 w-full h-full bg-cover bg-center error-500-bg pan-animation z-10"></div>
+        <div class="bg-gray-800 absolute inset-0 w-full h-full bg-cover bg-center error-503-bg pan-animation z-10"></div>
         <div
             class="absolute inset-0 bg-black/50 z-20 flex justify-center items-center text-black text-center font-[Jost]">
             <div class="card py-4">

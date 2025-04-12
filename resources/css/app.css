@@ -117,6 +117,12 @@ h6 {
     background-repeat: no-repeat;
 }
 
+.error-503-bg {
+    background-image: url("/public/images/503.jpg");
+    background-size: 125%; /* Slightly larger for smooth movement */
+    background-repeat: no-repeat;
+}
+
 .pan-animation {
     animation: panAnimation 60s infinite linear alternate;
 }
