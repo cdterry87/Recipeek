@@ -7,26 +7,13 @@
                 <div
                     class="card-body bg-white/90 md:w-2/3 lg:w-1/2 mx-auto flex flex-col justify-center gap-4 text-center ">
                     <div class="flex justify-center">
-                        <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            fill="none"
-                            viewBox="0 0 24 24"
-                            stroke-width="1.5"
-                            stroke="currentColor"
-                            class="size-6 md:size-12"
-                        >
-                            <path
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                                d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126ZM12 15.75h.007v.008H12v-.008Z"
-                            />
-                        </svg>
-
+                        <x-icons.error-503 />
                     </div>
 
-                    <h1 class="text-3xl font-bold mb-4">Unavailable</h1>
+                    <h1 class="text-3xl font-bold mb-4">Service Unavailable</h1>
                     <p class="text-sm md:text-base leading-8">
-                        Sorry, our system is down at the moment, but it should be back up soon. Please try again later.
+                        Sorry, our system is down for maintenance at the moment, but it should be back up soon. Please
+                        try again later.
                     </p>
                 </div>
             </div>

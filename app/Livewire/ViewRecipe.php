@@ -71,7 +71,7 @@ class ViewRecipe extends Component
         if (auth()->guest() || !$this->recipe->isOwnedByUser()) {
             return redirect()->route('login');
         }
-        return redirect()->route('edit-recipe', ['recipe' => $this->recipe->slug]);
+        return redirect()->route('edit-recipe', ['uuid' => $this->recipe->uuid]);
     }
 
     protected function getStoragePath($fileName = null)
