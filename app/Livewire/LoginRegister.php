@@ -53,6 +53,7 @@ class LoginRegister extends Component
             'name' => $this->name,
             'email' => $this->email,
             'password' => bcrypt($this->password),
+            'private_friend_request_id' => Str::uuid()
         ]);
 
         auth()->login($user);

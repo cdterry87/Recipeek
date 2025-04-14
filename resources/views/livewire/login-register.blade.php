@@ -65,12 +65,13 @@
                             Login
                         </x-button>
                         <hr class="w-full md:w-1/2 mx-auto border-2 border-black my-6">
-                        <button
+                        <a
+                            href="{{ route('google.redirect') }}"
                             class="btn btn-block bg-white hover:brightness-90 transition ease-in-out duration-200 text-black border-[#e5e5e5]"
                         >
                             <x-icons.google />
                             Continue with Google
-                        </button>
+                        </a>
                         <p class="text-sm text-center text-gray-600 mt-8">New here?
                             <a
                                 href="#"
