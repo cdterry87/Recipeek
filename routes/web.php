@@ -17,6 +17,7 @@ use App\Livewire\FriendRequests;
 use App\Livewire\DiscoverRecipes;
 use Illuminate\Support\Facades\Route;
 use App\Livewire\PrivateFriendRequest;
+use App\Http\Controllers\Auth\GoogleController;
 
 Route::get('/', Welcome::class)->name('home');
 
@@ -91,4 +92,10 @@ Route::middleware(['auth:web'])->group(function () {
     Route::get('friends', Friends::class)->name('friends');
     Route::get('friend-requests', FriendRequests::class)->name('friend-requests');
     Route::get('private-friend-request/{private_friend_request_id}', PrivateFriendRequest::class)->name('private-friend-request');
+});
+
+// Google login
+Route::middleware('web')->group(function () {
+    Route::get('/auth/google/redirect', [GoogleController::class, 'redirect'])->name('google.redirect');
+    Route::get('/auth/google/callback', [GoogleController::class, 'callback'])->name('google.callback');
 });

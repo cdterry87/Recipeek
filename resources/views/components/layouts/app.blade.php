@@ -274,15 +274,15 @@
                         <div class="flex items-center justify-center gap-3 md:gap-6">
                             <x-link
                                 href="{{ route('cookie-policy') }}"
-                                secondary
+                                tertiary
                             >Cookie Policy</x-link>
                             <x-link
                                 href="{{ route('privacy-policy') }}"
-                                secondary
+                                tertiary
                             >Privacy Policy</x-link>
                             <x-link
                                 href="{{ route('terms-of-use') }}"
-                                secondary
+                                tertiary
                             >Terms of Use</x-link>
                         </div>
                         <span>
