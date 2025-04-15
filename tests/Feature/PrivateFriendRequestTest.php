@@ -99,4 +99,19 @@ class PrivateFriendRequestTest extends TestCase
             ->assertDontSee('send-friend-request-button')
             ->assertSet('isCurrentUser', true);
     }
+
+    public function test_return_home_works_correctly()
+    {
+        $user = User::factory()->create();
+
+        // Authenticate the user
+        $this->actingAs($user);
+
+        Livewire::test('private-friend-request', [
+            'private_friend_request_id' => $user->private_friend_request_id,
+        ])
+            ->assertStatus(200)
+            ->call('returnHome')
+            ->assertRedirect(route('home'));
+    }
 }

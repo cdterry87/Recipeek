@@ -5,7 +5,6 @@ namespace Tests\Feature;
 use Tests\TestCase;
 use App\Models\User;
 use Livewire\Livewire;
-use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class LoginRegisterTest extends TestCase
@@ -28,7 +27,7 @@ class LoginRegisterTest extends TestCase
     public function test_login_works_correctly()
     {
         User::factory()->create([
-            'email' => 'test@example.com',
+            'email' => 'test2dfsdkfjdsffkdf90@example.com',
             'password' => bcrypt('password123'),
         ]);
 
@@ -38,7 +37,7 @@ class LoginRegisterTest extends TestCase
             ->set('password', '')
             ->call('login')
             ->assertHasErrors(['email', 'password'])
-            ->set('email', 'test@example.com')
+            ->set('email', 'test2dfsdkfjdsffkdf90@example.com')
             ->set('password', 'wrongpassword')
             ->call('login')
             ->assertSet('hasLoginError', true)
@@ -60,7 +59,7 @@ class LoginRegisterTest extends TestCase
             ->call('register')
             ->assertHasErrors(['name', 'email', 'password'])
             ->set('name', 'Test User')
-            ->set('email', 'test@example.com')
+            ->set('email', 'test3@example.com')
             ->set('password', 'password123')
             ->set('password_confirmation', 'password123')
             ->call('register')

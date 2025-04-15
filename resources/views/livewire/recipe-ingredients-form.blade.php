@@ -60,7 +60,12 @@
     <h3 class="font-bold text-lg">Ingredients</h3>
 
     @if ($ingredients->isEmpty())
-        <p class="text-gray-500 italic text-sm">No ingredients added yet.</p>
+        <p
+            id="no-ingredients"
+            class="text-gray-500 italic text-sm"
+        >
+            No ingredients added yet.
+        </p>
     @else
         <ul class="space-y-3">
             @foreach ($ingredients as $ingredient)

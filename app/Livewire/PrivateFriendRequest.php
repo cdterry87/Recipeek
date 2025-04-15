@@ -16,15 +16,7 @@ class PrivateFriendRequest extends Component
 
     public function mount($private_friend_request_id)
     {
-        if (!auth()->check()) {
-            return redirect()->route('login');
-        }
-
         $this->private_friend_request_id = $private_friend_request_id;
-
-        if (!$this->private_friend_request_id) {
-            return redirect()->route('home');
-        }
     }
 
     /**
@@ -60,9 +52,7 @@ class PrivateFriendRequest extends Component
 
     public function sendFriendRequest()
     {
-        if (!$this->user) {
-            session()->flash('error', 'User not found.');
-        }
+        if (!$this->user) session()->flash('error', 'User not found.');
 
         UserFriendRequest::create([
             'from_user_id' => auth()->id(),

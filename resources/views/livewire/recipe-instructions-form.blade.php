@@ -48,7 +48,10 @@
     <h3 class="font-bold text-lg">Instructions</h3>
 
     @if ($instructions->isEmpty())
-        <p class="text-sm italic text-gray-500">
+        <p
+            id="no-instructions"
+            class="text-sm italic text-gray-500"
+        >
             No instructions added yet.
         </p>
     @else
