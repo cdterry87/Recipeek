@@ -28,7 +28,9 @@ class FriendsTest extends TestCase
         $response->assertSee('Friend Requests');
         $response->assertSee('no-users');
 
-        $friend = User::factory()->create();
+        $friend = User::factory()->create([
+            'name' => 'John Doe',
+        ]);
 
         // Add friend
         UserFriend::create([
@@ -47,6 +49,12 @@ class FriendsTest extends TestCase
         $response->assertStatus(200);
         $response->assertSee($friend->name);
         $response->assertDontSee('no-users');
+
+        Livewire::test('friends')
+            ->set('search', 'kdsljfksdjflsdfklf')
+            ->assertSee('no-users')
+            ->call('resetFilters')
+            ->assertDontSee('no-users');
     }
 
     public function test_show_friend_requests_works_correctly()
