@@ -57,6 +57,18 @@ class ViewRecipeTest extends TestCase
             'public' => true,
         ]);
 
+        // Test user saving a recipe unauthenticated
+        Livewire::test('view-recipe', [
+            'recipe' => $recipe,
+        ])
+            ->assertStatus(200)
+            ->assertSee($recipe->title)
+            ->assertSee('x-save-button')
+            ->assertDontSee('x-unsave-button')
+            ->call('save')
+            ->assertRedirect(route('login'));
+
+        // Test user saving a recipe authenticated
         $this->actingAs($user);
 
         Livewire::test('view-recipe', [

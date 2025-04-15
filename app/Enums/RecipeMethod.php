@@ -25,4 +25,5 @@ enum RecipeMethod: string
     case SMOKED = 'Smoked';
     case STEAMED = 'Steamed';
     case STIR_FRY = 'Stir-Fried';
+    case STOVETOP = 'Stovetop';
 }
