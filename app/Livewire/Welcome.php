@@ -2,6 +2,7 @@
 
 namespace App\Livewire;
 
+use App\Models\User;
 use Livewire\Component;
 use App\Models\Subscriber;
 use Illuminate\Support\Str;
@@ -21,8 +22,15 @@ class Welcome extends Component
             ->limit(4)
             ->get();
 
+        // Get the featured creator
+        // @todo - at some point this will be dynamic, but for now we use a demo user
+        $featuredCreator = User::query()
+            ->where('email', 'demo@example.com')
+            ->first();
+
         return view('livewire.welcome', [
             'recipes' => $recipes,
+            'featuredCreator' => $featuredCreator
         ]);
     }
 

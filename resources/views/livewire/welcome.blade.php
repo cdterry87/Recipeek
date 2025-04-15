@@ -60,6 +60,49 @@
         </section>
 
         <section
+            id="featured-creator-section"
+            class="container mx-auto px-6 lg:px-16"
+        >
+            <h2 class="text-xl md:text-3xl text-center font-bold mb-2 text-gray-800 font-[Jost] uppercase">
+                Featured Creator
+            </h2>
+            <p class="text-center text-gray-600 font-[Jost]">
+                Check out our featured community creator. They have shared some amazing recipes that you'll love!
+            </p>
+            <hr class="w-full md:w-1/2 mx-auto border-2 border-rose-500 my-6">
+
+            <div class="bg-orange-50 border-2 border-orange-100 w-full md:w-2/3 mx-auto shadow-lg">
+                <div class="flex flex-col md:flex-row items-center gap-6 p-6">
+                    <div class="w-full md:w-1/3">
+                        @if ($featuredCreator->avatar)
+                            <div class="avatar px-6">
+                                <x-avatar
+                                    :image="asset($featuredCreator->avatar)"
+                                    :alt="$featuredCreator->name . ' Profile Picture'"
+                                    :title="$featuredCreator->name . ' Profile Picture'"
+                                />
+                            </div>
+                        @else
+                            <x-initials :initials="$creator->getInitials()" />
+                        @endif
+                    </div>
+                    <div class="w-full md:w-2/3 text-center">
+                        <h3 class="text-2xl font-bold text-gray-800 mb-2">{{ $featuredCreator->name }}</h3>
+                        <p class="text-gray-600 my-6">
+                            {{ Str::limit($featuredCreator->bio, 200) ?? 'Take a look at this user\'s profile to view their recipes.' }}
+                        </p>
+                        <a
+                            href="{{ route('view-creator', $featuredCreator->slug) }}"
+                            class="btn btn-primary"
+                        >
+                            View Profile
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section
             id="trending-section"
             class="container mx-auto px-6 lg:px-16"
         >

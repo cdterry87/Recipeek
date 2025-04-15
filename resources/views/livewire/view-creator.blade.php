@@ -10,8 +10,8 @@
                             <div class="avatar px-6">
                                 <x-avatar
                                     :image="asset($creator->avatar)"
-                                    :alt="$creator->name . 'Profile Picture'"
-                                    :title="$creator->name . 'Profile Picture'"
+                                    :alt="$creator->name . ' Profile Picture'"
+                                    :title="$creator->name . ' Profile Picture'"
                                 />
                             </div>
                         @else
