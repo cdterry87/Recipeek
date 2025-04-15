@@ -25,6 +25,7 @@
                         <div class="flex flex-col gap-2 mt-6">
                             @if ($isFollowing)
                                 <x-button
+                                    id="x-unfollow-button"
                                     primary
                                     outline
                                     block
@@ -37,6 +38,7 @@
                                 </x-button>
                             @else
                                 <x-button
+                                    id="x-follow-button"
                                     primary
                                     block
                                     wire:click.prevent="follow"
@@ -49,6 +51,7 @@
                             @endif
                             @if ($isFriend)
                                 <x-button
+                                    id="x-remove-friend-button"
                                     secondary
                                     outline
                                     block
@@ -61,6 +64,7 @@
                                 </x-button>
                             @elseif($isFriendRequestSent)
                                 <x-button
+                                    id="x-cancel-friend-request-button"
                                     secondary
                                     outline
                                     block
@@ -73,6 +77,7 @@
                                 </x-button>
                             @else
                                 <x-button
+                                    id="x-send-friend-request-button"
                                     secondary
                                     block
                                     wire:click.prevent="sendFriendRequest"
@@ -114,5 +119,5 @@
         </div>
     @endif
 
-    @section('page-title', $creator->name . '\'s Recipes | ' . config('app.name'))
+    @section('page-title', $pageTitle)
 </div>

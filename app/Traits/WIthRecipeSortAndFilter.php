@@ -2,8 +2,18 @@
 
 namespace App\Traits;
 
-trait WithRecipeFilters
+use App\Enums\RecipeSortBy;
+use App\Enums\SortDirection;
+use App\Enums\ResultsPerPage;
+
+trait WithRecipeSortAndFilter
 {
+    // Sorting
+    public $sort_by = 'created_at';
+    public $sort_direction = 'desc';
+    public $results_per_page = 12;
+
+    // Filtering
     public $search = '';
     public $category = '';
     public $cuisine = '';
@@ -11,6 +21,13 @@ trait WithRecipeFilters
     public $method = '';
     public $occasion = '';
     public $time = '';
+
+    public function mountWithRecipeSortAndFilter()
+    {
+        $this->sort_by = RecipeSortBy::default();
+        $this->sort_direction = SortDirection::default();
+        $this->results_per_page = ResultsPerPage::default();
+    }
 
     public function updating($field)
     {

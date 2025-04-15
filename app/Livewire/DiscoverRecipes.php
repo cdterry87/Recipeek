@@ -7,14 +7,12 @@ use Livewire\Component;
 use App\Enums\RecipeSortBy;
 use Illuminate\Http\Request;
 use Livewire\WithPagination;
-use App\Traits\WithRecipeFilters;
-use App\Traits\WithRecipeSorting;
+use App\Traits\WithRecipeSortAndFilter;
 
 class DiscoverRecipes extends Component
 {
     use WithPagination;
-    use WithRecipeFilters;
-    use WithRecipeSorting;
+    use WithRecipeSortAndFilter;
 
     protected $queryString = ['search'];
 

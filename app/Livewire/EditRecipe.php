@@ -4,8 +4,6 @@ namespace App\Livewire;
 
 use App\Models\Recipe;
 use Livewire\Component;
-use App\Models\RecipeIngredient;
-use App\Models\RecipeInstruction;
 use Illuminate\Support\Facades\Storage;
 use Livewire\Features\SupportFileUploads\WithFileUploads;
 
@@ -30,12 +28,13 @@ class EditRecipe extends Component
     public $ingredients = [];
     public $instructions = [];
 
-    public function mount()
+    public function mount($uuid)
     {
         $recipe = Recipe::query()
-            ->where('uuid', request()->route('uuid'))
+            ->where('uuid', $uuid)
             ->with('ingredients', 'instructions')
             ->firstOrFail();
+
 
         if (!$recipe) abort(404);
 

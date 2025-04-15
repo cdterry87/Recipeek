@@ -109,8 +109,8 @@
                                 @if (auth()->user()->avatar)
                                     <x-avatar
                                         :image="asset(auth()->user()->avatar)"
-                                        :alt="auth()->user()->name . 'Profile Picture'"
-                                        :title="auth()->user()->name . 'Profile Picture'"
+                                        :alt="auth()->user()->name . ' Profile Picture'"
+                                        :title="auth()->user()->name . ' Profile Picture'"
                                         sm
                                     />
                                 @else

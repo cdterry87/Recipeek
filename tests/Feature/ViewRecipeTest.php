@@ -82,7 +82,17 @@ class ViewRecipeTest extends TestCase
 
     public function test_print_recipe()
     {
-        //
-        $this->assertTrue(true);
+        $recipe = Recipe::factory()->create([
+            'public' => true,
+        ]);
+
+        Livewire::test('view-recipe', [
+            'recipe' => $recipe,
+        ])
+            ->assertStatus(200)
+            ->assertSee($recipe->title)
+            ->assertSee('print-button')
+            ->call('printRecipe')
+            ->assertHasNoErrors();
     }
 }

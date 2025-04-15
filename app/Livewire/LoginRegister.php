@@ -3,10 +3,12 @@
 namespace App\Livewire;
 
 use Livewire\Component;
+use Illuminate\Support\Str;
 
 class LoginRegister extends Component
 {
     public $email, $password, $name, $password_confirmation;
+    public $hasLoginError = false;
 
     public function mount()
     {
@@ -24,6 +26,7 @@ class LoginRegister extends Component
 
     public function login()
     {
+        $this->hasLoginError = false;
         $this->validate([
             'email' => 'required|email',
             'password' => 'required|min:6',
@@ -38,6 +41,7 @@ class LoginRegister extends Component
             return redirect()->intended(route('home'));
         }
 
+        $this->hasLoginError = true;
         session()->flash('login-error', 'Invalid credentials. Please try again.');
     }
 

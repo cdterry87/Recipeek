@@ -6,15 +6,12 @@ use App\Models\Recipe;
 use Livewire\Component;
 use App\Enums\RecipeSortBy;
 use Livewire\WithPagination;
-use App\Traits\WithRecipeFilters;
-use App\Traits\WithRecipeSorting;
-use Illuminate\Support\Facades\Auth;
+use App\Traits\WithRecipeSortAndFilter;
 
 class MyRecipes extends Component
 {
     use WithPagination;
-    use WithRecipeFilters;
-    use WithRecipeSorting;
+    use WithRecipeSortAndFilter;
 
     public function render()
     {

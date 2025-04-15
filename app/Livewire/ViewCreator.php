@@ -10,16 +10,15 @@ use App\Enums\RecipeSortBy;
 use App\Models\UserFollower;
 use App\Models\UserFriendRequest;
 use Livewire\WithPagination;
-use App\Traits\WithRecipeFilters;
-use App\Traits\WithRecipeSorting;
+use App\Traits\WithRecipeSortAndFilter;
 
 class ViewCreator extends Component
 {
     use WithPagination;
-    use WithRecipeFilters;
-    use WithRecipeSorting;
+    use WithRecipeSortAndFilter;
 
     public $creatorId;
+    public $pageTitle;
     public $isFollowing = false;
     public $isFriend = false;
     public $isFriendRequestSent = false;
@@ -27,6 +26,9 @@ class ViewCreator extends Component
     public function mount(User $creator)
     {
         $this->creatorId = $creator->id;
+        $this->pageTitle = $creator->public
+            ? $creator->name . '\'s Recipes | ' . config('app.name')
+            : 'Private Profile | ' . config('app.name');
 
         if (auth()->check()) {
             $this->isFollowing = UserFollower::query()

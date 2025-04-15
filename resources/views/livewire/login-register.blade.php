@@ -64,6 +64,16 @@
                         >
                             Login
                         </x-button>
+
+                        <div class="text-sm text-right text-gray-600 mt-2">
+                            <a
+                                href="{{ route('forgot-password') }}"
+                                class="text-primary
+                                font-medium
+                                hover:underline"
+                            >Forgot your password?</a>
+                        </div>
+
                         <hr class="w-full md:w-1/2 mx-auto border-2 border-black my-6">
                         <a
                             href="{{ route('google.redirect') }}"

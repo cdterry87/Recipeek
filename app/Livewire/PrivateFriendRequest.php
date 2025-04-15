@@ -13,13 +13,14 @@ class PrivateFriendRequest extends Component
     public $isAlreadyFriend = false;
     public $isFriendRequestSent = false;
     public $isCurrentUser = false;
-    public $isInvalidUser = false;
 
-    public function mount()
+    public function mount($private_friend_request_id)
     {
         if (!auth()->check()) {
             return redirect()->route('login');
         }
+
+        $this->private_friend_request_id = $private_friend_request_id;
 
         if (!$this->private_friend_request_id) {
             return redirect()->route('home');
@@ -38,9 +39,7 @@ class PrivateFriendRequest extends Component
 
     public function render()
     {
-        if (!$this->user) {
-            abort(404);
-        }
+        if (!$this->user) abort(404);
 
         $this->isAlreadyFriend = UserFriend::query()
             ->where('user_id', auth()->id())

@@ -85,16 +85,68 @@ class EditRecipeTest extends TestCase
             ->assertSet('public', $recipe->public)
             ->set('title', 'Updated Recipe Title')
             ->set('description', 'Updated Recipe Description')
-            ->call('submit')
-            ->assertRedirect(route('edit-recipe', [
-                'uuid' => $recipe->uuid,
-            ]));
+            ->call('saveRecipe')
+            ->assertHasNoErrors();
 
         // Assert database has updated recipe
         $this->assertDatabaseHas('recipes', [
             'id' => $recipe->id,
             'title' => 'Updated Recipe Title',
             'description' => 'Updated Recipe Description',
+        ]);
+    }
+
+    public function test_delete_recipe_works_correctly()
+    {
+        // Create a user and recipe
+        $recipeOwner = User::factory()->create();
+        $recipe = Recipe::factory()->create([
+            'user_id' => $recipeOwner->id,
+        ]);
+
+        $this->actingAs($recipeOwner);
+
+        // Update recipe
+        Livewire::test('edit-recipe', [
+            'uuid' => $recipe->uuid,
+        ])
+            ->assertSet('uuid', $recipe->uuid)
+            ->call('deleteRecipe')
+            ->assertRedirect(route('my-recipes'));
+
+        // Assert database has updated recipe
+        $this->assertDatabaseMissing('recipes', [
+            'id' => $recipe->id,
+            'uuid' => $recipe->uuid,
+        ]);
+    }
+
+    public function test_remove_image_works_correctly()
+    {
+        // Create a user and recipe
+        $recipeOwner = User::factory()->create();
+        $recipe = Recipe::factory()->create([
+            'user_id' => $recipeOwner->id,
+            'image' => 'storage/recipes/test-image.jpg',
+        ]);
+
+        $this->actingAs($recipeOwner);
+
+        // Update recipe
+        Livewire::test('edit-recipe', [
+            'uuid' => $recipe->uuid,
+        ])
+            ->assertSet('uuid', $recipe->uuid)
+            ->assertSet('imagePath', $recipe->image)
+            ->call('removeImage')
+            ->assertHasNoErrors()
+            ->assertSet('imagePath', null);
+
+        // Assert database has updated recipe
+        $this->assertDatabaseHas('recipes', [
+            'id' => $recipe->id,
+            'uuid' => $recipe->uuid,
+            'image' => null,
         ]);
     }
 }

@@ -175,5 +175,5 @@
         </div>
     @endif
 
-    @section('page-title', $recipe->title . ' by ' . $recipe->user->name . ' | ' . config('app.name'))
+    @section('page-title', $pageTitle)
 </div>

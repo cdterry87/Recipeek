@@ -66,6 +66,7 @@
                     </x-alert>
                 @else
                     <x-button
+                        id="send-friend-request-button"
                         primary
                         wire:click.prevent="sendFriendRequest"
                     >

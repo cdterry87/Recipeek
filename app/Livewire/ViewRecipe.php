@@ -10,10 +10,14 @@ use Barryvdh\DomPDF\Facade\Pdf;
 class ViewRecipe extends Component
 {
     public Recipe $recipe;
+    public $pageTitle;
 
     public function mount(Recipe $recipe)
     {
         $this->recipe = $recipe->load(['ingredients', 'instructions']);
+        $this->pageTitle = $recipe->public
+            ? $recipe->name . ' by ' . $recipe->user->name . ' | ' . config('app.name')
+            : 'Private Recipe | ' . config('app.name');
 
         if (auth()->check() && request()->has('action') && request()->get('action') === 'save') {
             $this->save();
