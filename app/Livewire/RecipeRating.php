@@ -6,6 +6,8 @@ use Livewire\Component;
 
 class RecipeRating extends Component
 {
+    protected $listeners = ['refreshRating' => '$refresh'];
+
     public $recipe;
     public $rating;
 
@@ -17,6 +19,7 @@ class RecipeRating extends Component
             'currentUserRating' => $this->recipe->currentUserRating(),
             'averageRating' => $this->recipe->averageRating(),
             'totalRatings' => $this->recipe->totalRatings(),
+            'totalSaves' => $this->recipe->totalSaves(),
             'canRate' => $this->recipe->canRate(),
         ]);
     }

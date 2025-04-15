@@ -51,8 +51,45 @@ class ViewRecipeTest extends TestCase
 
     public function test_user_can_save_and_unsave_recipe()
     {
-        //
-        $this->assertTrue(true);
+        $user = User::factory()->create();
+
+        $recipe = Recipe::factory()->create([
+            'public' => true,
+        ]);
+
+        $this->actingAs($user);
+
+        Livewire::test('view-recipe', [
+            'recipe' => $recipe,
+        ])
+            ->assertStatus(200)
+            ->assertSee($recipe->title)
+            ->assertSee('x-save-button')
+            ->assertDontSee('x-unsave-button')
+            ->call('save')
+            ->assertHasNoErrors();
+
+        // Check if the recipe is saved
+        $this->assertDatabaseHas('recipes_saves', [
+            'user_id' => $user->id,
+            'recipe_id' => $recipe->id,
+        ]);
+
+        Livewire::test('view-recipe', [
+            'recipe' => $recipe,
+        ])
+            ->assertStatus(200)
+            ->assertSee($recipe->title)
+            ->assertSee('x-unsave-button')
+            ->assertDontSee('x-save-button')
+            ->call('unsave')
+            ->assertHasNoErrors();
+
+        // Check if the recipe is unsaved
+        $this->assertDatabaseMissing('recipes_saves', [
+            'user_id' => $user->id,
+            'recipe_id' => $recipe->id,
+        ]);
     }
 
     public function test_owner_can_edit_recipe()

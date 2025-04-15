@@ -1,6 +1,9 @@
 <div class="flex flex-col gap-1">
     @if ($canRate)
-        <div class="rating rating-sm">
+        <div
+            class="rating rating-sm"
+            title="Click to rate this recipe"
+        >
             <input
                 type="radio"
                 name="rating"
@@ -78,6 +81,6 @@
     @endif
     <span class="text-sm">
         <strong>({{ number_format($averageRating, 1) }})</strong>
-        <span>{{ $totalRatings }} ratings</span>
+        <span>{{ $totalRatings }} ratings | {{ $totalSaves }} saves</span>
     </span>
 </div>

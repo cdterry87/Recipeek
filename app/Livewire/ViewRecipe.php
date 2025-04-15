@@ -52,6 +52,10 @@ class ViewRecipe extends Component
             'recipe_id' => $this->recipe->id,
         ]);
 
+        // Refresh number of saves on recipe rating
+        $this->dispatch('refreshRating')
+            ->to(RecipeRating::class);
+
         session()->flash('message', 'Recipe saved successfully.');
     }
 
@@ -65,6 +69,10 @@ class ViewRecipe extends Component
             'user_id' => auth()->id(),
             'recipe_id' => $this->recipe->id,
         ])->delete();
+
+        // Refresh number of saves on recipe rating
+        $this->dispatch('refreshRating')
+            ->to(RecipeRating::class);
 
         session()->flash('message', 'Recipe unsaved successfully.');
     }

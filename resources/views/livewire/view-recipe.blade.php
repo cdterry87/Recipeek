@@ -66,7 +66,7 @@
                                         outline
                                         wire:click.prevent="unsave"
                                         title="Unsave Recipe"
-                                        id="unsave-button"
+                                        id="x-unsave-button"
                                     >
                                         Unsave
                                     </x-button>
@@ -75,7 +75,7 @@
                                         primary
                                         wire:click.prevent="save"
                                         title="Save Recipe"
-                                        id="save-button"
+                                        id="x-save-button"
                                     >
                                         Save
                                     </x-button>
