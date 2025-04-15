@@ -87,4 +87,21 @@ class SavedRecipes extends Component
             'recipes' => $recipes,
         ]);
     }
+
+    public function randomRecipe()
+    {
+        $recipe = Recipe::query()
+            ->whereHas('saves', function ($query) {
+                $query->where('user_id', auth()->id());
+            })
+            ->inRandomOrder()
+            ->first();
+
+        if ($recipe) {
+            return redirect()->route('view-recipe', $recipe);
+        }
+
+        session()->flash('error', 'No saved recipes found.');
+        return redirect()->route('recipes.index');
+    }
 }

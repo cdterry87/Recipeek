@@ -93,4 +93,26 @@ class SavedRecipesTest extends TestCase
             ->call('resetFilters')
             ->assertSee('4 Results');
     }
+
+    public function test_random_recipe_works_correctly()
+    {
+        $user = User::factory()->create();
+        $this->actingAs($user);
+
+        // Create some recipes
+        $recipes = Recipe::factory()->count(3)->create([
+            'public' => true,
+        ]);
+
+        foreach ($recipes as $recipe) {
+            RecipeSave::create([
+                'user_id' => $user->id,
+                'recipe_id' => $recipe->id,
+            ]);
+        }
+
+        Livewire::test('saved-recipes')
+            ->call('randomRecipe')
+            ->assertRedirect();
+    }
 }
