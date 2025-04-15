@@ -1,4 +1,7 @@
-<section class="relative w-full h-[85vh] overflow-hidden">
+<section
+    id="private-recipe"
+    class="relative w-full h-[85vh] overflow-hidden"
+>
     <div class="bg-gray-800 absolute inset-0 w-full h-full bg-cover bg-center private-recipe-bg pan-animation z-10">
     </div>
     <div class="absolute inset-0 bg-black/50 z-20 flex justify-center items-center text-black text-center font-[Jost]">

@@ -2,6 +2,7 @@
 
 @php
     $classes = array_filter([
+        'recipe-grid',
         'grid grid-cols-1 sm:grid-cols-2 gap-6',
         $md ? 'lg:grid-cols-3' : 'md:grid-cols-2 xl:grid-cols-4',
     ]);

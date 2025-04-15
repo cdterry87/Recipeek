@@ -55,6 +55,7 @@
                                     primary
                                     wire:click.prevent="edit"
                                     title="Edit Recipe"
+                                    id="edit-button"
                                 >
                                     Edit
                                 </x-button>
@@ -65,6 +66,7 @@
                                         outline
                                         wire:click.prevent="unsave"
                                         title="Unsave Recipe"
+                                        id="unsave-button"
                                     >
                                         Unsave
                                     </x-button>
@@ -73,6 +75,7 @@
                                         primary
                                         wire:click.prevent="save"
                                         title="Save Recipe"
+                                        id="save-button"
                                     >
                                         Save
                                     </x-button>
@@ -82,12 +85,14 @@
                                 secondary
                                 wire:click.prevent="printRecipe"
                                 title="Print Recipe"
+                                id="print-button"
                             >
                                 Print
                             </x-button>
                             <x-button
                                 tertiary
                                 title="Share Recipe"
+                                id="share-button"
                                 onclick="share__modal.showModal()"
                             >
                                 Share
@@ -96,8 +101,6 @@
                             <x-share-modal :recipe="$recipe" />
                         </div>
                     </div>
-
-                    {{-- @todo - Add rating / save buttons --}}
 
                     <div class="flex flex-wrap gap-3 text-gray-600">
                         @if ($recipe->category)

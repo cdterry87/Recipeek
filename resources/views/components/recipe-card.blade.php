@@ -15,6 +15,7 @@
 
 @php
     $classes = array_filter([
+        'recipe-card',
         'card',
         'shadow-md',
         'w-full',
@@ -37,7 +38,7 @@
     @if ($link)
         <a
             href="{{ $link }}"
-            class="absolute inset-0 z-10 rounded"
+            class="absolute inset-0 z-40 rounded"
         ></a>
     @endif
     @if ($image)

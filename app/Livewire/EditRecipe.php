@@ -37,6 +37,8 @@ class EditRecipe extends Component
             ->with('ingredients', 'instructions')
             ->firstOrFail();
 
+        if (!$recipe) abort(404);
+
         // If the user is not the owner of the recipe, redirect them to the view recipe page
         if ($recipe->user_id !== auth()->id()) {
             return redirect()->route('view-recipe', ['recipe' => $recipe->slug]);

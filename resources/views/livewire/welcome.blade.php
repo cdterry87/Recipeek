@@ -1,5 +1,8 @@
 <div>
-    <section class="relative w-full h-[85vh] overflow-hidden">
+    <section
+        id="hero-section"
+        class="relative w-full h-[85vh] overflow-hidden"
+    >
         <video
             autoplay
             loop
@@ -37,7 +40,10 @@
     </section>
 
     <div class="flex flex-col gap-16 mt-16">
-        <section class="container mx-auto px-6 lg:px-16 flex flex-col gap-6">
+        <section
+            id="details-section"
+            class="container mx-auto px-6 lg:px-16 flex flex-col gap-6"
+        >
             <h2 class="text-xl md:text-3xl text-center font-bold mb-2 text-gray-800 font-[Jost] uppercase">
                 So, How Does
                 <span class="font-[Arizonia] text-primary normal-case text-4xl md:text-6xl mx-1 select-none">
@@ -53,7 +59,10 @@
             </p>
         </section>
 
-        <section class="container mx-auto px-6 lg:px-16">
+        <section
+            id="trending-section"
+            class="container mx-auto px-6 lg:px-16"
+        >
             <h2 class="text-xl md:text-3xl text-center font-bold mb-2 text-gray-800 font-[Jost] uppercase">
                 Trending Recipes
             </h2>
@@ -64,13 +73,19 @@
             @if ($recipes && $recipes->isNotEmpty())
                 <x-recipe-grid :recipes="$recipes" />
             @else
-                <div class="font-[Jost] text-xl text-center text-gray-600 flex items-center justify-center h-32">
+                <div
+                    id="no-recipes"
+                    class="font-[Jost] text-xl text-center text-gray-600 flex items-center justify-center h-32"
+                >
                     No recipes are trending at this time, but check back often for new delicious recipes!
                 </div>
             @endif
         </section>
 
-        <section class="bg-rose-50 h-80 flex items-center justify-center blob-scatter mt-8">
+        <section
+            id="subscribe-section"
+            class="bg-rose-50 h-80 flex items-center justify-center blob-scatter mt-8"
+        >
             <div class="container mx-auto py-12 px-6">
                 <h2 class="text-xl md:text-3xl text-center font-bold mb-2 text-gray-800 font-[Jost] uppercase">
                     Subscribe to Our Newsletter
@@ -85,6 +100,7 @@
                     <form
                         x-show="!isFormSubmitted"
                         method="POST"
+                        id="subscribe-form"
                         class="flex flex-col gap-3"
                         wire:submit.prevent="subscribe"
                     >
@@ -113,6 +129,7 @@
                         x-transition:enter="transition-opacity duration-500"
                         x-transition:enter-start="opacity-0"
                         x-transition:enter-end="opacity-100"
+                        id="thank-you-message"
                         class="text-lg md:text-2xl font-bold text-center text-rose-800 font-[Jost]"
                     >
                         Thank you for subscribing!
