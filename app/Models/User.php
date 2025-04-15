@@ -73,6 +73,11 @@ class User extends Authenticatable
         return $this->hasMany(UserFollower::class);
     }
 
+    public function getFollowersCount()
+    {
+        return $this->followers()->count();
+    }
+
     public function friends()
     {
         return $this->hasMany(UserFriend::class);

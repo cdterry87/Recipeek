@@ -19,7 +19,14 @@
                         @endif
                     </div>
                     <h2 class="text-xl text-center font-semibold mt-4">{{ $creator->name }}</h2>
+                    <p class="text-xs text-center mt-2">
+                        <span class="text-gray-500">Joined on</span>
+                        <span class="text-gray-700">{{ $creator->created_at->format('F j, Y') }}</span>
+                    </p>
                     <p class="text-center text-gray-600 mt-2 font-[Jost]">{{ $creator->bio }}</p>
+                    <p class="text-center mt-4">
+                        <span class="badge badge-sm badge-primary">{{ $creator->getFollowersCount() }} Followers</span>
+                    </p>
 
                     @if (auth()->check() && auth()->user()->id !== $creator->id)
                         <div class="flex flex-col gap-2 mt-6">
