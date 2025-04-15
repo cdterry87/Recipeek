@@ -71,35 +71,44 @@
             </p>
             <hr class="w-full md:w-1/2 mx-auto border-2 border-rose-500 my-6">
 
-            <div class="bg-orange-50 border-2 border-orange-100 w-full md:w-2/3 mx-auto shadow-lg">
-                <div class="flex flex-col md:flex-row items-center gap-6 p-6">
-                    <div class="w-full md:w-1/3">
-                        @if ($featuredCreator->avatar)
-                            <div class="avatar px-6">
-                                <x-avatar
-                                    :image="asset($featuredCreator->avatar)"
-                                    :alt="$featuredCreator->name . ' Profile Picture'"
-                                    :title="$featuredCreator->name . ' Profile Picture'"
-                                />
-                            </div>
-                        @else
-                            <x-initials :initials="$creator->getInitials()" />
-                        @endif
-                    </div>
-                    <div class="w-full md:w-2/3 text-center">
-                        <h3 class="text-2xl font-bold text-gray-800 mb-2">{{ $featuredCreator->name }}</h3>
-                        <p class="text-gray-600 my-6">
-                            {{ Str::limit($featuredCreator->bio, 200) ?? 'Take a look at this user\'s profile to view their recipes.' }}
-                        </p>
-                        <a
-                            href="{{ route('view-creator', $featuredCreator->slug) }}"
-                            class="btn btn-primary"
-                        >
-                            View Profile
-                        </a>
+            @if ($featuredCreator)
+                <div class="bg-orange-50 border-2 border-orange-100 w-full md:w-2/3 mx-auto shadow-lg">
+                    <div class="flex flex-col md:flex-row items-center gap-6 p-6">
+                        <div class="w-full md:w-1/3">
+                            @if ($featuredCreator->avatar)
+                                <div class="avatar px-6">
+                                    <x-avatar
+                                        :image="asset($featuredCreator->avatar)"
+                                        :alt="$featuredCreator->name . ' Profile Picture'"
+                                        :title="$featuredCreator->name . ' Profile Picture'"
+                                    />
+                                </div>
+                            @else
+                                <x-initials :initials="$creator->getInitials()" />
+                            @endif
+                        </div>
+                        <div class="w-full md:w-2/3 text-center">
+                            <h3 class="text-2xl font-bold text-gray-800 mb-2">{{ $featuredCreator->name }}</h3>
+                            <p class="text-gray-600 my-6">
+                                {{ Str::limit($featuredCreator->bio, 200) ?? 'Take a look at this user\'s profile to view their recipes.' }}
+                            </p>
+                            <a
+                                href="{{ route('view-creator', $featuredCreator->slug) }}"
+                                class="btn btn-primary"
+                            >
+                                View Profile
+                            </a>
+                        </div>
                     </div>
                 </div>
-            </div>
+            @else
+                <div
+                    id="no-featured-creator"
+                    class="font-[Jost] text-xl text-center text-gray-600 flex items-center justify-center h-32"
+                >
+                    We haven't selected a featured creator yet, but stay tuned!
+                </div>
+            @endif
         </section>
 
         <section
