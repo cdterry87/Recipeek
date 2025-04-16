@@ -1,5 +1,5 @@
 <div>
-    @if (!$recipe->public)
+    @if (!$recipe->public && !$recipe->isOwnedByUser())
         <x-private-recipe />
     @else
         <div class="mx-auto">

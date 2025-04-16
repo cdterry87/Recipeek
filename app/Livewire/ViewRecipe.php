@@ -15,7 +15,7 @@ class ViewRecipe extends Component
     public function mount(Recipe $recipe)
     {
         $this->recipe = $recipe->load(['ingredients', 'instructions']);
-        $this->pageTitle = $recipe->public
+        $this->pageTitle = $recipe->public || $recipe->isOwnedByUser()
             ? $recipe->name . ' by ' . $recipe->user->name . ' | ' . config('app.name')
             : 'Private Recipe | ' . config('app.name');
 
